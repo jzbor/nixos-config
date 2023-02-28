@@ -68,6 +68,8 @@
   programs.traceroute.enable = true;
   programs.zsh.enable = true;
 
+  # Enable updates via fwupd
+  services.fwupd.enable = true;
 
   # Enable the OpenSSH daemon
   services.openssh.enable = true;
