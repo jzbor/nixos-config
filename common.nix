@@ -88,4 +88,16 @@
       package = pkgs.numix-icon-theme-circle;
     };
   };
+
+  security.pam.mount = {
+    enable = true;
+    extraVolumes = [
+      "<volume user=\"jzbor\" fstype=\"crypt\" path=\"/dev/disk/by-label/HOMECRYPT\" mountpoint=\"~\" options=\"crypto_name=crypt0,allow_discard,fstype=ext4\"/>"
+    ];
+    createMountPoints = true;
+
+    # Kill remaining processes after final logout
+    logoutTerm = true;
+    logoutWait = 0;  # seconds
+  };
 }
