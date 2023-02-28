@@ -30,6 +30,24 @@
     pulse.enable = true;
   };
 
+  # Printing
+  services.avahi.enable = true;
+  services.avahi.openFirewall = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      gutenprint
+      gutenprintBin
+      hplip
+      hplipWithPlugin
+      samsung-unified-linux-driver
+      splix
+    ];
+  };
+
+
+
+
   # Xfce
   services.xserver.desktopManager.xfce.enable = true;
 
@@ -54,7 +72,6 @@
       buttermilk
       dmenu
       gparted
-      gnome.gnome-disk-utility
       lxappearance
       marswm
       neofetch
@@ -66,6 +83,8 @@
       xmenu
     ] ++ [ # User applications
       firefox
+      gnome.gnome-disk-utility
+      gnome.simple-scan
       mpv
       pcmanfm
     ];
