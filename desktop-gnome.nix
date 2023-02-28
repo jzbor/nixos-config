@@ -23,14 +23,11 @@
     atomix
   ]);
 
-  # Add extensions
-  environment.systemPackages = with pkgs.gnomeExtensions; [
+  # Add extensions and additional gnome packages
+  environment.systemPackages = (with pkgs.gnomeExtensions; [
     appindicator
     blur-my-shell
-  ];
-
-  # Install additional gnome software
-  environment.systemPackages = (with pkgs.gnome; [
+  ]) ++ (with pkgs.gnome; [
     gnome-tweaks
   ]) ++ (with pkgs; [
     gnome-firmware
