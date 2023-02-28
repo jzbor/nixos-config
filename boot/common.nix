@@ -3,14 +3,18 @@
 {
   # Boot loader
   boot.loader = {
-    systemd-boot.enable = true;
+    timeout = 5;
     efi.canTouchEfiVariables = true;
     efi.efiSysMountPoint = "/boot/efi";
+  };
+  boot.loader.systemd-boot {
+    enable = true;
+    memtest86.enable = true;
   };
 
   # Kernel version
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Enable Firmware
-  hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
 }
