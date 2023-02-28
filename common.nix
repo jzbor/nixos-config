@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, options, ... }:
 
 {
   nixpkgs.overlays = [ (import ./packages) ];
@@ -19,7 +19,9 @@
     settings.sandbox = true;
 
     # Custom package overlay
-    nixPath = [ "nixpkgs-overlays=/etc/nixos/packages" ];
+    nixPath = options.nix.nixPath.default ++ [
+      "nixpkgs-overlays=/etc/nixos/packages"
+    ];
   };
 
   # Networking
