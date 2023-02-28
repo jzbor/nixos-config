@@ -1,8 +1,23 @@
 { lib, config, pkgs, ... }:
 
 {
-  # Enable XServer
-  services.xserver.enable = true;
+  services.xserver = {
+    # Enable XServer
+    enable = true;
+
+    # Wallpaper
+    desktopManager.wallpaper.mode = "fill";
+
+    # Touch and mouse input
+    libinput = {
+      enable = true;
+      touchpad.tapping = true;
+    };
+
+    # Keyboard layout
+    layout = "us,de";
+    xkbOptions = "caps:escape_shifted_capslock,altwin:swap_alt_win,grp:lwin_switch";
+  };
 
   # Audio
   sound.enable = true;
@@ -14,10 +29,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  # Default keyboard layout
-  services.xserver.layout = "us";
-  services.xserver.xkbVariant = "altgr-intl";
 
   # Xfce
   services.xserver.desktopManager.xfce.enable = true;
