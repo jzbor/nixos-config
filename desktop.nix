@@ -12,6 +12,7 @@
     libinput = {
       enable = true;
       touchpad.tapping = true;
+      touchpad.naturalScrolling = true;
     };
 
     # Keyboard layout
@@ -95,7 +96,7 @@
   programs.seahorse.enable = true;
   programs.system-config-printer.enable = true;
 
-  services.gnome3.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Firefox
   programs.firefox = {
