@@ -12,12 +12,14 @@
     ];
   };
 
-  boot.initrd.systemd.enable = true;
+  # boot.initrd.systemd.enable = true;
 
+  # Disable unnecessary output
   boot.kernelParams = [
     "quiet"
-    "loglevel=3"
     "systemd.show_status=auto"
     "rd.udev.log_level=3"
   ];
+  boot.consoleLogLevel = 3;
+  boot.initrd.verbose = false;
 }

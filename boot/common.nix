@@ -10,4 +10,7 @@
 
   # Kernel version
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Enable Firmware
+  hardware.enableAllFirmware = true;
 }
