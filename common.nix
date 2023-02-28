@@ -49,16 +49,16 @@
 
   # Install some packages
   environment.systemPackages = with pkgs; [
-      bash
-      cryptsetup
-      curl
-      fd
-      fzf
-      neofetch
-      ripgrep
-      wget
-      zsh
-    ];
+    bash
+    cryptsetup
+    curl
+    fd
+    fzf
+    neofetch
+    ripgrep
+    wget
+    zsh
+  ];
 
   # Programs
   programs.git.enable = true;
