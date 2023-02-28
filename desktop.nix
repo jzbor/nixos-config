@@ -30,6 +30,10 @@
     pulse.enable = true;
   };
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Printing
   services.avahi.enable = true;
   services.avahi.openFirewall = true;
@@ -44,9 +48,6 @@
       splix
     ];
   };
-
-
-
 
   # Xfce
   services.xserver.desktopManager.xfce.enable = true;
