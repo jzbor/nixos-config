@@ -83,14 +83,46 @@
       rofi
       xmenu
     ] ++ [ # User applications
-      firefox
-      gnome.gnome-disk-utility
       gnome.simple-scan
       mpv
+      nextcloud-client
       pcmanfm
     ];
 
+  programs.gnome-disks.enable = true;
+  programs.kdeconnect.enable = true;
+  programs.nm-applet.enable = true;
+  programs.seahorse.enable = true;
+  programs.system-config-printer.enable = true;
 
+  services.gnome3.gnome-keyring.enable = true;
+
+  # Firefox
+  programs.firefox = {
+    enable = true;
+    policies = {
+      DisablePocket = true;
+      DisableFormHistory = true;
+      EnableTrackingProtection = true;
+      Cookies = {
+        AcceptThirdParty = "never";
+        RejectTracker = true;
+      };
+      SearchEngines = {
+        Default = "DuckDuckGo";  # does not seem to be working
+      };
+      ExtensionSettings = {
+        "uBlock0@raymondhill.net" = {
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        };
+      };
+    };
+  };
+  # Enable new input backend
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
 
   # Gnome
   # services.xserver.enable = true;

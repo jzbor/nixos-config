@@ -1,4 +1,4 @@
-{ config, pkgs, options, ... }:
+{ config, pkgs, options, programs, ... }:
 
 {
   nixpkgs.overlays = [ (import ./packages) ];
@@ -51,16 +51,25 @@
   environment.systemPackages =
     with pkgs;
     [
+      bash
       cryptsetup
       curl
       fd
-      git
-      htop
+      fzf
       neofetch
       ripgrep
       wget
       zsh
     ];
+
+  # Programs
+  programs.git.enable = true;
+  programs.htop.enable = true;
+  programs.less.enable = true;
+  programs.neovim.enable = true;
+  programs.traceroute.enable = true;
+  programs.zsh.enable = true;
+
 
   # Enable the OpenSSH daemon
   services.openssh.enable = true;
