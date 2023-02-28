@@ -7,7 +7,7 @@
   nix = {
     # Automatically run garbage collection for nix store
     gc.automatic = true;
-    gc.dates = " daily";
+    gc.dates = "daily";
     gc.options = "--delete-older-than 30d";
     # Automatically run optimiser for nix store
     optimise.automatic = true;
@@ -20,7 +20,7 @@
 
     # Custom package overlay
     nixPath = options.nix.nixPath.default ++ [
-      "nixpkgs-overlays=/etc/nixos/packages"
+      "nixpkgs-overlays=/etc/nixos/overlays-compat/"
     ];
   };
 
