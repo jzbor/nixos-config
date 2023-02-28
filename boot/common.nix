@@ -7,7 +7,7 @@
     efi.canTouchEfiVariables = true;
     efi.efiSysMountPoint = "/boot/efi";
   };
-  boot.loader.systemd-boot {
+  boot.loader.systemd-boot = {
     enable = true;
     memtest86.enable = true;
   };
