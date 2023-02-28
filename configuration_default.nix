@@ -10,7 +10,7 @@
       ./boot.nix
       ./common.nix
       ./desktop.nix
-      ./machine/vm.nix
+      # ./desktop-gnome.nix
     ];
 
   # This value determines the NixOS release from which the default

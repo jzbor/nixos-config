@@ -1,4 +1,3 @@
-
 { lib, config, pkgs, ... }:
 
 {
@@ -9,10 +8,6 @@
     efi.efiSysMountPoint = "/boot/efi";
   };
 
-  # Splash screen
-  boot.plymouth.enable = true;
-
   # Kernel version
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
 }
