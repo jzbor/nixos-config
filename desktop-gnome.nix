@@ -30,7 +30,9 @@
   ];
 
   # Install additional gnome software
-  environment.systemPackages = with pkgs.gnome; [
+  environment.systemPackages = (with pkgs.gnome; [
     gnome-tweaks
-  ];
+  ]) ++ (with pkgs; [
+    gnome-firmware
+  ]);
 }

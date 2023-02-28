@@ -21,11 +21,13 @@ get_options () {
 		| sed 's/^/      \#/'
 }
 
+# Makes the string from get_options usable for sed
 escape () {
 	sed 's/\n/\\n/;s/\#/\\#/g;s/\//\\\//g' \
 		| sed 's/$/\\n/g' | tr -d '\n'
 }
 
+# Query hostname and state_version from user
 hostname="$(ask 'Please choose a hostname: ')"
 state_version="$(ask 'Please provide the stateVersion: ')"
 
