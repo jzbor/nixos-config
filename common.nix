@@ -48,9 +48,7 @@
       };
 
   # Install some packages
-  environment.systemPackages =
-    with pkgs;
-    [
+  environment.systemPackages = with pkgs; [
       bash
       cryptsetup
       curl

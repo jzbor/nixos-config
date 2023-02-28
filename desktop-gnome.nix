@@ -23,7 +23,14 @@
     atomix
   ]);
 
-  # Add systray icons
-  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  # Add extensions
+  environment.systemPackages = with pkgs.gnomeExtensions; [
+    appindicator
+    blur-my-shell
+  ];
+
+  # Install additional gnome software
+  environment.systemPackages = with pkgs.gnome; [
+    gnome-tweaks
+  ];
 }
