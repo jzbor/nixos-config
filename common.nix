@@ -97,7 +97,7 @@
     createMountPoints = true;
 
     # Kill remaining processes after final logout
-    logoutTerm = true;
-    logoutWait = 0;  # seconds
+    #logoutTerm = true;
+    #logoutWait = 0;  # seconds
   };
 }
