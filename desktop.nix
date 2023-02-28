@@ -53,6 +53,8 @@
       arandr
       buttermilk
       dmenu
+      gparted
+      gnome.gnome-disk-utility
       lxappearance
       marswm
       neofetch
