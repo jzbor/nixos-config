@@ -2,13 +2,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "marswm";
-  version = "master";
+  version = "0.2.0";
 
   src = fetchFromGitHub {
     owner = "jzbor";
     repo = pname;
     rev = version;
-    sha256 = "sha256-ptamRZsXQc+Vf6f34MYhmmmutsygSetoDQniImYaZmE=";
+    sha256 = "sha256-IjiNBBXUfrostJcOG6QhqqvQYNN7l+JOERRuA4/MWvk=";
   };
 
   cargoLock = {
