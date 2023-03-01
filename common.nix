@@ -79,6 +79,9 @@
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;
 
+  # Enable trim for ssds
+  services.fstrim.enable = true;
+
   # Documentation
   documentation.man.enable = true;
 
