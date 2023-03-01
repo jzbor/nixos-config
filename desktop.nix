@@ -72,7 +72,6 @@
     [
       arandr
       buttermilk
-      chromium
       dmenu
       gparted
       lxappearance
@@ -98,9 +97,6 @@
   programs.system-config-printer.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
-
-  # Enable DRM content on Chromium
-  nixpkgs.config.chromium.enableWideVine = true;
 
   # Firefox
   programs.firefox = {
