@@ -4,6 +4,6 @@
 
 {
   powerManagement.resumeCommands = ''
-    modprobe -r psmouse && modprobe psmouse
+    ${pkgs.kmod}/bin/modprobe -r psmouse && ${pkgs.kmod}/bin/modprobe psmouse
   '';
 }
