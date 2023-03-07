@@ -9,19 +9,23 @@
   # paths in nix expressions are always relative the file which defines them
   imports = [
       ./hardware-configuration.nix
-      #./boot/boot-splash.nix
-      ./boot/boot-verbose.nix
-      ./common.nix
-      ./desktop-gnome.nix
-      ./desktop.nix
-      ./machine/cpu/intel.nix
-      ./machine/gpu/intel.nix
-      #./machine/tp-touchpad.nix
-      ./programs/coding.nix
-      #./programs/editing.nix
-      #./programs/gaming.nix
-      ./programs/multimedia.nix
-      ./programs/office.nix
+      ../../common.nix
+
+      # Boot setup
+      ../../boot/boot-verbose.nix
+
+      # Desktop environments
+      ../../desktop
+      ../../desktop/gnome.nix
+
+      # Hardware config
+      ../../hardware/cpu/intel.nix
+      ../../hardware/gpu/intel.nix
+
+      # Used programs
+      ../../programs/coding.nix
+      ../../programs/multimedia.nix
+      ../../programs/office.nix
     ];
 
   # This value determines the NixOS release from which the default

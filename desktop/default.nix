@@ -124,9 +124,4 @@
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
   };
-
-  # Gnome
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
 }
