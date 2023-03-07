@@ -20,6 +20,8 @@
     xkbOptions = "caps:escape_shifted_capslock,altwin:swap_alt_win,grp:lwin_switch";
   };
 
+  services.touchegg.enable = true;
+
   # Audio
   sound.enable = true;
   hardware.pulseaudio.enable = false;

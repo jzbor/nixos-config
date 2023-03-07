@@ -54,6 +54,7 @@
     curl
     fd
     fzf
+    home-manager
     neofetch
     ripgrep
     wget
