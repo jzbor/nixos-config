@@ -7,7 +7,7 @@
       system = "x86_64-linux";
       modules = [
 	({ pkgs, ... }: { nixpkgs.overlays = [ jzbor_overlay.overlay ]; })
-	./common.nix
+	./configuration.nix
         ./machine/x1-carbon
       ];
     };
