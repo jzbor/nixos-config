@@ -9,10 +9,13 @@
     desktopManager.wallpaper.mode = "fill";
 
     # Touch and mouse input
-    libinput = {
-      enable = true;
-      touchpad.tapping = true;
-      touchpad.naturalScrolling = true;
+    libinput.enable = true;
+    libinput.touchpad = {
+      tapping = true;
+      naturalScrolling = true;
+      middleEmulation = true;
+      clickMethod = "clickfinger";
+      tappingDragLock = false;
     };
 
     # Keyboard layout
@@ -63,8 +66,8 @@
     }
     {
       manage = "desktop";
-      name = "pademelon";
-      start = "pademelon-daemon";
+      name = "marswm-dev";
+      start = "~/Programming/Rust/marswm/target/debug/marswm";
     }
   ];
 
@@ -94,6 +97,7 @@
 
   programs.gnome-disks.enable = true;
   programs.kdeconnect.enable = true;
+  programs.light.enable = true;
   programs.nm-applet.enable = true;
   programs.seahorse.enable = true;
   programs.system-config-printer.enable = true;
@@ -125,5 +129,12 @@
   # Enable new input backend
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
+  };
+
+  # Make qt5 styling match gtk theme
+  qt = {
+    enable = true;
+    platformTheme = "gtk2";
+    style = "gtk2";
   };
 }

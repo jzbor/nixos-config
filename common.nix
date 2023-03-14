@@ -1,13 +1,18 @@
-{ config, pkgs, options, programs, ... }:
+{ lib, config, pkgs, options, programs, ... }:
 
 {
-  nixpkgs.overlays = [ (import ./packages) ];
+  nixpkgs.overlays = [ (import ./overlay) ];
   nixpkgs.config.allowUnfree = true;
 
   nix = {
+    # Activate nix flakes system wide
+    package = pkgs.nixFlakes;
+    extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
+      "experimental-features = nix-command flakes";
+
     # Automatically run garbage collection for nix store
     gc.automatic = true;
-    gc.dates = "daily";
+    gc.dates = "weekly";
     gc.options = "--delete-older-than 30d";
     # Automatically run optimiser for nix store
     optimise.automatic = true;
@@ -26,6 +31,9 @@
 
   # Networking
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [
+    57621  # spotify local device discovery
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -35,7 +43,7 @@
     {
       jzbor =
         {
-          extraGroups = [ "wheel" "networkmanager" ];
+          extraGroups = [ "wheel" "networkmanager" "video" ];
           isNormalUser = true;
           initialHashedPassword = "$y$j9T$8MXAsfQbb5EfFEENhATiC1$20plmLWRRjuGJZR2uxODYiTsZ6KKL6hrjaBnKs8c597";
         };
@@ -65,9 +73,14 @@
   programs.git.enable = true;
   programs.htop.enable = true;
   programs.less.enable = true;
-  programs.neovim.enable = true;
   programs.traceroute.enable = true;
   programs.zsh.enable = true;
+
+  # Default Editor
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # Enable updates via fwupd
   services.fwupd.enable = true;
@@ -99,6 +112,10 @@
     iconTheme = {
       name = "Numix-Circle";
       package = pkgs.numix-icon-theme-circle;
+    };
+    cursorTheme = {
+      name = "Breeze_Snow";
+      package = pkgs.breeze-gtk;
     };
   };
 
