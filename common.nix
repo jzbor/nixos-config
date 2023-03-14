@@ -1,7 +1,7 @@
 { lib, config, pkgs, options, programs, ... }:
 
 {
-  nixpkgs.overlays = [ (import ./overlay) ];
+  #nixpkgs.overlays = [ jzbor_overlay.overlay ];
   nixpkgs.config.allowUnfree = true;
 
   nix = {

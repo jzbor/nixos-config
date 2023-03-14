@@ -9,7 +9,6 @@
   # paths in nix expressions are always relative the file which defines them
   imports = [
       ./hardware-configuration.nix
-      ../../common.nix
 
       # Boot setup
       ../../boot/boot-verbose.nix

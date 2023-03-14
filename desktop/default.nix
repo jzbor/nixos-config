@@ -84,7 +84,6 @@
       neofetch
       numix-icon-theme-circle
       orchis-theme
-      pademelon
       picom
       rofi
       xmenu
