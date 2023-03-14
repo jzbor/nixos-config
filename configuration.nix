@@ -1,9 +1,6 @@
 { lib, config, pkgs, options, programs, ... }:
 
 {
-  #nixpkgs.overlays = [ jzbor_overlay.overlay ];
-  nixpkgs.config.allowUnfree = true;
-
   nix = {
     # Activate nix flakes system wide
     package = pkgs.nixFlakes;

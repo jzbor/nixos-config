@@ -1,15 +1,24 @@
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-  inputs.jzbor_overlay.url = "github:jzbor/nix-overlay";
+  inputs.jzbor-overlay.url = "github:jzbor/nix-overlay";
 
-  outputs = { self, nixpkgs, jzbor_overlay }: {
-    nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
+
+  outputs = { self, nixpkgs, jzbor-overlay }:
+    let
       system = "x86_64-linux";
-      modules = [
-	({ pkgs, ... }: { nixpkgs.overlays = [ jzbor_overlay.overlay ]; })
-	./configuration.nix
-        ./machine/x1-carbon
-      ];
+      pkgs = (import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }).extend jzbor-overlay.overlay;
+    in {
+      nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
+        inherit system;
+        inherit pkgs;
+
+        modules = [
+          ./configuration.nix
+          ./machine/x1-carbon
+        ];
     };
   };
 }

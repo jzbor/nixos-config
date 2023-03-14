@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "jzbor_overlay": {
+    "jzbor-overlay": {
       "locked": {
         "lastModified": 1678817628,
         "narHash": "sha256-WlZG5F3/I/inkap3o4UApj3fPSlo4lHa34UM3K2eC70=",
@@ -33,7 +33,7 @@
     },
     "root": {
       "inputs": {
-        "jzbor_overlay": "jzbor_overlay",
+        "jzbor-overlay": "jzbor-overlay",
         "nixpkgs": "nixpkgs"
       }
     }
