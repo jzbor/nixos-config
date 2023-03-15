@@ -1,6 +1,8 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-  inputs.jzbor-overlay.url = "github:jzbor/nix-overlay";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    jzbor-overlay.url = "github:jzbor/nix-overlay";
+  };
 
 
   outputs = { self, nixpkgs, jzbor-overlay }:
