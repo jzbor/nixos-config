@@ -1,3 +1,0 @@
-[submodule "overlay"]
-	path = overlay
-	url = git@github.com:jzbor/nix-overlay.git

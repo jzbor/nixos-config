@@ -19,11 +19,6 @@
     settings.max-jobs = "auto";
     # Build in sandboxed environment
     settings.sandbox = true;
-
-    # Custom package overlay
-    nixPath = options.nix.nixPath.default ++ [
-      "nixpkgs-overlays=/etc/nixos/overlays-compat/"
-    ];
   };
 
   # Networking
