@@ -147,4 +147,7 @@
     users = [ "jzbor" ];
     persist = true;
   }];
+
+  # switch default skript shell to dash
+  environment.binsh = "${pkgs.dash}/bin/dash";
 }
