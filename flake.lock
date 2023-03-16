@@ -2,11 +2,11 @@
   "nodes": {
     "jzbor-overlay": {
       "locked": {
-        "lastModified": 1678817628,
-        "narHash": "sha256-WlZG5F3/I/inkap3o4UApj3fPSlo4lHa34UM3K2eC70=",
+        "lastModified": 1678887503,
+        "narHash": "sha256-Qh9l3twe+nvxaNo2Gcv3lA7NIcPQXRdprzFzJPoNgaY=",
         "owner": "jzbor",
         "repo": "nix-overlay",
-        "rev": "badf1183699accbeda9cf6ce977bd3d194c3906b",
+        "rev": "782ef884c06a912a28f755a19b72fe10bd4d4070",
         "type": "github"
       },
       "original": {
@@ -17,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1678724065,
-        "narHash": "sha256-MjeRjunqfGTBGU401nxIjs7PC9PZZ1FBCZp/bRB3C2M=",
+        "lastModified": 1678875422,
+        "narHash": "sha256-T3o6NcQPwXjxJMn2shz86Chch4ljXgZn746c2caGxd8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b8afc8489dc96f29f69bec50fdc51e27883f89c1",
+        "rev": "126f49a01de5b7e35a43fd43f891ecf6d3a51459",
         "type": "github"
       },
       "original": {

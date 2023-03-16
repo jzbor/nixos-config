@@ -138,4 +138,13 @@
     #logoutTerm = true;
     #logoutWait = 0;  # seconds
   };
+
+  security.polkit.enable = true;
+
+  security.sudo.enable = false;
+  security.doas.enable = true;
+  security.doas.extraRules = [{
+    users = [ "jzbor" ];
+    persist = true;
+  }];
 }
