@@ -17,4 +17,7 @@
 
   # Enable Firmware
   hardware.enableRedistributableFirmware = true;
+
+  # Faster boot by avoiding to wait for network
+  systemd.targets.network-online.wantedBy = pkgs.lib.mkForce []; # Normally ["multi-user.target"]
 }
