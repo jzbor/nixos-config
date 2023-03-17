@@ -154,5 +154,5 @@
   }];
 
   # switch default skript shell to dash
-  environment.binsh = "${pkgs.dash}/bin/dash";
+  #environment.binsh = "${pkgs.dash}/bin/dash";
 }
