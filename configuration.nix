@@ -52,21 +52,18 @@
 
 
   # Define user accounts
-  users.users =
-    {
-      jzbor =
-        {
-          extraGroups = [ "wheel" "networkmanager" "video" ];
-          isNormalUser = true;
-          initialHashedPassword = "$y$j9T$8MXAsfQbb5EfFEENhATiC1$20plmLWRRjuGJZR2uxODYiTsZ6KKL6hrjaBnKs8c597";
-        };
-      guest =
-        {
-          extraGroups = [];
-          isNormalUser = true;
-          initialHashedPassword = "$y$j9T$Y5SWVProFs7edHT2KJzOs0$WbLvOevHGLXmZKA2UZCXGU8hi.u2A43QK8rffZiuL3.";
-        };
-      };
+  users.users = {
+    jzbor = {
+      extraGroups = [ "wheel" "networkmanager" "video" ];
+      isNormalUser = true;
+      initialHashedPassword = "$y$j9T$8MXAsfQbb5EfFEENhATiC1$20plmLWRRjuGJZR2uxODYiTsZ6KKL6hrjaBnKs8c597";
+    };
+    guest = {
+      extraGroups = [];
+      isNormalUser = true;
+      initialHashedPassword = "$y$j9T$Y5SWVProFs7edHT2KJzOs0$WbLvOevHGLXmZKA2UZCXGU8hi.u2A43QK8rffZiuL3.";
+    };
+  };
 
   # Install some packages
   environment.systemPackages = with pkgs; [
@@ -75,6 +72,7 @@
     curl
     fd
     fzf
+    glxinfo
     home-manager
     neofetch
     ripgrep
@@ -103,8 +101,11 @@
 
   # Power management
   services.power-profiles-daemon.enable = true;
-  powerManagement.enable = true;
-  powerManagement.powertop.enable = true;
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+    cpuFreqGovernor = "ondemand";
+  };
 
   # Enable trim for ssds
   services.fstrim.enable = true;
