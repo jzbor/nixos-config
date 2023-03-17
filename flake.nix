@@ -13,6 +13,8 @@
           config.allowUnfree = true;
         }).extend jzbor-overlay.overlay;
     in {
+
+      # X1-CARBON LAPTOP
       nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         pkgs = pkgs-x86_64;
@@ -26,6 +28,23 @@
         ];
 
         specialArgs = { inherit inputs; };
-    };
+      };
+
+      # i5 DESKTOP
+      nixosConfigurations.desktop-i5 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        pkgs = pkgs-x86_64;
+
+        modules = [
+          ./configuration.nix
+          ./machine/desktop-i5
+
+          nixos-hardware.nixosModules.common-cpu-intel-cpu-only
+          nixos-hardware.nixosModules.common-gpu-amd
+        ];
+
+        specialArgs = { inherit inputs; };
+      };
+
   };
 }
