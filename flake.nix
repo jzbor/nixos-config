@@ -5,7 +5,7 @@
   };
 
 
-  outputs = { self, nixpkgs, jzbor-overlay }:
+  outputs = { self, nixpkgs, jzbor-overlay }@inputs:
     let
       system = "x86_64-linux";
       pkgs = (import nixpkgs {
@@ -14,13 +14,14 @@
         }).extend jzbor-overlay.overlay;
     in {
       nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit pkgs;
+        inherit system pkgs;
 
         modules = [
           ./configuration.nix
           ./machine/x1-carbon
         ];
+
+        specialArgs = { inherit inputs; };
     };
   };
 }
