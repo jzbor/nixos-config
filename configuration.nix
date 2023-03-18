@@ -111,9 +111,6 @@
   # Enable trim for ssds
   services.fstrim.enable = true;
 
-  # Documentation
-  documentation.man.enable = true;
-
   # Fonts
   fonts.enableDefaultFonts = true;
 
