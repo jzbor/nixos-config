@@ -76,6 +76,7 @@
     home-manager
     neofetch
     ripgrep
+    smartmontools
     wget
     zsh
   ];
@@ -158,4 +159,12 @@
 
   # switch default skript shell to dash
   #environment.binsh = "${pkgs.dash}/bin/dash";
+
+  # Monitor hard drives
+  services.smartd = {
+    enable = true;
+    autodetect = true;
+    notifications.x11.enable = true;
+    notifications.mail.enable = false;
+  };
 }
