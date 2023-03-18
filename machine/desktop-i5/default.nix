@@ -23,6 +23,7 @@
 
       # Used programs
       ../../programs/coding.nix
+      ../../programs/gaming.nix
       ../../programs/multimedia.nix
       ../../programs/office.nix
     ];
