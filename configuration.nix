@@ -37,7 +37,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -50,10 +49,10 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-
   # Define user accounts
   users.users = {
     jzbor = {
+      shell = pkgs.zsh;
       extraGroups = [ "wheel" "networkmanager" "video" ];
       isNormalUser = true;
       initialHashedPassword = "$y$j9T$8MXAsfQbb5EfFEENhATiC1$20plmLWRRjuGJZR2uxODYiTsZ6KKL6hrjaBnKs8c597";
