@@ -171,4 +171,11 @@
     notifications.x11.enable = true;
     notifications.mail.enable = false;
   };
+
+  # Enable zram swap
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+  };
 }
