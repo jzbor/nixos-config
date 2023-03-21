@@ -65,6 +65,13 @@
     };
   };
 
+  # Available shells
+  environment.shells = with pkgs; [
+    bash
+    dash
+    zsh
+  ];
+
   # Install some packages
   environment.systemPackages = with pkgs; [
     bash
@@ -155,7 +162,7 @@
   }];
 
   # switch default skript shell to dash
-  #environment.binsh = "${pkgs.dash}/bin/dash";
+  environment.binsh = "${pkgs.dash}/bin/dash";
 
   # Monitor hard drives
   services.smartd = {

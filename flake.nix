@@ -11,7 +11,7 @@
       pkgs-x86_64 = (import nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
-        }).extend jzbor-overlay.overlay;
+        }).extend jzbor-overlay.overlays.default;
     in {
 
       # X1-CARBON LAPTOP
