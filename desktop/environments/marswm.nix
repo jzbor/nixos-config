@@ -15,6 +15,8 @@
     xmenu
   ];
 
+  services.touchegg.enable = true;
+
   services.xserver.displayManager.session = [
     {
       manage = "desktop";
