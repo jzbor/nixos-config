@@ -5,10 +5,11 @@
     ./environments/marswm.nix
     ./environments/gnome.nix
 
-    ./modules/wireless.nix
     ./modules/audio.nix
-    ./modules/printing.nix
     ./modules/input.nix
+    ./modules/printing.nix
+    ./modules/theming.nix
+    ./modules/wireless.nix
 
     ./programs/firefox.nix
   ];
@@ -22,8 +23,10 @@
   programs.seahorse.enable = true;
   programs.system-config-printer.enable = true;
   environment.systemPackages = with pkgs; [
+    glxinfo
     gnome.simple-scan
     gparted
+    libva-utils
     mpv
     neofetch
     nextcloud-client
@@ -32,10 +35,15 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  # Make qt5 styling match gtk theme
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    style = "gtk2";
-  };
+  # Display manager
+  services.xserver.displayManager.lightdm.greeters.gtk.enable = true;
+
+  # Enable PolicyKit for access management
+  security.polkit.enable = true;
+
+  # Desktop specific firewall ports
+  networking.firewall.allowedTCPPorts = [
+    57621  # spotify local device discovery
+  ];
+
 }

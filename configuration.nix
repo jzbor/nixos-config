@@ -28,9 +28,6 @@
 
   # Networking
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [
-    57621  # spotify local device discovery
-  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -78,7 +75,6 @@
     curl
     fd
     fzf
-    glxinfo
     home-manager
     neofetch
     nix-index
@@ -118,26 +114,6 @@
   # Enable trim for ssds
   services.fstrim.enable = true;
 
-  # Fonts
-  fonts.enableDefaultFonts = true;
-
-  # Display manager
-  services.xserver.displayManager.lightdm.greeters.gtk = {
-    enable = true;
-    theme = {
-      name = "Orchis-Yellow-Dark-Compact";
-      package = pkgs.orchis-theme;
-    };
-    iconTheme = {
-      name = "Numix-Circle";
-      package = pkgs.numix-icon-theme-circle;
-    };
-    cursorTheme = {
-      name = "Breeze_Snow";
-      package = pkgs.breeze-gtk;
-    };
-  };
-
   security.pam.mount = {
     enable = true;
     extraVolumes = [
@@ -151,8 +127,6 @@
     #logoutTerm = true;
     #logoutWait = 0;  # seconds
   };
-
-  security.polkit.enable = true;
 
   security.sudo.enable = false;
   security.doas.enable = true;
