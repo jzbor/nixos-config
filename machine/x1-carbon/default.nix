@@ -15,7 +15,7 @@
 
       # Desktop environments
       ../../desktop
-      ../../desktop/gnome.nix
+      ../../desktop/environments/gnome.nix
 
       # Hardware config
       ../../hardware/cpu/intel.nix
