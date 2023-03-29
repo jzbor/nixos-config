@@ -48,12 +48,14 @@
     drivers = with pkgs; [
       gutenprint
       gutenprintBin
-      hplip
       hplipWithPlugin
       samsung-unified-linux-driver
       splix
     ];
   };
+  services.udev.packages = [
+    pkgs.hplipWithPlugin
+  ];
 
 
   # Xfce
