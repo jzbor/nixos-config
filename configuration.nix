@@ -50,7 +50,7 @@
   users.users = {
     jzbor = {
       shell = pkgs.zsh;
-      extraGroups = [ "wheel" "networkmanager" "video" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "scanner" ];
       isNormalUser = true;
       initialHashedPassword = "$y$j9T$8MXAsfQbb5EfFEENhATiC1$20plmLWRRjuGJZR2uxODYiTsZ6KKL6hrjaBnKs8c597";
     };
