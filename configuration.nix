@@ -74,8 +74,7 @@
     cryptsetup
     curl
     fd
-    fzf
-    home-manager
+    lm_sensors
     neofetch
     nix-index
     ripgrep
