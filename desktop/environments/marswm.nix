@@ -12,6 +12,7 @@
     marswm
     picom
     rofi
+    xfce.xfce4-notifyd
     xmenu
   ];
 
