@@ -74,6 +74,7 @@
     cryptsetup
     curl
     fd
+    glances
     lm_sensors
     neofetch
     nix-index
