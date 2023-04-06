@@ -2,9 +2,6 @@
 
 {
   imports = [
-    ./marswm.nix
-    ./gnome.nix
-
     ../features/audio.nix
     ../features/input.nix
     ../features/printing.nix

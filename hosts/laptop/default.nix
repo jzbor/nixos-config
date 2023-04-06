@@ -5,7 +5,7 @@
     # Include common configuration files
     ../common
 
-    ../../modules/desktops
+    ../../modules/desktop
 
     # Used programs
     ../../modules/collections/coding.nix

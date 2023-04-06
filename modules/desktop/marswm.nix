@@ -1,6 +1,8 @@
 { lib, config, pkgs, ... }:
 
 {
+  imports = [ ./common.nix ];
+
   # Installed programs for marswm environment
   programs.light.enable = true;
   programs.nm-applet.enable = true;
