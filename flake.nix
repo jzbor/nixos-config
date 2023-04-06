@@ -20,8 +20,9 @@
         pkgs = pkgs-x86_64;
 
         modules = [
+          { networking.hostName = "x1-carbon"; }
           ./configuration.nix
-          ./machine/x1-carbon
+          ./hosts/laptop
 
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
           { services.throttled.enable = false; }
@@ -36,6 +37,7 @@
         pkgs = pkgs-x86_64;
 
         modules = [
+          { networking.hostName = "desktop-i5"; }
           ./configuration.nix
           ./machine/desktop-i5
 

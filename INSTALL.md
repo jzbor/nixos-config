@@ -61,7 +61,7 @@ w
 ### Formatting the disks
 Format boot partition:
 ```sh
-mkfs.fat -F 32 -n boot /dev/<your-partition1>
+mkfs.fat -F 32 -n BOOT /dev/<your-partition1>
 ```
 Format root partition:
 ```sh
@@ -69,7 +69,7 @@ mkfs.ext4 -L ROOT /dev/<your-partition2>
 ```
 Setup home partition with cryptsetup:
 ```sh
-cryptsetup --type luks2 --label HOMECRYPT luksFormat /dev/<your-partition3>
+cryptsetup --type luks2 --label crypt0-home luksFormat /dev/<your-partition3>
 cryptsetup luksOpen /dev/disk/by-label/HOMECRYPT crypt0
 mkfs.ext4 -L HOME /dev/mapper/crypt0
 ```
@@ -77,9 +77,9 @@ mkfs.ext4 -L HOME /dev/mapper/crypt0
 ## Bootstrapping the NixOS Installation
 Mounting the root and boot partitions:
 ```sh
-mount /dev/disk/by-label/ROOT /mnt
+mount /dev/disk/by-label/nixos-root /mnt
 mkdir /mnt/boot
-mount /dev/disk/by-label/boot /mnt/boot
+mount /dev/disk/by-label/BOOT /mnt/boot
 ```
 
 You can now install the flake directly

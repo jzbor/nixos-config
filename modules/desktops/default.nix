@@ -2,16 +2,16 @@
 
 {
   imports = [
-    ./environments/marswm.nix
-    ./environments/gnome.nix
+    ./marswm.nix
+    ./gnome.nix
 
-    ./modules/audio.nix
-    ./modules/input.nix
-    ./modules/printing.nix
-    ./modules/theming.nix
-    ./modules/wireless.nix
+    ../features/audio.nix
+    ../features/input.nix
+    ../features/printing.nix
+    ../features/theming.nix
+    ../features/wireless.nix
 
-    ./programs/firefox.nix
+    ../programs/firefox.nix
   ];
 
   services.xserver.enable = true;
