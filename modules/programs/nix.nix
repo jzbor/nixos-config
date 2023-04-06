@@ -10,7 +10,7 @@
     # Automatically run garbage collection for nix store
     gc.automatic = true;
     gc.dates = "weekly";
-    gc.options = "--delete-older-than 14d";
+    gc.options = "--delete-older-than 30d";
     # Automatically run optimiser for nix store
     optimise.automatic = true;
     # Maximum number of parallel threads in one build job
