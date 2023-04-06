@@ -12,6 +12,10 @@
           system = "x86_64-linux";
           config.allowUnfree = true;
         }).extend jzbor-overlay.overlays.default;
+      pkgs-aarch64 = (import nixpkgs {
+          system = "aarch64-linux";
+          config.allowUnfree = true;
+        }).extend jzbor-overlay.overlays.default;
     in {
 
       # X1-CARBON LAPTOP
@@ -38,6 +42,7 @@
         modules = [
           { networking.hostName = "desktop-i5"; }
           ./hosts/desktop
+          ./modules/collections/gaming.nix
 
           nixos-hardware.nixosModules.common-cpu-intel-cpu-only
           nixos-hardware.nixosModules.common-gpu-amd
@@ -52,7 +57,7 @@
         pkgs = pkgs-aarch64;
 
         modules = [
-          { networking.hostName = "pinebook-pro" }
+          { networking.hostName = "pinebook-pro"; }
           ./hosts/laptop
 
           nixos-hardware.nixosModules.pine64.pinebook-pro
