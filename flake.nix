@@ -58,7 +58,7 @@
 
         modules = [
           { networking.hostName = "pinebook-pro"; }
-          ./hosts/laptop
+          ./hosts/common
 
           nixos-hardware.nixosModules.pine64.pinebook-pro
         ];
