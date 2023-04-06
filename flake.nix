@@ -61,6 +61,7 @@
         modules = [
           { networking.hostName = "pinebook-pro"; }
           ./hosts/common
+          ./modules/boot/boot-pbp.nix
 
           nixos-hardware.nixosModules.pine64-pinebook-pro
         ];
