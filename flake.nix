@@ -26,6 +26,7 @@
         modules = [
           { networking.hostName = "x1-carbon"; }
           ./hosts/laptop
+          ./modules/boot/boot-verbose.nix
 
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
           { services.throttled.enable = false; }
@@ -43,6 +44,7 @@
           { networking.hostName = "desktop-i5"; }
           ./hosts/desktop
           ./modules/collections/gaming.nix
+          ./modules/boot/boot-verbose.nix
 
           nixos-hardware.nixosModules.common-cpu-intel-cpu-only
           nixos-hardware.nixosModules.common-gpu-amd
