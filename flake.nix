@@ -39,7 +39,7 @@
         modules = [
           { networking.hostName = "desktop-i5"; }
           ./configuration.nix
-          ./machine/desktop-i5
+          ./hosts/desktop
 
           nixos-hardware.nixosModules.common-cpu-intel-cpu-only
           nixos-hardware.nixosModules.common-gpu-amd

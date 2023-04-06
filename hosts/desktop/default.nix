@@ -5,9 +5,11 @@
     # Include common configuration files
     ../common
 
+    ../../modules/desktops
+
     # Used programs
-    ../../programs/coding.nix
-    ../../programs/multimedia.nix
-    ../../programs/office.nix
+    ../../modules/collections/coding.nix
+    ../../modules/collections/multimedia.nix
+    ../../modules/collections/office.nix
   ];
 }
