@@ -38,6 +38,7 @@
         modules = [
           { networking.hostName = "desktop-i5"; }
           ./hosts/desktop
+          ./modules/collections/gaming.nix
 
           nixos-hardware.nixosModules.common-cpu-intel-cpu-only
           nixos-hardware.nixosModules.common-gpu-amd
