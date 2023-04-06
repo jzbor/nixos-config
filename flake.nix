@@ -46,5 +46,19 @@
         specialArgs = { inherit inputs; };
       };
 
+      # PINEBOOK PRO
+      nixosConfigurations.pinebook-pro = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        pkgs = pkgs-aarch64;
+
+        modules = [
+          { networking.hostName = "pinebook-pro" }
+          ./hosts/laptop
+
+          nixos-hardware.nixosModules.pine64.pinebook-pro
+        ];
+
+        specialArgs = { inherit inputs; };
+      };
   };
 }
