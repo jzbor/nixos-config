@@ -20,6 +20,7 @@
     nix-index
     ripgrep
     smartmontools
+    tmux
     wget
     zsh
   ];
