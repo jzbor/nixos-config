@@ -65,7 +65,7 @@ mkfs.fat -F 32 -n BOOT /dev/<your-partition1>
 ```
 Format root partition:
 ```sh
-mkfs.ext4 -L ROOT /dev/<your-partition2>
+mkfs.ext4 -L nixos-root /dev/<your-partition2>
 ```
 Setup home partition with cryptsetup:
 ```sh
