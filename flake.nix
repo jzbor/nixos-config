@@ -60,7 +60,7 @@
           { networking.hostName = "pinebook-pro"; }
           ./hosts/common
 
-          nixos-hardware.nixosModules.pine64.pinebook-pro
+          nixos-hardware.nixosModules.pine64-pinebook-pro
         ];
 
         specialArgs = { inherit inputs; };
