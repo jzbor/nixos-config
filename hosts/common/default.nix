@@ -2,6 +2,9 @@
 
 {
   imports = [
+    # Core configuration
+    ../../modules/core
+
     # Boot setup
     ../../modules/boot/boot-verbose.nix
   ];

@@ -21,7 +21,6 @@
 
         modules = [
           { networking.hostName = "x1-carbon"; }
-          ./configuration.nix
           ./hosts/laptop
 
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
@@ -38,7 +37,6 @@
 
         modules = [
           { networking.hostName = "desktop-i5"; }
-          ./configuration.nix
           ./hosts/desktop
 
           nixos-hardware.nixosModules.common-cpu-intel-cpu-only
