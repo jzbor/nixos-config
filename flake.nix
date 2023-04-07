@@ -62,8 +62,15 @@
           { networking.hostName = "pinebook-pro"; }
           ./hosts/common
           ./modules/boot/boot-pbp.nix
-          ./modules/desktop/xfce.nix
-          ./modules/desktop/marswm.nix
+          #./modules/desktop/xfce.nix
+          #./modules/desktop/marswm.nix
+
+          {
+            swapDevices = [ {
+              device = "/var/lib/swapfile";
+              size = 8*1024;  # in megabytes
+            }];
+          }
 
           nixos-hardware.nixosModules.pine64-pinebook-pro
         ];
