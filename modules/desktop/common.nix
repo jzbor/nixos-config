@@ -28,6 +28,7 @@
     neofetch
     nextcloud-client
     pcmanfm
+    zathura
   ];
 
   services.gnome.gnome-keyring.enable = true;
