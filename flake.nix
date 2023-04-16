@@ -26,6 +26,7 @@
         modules = [
           { networking.hostName = "x1-carbon"; }
           ./hosts/laptop
+          ./hosts/x1-carbon
           ./modules/boot/boot-verbose.nix
 
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
