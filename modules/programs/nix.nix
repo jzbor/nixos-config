@@ -11,6 +11,8 @@
     gc.automatic = true;
     gc.dates = "weekly";
     gc.options = "--delete-older-than 30d";
+    # Keep generated outputs on garbage collection
+    settings.keep-outputs = true;
     # Automatically run optimiser for nix store
     optimise.automatic = true;
     # Maximum number of parallel threads in one build job
