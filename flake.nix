@@ -64,7 +64,7 @@
           ./hosts/common
           ./modules/boot/boot-pbp.nix
           ./modules/desktop/xfce.nix
-          #./modules/desktop/marswm.nix
+          ./modules/desktop/marswm.nix
 
           {
             swapDevices = [ {
