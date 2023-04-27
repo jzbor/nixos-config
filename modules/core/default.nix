@@ -32,8 +32,11 @@
   # Enable updates via fwupd
   services.fwupd.enable = true;
 
-  # Enable the OpenSSH daemon
+  # Enable the OpenSSH daemon and SSH Agent
   services.openssh.enable = true;
+  programs.ssh.agentTimeout = "1h";
+  programs.ssh.startAgent = true;
+  programs.ssh.extraConfig = "AddKeysToAgent yes";
 
   # Power management
   services.power-profiles-daemon.enable = true;
