@@ -3,6 +3,6 @@
 {
   imports = [
     ./marswm.nix
-    ./gnome.nix
+    ./xfce.nix
   ];
 }
