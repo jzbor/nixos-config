@@ -2,7 +2,10 @@
 
 {
   # Enable trim for ssds
-  services.fstrim.enable = true;
+  services.fstrim = {
+    enable = true;
+    interval = "daily";
+  };
 
   # Monitor hard drives
   services.smartd = {
