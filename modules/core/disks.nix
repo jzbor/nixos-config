@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   # Enable trim for ssds
@@ -6,6 +6,8 @@
     enable = true;
     interval = "daily";
   };
+  # Workaround for also trimming /home drive
+  systemd.services.fstrim.serviceConfig.ExecStart = "${pkgs.util-linux}/sbin/fstrim --verbose --all --quiet-unsupported";
 
   # Monitor hard drives
   services.smartd = {

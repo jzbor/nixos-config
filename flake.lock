@@ -50,16 +50,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1683020768,
-        "narHash": "sha256-ZyZl6k9NWS5QPwD3NoAVz/eSgodQDvl+y+fu8MVbrHc=",
-        "owner": "nixos",
+        "lastModified": 1684523249,
+        "narHash": "sha256-VazxIIWYjxbTwdS6YCsNStQe7apIdybRvAGUUUpR6Gw=",
+        "owner": "NetaliDev",
         "repo": "nixpkgs",
-        "rev": "44f30edf5661d86fb3a95841c35127f3d0ea8b0f",
+        "rev": "02382e13cfdcb6221bf192481798788eefd50f93",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
+        "owner": "NetaliDev",
+        "ref": "pam-mount-fix",
         "repo": "nixpkgs",
         "type": "github"
       }
