@@ -5,10 +5,12 @@
     jzbor-overlay.url = "github:jzbor/nix-overlay";
     jzbor-overlay.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    lanzaboote.url = "github:nix-community/lanzaboote";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
   };
 
 
-  outputs = { self, nixpkgs, jzbor-overlay, nixos-hardware }@inputs:
+  outputs = { self, nixpkgs, jzbor-overlay, nixos-hardware, lanzaboote }@inputs:
     let
       pkgs-x86_64 = (import nixpkgs {
           system = "x86_64-linux";

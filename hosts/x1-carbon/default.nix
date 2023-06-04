@@ -1,7 +1,9 @@
 { pkgs, config, ... }:
 
 {
-  imports = [];
+  imports = [
+    ../../modules/boot/secure-boot.nix
+  ];
 
   # Install some packages
   environment.systemPackages = with pkgs; [
@@ -18,4 +20,7 @@
     # Required for containers under podman-compose to be able to talk to each other.
     defaultNetwork.settings.dns_enabled = true;
   };
+
+  # Enabling secure boot
+  #boot.bootspec.enable = true;
 }
