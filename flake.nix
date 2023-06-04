@@ -1,7 +1,6 @@
 {
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:NetaliDev/nixpkgs/pam-mount-fix";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     jzbor-overlay.url = "github:jzbor/nix-overlay";
     jzbor-overlay.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
