@@ -11,8 +11,9 @@
   ];
 
   # Networking
-  networking.networkmanager.enable = true;
   networking.useDHCP = lib.mkDefault true;
+  networking.networkmanager.enable = true;
+  networking.networkmanager.dhcp = "dhcpcd";
 
   # Define user accounts
   users.users = {
