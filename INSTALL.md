@@ -78,13 +78,13 @@ mkfs.ext4 -L HOME /dev/mapper/crypt0
 Mounting the root and boot partitions:
 ```sh
 mount /dev/disk/by-label/nixos-root /mnt
-mkdir /mnt/boot
-mount /dev/disk/by-label/BOOT /mnt/boot
+mkdir -p /mnt/boot/efi
+mount /dev/disk/by-label/BOOT /mnt/boot/efi
 ```
 
 You can now install the flake directly
 ```sh
-nixos-install --impure --flake "github:jzbor/nixos-config#<hostname>
+nixos-install --impure --flake github:jzbor/nixos-config#<hostname>
 ```
 
 If you want to add the hardware config to the repo first you can print it with

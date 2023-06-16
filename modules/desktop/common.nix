@@ -44,4 +44,7 @@
     57621  # spotify local device discovery
   ];
 
+  # Logitech input devices
+  hardware.logitech.wireless.enable = true;
+
 }

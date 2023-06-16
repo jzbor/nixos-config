@@ -56,7 +56,4 @@
     algorithm = "zstd";
     memoryPercent = 50;
   };
-
-  # Logitech input devices
-  hardware.logitech.wireless.enable = true;
 }

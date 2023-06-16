@@ -81,5 +81,27 @@
 
         specialArgs = { inherit inputs; };
       };
+
+      # HETZNER HOST FSN1-02
+      nixosConfigurations.fsn1-02 = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        pkgs = pkgs-aarch64;
+
+        modules = [
+          { networking.hostName = "fsn1-02"; }
+          ./hosts/server
+          #./modules/boot/boot-verbose.nix
+          { boot.loader.grub.devices = [ "/dev/sda" ]; }
+
+          {
+            systemd.network.networks."10-wan".address = [
+              # replace this address with the one assigned to your instance
+              "2a01:4f8:aaaa:bbbb::1/64"
+            ];
+          }
+        ];
+
+        specialArgs = { inherit inputs; };
+      };
   };
 }
