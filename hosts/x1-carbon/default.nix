@@ -21,6 +21,9 @@
     defaultNetwork.settings.dns_enabled = true;
   };
 
+  # Enable cross building for aarch64
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   # Enabling secure boot
   #boot.bootspec.enable = true;
 }
