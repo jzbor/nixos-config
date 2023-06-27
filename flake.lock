@@ -85,11 +85,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1685959908,
-        "narHash": "sha256-UUhiHW/m9kpcnrtHQOdQASeZB6aJaTWBHDJCJwr0lX8=",
+        "lastModified": 1687886057,
+        "narHash": "sha256-GowNxBMbKW/3gV3sgfg+XfvsonlNES0OE0+IytD7ol8=",
         "owner": "jzbor",
         "repo": "nix-overlay",
-        "rev": "d8fd7e5755bb8b9167d8b93c8bf41780694e93a5",
+        "rev": "972fb05b2ba36573866194db3576bd5df878dda7",
         "type": "github"
       },
       "original": {
