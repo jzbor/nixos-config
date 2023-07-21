@@ -3,10 +3,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    chromium
-    libdvdcss   # DVD decryption
-    libdvdnav   # DVD navigation
-    libdvdread  # DVD reading
+    # chromium
+    # libdvdcss   # DVD decryption
+    # libdvdnav   # DVD navigation
+    # libdvdread  # DVD reading
     lollypop
     vlc
   ];
