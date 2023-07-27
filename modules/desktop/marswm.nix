@@ -29,7 +29,7 @@
     {
       manage = "desktop";
       name = "marswm-dev";
-      start = "~/Programming/Rust/marswm/target/debug/marswm";
+      start = "mv -f ~/.marswm.log ~/.marswm.log.old; ~/Programming/Rust/marswm/target/debug/marswm > ~/.marswm.log 2>&1";
     }
   ];
 }
