@@ -9,12 +9,14 @@
 
     # Automatically run garbage collection for nix store
     gc.automatic = true;
-    gc.dates = "weekly";
+    gc.dates = "daily";
     gc.randomizedDelaySec = "3h";
     gc.options = "--delete-older-than 30d";
     # Keep generated outputs on garbage collection
     settings.keep-outputs = true;
     settings.keep-derivations = true;
+    # Auto optimise store on builds
+    settings.auto-optimise-store = true;
     # Automatically run optimiser for nix store
     optimise.automatic = true;
     # Maximum number of parallel threads in one build job
