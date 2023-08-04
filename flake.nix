@@ -39,6 +39,24 @@
         specialArgs = { inherit inputs; };
       };
 
+      # E531 LAPTOP
+      nixosConfigurations.e531 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        pkgs = pkgs-x86_64;
+
+        modules = [
+          { networking.hostName = "e531"; }
+          ./hosts/laptop
+          ./hosts/x1-carbon
+          ./modules/boot/boot-verbose.nix
+
+          # nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+          { services.throttled.enable = false; }
+        ];
+
+        specialArgs = { inherit inputs; };
+      };
+
       # i5 DESKTOP
       nixosConfigurations.desktop-i5 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -46,9 +64,13 @@
 
         modules = [
           { networking.hostName = "desktop-i5"; }
+
           ./hosts/desktop
           ./modules/collections/gaming.nix
           ./modules/boot/boot-verbose.nix
+
+          # Enable cross building for aarch64
+          { boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; }
 
           nixos-hardware.nixosModules.common-cpu-intel-cpu-only
           nixos-hardware.nixosModules.common-gpu-amd
