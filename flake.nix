@@ -1,15 +1,18 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    jzbor-overlay.url = "github:jzbor/nix-overlay";
+
     jzbor-overlay.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    lanzaboote.url = "github:nix-community/lanzaboote/v0.3.0";
+    jzbor-overlay.url = "github:jzbor/nix-overlay";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
+    lanzaboote.url = "github:nix-community/lanzaboote/v0.3.0";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
 
-  outputs = { self, nixpkgs, jzbor-overlay, nixos-hardware, lanzaboote }@inputs:
+  outputs = { self, nixpkgs, jzbor-overlay, lanzaboote, nix-index-database, nixos-hardware }@inputs:
     let
       pkgs-x86_64 = (import nixpkgs {
           system = "x86_64-linux";

@@ -37,15 +37,5 @@
     enable = true;
     defaultEditor = true;
   };
-
-  # Use nix-locate as command not found replacement
-  # It seems to handle flakes and stuff better
-  programs.command-not-found.enable = false;
-  programs.bash.interactiveShellInit = ''
-    source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
-  '';
-  programs.zsh.interactiveShellInit = ''
-    source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
-  '';
 }
 

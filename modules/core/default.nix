@@ -8,6 +8,8 @@
     ./disks.nix
 
     ../programs/nix.nix
+
+    inputs.nix-index-database.nixosModules.nix-index
   ];
 
   # Networking
@@ -56,4 +58,14 @@
     algorithm = "zstd";
     memoryPercent = 50;
   };
+
+  # Use nix-locate as command not found replacement
+  # It seems to handle flakes and stuff better
+  programs.command-not-found.enable = false;
+  programs.bash.interactiveShellInit = ''
+    source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+  '';
+  programs.zsh.interactiveShellInit = ''
+    source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+  '';
 }
