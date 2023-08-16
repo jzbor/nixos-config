@@ -9,7 +9,7 @@
 
     # Automatically run garbage collection for nix store
     gc.automatic = true;
-    gc.dates = "daily";
+    gc.dates = "weekly";
     gc.randomizedDelaySec = "3h";
     gc.options = "--delete-older-than 30d";
     # Keep generated outputs on garbage collection
