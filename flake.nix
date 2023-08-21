@@ -99,6 +99,10 @@
               device = "/var/lib/swapfile";
               size = 8*1024;  # in megabytes
             }];
+
+            services.logind.powerKey = "ignore";
+            environment.variables."PAN_MESA_DEBUG" = "gl3";
+            services.smartd.enable = nixpkgs.lib.mkForce false;
           }
 
           nixos-hardware.nixosModules.pine64-pinebook-pro
