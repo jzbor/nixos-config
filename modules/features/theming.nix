@@ -10,7 +10,7 @@ let
   iconPackage = pkgs.numix-icon-theme-circle;
 in {
   # Fonts
-  fonts.enableDefaultFonts = true;
+  fonts.enableDefaultPackages = true;
 
   # LightDM GTK greeter
   services.xserver.displayManager.lightdm.greeters.gtk = {
