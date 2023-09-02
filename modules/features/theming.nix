@@ -28,6 +28,8 @@ in {
     };
   };
 
+  services.xserver.displayManager.lightdm.background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
+
   # Make qt5 styling match gtk theme
   qt = {
     enable = true;
