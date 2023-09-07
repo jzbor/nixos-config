@@ -15,7 +15,8 @@
   # Networking
   networking.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
-  networking.networkmanager.dhcp = "dhcpcd";
+  networking.networkmanager.insertNameservers = [ "5.75.234.6" ];
+  # networking.networkmanager.dhcp = "dhcpcd";
 
   # Define user accounts
   users.users = {
