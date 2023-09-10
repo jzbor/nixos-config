@@ -15,7 +15,18 @@
   # Networking
   networking.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
-  # networking.networkmanager.dhcp = "dhcpcd";
+
+  # DNS Settings
+  networking.nameservers = [ "5.75.234.6#dns.jzbor.de" ];
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    domains = [ "~." ];
+    fallbackDns = [ "5.75.234.6#dns.jzbor.de" "9.9.9.9#dns.quad9.net" ];
+    extraConfig = ''
+      DNSOverTLS=yes
+    '';
+  };
 
   # Define user accounts
   users.users = {
