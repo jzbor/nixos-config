@@ -3,6 +3,7 @@
 {
   # Documentation
   documentation.man.enable = true;
+  documentation.man.generateCaches = true;
   documentation.doc.enable = true;
 
   environment.systemPackages = with pkgs; [
