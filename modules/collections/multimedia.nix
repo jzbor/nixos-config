@@ -12,5 +12,5 @@
   ];
 
   # Enable DRM content on Chromium
-  nixpkgs.config.chromium.enableWideVine = true;
+  #nixpkgs.config.chromium.enableWideVine = true;
 }
