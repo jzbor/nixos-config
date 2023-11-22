@@ -27,7 +27,7 @@
     mpv
     neofetch
     nextcloud-client
-    pcmanfm
+    xfce.thunar
     zathura
   ];
 
