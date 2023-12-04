@@ -34,6 +34,7 @@
           ./hosts/laptop
           ./hosts/x1-carbon
           ./modules/boot/boot-verbose.nix
+          ./modules/programs/adb.nix
 
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
           { services.throttled.enable = false; }
@@ -71,6 +72,7 @@
           ./hosts/desktop
           ./modules/collections/gaming.nix
           ./modules/boot/boot-verbose.nix
+          ./modules/programs/adb.nix
 
           # Enable cross building for aarch64
           { boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; }
