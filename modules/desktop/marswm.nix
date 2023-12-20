@@ -12,7 +12,7 @@
     dmenu
     lxappearance
     marswm
-    picom
+    picom-next
     rofi
     xfce.xfce4-notifyd
     xmenu
