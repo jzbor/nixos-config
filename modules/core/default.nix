@@ -17,12 +17,11 @@
   networking.networkmanager.enable = true;
 
   # DNS Settings
-  networking.nameservers = [ "5.75.234.6#dns.jzbor.de" ];
+  networking.nameservers = [ "5.75.234.6#dns.jzbor.de" "9.9.9.9#dns.quad9.net" ];
   services.resolved = {
     enable = true;
     dnssec = "true";
     domains = [ "~." ];
-    fallbackDns = [ "5.75.234.6#dns.jzbor.de" "9.9.9.9#dns.quad9.net" ];
     extraConfig = ''
       DNSOverTLS=yes
     '';
