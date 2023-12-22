@@ -35,6 +35,7 @@
           ./hosts/x1-carbon
           ./modules/boot/boot-verbose.nix
           ./modules/programs/adb.nix
+          ./modules/collections/gaming.nix
 
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
           { services.throttled.enable = false; }
