@@ -16,6 +16,7 @@
     fd
     glances
     lm_sensors
+    ncdu
     neofetch
     nix-index
     ripgrep
