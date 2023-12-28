@@ -25,6 +25,7 @@
     settings.max-jobs = "auto";
     # Build in sandboxed environment
     settings.sandbox = true;
+    settings.max-substitution-jobs = 128;
   };
 
   # Make nixpkgs available to local nix commands like `nix shell` or `nix-shell`
