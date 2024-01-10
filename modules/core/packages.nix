@@ -38,5 +38,8 @@
     enable = true;
     defaultEditor = true;
   };
+
+  # DBus implementation
+  services.dbus.implementation = "broker";
 }
 
