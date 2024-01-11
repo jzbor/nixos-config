@@ -1,5 +1,6 @@
 { lib, ... }:
 
+with lib;
 {
   # Networking
   networking.useDHCP = lib.mkDefault true;
@@ -16,4 +17,8 @@
       DNSOverTLS=yes
     '';
   };
+
+  # Faster boot by avoiding to wait for network
+  systemd.targets.network-online.wantedBy = mkForce []; # Normally ["multi-user.target"]
+  systemd.targets.network.wantedBy = mkForce ["multi-user.target"];
 }
