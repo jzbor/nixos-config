@@ -31,14 +31,12 @@
 
         modules = [
           { networking.hostName = "x1-carbon"; }
-          ./hosts/laptop
-          ./hosts/x1-carbon
-          ./modules/boot/boot-verbose.nix
-          ./modules/programs/adb.nix
-          ./modules/collections/gaming.nix
+          {
+          }
+          ./nixos
+          ./nixos/hosts/x1-carbon
 
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
-          { services.throttled.enable = false; }
         ];
 
         specialArgs = { inherit inputs; };
@@ -51,12 +49,7 @@
 
         modules = [
           { networking.hostName = "e531"; }
-          ./hosts/laptop
-          ./hosts/x1-carbon
-          ./modules/boot/boot-verbose.nix
-
-          # nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
-          { services.throttled.enable = false; }
+          ./nixos
         ];
 
         specialArgs = { inherit inputs; };
@@ -69,14 +62,9 @@
 
         modules = [
           { networking.hostName = "desktop-i5"; }
+          ./nixos
 
-          ./hosts/desktop
-          ./modules/collections/gaming.nix
-          ./modules/boot/boot-verbose.nix
-          ./modules/programs/adb.nix
-
-          # Enable cross building for aarch64
-          { boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; }
+          ./nixos/hosts/desktop-i5
 
           nixos-hardware.nixosModules.common-cpu-intel-cpu-only
           nixos-hardware.nixosModules.common-gpu-amd
@@ -92,45 +80,11 @@
 
         modules = [
           { networking.hostName = "pinebook-pro"; }
-          ./hosts/common
-          ./modules/boot/boot-pbp.nix
-          ./modules/desktop/xfce.nix
-          ./modules/desktop/marswm.nix
+          ./nixos
 
-          {
-            swapDevices = [ {
-              device = "/var/lib/swapfile";
-              size = 8*1024;  # in megabytes
-            }];
-
-            services.logind.powerKey = "ignore";
-            environment.variables."PAN_MESA_DEBUG" = "gl3";
-            services.smartd.enable = nixpkgs.lib.mkForce false;
-          }
+          ./nixos/hosts/pinebook-pro
 
           nixos-hardware.nixosModules.pine64-pinebook-pro
-        ];
-
-        specialArgs = { inherit inputs; };
-      };
-
-      # HETZNER HOST FSN1-02
-      nixosConfigurations.fsn1-02 = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        pkgs = pkgs-aarch64;
-
-        modules = [
-          { networking.hostName = "fsn1-02"; }
-          ./hosts/server
-          #./modules/boot/boot-verbose.nix
-          { boot.loader.grub.devices = [ "/dev/sda" ]; }
-
-          {
-            systemd.network.networks."10-wan".address = [
-              # replace this address with the one assigned to your instance
-              "2a01:4f8:aaaa:bbbb::1/64"
-            ];
-          }
         ];
 
         specialArgs = { inherit inputs; };
