@@ -1,0 +1,37 @@
+### FLOATING
+- identifiers:
+    title: 'Discord Updater'
+  floating: true
+- identifiers:
+    title: 'Screen Layout Editor'
+  floating: true
+
+
+### INITIAL PLACEMENT
+- identifiers:
+    application: 'Nextcloud'
+    title: 'Nextcloud'
+  ignore_window: true
+  #initial_placement: wherever
+
+
+### WORKSPACES
+
+# Workspace 5:
+- identifiers:
+    application: 'thunderbird'
+  workspace: 4
+  # actions: [ !move-workspace 4 ]
+
+# Workspace 6:
+- identifiers:
+    application: 'steam'
+  actions: [ !move-workspace 5 ]
+- identifiers:
+    title: 'Steam'
+  actions: [ !move-workspace 5 ]
+
+# Workspace 7:
+- identifiers:
+    application: 'discord'
+  actions: [ !move-workspace 6 ]

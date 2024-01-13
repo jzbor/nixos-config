@@ -1,0 +1,24 @@
+# source:
+# https://www.reddit.com/r/unixporn/comments/fltmar/i3gaps_nixos_arch_my_incredible_nixos_desktop/
+# https://github.com/Th0rgal/horus-nix-home/commit/37f392c477e101bd86f73f66c6ad80f3ab04aa9b
+
+scheme: "Mankai"
+author: "Th0rgal (adapted by jzbor)"
+
+base00: "040404"
+base01: "54534D"
+base02: "704F2D"
+base03: "706451"
+base04: "7D7360"
+base05: "B09063"
+base06: "5B656B"
+base07: "C6C5C0"
+
+base08: "040404"
+base09: "696860"
+base0A: "886138"
+base0B: "877861"
+base0C: "948974"
+base0D: "CCA773"
+base0E: "737F86"
+base0F: "c6c5c0"

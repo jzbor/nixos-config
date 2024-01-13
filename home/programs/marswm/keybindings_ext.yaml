@@ -1,0 +1,104 @@
+# Window Management
+- key: h
+  modifiers: [ Mod4, Shift ]
+  action: !move-main
+- key: l
+  modifiers: [ Mod4, Shift ]
+  action: !move-main
+- key: a
+  modifiers: [ Mod4, Shift ]
+  action: !inc-gaps 5
+- key: x
+  modifiers: [ Mod4, Shift ]
+  action: !inc-gaps -5
+
+
+# Volume Control
+- key: XF86AudioRaiseVolume
+  action: !execute pactl set-sink-volume @DEFAULT_SINK@ +5% && canberra-gtk-play -i audio-volume-change
+- key: XF86AudioLowerVolume
+  action: !execute pactl set-sink-volume @DEFAULT_SINK@ -5% && canberra-gtk-play -i audio-volume-change
+- key: XF86AudioMute
+  action: !execute pactl set-sink-mute @DEFAULT_SINK@ toggle
+- key: XF86AudioMicMute
+  action: !execute pactl set-source-mute @DEFAULT_SOURCE@ toggle
+- modifiers: [ Mod4 ]
+  key: bracketright
+  action: !execute pactl set-sink-volume @DEFAULT_SINK@ +5% && canberra-gtk-play -i audio-volume-change
+- modifiers: [ Mod4 ]
+  key: bracketleft
+  action: !execute pactl set-sink-volume @DEFAULT_SINK@ -5% && canberra-gtk-play -i audio-volume-change
+- modifiers: [ Mod4 ]
+  key: backslash
+  action: !execute pactl set-sink-mute @DEFAULT_SINK@ toggle
+- modifiers: [ Mod4, Shift ]
+  key: backslash
+  action: !execute pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Media Control
+- key: XF86AudioPlay
+  action: !execute playerctl play-pause -p Lollypop,spotify
+- key: XF86AudioPause
+  action: !execute playerctl play-pause -p Lollypop,spotify
+- key: XF86AudioPrev
+  action: !execute playerctl previous -p Lollypop,spotify
+- key: XF86AudioNext
+  action: !execute playerctl next -p Lollypop,spotify
+- modifiers: [ Mod4 ]
+  key: i
+  action: !execute playerctl play-pause -p Lollypop,spotify
+- modifiers: [ Mod4 ]
+  key: u
+  action: !execute playerctl previous -p Lollypop,spotify
+- modifiers: [ Mod4 ]
+  key: o
+  action: !execute playerctl next -p Lollypop,spotify
+
+# Brightness Control
+- key: XF86MonBrightnessUp
+  action: !execute light -A 10
+- key: XF86MonBrightnessDown
+  action: !execute light -U 10
+
+# Screenshots
+- modifiers: [ Mod4 ]
+  key: Print
+  action: !execute maim -s | tee "$HOME/Pictures/Screenshots/$(date '+%Y-%m-%d_%H-%M-%S.png')" | xclip -selection clipboard -t image/png -i
+
+# Launchers
+- modifiers: [ Mod4 ]
+  key: e
+  action: !execute rofi -show window
+- modifiers: [ Mod4 ]
+  key: r
+  action: !execute rofi -dmenu -p "nix run" | xargs -I "{}" nix run "nixpkgs#{}"
+- modifiers: [ Mod4, Shift ]
+  key: r
+  action: !execute rofi -dmenu -p "nix run" | xargs -I "{}" nix run --offline "nixpkgs#{}"
+
+# Programs
+- modifiers: [ Mod4 ]
+  key: w
+  action: !execute firefox
+- modifiers: [ Mod4, Shift ]
+  key: w
+  action: !execute firefox --private-window
+- modifiers: [ Mod4 ]
+  key: b
+  action: !execute pcmanfm
+- modifiers: [ Mod4 ]
+  key: v
+  action: !execute mpv
+- modifiers: [ Mod4 ]
+  key: s
+  action: !execute spotify-wm-compat
+- key: XF86Display
+  action: !execute arandr
+- modifiers: [ Mod4 ]
+  key: y
+  action: !execute open-document
+- modifiers: [ Mod4, Shift ]
+  key: slash
+  action: !execute buttermilk -e "sleep 0.1; mars-relay fullscreen set; mars-help"
+
+

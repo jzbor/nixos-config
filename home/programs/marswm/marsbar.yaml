@@ -1,0 +1,2 @@
+status_cmd: "mars-status"
+action_cmd: "mars-status action"

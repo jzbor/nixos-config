@@ -1,0 +1,5 @@
+# Root window actions
+- modifiers: []
+  button: 3
+  targets: [root]
+  action: !execute xdg-xmenu -m | xmenu | /bin/sh
