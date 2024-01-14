@@ -171,7 +171,7 @@
 
       if [ "$UID" != 0 ]; then
         set -x
-        ${home-manager.packages.${system}.default}/bin/home-manager expire-generations "${expireAfterDays}days"
+        ${home-manager.packages.${system}.default}/bin/home-manager expire-generations "-${expireAfterDays} days"
         nix profile wipe-history --older-than "${expireAfterDays}d";
       else
         set -x
