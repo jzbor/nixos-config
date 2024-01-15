@@ -29,9 +29,9 @@
     disable-history = false;
 
     kb-remove-to-eol = "";
-    kb-remove-char-back = "";
+    kb-remove-char-back = "BackSpace";
     kb-mode-complete = "";
-    kb-accept-entry = "KP_Enter";
+    kb-accept-entry = "Return,KP_Enter";
 
     kb-row-left = "Control+h";
     kb-row-down = "Control+j";
