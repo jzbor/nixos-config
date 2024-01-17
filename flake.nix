@@ -91,6 +91,30 @@
       specialArgs = { inherit inputs; };
     };
 
+    # Rock5/aarch64 UEFI Live USB
+    nixosConfigurations.rock5b-live = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      # pkgs = pkgs-aarch64;
+
+      modules = [
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
+        ({ pkgs, ...}: {
+          networking.hostName = "rock5b-live";
+          environment.systemPackages = with pkgs; [
+            btop
+            htop
+            lm_sensors
+            neovim
+            stress
+            tmux
+          ];
+          boot.kernelPackages = pkgs.linuxPackages_latest;
+        })
+      ];
+
+      specialArgs = { inherit inputs; };
+    };
+
   } // {
 
     homeConfigurations.jzbor = home-manager.lib.homeManagerConfiguration (
@@ -125,6 +149,9 @@
   let
     pkgs = nixpkgs.legacyPackages."${system}";
   in {
+    ### PACKAGES ###
+    packages.rock5b-iso = self.nixosConfigurations.rock5b-live.config.system.build.isoImage;
+
 
     ### APPS ###
     apps.rebuild = cf.lib.createShellApp system {
