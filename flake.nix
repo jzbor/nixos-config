@@ -38,6 +38,7 @@
 
       modules = [
         { networking.hostName = "e531"; }
+        { jzbor-system.boot.scheme = "traditional"; }
         ./nixos
       ];
 
@@ -78,29 +79,20 @@
       specialArgs = { inherit inputs; };
     };
 
-    # Rock5/aarch64 UEFI Live USB
-    nixosConfigurations.rock5b-live = nixpkgs.lib.nixosSystem {
+    # aarch64 UEFI Live USB
+    nixosConfigurations.live-aarch64 = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-
-      modules = [
-        "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
-        ./nixos/programs/nix.nix
-        ({ pkgs, ...}: {
-          networking.hostName = "rock5b-live";
-          environment.systemPackages = with pkgs; [
-            btop
-            htop
-            lm_sensors
-            neovim
-            stress
-            tmux
-          ];
-          boot.kernelPackages = pkgs.linuxPackages_latest;
-        })
-      ];
-
+      modules = [ ./nixos/hosts/live ];
       specialArgs = { inherit inputs; };
     };
+
+    # x86_64 UEFI Live USB
+    nixosConfigurations.live-x86_64 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [ ./nixos/hosts/live ];
+      specialArgs = { inherit inputs; };
+    };
+
 
   } // {
 
@@ -135,9 +127,15 @@
   } // cf.lib.flakeForDefaultSystems (system:
   let
     pkgs = nixpkgs.legacyPackages."${system}";
+    lib = pkgs.lib;
   in {
     ### PACKAGES ###
-    packages.rock5b-iso = self.nixosConfigurations.rock5b-live.config.system.build.isoImage;
+    packages = {
+      live-iso-x86_64 = self.nixosConfigurations.live-x86_64.config.system.build.isoImage;
+      live-iso-aarch64 = self.nixosConfigurations.live-aarch64.config.system.build.isoImage;
+    } // (
+      lib.concatMapAttrs (name: value: { "vm-${name}" = value.config.system.build.vm; }) self.nixosConfigurations
+    );
 
 
     ### APPS ###
@@ -204,6 +202,14 @@
       nix run ${self}#rebuild-home
       printf "\n=> Cleaning up afterwards\n"
       nix run ${self}#cleanup
+      '';
+    };
+
+    apps.run-vm = cf.lib.createShellApp system {
+      name = "run-vm";
+      text = ''
+        path="$(nix build "${self}#nixosConfigurations.$1.config.system.build.vm" --no-link --print-out-paths)"
+        "$path/bin/run-$1-vm"
       '';
     };
 
