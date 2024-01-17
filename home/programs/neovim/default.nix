@@ -1,9 +1,9 @@
 { pkgs, lib, config, ... }:
 
-{
-  # Add neovim to environment
-  programs.neovim.enable = true;
-
+with lib;
+let
+  cfg = config.programs.neovim;
+in mkIf cfg.enable {
   # Add symlinks to vi and vim
   programs.neovim = {
     viAlias = true;

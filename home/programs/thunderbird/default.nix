@@ -1,9 +1,9 @@
 { pkgs, lib, config, ... }:
 
-{
-  # Add thunderbird to environment
-  programs.thunderbird.enable = true;
-
+with lib;
+let
+  cfg = config.programs.thunderbird;
+in mkIf cfg.enable {
   programs.thunderbird.profiles.default = {
     isDefault = true;
     settings = {};

@@ -1,81 +1,56 @@
-{ config, pkgs, nix-colors, lib, ... }: {
+{ config, pkgs, nix-colors, lib, ... }:
+
+with lib;
+let
+  cfg = config.jzbor-home;
+in {
   imports = [
     nix-colors.homeManagerModule
-    ./scripts
-
     ./desktop
-    ./desktop/mars.nix
-
-    ./programs/neovim
-    ./programs/zsh
+    ./programs
+    ./scripts
+    ./theming
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  config = {
+    home = {
+      username = "jzbor";
+      homeDirectory = "/home/jzbor";
+      stateVersion = "22.11";
+    };
 
-  home = {
-    username = "jzbor";
-    homeDirectory = "/home/jzbor";
-    stateVersion = "22.11";
+    home.sessionVariables = {
+      EDITOR = "nvim";
+      TERMINAL = "${pkgs.buttermilk}/bin/buttermilk";
+    };
+
+    home.file = {
+      Documents.source = config.lib.file.mkOutOfStoreSymlink "/home/jzbor/Nextcloud/jzbor/Documents";
+      Music.source = config.lib.file.mkOutOfStoreSymlink "/home/jzbor/Nextcloud/jzbor/Music";
+      Pictures.source = config.lib.file.mkOutOfStoreSymlink "/home/jzbor/Nextcloud/jzbor/Pictures";
+    };
+
+    home.packages = with pkgs; [
+      bat
+      btop
+      librespeed-cli
+      nixd
+      powertop
+      tealdeer
+      tree
+      unzip
+      uutils-coreutils-noprefix
+      zip
+    ];
+
+    programs.zsh.enable = true;
+
+    programs.neovim.enable = true;
+
+    # Replace command-not-found with nix-index
+    programs.nix-index.enable = true;
+
+    # Management of XDG base directories
+    xdg.enable = true;
   };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    TERMINAL = "${pkgs.buttermilk}/bin/buttermilk";
-  };
-
-  home.file = {
-    Documents.source = config.lib.file.mkOutOfStoreSymlink "/home/jzbor/Nextcloud/jzbor/Documents";
-    Music.source = config.lib.file.mkOutOfStoreSymlink "/home/jzbor/Nextcloud/jzbor/Music";
-    Pictures.source = config.lib.file.mkOutOfStoreSymlink "/home/jzbor/Nextcloud/jzbor/Pictures";
-  };
-
-  home.packages = with pkgs; [
-    bat
-    btop
-    foliot
-    librespeed-cli
-    nixd
-    okular
-    powertop
-    scrcpy
-    tealdeer
-    tree
-    typst
-    typst-lsp
-    unzip
-    uutils-coreutils-noprefix
-    yt-dlp
-    zip
-
-    # fonts
-    cascadia-code
-    fira-code
-    fira-code-symbols
-    liberation_ttf
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-  ];
-
-  services.nextcloud-client = {
-    enable = true;
-    startInBackground = true;
-  };
-
-  services.kdeconnect = {
-    enable = true;
-    indicator = true;
-  };
-
-  # Replace command-not-found with nix-index
-  programs.nix-index.enable = true;
-
-  # enable fontconfig and make fonts discoverable
-  fonts.fontconfig.enable = true;
-
-  programs.home-manager.enable = true;
-  programs.home-manager.path = lib.mkForce "$HOME/Programming/Nix/home-config";
-
-  # Management of XDG base directories
-  xdg.enable = true;
 }

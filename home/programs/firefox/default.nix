@@ -1,9 +1,9 @@
 { pkgs, lib, config, ... }:
 
-{
-  # Add firefox to environment
-  programs.firefox.enable = true;
-
+with lib;
+let
+  cfg = config.programs.firefox;
+in mkIf cfg.enable {
   programs.firefox.profiles.default = {
     isDefault = true;
 

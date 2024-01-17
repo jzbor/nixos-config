@@ -1,10 +1,10 @@
 
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 
-{
-  # Add rofi program to environment
-  programs.rofi.enable = true;
-
+with lib;
+let
+  cfg = config.programs.rofi;
+in mkIf cfg.enable {
   programs.rofi.theme = ./theme.rasi;
   xdg.configFile."rofi/theme.rasi".text = builtins.concatStringsSep "\n" [
     '' * {

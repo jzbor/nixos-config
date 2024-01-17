@@ -1,9 +1,10 @@
 { pkgs, lib, config, ... }:
 
-{
+with lib;
+let
+  cfg = config.programs.zsh;
+in mkIf cfg.enable {
   programs.zsh = {
-    enable = true;
-
     # Search, completion and suggestions
     historySubstringSearch.enable = true;
     #enableAutosuggestions = true;

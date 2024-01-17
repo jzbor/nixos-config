@@ -1,9 +1,9 @@
 { pkgs, lib, config, ... }:
 
-{
-  # Add mpv to environment
-  programs.mpv.enable = true;
-
+with lib;
+let
+  cfg = config.programs.mpv;
+in mkIf cfg.enable {
   programs.mpv.scripts = with pkgs.mpvScripts; [
     inhibit-gnome
   ] ++ [
