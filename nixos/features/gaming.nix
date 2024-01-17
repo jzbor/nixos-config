@@ -7,7 +7,7 @@ let
   # Games and platforms
   games = {
     superTuxKart = true;
-    steam = true;
+    steam = false;
   };
   defaultPackages = {
     superTuxKart = with pkgs; [

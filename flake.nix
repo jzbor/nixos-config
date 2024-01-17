@@ -16,22 +16,11 @@
   };
 
 
-  outputs = { self, nixpkgs, home-manager, cf, jzbor-overlay, nixos-hardware, nix-colors, ... }@inputs:
-  let
-    pkgs-x86_64 = (import nixpkgs {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
-    }).extend jzbor-overlay.overlays.default;
-    pkgs-aarch64 = (import nixpkgs {
-      system = "aarch64-linux";
-      config.allowUnfree = true;
-    }).extend jzbor-overlay.overlays.default;
-  in {
+  outputs = { self, nixpkgs, home-manager, cf, jzbor-overlay, nixos-hardware, nix-colors, ... }@inputs: {
 
     # X1-CARBON LAPTOP
     nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      pkgs = pkgs-x86_64;
 
       modules = [
         { networking.hostName = "x1-carbon"; }
@@ -46,7 +35,6 @@
     # E531 LAPTOP
     nixosConfigurations.e531 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      pkgs = pkgs-x86_64;
 
       modules = [
         { networking.hostName = "e531"; }
@@ -59,7 +47,7 @@
     # i5 DESKTOP
     nixosConfigurations.desktop-i5 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      pkgs = pkgs-x86_64;
+      # pkgs = getPkgs "x86_64-linux";
 
       modules = [
         { networking.hostName = "desktop-i5"; }
@@ -77,7 +65,6 @@
     # PINEBOOK PRO
     nixosConfigurations.pinebook-pro = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      pkgs = pkgs-aarch64;
 
       modules = [
         { networking.hostName = "pinebook-pro"; }
@@ -94,10 +81,10 @@
     # Rock5/aarch64 UEFI Live USB
     nixosConfigurations.rock5b-live = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      # pkgs = pkgs-aarch64;
 
       modules = [
         "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
+        ./nixos/programs/nix.nix
         ({ pkgs, ...}: {
           networking.hostName = "rock5b-live";
           environment.systemPackages = with pkgs; [

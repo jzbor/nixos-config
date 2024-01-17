@@ -2,13 +2,14 @@
 
 {
   imports = [
-    ./networking.nix
     ./disks.nix
-    ./users.nix
     ./localization.nix
+    ./networking.nix
+    ./nixpkgs.nix
+    ./packages.nix
     ./power-management.nix
     ./security.nix
-    ./packages.nix
+    ./users.nix
 
     inputs.nix-index-database.nixosModules.nix-index
   ];
