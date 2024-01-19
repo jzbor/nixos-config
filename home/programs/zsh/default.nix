@@ -37,6 +37,11 @@ in mkIf cfg.enable {
       sd = "cd $(switch-dir)";
       stored-nix-pkgs = "find /nix/store -maxdepth 1 | xargs du -sh | sort -h";
       valgrind = "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes";
+      cp = "cp --progress";
+      mv = "mv --progress";
+      mkdir = "mkdir --verbose --parents";
+      cat = "bat";
+      ls = "ls --color=auto --human-readable";
     };
 
     # Additional configuration
