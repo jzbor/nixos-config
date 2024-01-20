@@ -27,7 +27,7 @@ in mkIf cfg.enable {
     syntaxHighlighting.enable = true;
 
     # Aliases
-    shellAliases = {
+    shellAliases = with pkgs; {
       enter = "dev-shell -e";
       installed-nixos-packages = "nix path-info -shr /run/current-system | sort -hk2";
       installed-profile-packages = "nix path-info -shr \"$HOME/.nix-profile\" | sort -hk2";
@@ -37,11 +37,11 @@ in mkIf cfg.enable {
       sd = "cd $(switch-dir)";
       stored-nix-pkgs = "find /nix/store -maxdepth 1 | xargs du -sh | sort -h";
       valgrind = "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes";
-      cp = "cp --progress";
-      mv = "mv --progress";
+      cp = "${uutils-coreutils-noprefix}/bin/cp --progress";
+      mv = "${uutils-coreutils-noprefix}/bin/mv --progress";
       mkdir = "mkdir --verbose --parents";
-      cat = "bat";
-      ls = "ls --color=auto --human-readable";
+      cat = "${bat}/bin/bat";
+      ls = "${uutils-coreutils-noprefix}/bin/ls --color=auto --human-readable";
     };
 
     # Additional configuration
