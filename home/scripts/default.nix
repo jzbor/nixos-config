@@ -9,6 +9,7 @@
     (pkgs.callPackage ./mars-status.nix {})
     (pkgs.callPackage ./nix-maintenance.nix {})
     (pkgs.callPackage ./open-document.nix {})
+    (pkgs.callPackage ./replay-area.nix {})
     (pkgs.callPackage ./riot.nix {})
     (pkgs.callPackage ./screencast.nix {})
     (pkgs.callPackage ./spotify-wm-compat.nix {})
