@@ -34,7 +34,7 @@ in {
       bat
       btop
       librespeed-cli
-      nixd
+      nil
       powertop
       tealdeer
       tree

@@ -13,6 +13,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    rock5b.url = "github:KireinaHoro/rock5b-nixos";
   };
 
 
@@ -93,6 +94,22 @@
       specialArgs = { inherit inputs; };
     };
 
+    # Rock5B UEFI Live USB
+    nixosConfigurations.live-rock5b-dtb = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [ ./nixos/hosts/live ./nixos/hosts/live/rock5b-dtb.nix ];
+      specialArgs = { inherit inputs; };
+    };
+
+    # Rock5B UEFI Live USB
+    nixosConfigurations.live-rock5b-bsp = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [ ./nixos/hosts/live ./nixos/hosts/live/rock5b-bsp.nix ];
+      specialArgs = { inherit inputs; };
+    };
+
+
+
 
   } // {
 
@@ -133,6 +150,8 @@
     packages = {
       live-iso-x86_64 = self.nixosConfigurations.live-x86_64.config.system.build.isoImage;
       live-iso-aarch64 = self.nixosConfigurations.live-aarch64.config.system.build.isoImage;
+      live-iso-rock5b-dtb = self.nixosConfigurations.live-rock5b-dtb.config.system.build.isoImage;
+      live-iso-rock5b-bsp = self.nixosConfigurations.live-rock5b-bsp.config.system.build.isoImage;
     } // (
       lib.concatMapAttrs (name: value: { "vm-${name}" = value.config.system.build.vm; }) self.nixosConfigurations
     );
