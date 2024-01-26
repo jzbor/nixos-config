@@ -9,7 +9,6 @@ in {
     boot.loader = {
       timeout = 5;
       efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot/efi";
     };
     boot.loader.systemd-boot = {
       enable = true;
@@ -24,5 +23,6 @@ in {
 
     # Add adequate kernel modules
     boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+    boot.initrd.systemd.enable = true;
   };
 }

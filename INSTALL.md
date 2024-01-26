@@ -78,8 +78,8 @@ mkfs.ext4 -L HOME /dev/mapper/crypt0
 Mounting the root and boot partitions:
 ```sh
 mount /dev/disk/by-label/nixos-root /mnt
-mkdir -p /mnt/boot/efi
-mount /dev/disk/by-label/BOOT /mnt/boot/efi
+mkdir -p /mnt/boot
+mount /dev/disk/by-label/BOOT /mnt/boot
 ```
 
 You can now install the flake directly

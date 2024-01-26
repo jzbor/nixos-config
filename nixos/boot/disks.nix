@@ -5,7 +5,7 @@
     device = "/dev/disk/by-label/nixos-root";
     fsType = "ext4";
   };
-  fileSystems."/boot/efi" = {
+  fileSystems."/boot" = {
     device = "/dev/disk/by-label/BOOT";
     fsType = "vfat";
   };

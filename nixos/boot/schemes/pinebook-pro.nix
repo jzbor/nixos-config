@@ -9,7 +9,6 @@ in {
     boot.loader = {
       timeout = 5;
       efi.canTouchEfiVariables = false;
-      efi.efiSysMountPoint = "/boot/efi";
     };
     boot.loader.systemd-boot = {
       enable = true;
