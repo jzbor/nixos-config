@@ -42,6 +42,7 @@ in mkIf cfg.enable {
       mkdir = "mkdir --verbose --parents";
       cat = "${bat}/bin/bat";
       ls = "${uutils-coreutils-noprefix}/bin/ls --color=auto --human-readable";
+      lisho-edit = "ssh ln.jzbor.de -t nvim /var/lib/lisho/mappings";
     };
 
     # Additional configuration
