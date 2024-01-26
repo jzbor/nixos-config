@@ -4,6 +4,20 @@ with lib;
 let
   cfg = config.programs.zsh;
 in mkIf cfg.enable {
+  programs.starship = {
+    enable = true;
+    settings = {
+      format = ''
+      [╭──](bold green) $all$fill[╴](bold green)
+      [╰─](bold green) $character'';
+      fill = {
+        symbol = "─";
+        style = "bold green";
+      };
+      line_break.disabled = true;
+    };
+  };
+
   programs.zsh = {
     # Search, completion and suggestions
     historySubstringSearch.enable = true;
@@ -48,7 +62,7 @@ in mkIf cfg.enable {
     # Additional configuration
     initExtra = builtins.concatStringsSep "\n" [
       (builtins.readFile ./config.zsh)
-      (builtins.readFile ./rprompt.zsh)
+      # (builtins.readFile ./rprompt.zsh)
     ];
   };
 }
