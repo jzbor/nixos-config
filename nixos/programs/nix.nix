@@ -32,4 +32,7 @@
   nix.nixPath = [ "nixpkgs=/etc/channels/nixpkgs" "nixos-config=/etc/nixos/configuration.nix" "/nix/var/nix/profiles/per-user/root/channels" ];
   environment.etc."channels/nixpkgs".source = inputs.nixpkgs.outPath;
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
+  nix.registry.my-overlay.to = { owner = "jzbor"; repo = "nix-overlay"; type = "github"; };
+  nix.registry.homepage.to = { url = "ssh://git@github.com/jzbor/jzbor.github.io"; submodules = true; type = "git"; };
+  nix.registry.cloud.to = { url = "ssh://git@github.com/jzbor/nixos-cloud"; type = "git"; };
 }
