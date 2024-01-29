@@ -7,12 +7,15 @@ in mkIf cfg.enable {
   programs.starship = {
     enable = true;
     settings = {
+      # format = ''
+      # [╭──](bold blue) $all$fill[╴](bold blue)
+      # [╰─](bold blue) $character'';
       format = ''
-      [╭──](bold green) $all$fill[╴](bold green)
-      [╰─](bold green) $character'';
+      [═╦═══](bold blue) $all$fill[═](bold blue)
+      [ ╚══](bold blue)$character'';
       fill = {
-        symbol = "─";
-        style = "bold green";
+        symbol = "═";
+        style = "bold blue";
       };
       line_break.disabled = true;
     };
