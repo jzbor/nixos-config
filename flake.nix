@@ -3,6 +3,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     cf.url = "github:jzbor/cornflakes";
     cf.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     jzbor-overlay.inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +19,7 @@
   };
 
 
-  outputs = { self, nixpkgs, home-manager, cf, jzbor-overlay, nixos-hardware, nix-colors, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, cf, jzbor-overlay, nixos-hardware, nix-colors, disko, ... }@inputs: {
 
     # X1-CARBON LAPTOP
     nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
@@ -227,8 +229,19 @@
     apps.run-vm = cf.lib.createShellApp system {
       name = "run-vm";
       text = ''
-        path="$(nix build "${self}#nixosConfigurations.$1.config.system.build.vm" --no-link --print-out-paths)"
-        "$path/bin/run-$1-vm"
+      path="$(nix build "${self}#nixosConfigurations.$1.config.system.build.vm" --no-link --print-out-paths)"
+      "$path/bin/run-$1-vm"
+      '';
+    };
+
+    apps.format = cf.lib.createShellApp system {
+      name = "format";
+      text = ''
+      die () { echo "$1"; exit 1; }
+      usage () { echo "Usage: $0 <disk> <layout>"; exit 1; }
+      [ "$#" = 2 ] || usage
+      echo ${disko.packages.${system}.default}/bin/disko --arg disk "$1" "${self}/disk-layouts/$2.nix"
+      ${disko.packages.${system}.default}/bin/disko --mode format --argstr disk "$1" "${self}/disk-layouts/$2.nix"
       '';
     };
 
