@@ -29,9 +29,9 @@ in {
         (builtins.readFile ./marswm.yaml)
         ''
           theming:
-            active_color: 0x${config.colorScheme.colors.base02}
-            inactive_color: 0x${config.colorScheme.colors.base00}
-            border_color: 0x${config.colorScheme.colors.base00}
+            active_color: 0x${config.colorScheme.palette.base02}
+            inactive_color: 0x${config.colorScheme.palette.base00}
+            border_color: 0x${config.colorScheme.palette.base00}
             no_decoration:
               frame_width: [2, 2, 2, 2]
             font: Noto Sans:size=8
@@ -42,24 +42,24 @@ in {
         (builtins.readFile ./marsbar.yaml)
         ''
           style:
-            background: 0x${config.colorScheme.colors.base00}
+            background: 0x${config.colorScheme.palette.base00}
             font: Noto Sans
             workspaces:
-              foreground: 0x${config.colorScheme.colors.base00}
-              inner_background: 0x${config.colorScheme.colors.base04}
-              outer_background: 0x${config.colorScheme.colors.base00}
+              foreground: 0x${config.colorScheme.palette.base00}
+              inner_background: 0x${config.colorScheme.palette.base04}
+              outer_background: 0x${config.colorScheme.palette.base00}
               padding_horz: 0
               padding_vert: 0
               text_padding_horz: 10
               text_padding_vert: 4
               spacing: 0
             title:
-              foreground: 0x${config.colorScheme.colors.base0F}
-              background: 0x${config.colorScheme.colors.base00}
+              foreground: 0x${config.colorScheme.palette.base0F}
+              background: 0x${config.colorScheme.palette.base00}
             status:
-              foreground: 0x${config.colorScheme.colors.base00}
-              inner_background: 0x${config.colorScheme.colors.base01}
-              outer_background: 0x${config.colorScheme.colors.base00}
+              foreground: 0x${config.colorScheme.palette.base00}
+              inner_background: 0x${config.colorScheme.palette.base01}
+              outer_background: 0x${config.colorScheme.palette.base00}
               padding_horz: 4
               padding_vert: 4
               text_padding_horz: 5

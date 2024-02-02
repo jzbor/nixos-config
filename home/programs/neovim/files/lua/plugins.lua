@@ -25,6 +25,7 @@ require('packer').startup(function()
   use 'tpope/vim-commentary' -- Use "gc" to comment lines in visual mode. Similarly to cmd+/ in other editors.
   use 'tpope/vim-surround' -- A great tool for adding, removing and changing braces, brackets, quotes and various tags around your text.
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, search results, open buffers...)
+  use { "nvim-telescope/telescope-file-browser.nvim", requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }
   --use { 'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'} } -- A bar that will show at the top of you nvim containing your open buffers. Similarly to how other editors show tabs with open files.
   use 'bluz71/vim-moonfly-colors' -- A theme I particularly like.
   use 'fneu/breezy' -- color scheme

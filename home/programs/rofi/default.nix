@@ -8,13 +8,13 @@ in mkIf cfg.enable {
   programs.rofi.theme = ./theme.rasi;
   xdg.configFile."rofi/theme.rasi".text = builtins.concatStringsSep "\n" [
     '' * {
-      background:      #${config.colorScheme.colors.base00};
-      argbbackground:  #${config.colorScheme.colors.base00}80;
-      backgroundlight: #${config.colorScheme.colors.base08};
+      background:      #${config.colorScheme.palette.base00};
+      argbbackground:  #${config.colorScheme.palette.base00}80;
+      backgroundlight: #${config.colorScheme.palette.base08};
       transparent:     #00000000;
-      foreground:      #${config.colorScheme.colors.base0F};
-      urgent:          #${config.colorScheme.colors.base01};
-      selected:        #${config.colorScheme.colors.base04};
+      foreground:      #${config.colorScheme.palette.base0F};
+      urgent:          #${config.colorScheme.palette.base01};
+      selected:        #${config.colorScheme.palette.base04};
     } ''
     (builtins.readFile ./theme.rasi)
   ];

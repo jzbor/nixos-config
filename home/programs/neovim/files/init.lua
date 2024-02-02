@@ -7,6 +7,7 @@ require("autocmd")
 require("commands")
 require("keybindings")
 require("lsp")
+require("neovide")
 
 -- Plugin specific configs
 require("plugs.cmp")
@@ -99,3 +100,6 @@ vim.cmd 'autocmd BufNewFile,BufRead *.typ set filetype=typst'
 
 -- Fix colors for coqtail
 vim.cmd 'hi CoqtailChecked guibg=#1c301c'
+
+-- Cd in NetRW
+vim.g.netrw_keepdir = 0

@@ -78,6 +78,9 @@
 
 # Programs
 - modifiers: [ Mod4 ]
+  key: slash
+  action: !execute neovide ~/Programming
+- modifiers: [ Mod4 ]
   key: w
   action: !execute firefox
 - modifiers: [ Mod4, Shift ]

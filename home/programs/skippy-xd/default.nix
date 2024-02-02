@@ -60,7 +60,7 @@ in {
         opacity = 255
 
         [highlight]
-        tint = #${config.colorScheme.colors.base02}
+        tint = #${config.colorScheme.palette.base02}
         tintOpacity = 64
         opacity = 255
 
@@ -75,10 +75,10 @@ in {
         offsetX = 20
         offsetY = 20
         align = left
-        border = #${config.colorScheme.colors.base0F}
-        background = #${config.colorScheme.colors.base00}
+        border = #${config.colorScheme.palette.base0F}
+        background = #${config.colorScheme.palette.base00}
         opacity = 128
-        text = #${config.colorScheme.colors.base0F}
+        text = #${config.colorScheme.palette.base0F}
         textShadow = black
         font = FiraCode Nerd Font 14:weight=bold
 

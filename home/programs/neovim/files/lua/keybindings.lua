@@ -29,3 +29,5 @@ vim.api.nvim_set_keymap('n', '<S-Right>', ':tabmove +1<CR>', {})
 -- Custom scripts
 -- vim.api.nvim_set_keymap('n', '<Leader>r', ':belowright split term://run.sh %<CR>G', {})
 
+-- Launch terminal
+vim.api.nvim_set_keymap('n', '<C-Enter>', ':!buttermilk & sleep 0.2<CR><CR>', {})
