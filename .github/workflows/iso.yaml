@@ -1,0 +1,24 @@
+name: "Build NixOS ISOs"
+
+on:
+  push:
+    branches: [ 'main', 'master' ]
+    tags: [ 'iso' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout repository'
+      uses: actions/checkout@v4
+    - name: 'Install Nix'
+      uses: DeterminateSystems/nix-installer-action@main
+    - name: 'Setup Nix cache'
+      uses: DeterminateSystems/magic-nix-cache-action@main
+    - name: 'Build iso'
+      run: nix build .#live-iso-x86_64 -o result-x86_64
+    - name: 'Upload artifact'
+      uses: actions/upload-artifact@v4
+      with:
+        name: live-iso-x86_64
+        path: ./result-x86_64/iso/*.iso
