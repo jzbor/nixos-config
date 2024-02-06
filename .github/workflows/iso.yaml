@@ -1,9 +1,9 @@
 name: "Build NixOS ISOs"
 
 on:
-  push:
-    branches: [ 'main', 'master' ]
-    tags: [ 'iso' ]
+  workflow_dispatch: # allows manual triggering
+  schedule:
+    - cron: '30 3 * * 1' # runs weekly on Monday at 03:30
 
 jobs:
   build:
@@ -22,3 +22,4 @@ jobs:
       with:
         name: live-iso-x86_64
         path: ./result-x86_64/iso/*.iso
+        retention-days: 7
