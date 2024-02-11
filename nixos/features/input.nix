@@ -46,9 +46,9 @@ in {
     };
 
     # Keyboard layout
-    services.xserver = {
+    services.xserver.xkb = {
       layout = cfg.kbdLayout;
-      xkbOptions = concatStringsSep "," ([] ++ (if cfg.shiftEscape then [ "caps:escape_shifted_capslock" ] else [])
+      options = concatStringsSep "," ([] ++ (if cfg.shiftEscape then [ "caps:escape_shifted_capslock" ] else [])
                                             ++ (if cfg.swapAltWin then [ "altwin:swap_alt_win" "grp:lwin_switch"] else []));
     };
   };

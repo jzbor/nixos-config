@@ -5,7 +5,7 @@ let
   cfg = config.programs.zsh;
 in mkIf cfg.enable {
   programs.starship = {
-    enable = true;
+    enable = false;
     settings = {
       # format = ''
       # [╭──](bold blue) $all$fill[╴](bold blue)
@@ -65,7 +65,7 @@ in mkIf cfg.enable {
     # Additional configuration
     initExtra = builtins.concatStringsSep "\n" [
       (builtins.readFile ./config.zsh)
-      # (builtins.readFile ./rprompt.zsh)
+      (builtins.readFile ./prompt.zsh)
     ];
   };
 }
