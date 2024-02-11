@@ -188,6 +188,17 @@
       '';
     };
 
+    apps.rebuild-both = cf.lib.createShellApp system {
+      name = "rebuild-both";
+      text = ''
+      printf "\n=> Rebuilding system\n"
+      nix run ${self}#rebuild
+      printf "\n=> Rebuilding home\n"
+      nix run ${self}#rebuild-home
+      '';
+    };
+
+
     apps.cleanup = let
       expireAfterDays = "30";
     in
