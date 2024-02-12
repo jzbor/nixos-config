@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -7,14 +7,14 @@
         ../../programs/nix.nix
   ];
 
-  networking.hostName = "aarch64-live";
+  networking.hostName = "nixos-live";
   environment.systemPackages = with pkgs; [
     btop
     htop
     lm_sensors
-    neovim
     stress
     tmux
   ];
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  isoImage.squashfsCompression = "gzip -Xcompression-level 9";
 }
