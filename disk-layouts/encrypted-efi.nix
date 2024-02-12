@@ -15,6 +15,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                extraArgs = [ "-n" "nixos-boot" ];  # no more than 11 characters
               };
             };
             testroot = {
@@ -28,6 +29,7 @@
                   type = "filesystem";
                   format = "ext4";
                   mountpoint = "/";
+                  extraArgs = [ "-L" "nixos-root" ];
                 };
               };
             };

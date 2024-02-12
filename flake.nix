@@ -256,5 +256,37 @@
       '';
     };
 
+    apps.install = cf.lib.createShellApp system {
+      name = "format";
+      text = ''
+      die () { echo "$1"; exit 1; }
+      usage () { echo "Usage: $0 <disk> <layout> <profile>"; exit 1; }
+      [ "$#" = 3 ] || usage
+      if [ "$UID" != 0 ]; then
+        die "Must be run with root priviliges"
+      fi
+
+      printf "\n=> Formatting disk\n"
+      printf "This will wipe %s. Are you sure? [y/N] " "$1"
+      read -r
+      [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] || die "Aborted"
+      nix run ${self}#format "$1" "$2"
+      sleep 2
+
+      printf "\n=> Mounting filesystems\n"
+      set -x
+      mount /dev/disk/by-label/nixos-root /mnt
+      mkdir -p /mnt/boot
+      mount /dev/disk/by-label/nixos-boot /mnt/boot
+      set +x
+
+      printf "\n=> Installing the system\n"
+      set -x
+      nixos-install --impure --flake "${self}#$3"
+      set +x
+      printf "\n=> Done\n"
+      '';
+    };
+
   });
 }
