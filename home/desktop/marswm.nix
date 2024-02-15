@@ -3,8 +3,8 @@
 with lib;
 let
   cfg = config.jzbor-home.desktop.marswm;
-  # lockScript = pkgs.writeScriptBin "lock-screen" "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 100 2";
-  lockScript = pkgs.writeScriptBin "lock-screen" "${pkgs.lightdm}/bin/dm-tool lock";
+  lockScript = pkgs.writeScriptBin "lock-screen" "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 100 2";
+  # lockScript = pkgs.writeScriptBin "lock-screen" "${pkgs.lightdm}/bin/dm-tool lock";
 in {
   options.jzbor-home.desktop.marswm = {
     enable = mkEnableOption "Enable marswm desktop";

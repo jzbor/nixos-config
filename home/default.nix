@@ -1,12 +1,11 @@
 { config, pkgs, nix-colors, lib, ... }:
 
 with lib;
-let
-  cfg = config.jzbor-home;
-in {
+{
   imports = [
     nix-colors.homeManagerModule
     ./desktop
+    ./features
     ./programs
     ./scripts
     ./theming
