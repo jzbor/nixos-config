@@ -62,5 +62,13 @@ git_prompt_string() {
 	[ ! -n "$git_where" ] && echo "%{$fg[red]%} %(?..✗)"
 }
 
+# Prompt
+if [ -n "$name" ]; then
+	ENV_SUFFIX=":$name"
+fi
+if [ -n "$ENV_NAME" ]; then
+	ENV_SUFFIX=":$ENV_NAME"
+fi
+
 RPROMPT='$(git_prompt_string)%{$reset_color%}'
 PROMPT="%F{magenta}[%f%n%F{magenta}@%M$ENV_SUFFIX]%f %F{blue}%~ %f";

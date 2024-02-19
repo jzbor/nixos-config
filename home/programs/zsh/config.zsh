@@ -45,8 +45,3 @@ autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-# Prompt
-if [ -n "$ENV_NAME" ]; then
-	ENV_SUFFIX=":$ENV_NAME"
-fi
-
