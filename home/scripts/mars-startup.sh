@@ -5,6 +5,7 @@ is_running () {
 }
 
 xset -dpms
+xmodmap -e 'keycode 94 = Alt_L Meta_L Alt_L Meta_L'
 
 [ -f ~/.screenlayout/default.sh ] && /bin/sh ~/.screenlayout/default.sh;
 
