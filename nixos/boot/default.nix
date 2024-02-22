@@ -1,10 +1,8 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, ... }:
 
 with lib;
 with types;
-let
-  cfg = config.jzbor-system.boot;
-in {
+{
   imports = [
     ./schemes
     ./secure-boot.nix
@@ -13,7 +11,7 @@ in {
 
   options.jzbor-system.boot = {
     scheme = mkOption {
-      type = enum [ "traditional" "pinebook-pro" ];
+      type = enum [ "bios" "traditional" "pinebook-pro" ];
       description = "Boot scheme to be used";
     };
 

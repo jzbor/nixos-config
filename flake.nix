@@ -35,6 +35,19 @@
       specialArgs = { inherit inputs; };
     };
 
+    # T400 LAPTOP
+    nixosConfigurations.t400 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+
+      modules = [
+        { networking.hostName = "t400"; }
+        ./nixos
+        ./nixos/hosts/t400
+      ];
+
+      specialArgs = { inherit inputs; };
+    };
+
     # E531 LAPTOP
     nixosConfigurations.e531 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -260,22 +273,34 @@
       name = "format";
       text = ''
       die () { echo "$1"; exit 1; }
-      usage () { echo "Usage: $0 <disk> <layout> <profile>"; exit 1; }
+      usage () {
+        echo "Usage: $0 <disk> <layout> <profile>"
+        printf '\tdisks: %s\n' "$(lsblk -dpno name | sort | tr '\n' ' ')"
+        printf '\tformats: %s\n' "$(find ${self}/disk-layouts -type f -exec basename '{}' .nix ';' | tr '\n' ' ')"
+        exit 1
+      }
+
       [ "$#" = 3 ] || usage
       if [ "$UID" != 0 ]; then
         die "Must be run with root priviliges"
       fi
 
-      printf "\n=> Formatting disk\n"
+      printf "\n=> Wiping disk header\n"
       printf "This will wipe %s. Are you sure? [y/N] " "$1"
       read -r
       [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] || die "Aborted"
+      set -x
+      ${pkgs.util-linux}/bin/wipefs -a "$1"
+      set +x
+
+      printf "\n=> Formatting disk\n"
       nix run ${self}#format "$1" "$2"
       sleep 2
 
       printf "\n=> Mounting filesystems\n"
       set -x
       mount /dev/disk/by-label/nixos-root /mnt
+      trap 'umount -R /mnt; trap - EXIT' EXIT INT HUP
       mkdir -p /mnt/boot
       mount /dev/disk/by-label/nixos-boot /mnt/boot
       set +x
