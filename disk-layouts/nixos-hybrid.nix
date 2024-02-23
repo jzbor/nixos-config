@@ -23,12 +23,27 @@
               };
             };
             root = {
-              size = "100%";
+              size = "128G";
               content = {
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
                 extraArgs = [ "-L" "nixos-root" ];
+              };
+            };
+            home = {
+              size = "100%";
+              content = {
+                type = "luks";
+                name = "crypt2";
+                settings.allowDiscards = true;
+                extraFormatArgs = [ "--type" "luks2" "--pbkdf" "argon2id" "--label" "crypt0-home" ];
+                content = {
+                  type = "filesystem";
+                  format = "ext4";
+                  mountpoint = "/";
+                  extraArgs = [ "-L" "nixos-home" ];
+                };
               };
             };
           };

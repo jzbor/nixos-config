@@ -307,8 +307,16 @@
 
       printf "\n=> Installing the system\n"
       set -x
-      nixos-install --impure --flake "${self}#$3"
+      nixos-install --impure --no-root-password --flake "${self}#$3"
       set +x
+
+      printf "\n=> Changing use password\n"
+      while true; do
+        printf "Change password for: "
+        [ -z "$REPLY" ] && break
+        read -r || break
+        nixos-enter -c "passwd $REPLY" && break
+      done
       printf "\n=> Done\n"
       '';
     };

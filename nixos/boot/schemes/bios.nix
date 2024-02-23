@@ -9,7 +9,9 @@ in {
     boot.loader = {
       timeout = 5;
       efi.canTouchEfiVariables = true;
+      grub.enable = true;
       grub.device = "/dev/disk/by-label/nixos-boot";
+      grub.efiSupport = true;
     };
 
     # Kernel version
