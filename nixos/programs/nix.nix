@@ -44,4 +44,5 @@
   nix.registry.my-overlay.to = { owner = "jzbor"; repo = "nix-overlay"; type = "github"; };
   nix.registry.homepage.to = { url = "ssh://git@github.com/jzbor/jzbor.github.io"; submodules = true; type = "git"; };
   nix.registry.cloud.to = { url = "ssh://git@github.com/jzbor/nixos-cloud"; type = "git"; };
+  nix.registry.nixos-config.to = { owner = "jzbor"; repo = "nixos-config"; type = "github"; };
 }
