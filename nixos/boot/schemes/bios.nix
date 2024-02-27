@@ -11,6 +11,7 @@ in {
       efi.canTouchEfiVariables = true;
       grub.enable = true;
       grub.device = "/dev/disk/by-label/nixos-boot";
+      grub.copyKernels = true;
       grub.efiSupport = true;
     };
 
