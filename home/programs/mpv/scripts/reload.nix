@@ -1,6 +1,6 @@
-{ lib, stdenvNoCC, fetchFromGitHub, yt-dlp }:
+{ lib, stdenvNoCC, fetchFromGitHub }:
 
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "mpv-reload";
   version = "unstable-2023-03-13";
 

@@ -21,7 +21,7 @@ in {
       description = "Enable gaming feature";
       default = false;
     };
-  } // (mapAttrs (game: enabled: mkOption {
+  } // (mapAttrs (_game: enabled: mkOption {
     type = bool;
     description = "Enable ${name} game/platform";
     default = enabled;
@@ -38,8 +38,8 @@ in {
       enable = true;
     };
 
-    environment.systemPackages = (foldr (a: b: a ++ b) [] (
+    environment.systemPackages = foldr (a: b: a ++ b) [] (
       map (x: if cfg."${x}" then (defaultPackages."${x}" or []) else []) (attrNames games)
-      ));
+      );
   };
 }

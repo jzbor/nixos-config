@@ -41,7 +41,7 @@ in {
       description = "Enable coding feature";
       default = config.jzbor-system.features.enableDesktopDefaults;
     };
-  } // (mapAttrs (lang: enabled: mkOption {
+  } // (mapAttrs (_lang: enabled: mkOption {
     type = bool;
     description = "Enable ${name} development packages";
     default = enabled;

@@ -159,7 +159,7 @@
   } // cf.lib.flakeForDefaultSystems (system:
   let
     pkgs = nixpkgs.legacyPackages."${system}";
-    lib = pkgs.lib;
+    inherit (pkgs) lib;
   in {
     ### PACKAGES ###
     packages = {

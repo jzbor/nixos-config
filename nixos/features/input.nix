@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ config, lib, ... }:
 
 with lib;
 with types;
@@ -48,7 +48,7 @@ in {
     # Keyboard layout
     services.xserver.xkb = {
       layout = cfg.kbdLayout;
-      options = concatStringsSep "," ([] ++ (if cfg.shiftEscape then [ "caps:escape_shifted_capslock" ] else [])
+      options = concatStringsSep "," ((if cfg.shiftEscape then [ "caps:escape_shifted_capslock" ] else [])
                                             ++ (if cfg.swapAltWin then [ "altwin:swap_alt_win" "grp:lwin_switch"] else []));
     };
   };

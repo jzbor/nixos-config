@@ -1,4 +1,4 @@
-{ lib, stdenv, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   script-name = "dev-shell";

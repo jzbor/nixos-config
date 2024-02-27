@@ -34,7 +34,7 @@ in {
       description = "Enable editing feature";
       default = config.jzbor-system.features.enableDesktopDefaults;
     };
-  } // (mapAttrs (domain: enabled: mkOption {
+  } // (mapAttrs (_domain: enabled: mkOption {
     type = bool;
     description = "Enable ${name} editing packages";
     default = enabled;

@@ -71,8 +71,8 @@ in {
 
     # Printing and Scanning
     services.printing = {
-      enable = cfg.printing.enable;
-      drivers = [] ++ (if cfg.printing.vendors.hp then (with pkgs; [ hplipWithPlugin ]) else [])
+      inherit (cfg.printing) enable;
+      drivers = (if cfg.printing.vendors.hp then (with pkgs; [ hplipWithPlugin ]) else [])
                     ++ (if cfg.printing.vendors.samsung then (with pkgs; [ samsung-unified-linux-driver ]) else []);
     };
 
@@ -83,8 +83,8 @@ in {
     ]);
 
     hardware.sane = {
-      enable = cfg.scanning.enable;
-      extraBackends = cfg.scanning.extraBackends;
+      inherit (cfg.scanning) enable;
+      inherit (cfg.scanning) extraBackends;
     };
   };
 }

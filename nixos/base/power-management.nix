@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # Power management

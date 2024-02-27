@@ -64,15 +64,15 @@ in {
     services.xserver.displayManager.lightdm.greeters.gtk = {
       theme = {
         name = cfg.gtk.theme;
-        package = cfg.gtk.package;
+        inherit (cfg.gtk) package;
       };
       iconTheme = {
         name = cfg.icons.theme;
-        package = cfg.icons.package;
+        inherit (cfg.icons) package;
       };
       cursorTheme = {
         name = cfg.cursor.theme;
-        package = cfg.cursor.package;
+        inherit (cfg.cursor) package;
       };
     };
     services.xserver.displayManager.lightdm.background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
