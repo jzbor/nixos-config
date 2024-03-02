@@ -294,7 +294,7 @@
       set +x
 
       printf "\n=> Formatting disk\n"
-      nix run ${self}#format "$1" "$2"
+      nix run --experimental-features 'nix-command flakes' ${self}#format "$1" "$2"
       sleep 2
 
       printf "\n=> Mounting filesystems\n"
