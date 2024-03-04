@@ -2,7 +2,7 @@
 
 with lib;
 {
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.11";
 
   jzbor-system.boot = {
     scheme = "bios";

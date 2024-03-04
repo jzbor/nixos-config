@@ -24,5 +24,15 @@
   networking.wireless.enable = false;  # wpa_supplicant conflicts with NetworkManager
   networking.networkmanager.plugins = lib.mkForce [];
 
+  # Enable zram swap
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+  };
+
   isoImage.squashfsCompression = "gzip -Xcompression-level 9";
+
+  # Disable global registry for offline support
+    nix.settings.flake-registry = "";
 }

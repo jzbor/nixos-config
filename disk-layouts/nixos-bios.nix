@@ -6,14 +6,10 @@
         device = "${disk}";
         type = "disk";
         content = {
-          type = "gpt";
+          type = "table";
+          format = "msdos";
           partitions = {
-            # has to be uppercase to be first
             BOOT = {
-              size = "1M";
-              type = "EF02"; # for grub MBR
-            };
-            ESP = {
               size = "1G";
               type = "EF00";
               content = {

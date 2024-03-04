@@ -167,10 +167,28 @@
       live-iso-aarch64 = self.nixosConfigurations.live-aarch64.config.system.build.isoImage;
       live-iso-rock5b-dtb = self.nixosConfigurations.live-rock5b-dtb.config.system.build.isoImage;
       live-iso-rock5b-bsp = self.nixosConfigurations.live-rock5b-bsp.config.system.build.isoImage;
+
+      install = pkgs.callPackage ./scripts/install.nix { inherit inputs; };
+      format = pkgs.callPackage ./scripts/format.nix { inherit inputs; };
     } // (
       lib.concatMapAttrs (name: value: { "vm-${name}" = value.config.system.build.vm; }) self.nixosConfigurations
     );
 
+    ### PACKAGES NOT COMPATIBLE WITH nix flake show ###
+    legacyPackages = lib.mapAttrs' (name: host: {
+      name = "live-offline_${name}";
+      value = (nixpkgs.lib.nixosSystem {
+        system = host.pkgs.system;
+        modules = [
+          ./nixos/hosts/live
+          {
+            environment.systemPackages = [self (pkgs.callPackage ./scripts/install.nix { inherit inputs; hostConfig = name; })];
+            nix.settings.substituters = lib.mkForce [];
+          }
+        ];
+        specialArgs = { inherit inputs; };
+      }).config.system.build.isoImage;
+    }) self.nixosConfigurations;
 
     ### APPS ###
     apps.rebuild = cf.lib.createShellApp system {
@@ -257,69 +275,5 @@
       "$path/bin/run-$1-vm"
       '';
     };
-
-    apps.format = cf.lib.createShellApp system {
-      name = "format";
-      text = ''
-      die () { echo "$1"; exit 1; }
-      usage () { echo "Usage: $0 <disk> <layout>"; exit 1; }
-      [ "$#" = 2 ] || usage
-      echo ${disko.packages.${system}.default}/bin/disko --arg disk "$1" "${self}/disk-layouts/$2.nix"
-      ${disko.packages.${system}.default}/bin/disko --mode format --argstr disk "$1" "${self}/disk-layouts/$2.nix"
-      '';
-    };
-
-    apps.install = cf.lib.createShellApp system {
-      name = "format";
-      text = ''
-      die () { echo "$1"; exit 1; }
-      usage () {
-        echo "Usage: $0 <disk> <layout> <profile>"
-        printf '\tdisks: %s\n' "$(lsblk -dpno name | sort | tr '\n' ' ')"
-        printf '\tformats: %s\n' "$(find ${self}/disk-layouts -type f -exec basename '{}' .nix ';' | tr '\n' ' ')"
-        exit 1
-      }
-
-      [ "$#" = 3 ] || usage
-      if [ "$UID" != 0 ]; then
-        die "Must be run with root priviliges"
-      fi
-
-      printf "\n=> Wiping disk header\n"
-      printf "This will wipe %s. Are you sure? [y/N] " "$1"
-      read -r
-      [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] || die "Aborted"
-      set -x
-      ${pkgs.util-linux}/bin/wipefs -a "$1"
-      set +x
-
-      printf "\n=> Formatting disk\n"
-      nix run --experimental-features 'nix-command flakes' ${self}#format "$1" "$2"
-      sleep 2
-
-      printf "\n=> Mounting filesystems\n"
-      set -x
-      mount /dev/disk/by-label/nixos-root /mnt
-      trap 'umount -R /mnt; trap - EXIT' EXIT INT HUP
-      mkdir -p /mnt/boot
-      mount /dev/disk/by-label/nixos-boot /mnt/boot
-      set +x
-
-      printf "\n=> Installing the system\n"
-      set -x
-      nixos-install --impure --no-root-password --flake "${self}#$3"
-      set +x
-
-      printf "\n=> Changing use password\n"
-      while true; do
-        printf "Change password for: "
-        [ -z "$REPLY" ] && break
-        read -r || break
-        nixos-enter -c "passwd $REPLY" && break
-      done
-      printf "\n=> Done\n"
-      '';
-    };
-
   });
 }
