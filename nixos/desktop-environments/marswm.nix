@@ -1,14 +1,19 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 with lib;
 let
   cfg = config.jzbor-system.de.marswm;
 in {
+  imports = [
+    inputs.marswm.nixosModules.default
+  ];
+
   options.jzbor-system.de.marswm = {
     enable = mkEnableOption "Enable marswm desktop environment";
   };
 
   config = mkIf cfg.enable {
+    services.xserver.windowManager.marswm.enable = true;
     services.xserver.enable = true;
 
     # Installed programs for marswm environment
@@ -19,7 +24,6 @@ in {
       buttermilk
       dmenu
       lxappearance
-      marswm
       picom-next
       rofi
       xfce.xfce4-notifyd
@@ -29,11 +33,6 @@ in {
     services.touchegg.enable = true;
 
     services.xserver.displayManager.session = [
-      {
-        manage = "desktop";
-        name = "marswm";
-        start = "marswm";
-      }
       {
         manage = "desktop";
         name = "marswm-dev";

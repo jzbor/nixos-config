@@ -16,10 +16,13 @@
     nix-index-database.url = "github:Mic92/nix-index-database";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     rock5b.url = "github:KireinaHoro/rock5b-nixos";
+    marswm.url = "github:jzbor/marswm";
+    marswm.inputs.nixpkgs.follows = "nixpkgs";
+    marswm.inputs.cf.follows = "cf";
   };
 
 
-  outputs = { self, nixpkgs, home-manager, cf, jzbor-overlay, nixos-hardware, nix-colors, disko, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, cf, jzbor-overlay, nixos-hardware, nix-colors, disko, marswm, ... }@inputs: {
 
     # X1-CARBON LAPTOP
     nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
@@ -131,7 +134,7 @@
     homeConfigurations.jzbor = home-manager.lib.homeManagerConfiguration (
       let
         system = "x86_64-linux";
-        pkgs = nixpkgs.legacyPackages.${system}.extend jzbor-overlay.overlays.default;
+        pkgs = import nixpkgs { inherit system; overlays = [ jzbor-overlay.overlays.default marswm.overlays.default ]; };
       in {
         inherit pkgs;
 
@@ -142,7 +145,7 @@
     homeConfigurations."jzbor@pinebook-pro" = home-manager.lib.homeManagerConfiguration (
       let
         system = "aarch64-linux";
-        pkgs = nixpkgs.legacyPackages.${system}.extend jzbor-overlay.overlays.default;
+        pkgs = import nixpkgs { inherit system; overlays = [ jzbor-overlay.overlays.default marswm.overlays.default ]; };
       in {
         inherit pkgs;
 

@@ -69,6 +69,27 @@
         "type": "github"
       }
     },
+    "crane_2": {
+      "inputs": {
+        "nixpkgs": [
+          "marswm",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1710819233,
+        "narHash": "sha256-YJsu2BVgUl2qRo0t2ksu5rK4yD59Mudd6BUXGwpC0DE=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "fc610a825db14bd8fdc5c7f57450422ae6ff4e7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -228,11 +249,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1709940969,
-        "narHash": "sha256-vC+dNFjypjTQOfmAV0l2+M4SvgYMExtHeNo3JrfOeGM=",
+        "lastModified": 1710886679,
+        "narHash": "sha256-K3/X10VtOlEnG/o5dPzwcSx4qXe66HxrAm4Tc/Y1J74=",
         "owner": "jzbor",
         "repo": "nix-overlay",
-        "rev": "3b5758360f1bb4a09400ad97e8d6620ca971522f",
+        "rev": "ee234aec0b96fba770bc9a8bdb7df2fdc7e861c4",
         "type": "github"
       },
       "original": {
@@ -282,6 +303,30 @@
         "owner": "nix-community",
         "ref": "v0.3.0",
         "repo": "lanzaboote",
+        "type": "github"
+      }
+    },
+    "marswm": {
+      "inputs": {
+        "cf": [
+          "cf"
+        ],
+        "crane": "crane_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1710886241,
+        "narHash": "sha256-QDJ/XwdFn1rj1FiwMxKLHbcoYVVj0s/mHfudrUt6ago=",
+        "owner": "jzbor",
+        "repo": "marswm",
+        "rev": "fdd6358113dbb53d0b728920bde61c179bfe3bcf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jzbor",
+        "repo": "marswm",
         "type": "github"
       }
     },
@@ -499,6 +544,7 @@
         "home-manager": "home-manager",
         "jzbor-overlay": "jzbor-overlay",
         "lanzaboote": "lanzaboote",
+        "marswm": "marswm",
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
