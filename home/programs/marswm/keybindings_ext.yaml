@@ -1,16 +1,13 @@
 # Window Management
-- key: h
-  modifiers: [ Mod4, Shift ]
-  action: !move-main
-- key: l
-  modifiers: [ Mod4, Shift ]
-  action: !move-main
 - key: a
   modifiers: [ Mod4, Shift ]
   action: !inc-gaps 5
 - key: x
   modifiers: [ Mod4, Shift ]
   action: !inc-gaps -5
+- key: z
+  modifiers: [ Mod4, Shift ]
+  action: !set-layout centered
 
 
 # Volume Control
