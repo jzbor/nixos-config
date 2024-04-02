@@ -12,4 +12,6 @@
 
   # Enable cross building for aarch64
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  hardware.amdgpu.opencl = false;
 }

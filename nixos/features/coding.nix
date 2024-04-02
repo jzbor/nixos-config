@@ -30,7 +30,7 @@ let
     ];
 
     c = with pkgs; [
-      clang-analyzer
+      clang-tools
       valgrind
     ];
   };
