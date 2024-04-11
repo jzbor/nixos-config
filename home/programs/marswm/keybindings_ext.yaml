@@ -102,6 +102,6 @@
   action: !execute open-document
 - modifiers: [ Mod4, Shift ]
   key: slash
-  action: !execute buttermilk -e "sleep 0.1; mars-relay fullscreen set; mars-help"
+  action: !execute $TERMINAL -e "sleep 0.1; mars-relay fullscreen set; mars-help"
 
 

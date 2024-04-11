@@ -6,6 +6,7 @@
     ./captive-browser
     ./firefox
     ./fontconfig
+    ./kermit
     ./marswm
     ./mpv
     ./neovim
