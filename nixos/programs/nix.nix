@@ -4,8 +4,10 @@
   nix = {
     # Activate nix flakes system wide
     package = pkgs.nixFlakes;
-    extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
-      "experimental-features = nix-command flakes";
+    extraOptions = ''
+      min-free = ${toString (16 * 1042 * 1024 * 1024)}
+      max-free = ${toString (32 * 1042 * 1024 * 1024)}
+    '' + (lib.optionalString (config.nix.package == pkgs.nixFlakes) "experimental-features = nix-command flakes");
 
     # Automatically run garbage collection for nix store
     gc.automatic = true;
