@@ -11,6 +11,7 @@
   # Install some packages
   environment.systemPackages = with pkgs; [
     distrobox
+    podman-compose
   ];
 
   # Podman virtualisation for distrobox and development
