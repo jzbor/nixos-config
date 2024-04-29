@@ -32,7 +32,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.xserver.libinput = {
+    services.libinput = {
       enable = true;
 
       # Touch input
