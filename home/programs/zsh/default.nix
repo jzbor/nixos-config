@@ -60,6 +60,12 @@ in mkIf cfg.enable {
       cat = "${bat}/bin/bat";
       ls = "${uutils-coreutils-noprefix}/bin/ls --color=auto --human-readable";
       lisho-edit = "ssh ln.jzbor.de -t nvim /var/lib/lisho/mappings";
+      news = "cliflux";
+
+      build = "nix build";
+      run = "nix run";
+      shell = "nix shell";
+      develop = "nix develop";
     };
 
     # Additional configuration
