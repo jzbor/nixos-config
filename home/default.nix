@@ -40,6 +40,7 @@ with lib;
       unzip
       uutils-coreutils-noprefix
       zip
+      cliflux
     ];
 
     programs.zsh.enable = true;
