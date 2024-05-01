@@ -103,3 +103,7 @@ vim.cmd 'hi CoqtailChecked guibg=#1c301c'
 
 -- Cd in NetRW
 vim.g.netrw_keepdir = 0
+
+-- SP
+vim.cmd.source("~/.config/nvim/sp-comments.vim")
+
