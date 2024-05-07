@@ -41,6 +41,7 @@ with lib;
       uutils-coreutils-noprefix
       zip
       cliflux
+      gcc
     ];
 
     programs.zsh.enable = true;
