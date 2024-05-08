@@ -25,7 +25,8 @@ local plugins = {
   'fneu/breezy', -- color scheme
   { 'romainl/Apprentice', branch = "fancylines-and-neovim" }, -- color scheme
   -- 'itchyny/lightline.vim', -- Fancier status line with some information that will be displayed at the bottom.
-  'nvim-lualine/lualine.nvim',
+  -- 'nvim-lualine/lualine.nvim',
+  { "brianaung/yasl.nvim", opts = {} },
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } }, -- Adds git related info in the signs columns (near the line numbers) and popups.
   'nvim-treesitter/nvim-treesitter', -- Highlight, edit, and navigate code using a fast incremental parsing library. Treesitter is used by nvim for various things, but among others, for syntax coloring. Make sure that any themes you install support treesitter!
   'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter.
