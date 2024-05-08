@@ -278,5 +278,18 @@
       "$path/bin/run-$1-vm"
       '';
     };
+
+    apps.push-nvim = cf.lib.createShellApp system {
+      name = "push-nvim";
+      text = ''
+        if [ "$#" != 1 ]; then
+          echo "Usage: $(basename "$0") <ssh-host>" > /dev/stderr
+          exit 1
+        fi
+
+        scp -r ${self.homeConfigurations.jzbor.config.home-files}/.config/nvim "$1:.config/"
+        ssh "$1" "chmod -R u+rw ~/.config/nvim; tree ~/.config/nvim"
+      '';
+    };
   });
 }

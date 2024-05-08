@@ -47,6 +47,7 @@ with lib;
     programs.zsh.enable = true;
 
     programs.neovim.enable = true;
+    programs.neovim.extraPackages = with pkgs; [ gcc ];
 
     # Replace command-not-found with nix-index
     programs.nix-index.enable = true;
