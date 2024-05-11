@@ -77,27 +77,9 @@ vim.o.background = 'dark'
 vim.cmd [[colorscheme apprentice]]
 
 -- Set status bar settings
-vim.g.lightline = {
-  colorscheme = 'apprentice',
-  active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
-  component_function = { gitbranch = 'fugitive#head' },
-}
--- require('lualine').setup {
---   options = {
---     theme = 'seoul256',
---     section_separators = '',
---     component_separators = ''
---   },
---   sections = {
---     lualine_a = {'mode'},
---     lualine_b = {'branch', 'diff', 'diagnostics'},
---     lualine_c = {'filename'},
---     lualine_x = {'encoding', 'filetype'},
---     lualine_y = {'progress'},
---     lualine_z = {'location'}
---   },
-
--- }
+require("yasl").setup({
+	laststatus = 2,
+})
 
 -- Highlight on yank (copy). It will do a nice highlight blink of the thing you just copied.
 vim.api.nvim_exec(
@@ -122,4 +104,7 @@ vim.g.netrw_keepdir = 0
 
 -- SP
 vim.cmd.source("~/.config/nvim/sp-comments.vim")
+
+-- Typst plugin
+vim.g.typst_auto_open_quickfix = 'en,de'
 
