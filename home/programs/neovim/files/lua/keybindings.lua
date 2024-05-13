@@ -31,3 +31,7 @@ vim.api.nvim_set_keymap('n', '<S-Right>', ':tabmove +1<CR>', {})
 
 -- Launch terminal
 vim.api.nvim_set_keymap('n', '<C-Enter>', ':!buttermilk & sleep 0.2<CR><CR>', {})
+
+
+-- Open highlighted file
+vim.api.nvim_set_keymap('v', '<leader>o', 'y:!xdg-open "<C-r>0"<CR><CR>', {})
