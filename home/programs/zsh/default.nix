@@ -79,12 +79,22 @@ in mkIf cfg.enable {
       ls = "${uutils-coreutils-noprefix}/bin/ls --color=auto --human-readable";
       lisho-edit = "ssh ln.jzbor.de -t nvim /var/lib/lisho/mappings";
       news = "cliflux";
-      gcc-sp = "gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700";
 
       build = "nix build";
       run = "nix run";
       shell = "nix shell";
       develop = "nix develop";
+
+      gcc-sp = "gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700";
+      sp-happy = "nix run sp#happy --";
+      sp-fetch = "nix run sp#fetch --";
+    };
+
+    sessionVariables = {
+      SP_REMOTE = "wa94tiju@cipterm0.cip.cs.fau.de";
+      SP_REMOTE_DIR = "korrektur";
+      SP_TUE = "T04";
+      SP_HAPPY_PATH = "/proj/i4sp1/sys/happy/happy";
     };
 
     # Additional configuration
