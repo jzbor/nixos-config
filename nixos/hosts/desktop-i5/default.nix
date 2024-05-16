@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   system.stateVersion = "22.11";
@@ -14,4 +14,10 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   hardware.amdgpu.opencl = false;
+
+  # Via/QMK support
+  environment.systemPackages = with pkgs; [
+    via
+  ];
+  services.udev.packages = [ pkgs.via ];
 }
