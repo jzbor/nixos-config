@@ -16,6 +16,6 @@
   hardware.amdgpu.opencl = false;
 
   # Via/QMK support
-  # environment.systemPackages = with pkgs; [ via ];
-  # services.udev.packages = [ pkgs.via ];
+  environment.systemPackages = with pkgs; [ via ];
+  services.udev.packages = [ pkgs.via ];
 }
