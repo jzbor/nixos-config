@@ -54,5 +54,7 @@ with lib;
 
     # Management of XDG base directories
     xdg.enable = true;
+
+    jzbor-home.programs.iamb.enable = true;
   };
 }

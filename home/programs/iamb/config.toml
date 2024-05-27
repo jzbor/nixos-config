@@ -1,0 +1,5 @@
+[profiles.user]
+user_id = "@wa94tiju:fau.de"
+
+[settings]
+username_display = "displayname"
