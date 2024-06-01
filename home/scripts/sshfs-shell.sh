@@ -15,7 +15,7 @@ if echo "$target" | grep -vqF ":"; then
 fi
 
 temp="$(mktemp --tmpdir -d "ssh-mount-XXXX  $target")"
-if sshfs -v "$target" "$temp"; then
+if sshfs -C -v "$target" "$temp"; then
 	cd "$temp"
 	"$SHELL"
 	cd -
