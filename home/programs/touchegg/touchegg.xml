@@ -34,7 +34,7 @@
 		<gesture type="SWIPE" fingers="3" direction="UP">
 			<action type="RUN_COMMAND">
 				<repeat>false</repeat>
-				<command>xwinmosaic&</command>
+				<command>xwinmosaic -P &</command>
 				<on>begin</on>
 			</action>
 		</gesture>

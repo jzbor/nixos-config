@@ -3,3 +3,8 @@
   button: 3
   targets: [root]
   action: !execute xdg-xmenu -m | xmenu | /bin/sh
+
+- modifiers: [Mod4, Shift]
+  button: 1
+  targets: [window, frame, root]
+  action: !execute xwinmosaic -P
