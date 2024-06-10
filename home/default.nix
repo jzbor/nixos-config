@@ -56,5 +56,10 @@ with lib;
     xdg.enable = true;
 
     jzbor-home.programs.iamb.enable = true;
+
+    programs.thefuck = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
 }
