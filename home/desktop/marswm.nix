@@ -14,9 +14,9 @@ in {
     jzbor-home.programs.buttermilk.enable = true;
     jzbor-home.programs.kermit.enable = true;
     jzbor-home.programs.marswm.enable = true;
-    jzbor-home.programs.skippy-xd.enable = true;
     jzbor-home.programs.touchegg.enable = true;
     jzbor-home.programs.xmenu.enable = true;
+    jzbor-home.programs.xwinmosaic.enable = true;
     programs.rofi.enable = true;
 
     home.packages = with pkgs; [

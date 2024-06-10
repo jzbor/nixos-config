@@ -16,6 +16,7 @@
     ./thunderbird
     ./touchegg
     ./xmenu
+    ./xwinmosaic
     ./zsh
   ];
 }

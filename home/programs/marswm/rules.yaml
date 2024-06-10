@@ -17,6 +17,9 @@
     application: 'Ulauncher'
     title: 'Ulauncher - Application Launcher'
   ignore_window: true
+- identifiers:
+    application: 'Xwinmosaic'
+  ignore_window: true
 
 
 ### WORKSPACES

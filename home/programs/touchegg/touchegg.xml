@@ -26,8 +26,7 @@
 		<gesture type="SWIPE" fingers="3" direction="DOWN">
 			<action type="RUN_COMMAND">
 				<repeat>false</repeat>
-				/* <command>moonwm-menu expose &</command> */
-				<command>pkill -2 rofi || (xdotool search --onlyvisible --class skippy-xd && skippy-xd --deactivate-window-picker) ||  mars-relay menu &</command>
+				<command>pkill -2 rofi || pkill -2 xwinmosaic ||  mars-relay menu &</command>
 				<on>begin</on>
 			</action>
 		</gesture>
@@ -35,7 +34,7 @@
 		<gesture type="SWIPE" fingers="3" direction="UP">
 			<action type="RUN_COMMAND">
 				<repeat>false</repeat>
-				<command>skippy-xd --activate-window-picker &</command>
+				<command>xwinmosaic&</command>
 				<on>begin</on>
 			</action>
 		</gesture>
