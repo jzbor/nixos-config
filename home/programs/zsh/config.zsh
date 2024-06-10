@@ -45,3 +45,12 @@ autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
+# Setting window title
+preexec () {
+	echo -ne "\033]0;$1 - $PWD\007"
+}
+
+precmd () {
+	echo -ne "\033]0;$(basename "$SHELL") - $PWD\007"
+}
+
