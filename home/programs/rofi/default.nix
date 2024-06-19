@@ -40,5 +40,5 @@ in mkIf cfg.enable {
   };
 
   # TODO switch when buttermilk overlay is available in flake
-  programs.rofi.terminal = "${pkgs.buttermilk}/bin/buttermilk";
+  programs.rofi.terminal = config.home.sessionVariables.TERMINAL;
 }

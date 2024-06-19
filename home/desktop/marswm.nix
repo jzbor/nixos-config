@@ -11,7 +11,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    jzbor-home.programs.buttermilk.enable = true;
     jzbor-home.programs.kermit.enable = true;
     jzbor-home.programs.marswm.enable = true;
     jzbor-home.programs.touchegg.enable = true;
@@ -82,12 +81,9 @@ in {
 
     xsession = {
       enable = true;
-      #windowManager.command = "marswm";
       initExtra = ''
         command -v solaar > /dev/null && solaar -w hide &
       '';
-      #windowManager.command = "${pkgs.marswm}/bin/marswm";
-      #initExtra = "${pkgs.buttermilk}/bin/buttermilk &";
     };
   };
 }

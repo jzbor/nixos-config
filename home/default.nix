@@ -20,7 +20,7 @@ with lib;
 
     home.sessionVariables = {
       EDITOR = "nvim";
-      TERMINAL = "${pkgs.buttermilk}/bin/buttermilk";
+      TERMINAL = "${pkgs.kermit-terminal}/bin/kermit";
     };
 
     home.file = {
