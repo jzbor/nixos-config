@@ -15,9 +15,9 @@
 
   hardware.amdgpu.opencl = false;
 
-  # # Via/QMK support
-  # environment.systemPackages = with pkgs; [ via ];
-  # services.udev.packages = [ pkgs.via ];
+  # Via/QMK support
+  environment.systemPackages = with pkgs; [ via ];
+  services.udev.packages = [ pkgs.via ];
   # Disable usb autosuspend, as it does not work with keyboard
   boot.kernelParams = [
     "usbcore.autosuspend=-1"
