@@ -26,7 +26,7 @@
 		<gesture type="SWIPE" fingers="3" direction="DOWN">
 			<action type="RUN_COMMAND">
 				<repeat>false</repeat>
-				<command>pkill -2 rofi || pkill -2 xwinmosaic ||  mars-relay menu &</command>
+				<command>pkill -SIGINT rofi || pkill xwinmosaic ||  mars-relay menu &</command>
 				<on>begin</on>
 			</action>
 		</gesture>
