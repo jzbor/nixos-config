@@ -28,10 +28,9 @@ in {
   }) games);
 
   config = mkIf cfg.enable {
-    hardware.opengl = {
+    hardware.graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
     };
 
     programs.steam = mkIf cfg.steam {
