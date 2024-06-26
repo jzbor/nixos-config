@@ -72,11 +72,26 @@ in {
       inactiveInterval = 10000;
       xss-lock.screensaverCycle = 10000;
     };
-    xdg.desktopEntries.lock-screen = {
-      name = "Lock Screen";
-      exec = "lock-screen";
-      categories = [ "System" "Utility" ];
-      icon = "system-lock-screen";
+
+    xdg.desktopEntries = {
+      lock-screen = {
+        name = "Lock Screen";
+        exec = "lock-screen";
+        categories = [ "System" "Utility" ];
+        icon = "system-lock-screen";
+      };
+      suspend = {
+        name = "Suspend";
+        exec = "systemctl suspend";
+        categories = [ "System" "Utility" ];
+        icon = "starred";
+      };
+      poweroff = {
+        name = "Poweroff";
+        exec = "poweroff";
+        categories = [ "System" "Utility" ];
+        icon = "system-shutdowstarredn";
+      };
     };
 
     xsession = {
