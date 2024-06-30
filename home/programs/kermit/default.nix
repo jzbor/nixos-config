@@ -3,7 +3,6 @@
 with lib;
 let
   cfg = config.jzbor-home.programs.kermit;
-  palette = config.colorScheme.palette;
 in {
   options.jzbor-home.programs.kermit = {
     enable = mkEnableOption "Install kermit terminal";

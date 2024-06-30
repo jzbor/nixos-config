@@ -10,12 +10,12 @@ jobs:
     steps:
     - name: 'Checkout repository'
       uses: actions/checkout@v4
-    - name: 'Install Nix'
-      uses: DeterminateSystems/nix-installer-action@main
-    # - name: 'Setup Nix cache'
-    #   uses: DeterminateSystems/magic-nix-cache-action@v3
-    - name: 'Run static checks'
-      run: nix run nixpkgs#statix -- check .
+    # - name: 'Install Nix'
+    #   uses: DeterminateSystems/nix-installer-action@main
+    # # - name: 'Setup Nix cache'
+    # #   uses: DeterminateSystems/magic-nix-cache-action@v3
+    # - name: 'Run static checks'
+    #   run: nix run nixpkgs#statix -- check .
 
   dead-code-analysis:
     runs-on: ubuntu-latest

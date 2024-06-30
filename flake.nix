@@ -22,7 +22,7 @@
   };
 
 
-  outputs = { self, nixpkgs, home-manager, cf, jzbor-overlay, nixos-hardware, nix-colors, disko, marswm, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, cf, jzbor-overlay, nixos-hardware, nix-colors, marswm, ... }@inputs: {
 
     # X1-CARBON LAPTOP
     nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
