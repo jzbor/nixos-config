@@ -7,7 +7,7 @@ in mkIf cfg.enable {
   programs.rofi = {
     theme = ./theme.rasi;
 
-    programs.rofi.extraConfig = {
+    extraConfig = {
       modi = "drun,ssh";
       font = "FiraCode Nerd Font 14";
       show-icons = true;
@@ -27,7 +27,7 @@ in mkIf cfg.enable {
       kb-row-right = "Control+l";
     };
 
-    programs.rofi.terminal = config.home.sessionVariables.TERMINAL;
+    terminal = config.home.sessionVariables.TERMINAL;
   };
 
 
