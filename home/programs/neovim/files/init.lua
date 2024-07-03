@@ -74,7 +74,10 @@ vim.wo.signcolumn = 'yes'
 vim.o.termguicolors = true
 vim.g.onedark_terminal_italics = 2
 vim.o.background = 'dark'
-vim.cmd [[colorscheme apprentice]]
+vim.g.zenbones_compat = 1
+vim.g.zenbones_compat = 1
+vim.cmd [[colorscheme zenwritten]]
+vim.cmd [[hi Normal guibg=#262626]]
 
 -- Set status bar settings
 require("yasl").setup({

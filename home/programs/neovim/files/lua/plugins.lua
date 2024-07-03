@@ -21,9 +21,7 @@ local plugins = {
   { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } }, -- UI to select things (files, search results, open buffers...)
   { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } },
   -- { 'romgrk/barbar.nvim', dependencies = {'kyazdani42/nvim-web-devicons'} }, -- A bar that will show at the top of you nvim containing your open buffers. Similarly to how other editors show tabs with open files.
-  'bluz71/vim-moonfly-colors', -- A theme I particularly like.
-  'fneu/breezy', -- color scheme
-  { 'romainl/Apprentice', branch = "fancylines-and-neovim" }, -- color scheme
+  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
   -- 'itchyny/lightline.vim', -- Fancier status line with some information that will be displayed at the bottom.
   -- 'nvim-lualine/lualine.nvim',
   { "brianaung/yasl.nvim", opts = {} },
@@ -42,6 +40,14 @@ local plugins = {
   -- { 'kaarmu/typst.vim', ft = {'typ'} } -- currently broken
   { 'kaarmu/typst.vim' },
   -- { 'whonore/Coqtail' },
+
+  -- Colorschemes
+  -- 'bluz71/vim-moonfly-colors', -- A theme I particularly like.
+  -- 'fneu/breezy', -- color scheme
+  -- { 'romainl/Apprentice', branch = "fancylines-and-neovim" }, -- color scheme
+  { 'zenbones-theme/zenbones.nvim', dependencies = { 'rktjmp/lush.nvim' } },
+  'huyvohcmc/atlas.vim',
+  'aditya-azad/candle-grey',
 }
 
 require("lazy").setup(plugins, {
