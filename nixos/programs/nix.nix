@@ -48,4 +48,5 @@
   nix.registry.cloud.to = { url = "ssh://git@github.com/jzbor/nixos-cloud"; type = "git"; };
   nix.registry.sp.to = { url = "ssh://git@gitlab.cs.fau.de/wa94tiju/sp-flake"; type = "git"; };
   nix.registry.nixos-config.to = { owner = "jzbor"; repo = "nixos-config"; type = "github"; };
+  nix.registry.zinn.to = { owner = "jzbor"; repo = "zinn"; type = "github"; };
 }
