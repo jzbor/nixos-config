@@ -76,7 +76,7 @@ vim.g.onedark_terminal_italics = 2
 vim.o.background = 'dark'
 vim.g.zenbones_compat = 1
 vim.g.zenbones_compat = 1
-vim.cmd [[colorscheme zenwritten]]
+vim.cmd [[colorscheme seoulbones]]
 vim.cmd [[hi Normal guibg=#262626]]
 
 -- Set status bar settings
