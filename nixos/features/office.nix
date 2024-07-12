@@ -66,7 +66,7 @@ in {
 
     environment.systemPackages = with pkgs; [
       libreoffice-fresh
-    ] ++ (if cfg.scanning.enable then [ pkgs.gnome.simple-scan ] else []);
+    ] ++ (if cfg.scanning.enable then [ pkgs.simple-scan ] else []);
 
 
     # Printing and Scanning

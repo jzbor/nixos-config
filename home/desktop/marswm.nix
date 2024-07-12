@@ -19,8 +19,8 @@ in {
     programs.rofi.enable = true;
 
     home.packages = with pkgs; [
+      file-roller
       gthumb
-      gnome.file-roller
       pavucontrol
       pcmanfm
       xclip

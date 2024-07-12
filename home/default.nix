@@ -58,7 +58,8 @@ with lib;
     jzbor-home.programs.iamb.enable = true;
 
     programs.thefuck = {
-      enable = true;
+      # TODO reenable when fixed
+      #enable = true;
       enableZshIntegration = true;
     };
   };
