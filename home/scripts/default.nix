@@ -12,6 +12,7 @@
     (pkgs.callPackage ./replay-area.nix {})
     (pkgs.callPackage ./riot.nix {})
     (pkgs.callPackage ./screencast.nix {})
+    (pkgs.callPackage ./search-nixpkgs.nix {})
     (pkgs.callPackage ./set-wallpaper.nix {})
     (pkgs.callPackage ./spotify-wm-compat.nix {})
     (pkgs.callPackage ./sshfs-shell.nix {})
