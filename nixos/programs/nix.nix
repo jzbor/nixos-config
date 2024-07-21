@@ -7,6 +7,7 @@
     extraOptions = ''
       min-free = ${toString (16 * 1042 * 1024 * 1024)}
       max-free = ${toString (32 * 1042 * 1024 * 1024)}
+      http-connections = 128
       experimental-features = nix-command flakes
     '';
 
