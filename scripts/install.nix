@@ -18,16 +18,17 @@ in pkgs.writeShellApplication {
         die "Must be run with root priviliges"
       fi
 
-      printf "\n=> Wiping disk header\n"
-      printf "This will wipe %s. Are you sure? [y/N] " "$1"
-      read -r
-      [ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] || die "Aborted"
-      set -x
-      ${pkgs.util-linux}/bin/wipefs -a "$1"
-      set +x
+      #printf "\n=> Wiping disk header\n"
+      #printf "This will wipe %s. Are you sure? [y/N] " "$1"
+      #read -r
+      #[ "$REPLY" = "y" ] || [ "$REPLY" = "Y" ] || die "Aborted"
+      #set -x
+      #${pkgs.util-linux}/bin/wipefs -a "$1"
+      #set +x
 
       printf "\n=> Formatting disk\n"
-      ${inputs.self.packages.${system}.format}/bin/format "$1" "$2"
+      #${inputs.self.packages.${system}.format}/bin/format "$1" "$2"
+      ${inputs.disko.packages.${system}.default}/bin/disko --mode disko --argstr disk "$1" "${inputs.self}/disk-layouts/$2.nix"
       sleep 2
 
       printf "\n=> Mounting filesystems\n"
