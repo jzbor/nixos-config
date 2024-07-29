@@ -5,7 +5,7 @@ set +o nounset
 
 SEPARATOR='\x1f'
 BATTERY_PATH="$(find /sys/class/power_supply -maxdepth 1 -mindepth 1 | { grep -i bat || true; } \
-	| { grep -vi hid || true; } | head -n 1)"
+	| { grep -vi hid || true; })"
 
 
 ### HELPERS
@@ -127,13 +127,27 @@ volume_block () {
 }
 
 battery_block () {
-	if [ -e "$BATTERY_PATH" ]; then
-		status="$(cat "$BATTERY_PATH/status")"
-		if [ "$status" = 'Charging' ]; then
-			printf 'charging: %s' "$(cat "$BATTERY_PATH/capacity")%"
-		else
-			printf 'battery: %s' "$(cat "$BATTERY_PATH/capacity")%"
-		fi
+	if [ -n "$BATTERY_PATH" ]; then
+		# "charging" if any battery is charging
+		status_str="battery"
+		for path in $BATTERY_PATH; do
+			status="$(cat "$path/status")"
+			if [ "$status" = 'Charging' ]; then
+				printf 'charging'
+			fi
+		done
+		printf '%s: ' "$status_str"
+
+		# status of all batteries
+		first=""
+		for path in $BATTERY_PATH; do
+			if [ -z "$first" ]; then
+				printf '%s' "$(cat "$path/capacity")%"
+				first="true"
+			else
+				printf ' %s' "$(cat "$path/capacity")%"
+			fi
+		done
 	else
 		echo "plugged in"
 	fi
