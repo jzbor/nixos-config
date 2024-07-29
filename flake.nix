@@ -51,6 +51,20 @@
       specialArgs = { inherit inputs; };
     };
 
+    # X250 LAPTOP
+    nixosConfigurations.x250 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+
+      modules = [
+        { networking.hostName = "x250"; }
+        ./nixos
+        ./nixos/hosts/x250
+      ];
+
+      specialArgs = { inherit inputs; };
+    };
+
+
     # E531 LAPTOP
     nixosConfigurations.e531 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
