@@ -22,6 +22,7 @@
     enable = true;
     extraVolumes = [
       "<volume user=\"jzbor\" fstype=\"crypt\" path=\"/dev/disk/by-label/crypt0-home\" mountpoint=\"~\" options=\"crypto_name=crypt0,allow_discard,fstype=ext4\"/>"
+      "<volume user=\"jzbor\" fstype=\"crypt\" path=\"/dev/disk/by-label/crypt1-home\" mountpoint=\"~\" options=\"crypto_name=crypt1-home,allow_discard,fstype=ext4\"/>"
       # extra drive on desktop-i5
       "<volume user=\"jzbor\" fstype=\"crypt\" path=\"/dev/disk/by-uuid/2fb1ab80-c89e-419a-96f3-ec89edbd4f16\" mountpoint=\"~/.bigdata\" options=\"crypto_name=crypt1,allow_discard,fstype=ext4\"/>"
     ];

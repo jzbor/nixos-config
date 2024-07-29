@@ -5,6 +5,8 @@ let
 in pkgs.writeShellApplication {
   name = if builtins.isNull hostConfig then "install" else "install-${hostConfig}";
   text = ''
+      REPLY=""
+
       die () { echo "$1"; exit 1; }
       usage () {
         echo "Usage: $0 <disk> <layout> ${if offline then "<profile>" else ""}"
@@ -51,8 +53,8 @@ in pkgs.writeShellApplication {
       printf "\n=> Changing use password\n"
       while true; do
         printf "Change password for: "
-        [ -z "$REPLY" ] && break
         read -r || break
+        [ -z "$REPLY" ] && break
         nixos-enter -c "passwd $REPLY" && break
       done
       printf "\n=> Done\n"
