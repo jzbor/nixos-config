@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -51,9 +51,10 @@
   services.xserver.displayManager.lightdm = {
     enable = true;
     greeters.gtk.enable = true;
+    greeters.slick.enable = false;
   };
 
   # Enable GUI
   jzbor-system.de.marswm.enable = true;
-  jzbor-system.de.xfce.enable = true;
+  jzbor-system.de.cinnamon.enable = true;
 }
