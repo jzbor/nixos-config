@@ -133,7 +133,7 @@ battery_block () {
 		for path in $BATTERY_PATH; do
 			status="$(cat "$path/status")"
 			if [ "$status" = 'Charging' ]; then
-				printf 'charging'
+				status_str='charging'
 			fi
 		done
 		printf '%s: ' "$status_str"
