@@ -62,7 +62,8 @@ with lib;
     # Management of XDG base directories
     xdg.enable = true;
 
-    jzbor-home.programs.iamb.enable = true;
+    # TODO Reenable once fixed (https://github.com/NixOS/nixpkgs/issues/332957)
+    #jzbor-home.programs.iamb.enable = true;
 
     programs.thefuck = {
       # TODO reenable when fixed
