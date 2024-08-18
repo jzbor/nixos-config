@@ -75,7 +75,7 @@ in {
         inherit (cfg.cursor) package;
       };
     };
-    services.xserver.displayManager.lightdm.background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
+    services.xserver.displayManager.lightdm.background = pkgs.nixos-artwork.wallpapers.stripes-logo.gnomeFilePath;
 
     # Make qt5 styling match gtk theme
     qt = {
