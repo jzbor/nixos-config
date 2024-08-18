@@ -21,8 +21,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      # TODO restore once https://github.com/NixOS/nixpkgs/pull/326444 is merged
-      #lollypop
+      lollypop
       vlc
       mpv
     ] ++ (if cfg.dvdSupport then [
