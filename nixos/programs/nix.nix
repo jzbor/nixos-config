@@ -9,6 +9,7 @@
       max-free = ${toString (32 * 1042 * 1024 * 1024)}
       http-connections = 128
       experimental-features = nix-command flakes
+      netrc-file = /etc/nix/netrc
     '';
 
     # Automatically run garbage collection for nix store
@@ -35,9 +36,11 @@
     settings.substituters = [
       "https://nix-community.cachix.org"
       "https://cache.nixos.org/"
+      "https://cache.jzbor.de/desktop"
     ];
     settings.trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "desktop:feMjIkyrgSZI+5lrUnKe3iwgGoykffN4ihScaBC/J7w="
     ];
   };
 

@@ -176,6 +176,7 @@
   } // cf.lib.flakeForDefaultSystems (system:
   let
     pkgs = nixpkgs.legacyPackages."${system}";
+    cacheName = "jzbor-de:desktop";
     inherit (pkgs) lib;
   in {
     ### PACKAGES ###
@@ -211,37 +212,46 @@
     apps.rebuild-system = cf.lib.createShellApp system {
       name = "rebuild";
       text = ''
-      if [ "$UID" = 0 ]; then
-        SUDO=""
-      elif command -v doas >/dev/null; then
-        SUDO="doas"
-      elif command -v sudo >/dev/null; then
-        SUDO="sudo"
-      fi
+        printf "\n=> Rebuilding system\n"
 
-      set -x
-      $SUDO nixos-rebuild switch --flake "${self}" "$@"
+        if [ "$UID" = 0 ]; then
+        SUDO=""
+        elif command -v doas >/dev/null; then
+        SUDO="doas"
+        elif command -v sudo >/dev/null; then
+        SUDO="sudo"
+        fi
+
+        set -x
+        $SUDO nixos-rebuild switch --flake "${self}" "$@"
+        set +x
+
+        if ${pkgs.attic-client}/bin/attic cache info ${cacheName} 2>/dev/null; then
+          printf "\n=> Pushing /run/current-system to binary cache (${cacheName})\n"
+          set +x
+          ${pkgs.attic-client}/bin/attic push ${cacheName} /run/current-system || true
+        fi
       '';
     };
 
     apps.rebuild-home = cf.lib.createShellApp system {
       name = "rebuild-home";
       text = ''
-      if [ "$UID" != 0 ]; then
-        set -x
-        ${home-manager.packages.${system}.default}/bin/home-manager switch --flake "${self}" "$@"
-      else
-        echo "Nothing to be done for user '$USER'"
-      fi
+        printf "\n=> Rebuilding home\n"
+
+        if [ "$UID" != 0 ]; then
+          set -x
+          ${home-manager.packages.${system}.default}/bin/home-manager switch --flake "${self}" "$@"
+        else
+          echo "Nothing to be done for user '$USER'"
+        fi
       '';
     };
 
     apps.rebuild = cf.lib.createShellApp system {
       name = "rebuild";
       text = ''
-      printf "\n=> Rebuilding system\n"
       nix run ${self}#rebuild-system
-      printf "\n=> Rebuilding home\n"
       nix run ${self}#rebuild-home
       '';
     };
