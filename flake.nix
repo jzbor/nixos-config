@@ -208,7 +208,7 @@
     }) self.nixosConfigurations;
 
     ### APPS ###
-    apps.rebuild = cf.lib.createShellApp system {
+    apps.rebuild-system = cf.lib.createShellApp system {
       name = "rebuild";
       text = ''
       if [ "$UID" = 0 ]; then
@@ -236,11 +236,11 @@
       '';
     };
 
-    apps.rebuild-both = cf.lib.createShellApp system {
-      name = "rebuild-both";
+    apps.rebuild = cf.lib.createShellApp system {
+      name = "rebuild";
       text = ''
       printf "\n=> Rebuilding system\n"
-      nix run ${self}#rebuild
+      nix run ${self}#rebuild-system
       printf "\n=> Rebuilding home\n"
       nix run ${self}#rebuild-home
       '';
@@ -277,7 +277,7 @@
       name = "full-maintenance";
       text = ''
       printf "\n=> Updating system\n"
-      nix run ${self}#rebuild
+      nix run ${self}#rebuild-system
       printf "\n=> Updating home\n"
       nix run ${self}#rebuild-home
       printf "\n=> Cleaning up afterwards\n"
