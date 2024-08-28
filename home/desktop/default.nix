@@ -25,7 +25,7 @@ in {
       okular
       scrcpy
       typst
-      #typst-lsp TODO include, when fixed; https://github.com/NixOS/nixpkgs/issues/332957
+      typst-lsp
       yt-dlp
 
       # fonts

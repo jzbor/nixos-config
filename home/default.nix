@@ -56,19 +56,9 @@ with lib;
     programs.neovim.enable = true;
     programs.neovim.extraPackages = with pkgs; [ gcc ];
 
-    # Replace command-not-found with nix-index
-    #programs.nix-index.enable = true;
-
     # Management of XDG base directories
     xdg.enable = true;
 
-    # TODO Reenable once fixed (https://github.com/NixOS/nixpkgs/issues/332957)
-    #jzbor-home.programs.iamb.enable = true;
-
-    programs.thefuck = {
-      # TODO reenable when fixed
-      #enable = true;
-      enableZshIntegration = true;
-    };
+    jzbor-home.programs.iamb.enable = true;
   };
 }
