@@ -8,6 +8,7 @@ let
     nextcloud-client
     pcmanfm
     zathura
+    superTuxKart
   ];
   systemUtilPackages = with pkgs; [
     cryptsetup
