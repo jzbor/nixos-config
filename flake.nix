@@ -223,13 +223,19 @@
         fi
 
         set -x
-        $SUDO nixos-rebuild switch --flake "${self}" "$@"
+        $SUDO ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch --flake "${self}" "$@"
         set +x
 
         if ${pkgs.attic-client}/bin/attic cache info ${cacheName} 2>/dev/null; then
-          printf "\n=> Pushing /run/current-system to binary cache (${cacheName})\n"
+          printf "\n=> Pushing system closure to binary cache (${cacheName})\n"
+          temp="$(mktemp -d)"
           set +x
-          ${pkgs.attic-client}/bin/attic push ${cacheName} /run/current-system || true
+          cd "$temp"
+          ${pkgs.nixos-rebuild}/bin/nixos-rebuild build --flake "${self}" "$@"
+          ${pkgs.attic-client}/bin/attic push ${cacheName} ./result || true
+          rm ./result
+            cd - >/dev/null
+          rmdir "$temp"
         fi
       '';
     };
@@ -242,6 +248,18 @@
         if [ "$UID" != 0 ]; then
           set -x
           ${home-manager.packages.${system}.default}/bin/home-manager switch --flake "${self}" "$@"
+
+          if ${pkgs.attic-client}/bin/attic cache info ${cacheName} 2>/dev/null; then
+            printf "\n=> Pushing home closure to binary cache (${cacheName})\n"
+            temp="$(mktemp -d)"
+            set +x
+            cd "$temp"
+            ${home-manager.packages.${system}.default}/bin/home-manager build --flake "${self}" "$@"
+            ${pkgs.attic-client}/bin/attic push ${cacheName} ./result || true
+            rm ./result
+            cd - >/dev/null
+            rmdir "$temp"
+          fi
         else
           echo "Nothing to be done for user '$USER'"
         fi
