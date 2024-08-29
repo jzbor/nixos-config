@@ -79,6 +79,7 @@ in mkIf cfg.enable {
       ls = "${uutils-coreutils-noprefix}/bin/ls --color=auto --human-readable";
       lisho-edit = "ssh ln.jzbor.de -t nvim /var/lib/lisho/mappings";
       news = "cliflux";
+      attic-size = "ssh root@fsn1-03.jzbor.de du -sh /var/lib/private/atticd/*";
 
       build = "nix build";
       run = "nix run";

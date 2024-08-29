@@ -30,8 +30,11 @@ with lib;
     };
 
     home.packages = with pkgs; [
+      attic-client
       bat
       btop
+      cliflux
+      gcc
       librespeed-cli
       nil
       powertop
@@ -40,8 +43,6 @@ with lib;
       unzip
       uutils-coreutils-noprefix
       zip
-      cliflux
-      gcc
     ];
 
     # garbage collection
