@@ -1,4 +1,4 @@
-name: "Flake"
+name: flake
 
 on:
   push:
@@ -37,6 +37,8 @@ jobs:
       matrix:
         include:
           - system: 'x1-carbon'
+            arch: 'x86_64-linux'
+          - system: 'desktop-i5'
             arch: 'x86_64-linux'
           # - system: 'fsn1-03'
           #   arch: 'aarch64-linux'

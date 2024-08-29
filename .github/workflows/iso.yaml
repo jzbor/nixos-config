@@ -1,4 +1,4 @@
-name: "Build NixOS ISOs"
+name: iso
 
 on:
   workflow_dispatch: # allows manual triggering
