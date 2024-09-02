@@ -37,10 +37,14 @@
       "https://nix-community.cachix.org"
       "https://cache.nixos.org/"
       "https://cache.jzbor.de/desktop"
+      "https://cache.jzbor.de/sp"
+      "https://cache.jzbor.de/public"
     ];
     settings.trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "desktop:feMjIkyrgSZI+5lrUnKe3iwgGoykffN4ihScaBC/J7w="
+      "sp:v8udot3ROy99u4GTQZ79zsRxpzNLvYrTSN17odOHMnc="
+      "public:AdkE6qSLmWKFX4AptLFl+n+RTPIo1lrBhT2sPgfg5s4="
     ];
   };
 
