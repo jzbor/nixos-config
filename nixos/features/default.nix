@@ -5,7 +5,6 @@ with types;
 {
   imports = [
     ./audio.nix
-    ./coding.nix
     ./editing.nix
     ./gaming.nix
     ./input.nix
