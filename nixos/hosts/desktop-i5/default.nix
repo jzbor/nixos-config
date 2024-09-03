@@ -9,6 +9,7 @@
   };
 
   jzbor-system.features.gaming.enable = true;
+  programs.adb.enable = true;
 
   # Enable cross building for aarch64
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
