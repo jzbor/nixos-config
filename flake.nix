@@ -209,6 +209,16 @@
     }) self.nixosConfigurations;
 
     ### APPS ###
+    apps.default = self.apps.${system}.rebuild;
+
+    apps.rebuild = cf.lib.createShellApp system {
+      name = "rebuild";
+      text = ''
+      nix run ${self}#rebuild-system
+      nix run ${self}#rebuild-home
+      '';
+    };
+
     apps.rebuild-system = cf.lib.createShellApp system {
       name = "rebuild";
       text = ''
@@ -266,15 +276,6 @@
         fi
       '';
     };
-
-    apps.rebuild = cf.lib.createShellApp system {
-      name = "rebuild";
-      text = ''
-      nix run ${self}#rebuild-system
-      nix run ${self}#rebuild-home
-      '';
-    };
-
 
     apps.cleanup = let
       expireAfterDays = "30";
