@@ -96,5 +96,5 @@ jobs:
         token: ${{ secrets.ATTIC_TOKEN }}
     - name: 'Build home'
       # This probably builds x86_64 either way, no clue why
-      run: nix run nixpkgs#nix-fast-build -- --systems ${{ matrix.arch }} --option extra-platforms ${{ matrix.arch }} --eval-workers 4 --eval-max-memory-size 3000 --skip-cached --no-nom --flake ".#homeConfigurations.jzbor.config.home.path"
+      run: nix run nixpkgs#nix-fast-build -- --systems ${{ matrix.arch }} --option extra-platforms ${{ matrix.arch }} --eval-workers 4 --eval-max-memory-size 3000 --skip-cached --no-nom --flake ".#homeConfigurations.jzbor.config.home-files"
 
