@@ -72,19 +72,27 @@ jobs:
     runs-on: ubuntu-latest
     needs: [static-analysis, dead-code-analysis]
     timeout-minutes: 45
+    strategy:
+      matrix:
+        include:
+          - arch: 'x86_64-linux'
+          - arch: 'aarch64-linux'
     steps:
     - name: 'Checkout repository'
       uses: actions/checkout@v4
     - name: 'Install Nix'
       uses: DeterminateSystems/nix-installer-action@main
-    - name: Install home-manager
-      run: nix build nixpkgs#home-manager --no-link
+    - name: 'Install QEMU/binfmt'
+      uses: docker/setup-qemu-action@v1
+      if: ${{ matrix.arch != 'x86_64-linux' }}
+    - name: Install nix-fast-build
+      run: nix build nixpkgs#nix-fast-build --no-link
     - name: Setup Attic cache
       uses: ryanccn/attic-action@v0.2.1
       with:
         endpoint: ${{ secrets.ATTIC_ENDPOINT }}
         cache: ${{ secrets.ATTIC_CACHE }}
         token: ${{ secrets.ATTIC_TOKEN }}
-    - name: 'Build system'
-      run: nix run nixpkgs#home-manager -- --flake . build
+    - name: 'Build home'
+      run: nix run nixpkgs#nix-fast-build -- --systems ${{ matrix.arch }} --option extra-platforms ${{ matrix.arch }} --eval-workers 4 --eval-max-memory-size 3000 --skip-cached --no-nom --flake ".#homeConfigurations.jzbor.config.home.path"
 
