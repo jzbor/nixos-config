@@ -43,8 +43,10 @@ jobs:
             arch: 'x86_64-linux'
           - system: 'desktop-i5'
             arch: 'x86_64-linux'
-          - system: 'pinebook-pro'
+          - system: 'x250'
             arch: 'aarch64-linux'
+          # - system: 'pinebook-pro'
+          #   arch: 'aarch64-linux'
     steps:
     - name: 'Checkout repository'
       uses: actions/checkout@v4
@@ -74,8 +76,10 @@ jobs:
             arch: 'x86_64-linux'
           - system: 'desktop-i5'
             arch: 'x86_64-linux'
-          - system: 'pinebook-pro'
+          - system: 'x250'
             arch: 'aarch64-linux'
+          # - system: 'pinebook-pro'
+          #   arch: 'aarch64-linux'
     steps:
     - name: 'Checkout repository'
       uses: actions/checkout@v4
