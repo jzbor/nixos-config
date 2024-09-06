@@ -45,7 +45,7 @@ jobs:
             arch: 'x86_64-linux'
           - system: 'x250'
             arch: 'x86_64-linux'
-          - system: 'e351'
+          - system: 'e531'
             arch: 'x86_64-linux'
           # - system: 'pinebook-pro'
           #   arch: 'aarch64-linux'
