@@ -9,13 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout repository'
+      if: false  # DISABLED
       uses: actions/checkout@v4
-    # - name: 'Install Nix'
-    #   uses: DeterminateSystems/nix-installer-action@main
+    - name: 'Install Nix'
+      if: false  # DISABLED
+      uses: DeterminateSystems/nix-installer-action@main
     # # - name: 'Setup Nix cache'
     # #   uses: DeterminateSystems/magic-nix-cache-action@v3
-    # - name: 'Run static checks'
-    #   run: nix run nixpkgs#statix -- check .
+    - name: 'Run static checks'
+      if: false  # DISABLED
+      run: nix run nixpkgs#statix -- check .
 
   dead-code-analysis:
     runs-on: ubuntu-latest
@@ -55,7 +58,6 @@ jobs:
         endpoint: ${{ secrets.ATTIC_ENDPOINT }}
         cache: ${{ secrets.ATTIC_CACHE }}
         token: ${{ secrets.ATTIC_TOKEN }}
-        skip-push: true
     - name: 'Build system'
       run: nix build --extra-platforms ${{ matrix.arch }} .#nixosConfigurations.${{ matrix.system }}.config.system.build.toplevel
 
@@ -85,7 +87,6 @@ jobs:
         endpoint: ${{ secrets.ATTIC_ENDPOINT }}
         cache: ${{ secrets.ATTIC_CACHE }}
         token: ${{ secrets.ATTIC_TOKEN }}
-        skip-push: true
     - name: 'Build system'
-      run: nix run github:Mic92/nix-fast-build -- --systems ${{ matrix.arch }} --eval-workers 4 --eval-max-memory-size 3000 --skip-cached --flake ".#nixosConfigurations.${{ matrix.system }}.config.system.build.toplevel"
+      run: nix run github:Mic92/nix-fast-build -- --systems ${{ matrix.arch }} --eval-workers 4 --eval-max-memory-size 3000 --skip-cached --no-nom --flake ".#nixosConfigurations.${{ matrix.system }}.config.system.build.toplevel"
 
