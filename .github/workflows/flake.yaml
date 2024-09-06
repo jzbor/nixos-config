@@ -44,40 +44,9 @@ jobs:
           - system: 'desktop-i5'
             arch: 'x86_64-linux'
           - system: 'x250'
-            arch: 'aarch64-linux'
-          # - system: 'pinebook-pro'
-          #   arch: 'aarch64-linux'
-    steps:
-    - name: 'Checkout repository'
-      uses: actions/checkout@v4
-    - name: 'Install Nix'
-      uses: DeterminateSystems/nix-installer-action@main
-    - name: 'Install QEMU/binfmt'
-      uses: docker/setup-qemu-action@v1
-    # - name: 'Setup Nix cache'
-    #   uses: DeterminateSystems/magic-nix-cache-action@v3
-    - name: Setup Attic cache
-      uses: ryanccn/attic-action@v0.2.1
-      with:
-        endpoint: ${{ secrets.ATTIC_ENDPOINT }}
-        cache: ${{ secrets.ATTIC_CACHE }}
-        token: ${{ secrets.ATTIC_TOKEN }}
-    - name: 'Build system'
-      run: nix build --extra-platforms ${{ matrix.arch }} .#nixosConfigurations.${{ matrix.system }}.config.system.build.toplevel
-
-  build-system-fast:
-    runs-on: ubuntu-latest
-    needs: [static-analysis, dead-code-analysis]
-    timeout-minutes: 45
-    strategy:
-      matrix:
-        include:
-          - system: 'x1-carbon'
             arch: 'x86_64-linux'
-          - system: 'desktop-i5'
+          - system: 'e351'
             arch: 'x86_64-linux'
-          - system: 'x250'
-            arch: 'aarch64-linux'
           # - system: 'pinebook-pro'
           #   arch: 'aarch64-linux'
     steps:
