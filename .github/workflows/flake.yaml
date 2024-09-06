@@ -58,6 +58,8 @@ jobs:
       uses: docker/setup-qemu-action@v1
     # - name: 'Setup Nix cache'
     #   uses: DeterminateSystems/magic-nix-cache-action@v3
+    - name: Install nix-fast-build
+      run: nix build nixpkgs#nix-fast-build --no-link
     - name: Setup Attic cache
       uses: ryanccn/attic-action@v0.2.1
       with:
