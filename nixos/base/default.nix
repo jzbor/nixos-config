@@ -4,6 +4,7 @@
   imports = [
     ./disks.nix
     ./localization.nix
+    ./memory.nix
     ./networking.nix
     ./nixpkgs.nix
     ./packages.nix
@@ -22,13 +23,6 @@
 
   # switch default system shell to dash
   environment.binsh = "${pkgs.dash}/bin/dash";
-
-  # Enable zram swap
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 50;
-  };
 
   # Use nix-locate as command not found replacement
   # It seems to handle flakes and stuff better
