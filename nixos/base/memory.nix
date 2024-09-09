@@ -11,6 +11,7 @@
   # Enable userspace OOM
   systemd.oomd = {
     enable = true;
+    enableRootSlice = true;
     enableSystemSlice = true;
     enableUserSlices = true;
   };
