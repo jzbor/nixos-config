@@ -80,6 +80,7 @@ in mkIf cfg.enable {
       news = "cliflux";
       attic-size = "ssh root@fsn1-03.jzbor.de du -sh /var/lib/private/atticd/*";
       typst-wc = "sh -c 'typst compile -f pdf $0 /dev/stdout | nix shell nixpkgs#poppler_utils -c pdftotext - - | wc'";
+      typst-to-text = "sh -c 'typst compile -f pdf $0 /dev/stdout | nix shell nixpkgs#poppler_utils -c pdftotext - -'";
 
       build = "nix build";
       run = "nix run";
