@@ -75,7 +75,6 @@ in mkIf cfg.enable {
       cp = "${uutils-coreutils-noprefix}/bin/cp --progress";
       mv = "${uutils-coreutils-noprefix}/bin/mv --progress";
       mkdir = "mkdir --verbose --parents";
-      cat = "${bat}/bin/bat";
       ls = "${uutils-coreutils-noprefix}/bin/ls --color=auto --human-readable";
       lisho-edit = "ssh ln.jzbor.de -t nvim /var/lib/lisho/mappings";
       news = "cliflux";
