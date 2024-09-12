@@ -38,6 +38,7 @@ with lib;
       librespeed-cli
       nil
       powertop
+      rustup
       tealdeer
       tree
       unzip
