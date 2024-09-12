@@ -46,6 +46,9 @@
       "sp:v8udot3ROy99u4GTQZ79zsRxpzNLvYrTSN17odOHMnc="
       "public:AdkE6qSLmWKFX4AptLFl+n+RTPIo1lrBhT2sPgfg5s4="
     ];
+
+    # Disable online registry
+    settings.flake-registry = "";
   };
 
   # Make nixpkgs available to local nix commands like `nix shell` or `nix-shell`
