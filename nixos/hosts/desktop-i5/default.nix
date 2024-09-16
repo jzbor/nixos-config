@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   system.stateVersion = "22.11";
@@ -14,11 +14,11 @@
   # Enable cross building for aarch64
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  # Via/QMK support
-  environment.systemPackages = with pkgs; [ via ];
-  services.udev.packages = [ pkgs.via ];
-  # Disable usb autosuspend, as it does not work with keyboard
-  boot.kernelParams = [
-    "usbcore.autosuspend=-1"
-  ];
+  # # Via/QMK support
+  # environment.systemPackages = with pkgs; [ via ];
+  # services.udev.packages = [ pkgs.via ];
+  # # Disable usb autosuspend, as it does not work with keyboard
+  # boot.kernelParams = [
+  #   "usbcore.autosuspend=-1"
+  # ];
 }
