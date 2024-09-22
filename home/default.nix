@@ -45,6 +45,7 @@ with lib;
       unzip
       uutils-coreutils-noprefix
       zip
+      nix-tree
     ];
 
     # garbage collection
