@@ -173,9 +173,10 @@
         ];
         extraSpecialArgs = { inherit nix-colors; };
       });
-  } // cf.lib.flakeForDefaultSystems (system:
+  } // (cf.mkLib nixpkgs).flakeForDefaultSystems (system:
   let
     pkgs = nixpkgs.legacyPackages."${system}";
+    libcf = cf.mkLib nixpkgs;
     cacheName = "jzbor-de:desktop";
     inherit (pkgs) lib;
   in {
@@ -211,7 +212,7 @@
     ### APPS ###
     apps.default = self.apps.${system}.rebuild;
 
-    apps.rebuild = cf.lib.createShellApp system {
+    apps.rebuild = libcf.createShellApp system {
       name = "rebuild";
       text = ''
       nix run ${self}#rebuild-system
@@ -219,7 +220,7 @@
       '';
     };
 
-    apps.rebuild-system = cf.lib.createShellApp system {
+    apps.rebuild-system = libcf.createShellApp system {
       name = "rebuild";
       text = ''
         printf "\n=> Rebuilding system\n"
@@ -250,7 +251,7 @@
       '';
     };
 
-    apps.rebuild-home = cf.lib.createShellApp system {
+    apps.rebuild-home = libcf.createShellApp system {
       name = "rebuild-home";
       text = ''
         printf "\n=> Rebuilding home\n"
@@ -280,7 +281,7 @@
     apps.cleanup = let
       expireAfterDays = "30";
     in
-    cf.lib.createShellApp system {
+    libcf.createShellApp system {
       name = "cleanup";
       text = ''
       if [ "$UID" = 0 ]; then
@@ -303,7 +304,7 @@
       '';
     };
 
-    apps.full-maintenance = cf.lib.createShellApp system {
+    apps.full-maintenance = libcf.createShellApp system {
       name = "full-maintenance";
       text = ''
       printf "\n=> Updating system\n"
@@ -315,7 +316,7 @@
       '';
     };
 
-    apps.run-vm = cf.lib.createShellApp system {
+    apps.run-vm = libcf.createShellApp system {
       name = "run-vm";
       text = ''
       path="$(nix build "${self}#nixosConfigurations.$1.config.system.build.vm" --no-link --print-out-paths)"
@@ -323,7 +324,7 @@
       '';
     };
 
-    apps.push-nvim = cf.lib.createShellApp system {
+    apps.push-nvim = libcf.createShellApp system {
       name = "push-nvim";
       text = ''
         if [ "$#" != 1 ]; then
