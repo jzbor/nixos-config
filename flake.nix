@@ -153,7 +153,7 @@
         inherit pkgs;
 
         modules = [ ./home ];
-        extraSpecialArgs = { inherit nix-colors; };
+        extraSpecialArgs = { inherit nix-colors; inherit (inputs) nix-index-database;};
       });
 
     homeConfigurations."jzbor@pinebook-pro" = home-manager.lib.homeManagerConfiguration (
@@ -171,7 +171,7 @@
             services.nextcloud-client.enable = pkgs.lib.mkForce false;
           }
         ];
-        extraSpecialArgs = { inherit nix-colors; };
+        extraSpecialArgs = { inherit nix-colors; inherit (inputs) nix-index-database;};
       });
   } // (cf.mkLib nixpkgs).flakeForDefaultSystems (system:
   let
