@@ -1,24 +1,46 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    cf.url = "github:jzbor/cornflakes";
-    cf.inputs.nixpkgs.follows = "nixpkgs";
-    disko.url = "github:nix-community/disko/v1.6.1";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    jzbor-overlay.inputs.nixpkgs.follows = "nixpkgs";
-    jzbor-overlay.url = "github:jzbor/nix-overlay";
-    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-    lanzaboote.url = "github:nix-community/lanzaboote/v0.3.0";
+
+    cf = {
+      url = "github:jzbor/cornflakes";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    jzbor-overlay = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:jzbor/nix-overlay";
+    };
+
+    home-manager = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
+    };
+
+    disko = {
+      url = "github:nix-community/disko/v1.6.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/lanzaboote/v0.4.1";
+    };
+
     nix-colors.url = "github:misterio77/nix-colors";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nix-index-database.url = "github:Mic92/nix-index-database";
+
+    nix-index-database = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Mic92/nix-index-database";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    rock5b.url = "github:KireinaHoro/rock5b-nixos";
-    marswm.url = "github:jzbor/marswm";
-    marswm.inputs.nixpkgs.follows = "nixpkgs";
-    marswm.inputs.cf.follows = "cf";
+
+    marswm = {
+      url = "github:jzbor/marswm";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.cf.follows = "cf";
+    };
   };
 
 
@@ -132,16 +154,6 @@
       modules = [ ./nixos/hosts/live ./nixos/hosts/live/rock5b-dtb.nix ];
       specialArgs = { inherit inputs; };
     };
-
-    # Rock5B UEFI Live USB
-    nixosConfigurations.live-rock5b-bsp = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = [ ./nixos/hosts/live ./nixos/hosts/live/rock5b-bsp.nix ];
-      specialArgs = { inherit inputs; };
-    };
-
-
-
 
   } // {
 
