@@ -78,6 +78,9 @@
 - modifiers: [ Mod4, Control ]
   key: r
   action: !execute rofi -dmenu -p "nix run" | xargs -I "{}" nix run --offline "nixpkgs#{}"
+- modifiers: [ Mod4, Shift ]
+  key: s
+  action: !execute find ~/.screenlayout -type f | rofi -dmenu | sh
 
 # Programs
 - modifiers: [ Mod4 ]
