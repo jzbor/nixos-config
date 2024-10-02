@@ -54,3 +54,9 @@ precmd () {
 	echo -ne "\033]0;$(basename "$SHELL") - $PWD\007"
 }
 
+# command-not-found implementation
+command_not_found_handler() {
+	if ! comma "$1"; then
+		return 127
+	fi
+}

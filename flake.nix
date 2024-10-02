@@ -160,7 +160,12 @@
     homeConfigurations.jzbor = home-manager.lib.homeManagerConfiguration (
       let
         system = "x86_64-linux";
-        pkgs = import nixpkgs { inherit system; overlays = [ jzbor-overlay.overlays.default marswm.overlays.default ]; };
+        overlays = [
+          jzbor-overlay.overlays.default
+          marswm.overlays.default
+          inputs.nix-index-database.overlays.nix-index
+        ];
+        pkgs = import nixpkgs { inherit system; inherit overlays; };
       in {
         inherit pkgs;
 
@@ -171,7 +176,12 @@
     homeConfigurations."jzbor@pinebook-pro" = home-manager.lib.homeManagerConfiguration (
       let
         system = "aarch64-linux";
-        pkgs = import nixpkgs { inherit system; overlays = [ jzbor-overlay.overlays.default marswm.overlays.default ]; };
+        overlays = [
+          jzbor-overlay.overlays.default
+          marswm.overlays.default
+          inputs.nix-index-database.overlays.nix-index
+        ];
+        pkgs = import nixpkgs { inherit system; inherit overlays; };
       in {
         inherit pkgs;
 
