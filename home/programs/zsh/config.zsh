@@ -6,6 +6,7 @@ setopt nobeep               # No beep
 setopt appendhistory        # Immediately append history instead of overwriting
 setopt autocd               # if only directory path is entered, cd there.
 setopt histignorealldups    # If a new command is a duplicate, remove the older one
+setopt completealiases      # enable autocomplete for aliases
 
 
 ## Keybindings
