@@ -5,7 +5,7 @@
 
   jzbor-system.boot = {
     scheme = "traditional";
-    secureBoot = false;
+    secureBoot = true;
   };
 
   jzbor-system.features.gaming.enable = true;

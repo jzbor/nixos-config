@@ -13,7 +13,7 @@ in {
 
         systemd-boot = {
           enable = true;
-          memtest86.enable = true;
+          memtest86.enable = false;
         };
       };
 
