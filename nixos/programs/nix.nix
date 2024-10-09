@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, config, inputs, ... }:
 
 {
   nix = {
@@ -56,6 +56,8 @@
   environment.etc."channels/nixpkgs".source = inputs.nixpkgs.outPath;
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.registry.parcels.to = { owner = "jzbor"; repo = "nix-parcels"; type = "github"; };
+  nix.registry.cornflakes.to = { owner = "jzbor"; repo = "cornflakes"; type = "github"; };
+  nix.registry.templates.to = config.nix.registry.cornflakes.to;
   nix.registry.homepage.to = { url = "ssh://git@github.com/jzbor/jzbor.github.io"; submodules = true; type = "git"; };
   nix.registry.cloud.to = { url = "ssh://git@github.com/jzbor/nixos-cloud"; type = "git"; };
   nix.registry.sp.to = { url = "ssh://git@gitlab.cs.fau.de/wa94tiju/sp-flake"; type = "git"; };
