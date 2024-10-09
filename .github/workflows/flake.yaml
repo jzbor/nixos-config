@@ -54,18 +54,16 @@ jobs:
     - name: 'Install QEMU/binfmt'
       uses: docker/setup-qemu-action@v1
       if: ${{ matrix.arch != 'x86_64-linux' }}
+    - name: Install nix-fast-build
+      run: nix build nixpkgs#nix-fast-build --no-link
     - name: Setup Attic cache
       uses: ryanccn/attic-action@v0.2.1
       with:
         endpoint: ${{ secrets.ATTIC_ENDPOINT }}
         cache: ${{ secrets.ATTIC_CACHE }}
         token: ${{ secrets.ATTIC_TOKEN }}
-    - name: 'Checking binary cache'
-      id: check-binary-cache
-      run: if curl -f "${{ secrets.ATTIC_ENDPOINT }}/${{ secrets.ATTIC_CACHE }}/$(nix eval --raw ".#nixosConfigurations.${{ matrix.system }}.config.system.build.toplevel" | sed 's/.nix.store.\([a-z0-9]*\).*/\1/').narinfo"; then echo "exists=1" | tee -a $GITHUB_OUTPUT; fi
     - name: 'Build system'
-      if: ${{ steps.check-binary-cache.outputs.exists == null }}
-      run: nix build ".#nixosConfigurations.${{ matrix.system }}.config.system.build.toplevel"
+      run: nix run nixpkgs#nix-fast-build -- --systems ${{ matrix.arch }} --option extra-platforms ${{ matrix.arch }} --eval-workers 4 --eval-max-memory-size 3000 --skip-cached --no-nom --flake ".#nixosConfigurations.${{ matrix.system }}.config.system.build.toplevel"
 
   build-home:
     runs-on: ubuntu-latest
@@ -84,16 +82,15 @@ jobs:
     - name: 'Install QEMU/binfmt'
       uses: docker/setup-qemu-action@v1
       if: ${{ matrix.arch != 'x86_64-linux' }}
+    - name: Install nix-fast-build
+      run: nix build nixpkgs#nix-fast-build --no-link
     - name: Setup Attic cache
       uses: ryanccn/attic-action@v0.2.1
       with:
         endpoint: ${{ secrets.ATTIC_ENDPOINT }}
         cache: ${{ secrets.ATTIC_CACHE }}
         token: ${{ secrets.ATTIC_TOKEN }}
-    - name: 'Checking binary cache'
-      id: check-binary-cache
-      run: if curl -f "${{ secrets.ATTIC_ENDPOINT }}/${{ secrets.ATTIC_CACHE }}/$(nix eval --raw ".#homeConfigurations.jzbor.config.home-files" | sed 's/.nix.store.\([a-z0-9]*\).*/\1/').narinfo"; then echo "exists=1" | tee -a $GITHUB_OUTPUT; fi
     - name: 'Build home'
       # This probably builds x86_64 either way, no clue why
-      run: nix build ".#homeConfigurations.jzbor.config.home-files"
+      run: nix run nixpkgs#nix-fast-build -- --systems ${{ matrix.arch }} --option extra-platforms ${{ matrix.arch }} --eval-workers 4 --eval-max-memory-size 3000 --skip-cached --no-nom --flake ".#homeConfigurations.jzbor.config.home-files"
 
