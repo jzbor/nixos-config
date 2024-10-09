@@ -7,9 +7,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    jzbor-overlay = {
+    parcels = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:jzbor/nix-overlay";
+      url = "github:jzbor/nix-parcels";
     };
 
     home-manager = {
@@ -44,7 +44,7 @@
   };
 
 
-  outputs = { self, nixpkgs, home-manager, cf, jzbor-overlay, nixos-hardware, nix-colors, marswm, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, cf, parcels, nixos-hardware, nix-colors, marswm, ... }@inputs: {
 
     # X1-CARBON LAPTOP
     nixosConfigurations.x1-carbon = nixpkgs.lib.nixosSystem {
@@ -161,7 +161,7 @@
       let
         system = "x86_64-linux";
         overlays = [
-          jzbor-overlay.overlays.default
+          parcels.overlays.default
           marswm.overlays.default
           inputs.nix-index-database.overlays.nix-index
         ];
@@ -177,7 +177,7 @@
       let
         system = "aarch64-linux";
         overlays = [
-          jzbor-overlay.overlays.default
+          parcels.overlays.default
           marswm.overlays.default
           inputs.nix-index-database.overlays.nix-index
         ];
