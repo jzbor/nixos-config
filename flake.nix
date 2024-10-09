@@ -219,7 +219,7 @@
     legacyPackages = lib.mapAttrs' (name: host: {
       name = "live-offline_${name}";
       value = (nixpkgs.lib.nixosSystem {
-        system = host.pkgs.system;
+        inherit (host.pkgs) system;
         modules = [
           ./nixos/hosts/live
           {

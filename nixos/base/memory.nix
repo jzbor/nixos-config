@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # Enable zram swap

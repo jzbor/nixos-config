@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   hardware.deviceTree.enable = true;

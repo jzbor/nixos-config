@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # Replace sudo with doas

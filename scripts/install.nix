@@ -1,7 +1,7 @@
 {pkgs, inputs, system, hostConfig ? null, ...}:
 
 let
-  offline = isNull hostConfig;
+  offline = hostConfig == null;
 in pkgs.writeShellApplication {
   name = if builtins.isNull hostConfig then "install" else "install-${hostConfig}";
   text = ''

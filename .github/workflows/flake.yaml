@@ -9,17 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout repository'
-      if: false  # DISABLED
       uses: actions/checkout@v4
     - name: 'Install Nix'
-      if: false  # DISABLED
       uses: DeterminateSystems/nix-installer-action@main
     - name: Install statix
-      if: false  # DISABLED
       run: nix build nixpkgs#statix --no-link
     - name: 'Run static checks'
-      if: false  # DISABLED
-      run: nix run nixpkgs#statix -- check .
+      run: nix run nixpkgs#statix -- check
 
   dead-code-analysis:
     runs-on: ubuntu-latest
