@@ -4,7 +4,6 @@
 
     cf = {
       url = "github:jzbor/cornflakes";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     parcels = {
