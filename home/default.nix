@@ -1,10 +1,10 @@
-{ config, pkgs, lib, nix-colors, nix-index-database, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 with lib;
 {
   imports = [
-    nix-colors.homeManagerModule
-    nix-index-database.hmModules.nix-index
+    inputs.nix-colors.homeManagerModule
+    inputs.nix-index-database.hmModules.nix-index
     ./desktop
     ./features
     ./programs

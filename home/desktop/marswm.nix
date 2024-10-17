@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 with lib;
 let
@@ -58,9 +58,7 @@ in {
 
     services.picom = {
       enable = true;
-      package = pkgs.picom;
-      backend = "glx";
-      vSync = true;
+      package = inputs.nixpkgs-picom.legacyPackages.${pkgs.system}.picom;
     };
 
     services.screen-locker = {

@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-picom.url = "github:nixos/nixpkgs/nixpkgs-unstable";  # TODO: Remove once https://nixpkgs-tracker.ocfox.me/?pr=348561 is fixed
 
     cf = {
       url = "github:jzbor/cornflakes";
@@ -169,7 +170,7 @@
         inherit pkgs;
 
         modules = [ ./home ];
-        extraSpecialArgs = { inherit nix-colors; inherit (inputs) nix-index-database;};
+        extraSpecialArgs = { inherit inputs; inherit nix-colors; inherit (inputs) nix-index-database;};
       });
 
     homeConfigurations."jzbor@pinebook-pro" = home-manager.lib.homeManagerConfiguration (
@@ -180,7 +181,7 @@
           marswm.overlays.default
           inputs.nix-index-database.overlays.nix-index
         ];
-        pkgs = import nixpkgs { inherit system; inherit overlays; };
+        pkgs = import nixpkgs { inherit inputs; };
       in {
         inherit pkgs;
 

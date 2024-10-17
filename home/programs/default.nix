@@ -11,6 +11,7 @@
     ./marswm
     ./mpv
     ./neovim
+    ./picom
     ./rofi
     ./skippy-xd
     ./thunderbird

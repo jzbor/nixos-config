@@ -1,4 +1,4 @@
-{ nix-colors, ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -9,5 +9,5 @@
   # Color scheme
   colorScheme =
     let name = "apprentice";
-    in nix-colors.lib-core.schemeFromYAML "${name}" (builtins.readFile ./colorschemes/${name}.yaml);
+    in inputs.nix-colors.lib-core.schemeFromYAML "${name}" (builtins.readFile ./colorschemes/${name}.yaml);
 }
