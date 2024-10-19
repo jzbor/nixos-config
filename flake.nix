@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-picom.url = "github:nixos/nixpkgs/nixpkgs-unstable";  # TODO: Remove once https://nixpkgs-tracker.ocfox.me/?pr=348561 is fixed
 
     cf = {
       url = "github:jzbor/cornflakes";

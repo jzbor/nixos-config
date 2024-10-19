@@ -56,10 +56,7 @@ in {
     services.network-manager-applet.enable = true;
     services.blueman-applet.enable = true;
 
-    services.picom = {
-      enable = true;
-      package = inputs.nixpkgs-picom.legacyPackages.${pkgs.system}.picom;
-    };
+    services.picom.enable = true;
 
     services.screen-locker = {
       enable = true;
