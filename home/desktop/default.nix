@@ -25,7 +25,6 @@ in {
       okular
       scrcpy
       typst
-      typst-lsp
       yt-dlp
 
       # fonts
