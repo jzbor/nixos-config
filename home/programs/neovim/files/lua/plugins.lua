@@ -48,6 +48,7 @@ local plugins = {
   { 'zenbones-theme/zenbones.nvim', dependencies = { 'rktjmp/lush.nvim' } },
   'huyvohcmc/atlas.vim',
   'aditya-azad/candle-grey',
+  'folke/zen-mode.nvim',
 }
 
 require("lazy").setup(plugins, {
