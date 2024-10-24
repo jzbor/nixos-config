@@ -33,7 +33,7 @@ in {
       fira-code-symbols
       liberation_ttf
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       libertine
     ];
