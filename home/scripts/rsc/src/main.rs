@@ -1,4 +1,4 @@
-use clap::Parser;
+use clap::{CommandFactory, Parser};
 use create_workspace::create_workspace;
 
 mod create_workspace;
@@ -6,7 +6,7 @@ mod utils;
 
 /// jzbor's personal Rust script collection
 #[derive(Parser)]
-#[clap(author, version, about, long_about = None)]
+#[clap(author, version, about, long_about = None, no_binary_name = true)]
 struct Args {
     #[clap(subcommand)]
     command: Command,
@@ -23,6 +23,9 @@ enum Command {
         #[clap(short, long)]
         template: Option<String>,
     },
+
+    ///  List available scripts
+    Rsc {},
 }
 
 fn main() {
@@ -31,5 +34,6 @@ fn main() {
     use Command::*;
     match &args.command {
         CreateWorkspace { name, template } => create_workspace(name, template.as_deref()),
+        Rsc {} => Args::command().print_help().unwrap(),
     }
 }
