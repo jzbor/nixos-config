@@ -180,7 +180,7 @@
           marswm.overlays.default
           inputs.nix-index-database.overlays.nix-index
         ];
-        pkgs = import nixpkgs { inherit inputs; };
+        pkgs = import nixpkgs { inherit system; inherit overlays; inherit inputs; };
       in {
         inherit pkgs;
 
