@@ -11,6 +11,7 @@
     (pkgs.callPackage ./open-document.nix {})
     (pkgs.callPackage ./replay-area.nix {})
     (pkgs.callPackage ./riot.nix {})
+    (pkgs.callPackage ./rsc {})
     (pkgs.callPackage ./screencast.nix {})
     (pkgs.callPackage ./search-nixpkgs.nix {})
     (pkgs.callPackage ./set-wallpaper.nix {})
