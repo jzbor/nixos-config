@@ -1,7 +1,9 @@
-{ rustPlatform, ... }:
+{ craneLib, ... }:
 
-rustPlatform.buildRustPackage {
-  name = "rust-script-collection";
+craneLib.buildPackage {
+  pname = "rust-script-collection";
+  version = "0.1.0";
+
   src = ./.;
-  cargoHash = "sha256-aitx8szwEr6XQ068GoCoPaHsJ16Fp/uigurI0tmb1Ig=";
 }
+

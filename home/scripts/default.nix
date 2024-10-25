@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
-{
+let
+  craneLib = inputs.parcels.inputs.crane.mkLib pkgs;
+in {
   home.packages = [
     (pkgs.callPackage ./dev-shell.nix {})
     (pkgs.callPackage ./fman.nix {})
@@ -11,7 +13,7 @@
     (pkgs.callPackage ./open-document.nix {})
     (pkgs.callPackage ./replay-area.nix {})
     (pkgs.callPackage ./riot.nix {})
-    (pkgs.callPackage ./rsc {})
+    (pkgs.callPackage ./rsc { inherit craneLib; })
     (pkgs.callPackage ./screencast.nix {})
     (pkgs.callPackage ./search-nixpkgs.nix {})
     (pkgs.callPackage ./set-wallpaper.nix {})
