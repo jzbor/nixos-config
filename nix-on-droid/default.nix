@@ -2,10 +2,18 @@
 
 {
   environment.packages = with pkgs; [
-    vim
-    coreutils
     bashInteractive
+    btop
     cacert
+    coreutils
+    curl
+    fd
+    git
+    htop
+    ripgrep
+    tmux
+    vi
+    vim
   ];
   system.stateVersion = "24.05";
 
