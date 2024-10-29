@@ -163,17 +163,14 @@
   } // {
 
     nixOnDroidConfigurations.default = let
-      overlays = [
-        parcels.overlays.default
-        marswm.overlays.default
-        inputs.nix-index-database.overlays.nix-index
-      ];
+      overlays = [ parcels.overlays.default ];
     in inputs.nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = import nixpkgs {
         inherit overlays;
         system = "aarch64-linux";
       };
       modules = [ ./nix-on-droid ];
+      extraSpecialArgs = { inherit inputs; };
     };
 
   } // {

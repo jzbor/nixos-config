@@ -54,13 +54,15 @@
   # Make nixpkgs available to local nix commands like `nix shell` or `nix-shell`
   nix.nixPath = [ "nixpkgs=/etc/channels/nixpkgs" "nixos-config=/etc/nixos/configuration.nix" "/nix/var/nix/profiles/per-user/root/channels" ];
   environment.etc."channels/nixpkgs".source = inputs.nixpkgs.outPath;
-  nix.registry.nixpkgs.flake = inputs.nixpkgs;
-  nix.registry.parcels.to = { owner = "jzbor"; repo = "nix-parcels"; type = "github"; };
-  nix.registry.cornflakes.to = { owner = "jzbor"; repo = "cornflakes"; type = "github"; };
-  nix.registry.templates.to = config.nix.registry.cornflakes.to;
-  nix.registry.homepage.to = { url = "ssh://git@github.com/jzbor/jzbor.github.io"; submodules = true; type = "git"; };
-  nix.registry.cloud.to = { url = "ssh://git@github.com/jzbor/nixos-cloud"; type = "git"; };
-  nix.registry.sp.to = { url = "ssh://git@gitlab.cs.fau.de/wa94tiju/sp-flake"; type = "git"; };
-  nix.registry.nixos-config.to = { owner = "jzbor"; repo = "nixos-config"; type = "github"; };
-  nix.registry.zinn.to = { owner = "jzbor"; repo = "zinn"; type = "github"; };
+  nix.registry = {
+    nixpkgs.flake = inputs.nixpkgs;
+    parcels.to = { owner = "jzbor"; repo = "nix-parcels"; type = "github"; };
+    cornflakes.to = { owner = "jzbor"; repo = "cornflakes"; type = "github"; };
+    templates.to = config.nix.registry.cornflakes.to;
+    homepage.to = { url = "ssh://git@github.com/jzbor/jzbor.github.io"; submodules = true; type = "git"; };
+    cloud.to = { url = "ssh://git@github.com/jzbor/nixos-cloud"; type = "git"; };
+    sp.to = { url = "ssh://git@gitlab.cs.fau.de/wa94tiju/sp-flake"; type = "git"; };
+    nixos-config.to = { owner = "jzbor"; repo = "nixos-config"; type = "github"; };
+    zinn.to = { owner = "jzbor"; repo = "zinn"; type = "github"; };
+  };
 }
