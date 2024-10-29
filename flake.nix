@@ -35,6 +35,12 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     marswm = {
       url = "github:jzbor/marswm";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -152,6 +158,22 @@
       system = "aarch64-linux";
       modules = [ ./nixos/hosts/live ./nixos/hosts/live/rock5b-dtb.nix ];
       specialArgs = { inherit inputs; };
+    };
+
+  } // {
+
+    nixOnDroidConfigurations.default = let
+      overlays = [
+        parcels.overlays.default
+        marswm.overlays.default
+        inputs.nix-index-database.overlays.nix-index
+      ];
+    in inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+      pkgs = import nixpkgs {
+        inherit overlays;
+        system = "aarch64-linux";
+      };
+      modules = [ ./nix-on-droid ];
     };
 
   } // {
