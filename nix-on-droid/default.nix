@@ -12,7 +12,6 @@
     htop
     ripgrep
     tmux
-    vi
     vim
   ];
   system.stateVersion = "24.05";
@@ -28,7 +27,16 @@
       experimental-features = nix-command flakes
     '';
 
-    nix.registry = {
+    substituters = [
+      "https://cache.nixos.org"
+      "https://nix-on-droid.cachix.org"
+    ];
+    trustedPublicKeys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoUqvHJ9XCp+nidK7qkMQrU="
+    ];
+
+    registry = {
       nixpkgs.flake = inputs.nixpkgs;
       parcels.to = { owner = "jzbor"; repo = "nix-parcels"; type = "github"; };
       cornflakes.to = { owner = "jzbor"; repo = "cornflakes"; type = "github"; };
