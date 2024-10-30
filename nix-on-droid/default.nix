@@ -30,10 +30,12 @@
     substituters = [
       "https://cache.nixos.org"
       "https://nix-on-droid.cachix.org"
+      "https://cache.jzbor.de/public"
     ];
     trustedPublicKeys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoUqvHJ9XCp+nidK7qkMQrU="
+      "public:AdkE6qSLmWKFX4AptLFl+n+RTPIo1lrBhT2sPgfg5s4="
     ];
 
     registry = {
