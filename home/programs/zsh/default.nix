@@ -60,8 +60,8 @@ in mkIf cfg.enable {
     sessionVariables = {
       SP_REMOTE = "wa94tiju@cipterm0.cip.cs.fau.de";
       SP_REMOTE_DIR = "korrektur";
-      SP_TUE = "T04";
-      SP_HAPPY_PATH = "/proj/i4sp1/sys/happy/happy";
+      SP_TUE = "T06";
+      SP_HAPPY_PATH = "/proj/i4sp2/sys/happy/happy";
     };
 
     # Additional configuration
