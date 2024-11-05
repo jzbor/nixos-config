@@ -49,6 +49,7 @@ local plugins = {
   'huyvohcmc/atlas.vim',
   'aditya-azad/candle-grey',
   'folke/zen-mode.nvim',
+  { 'mfussenegger/nvim-jdtls', ft = {'java'} },
 }
 
 require("lazy").setup(plugins, {
