@@ -28,6 +28,10 @@ let
     wget
     neofetch
   ];
+  manPackages = with pkgs; [
+    man-pages
+    man-pages-posix
+  ];
 in {
   # Available shells
   environment.shells = with pkgs; [
@@ -37,7 +41,7 @@ in {
   ];
 
   # Install some packages
-  environment.systemPackages = graphicalPackages ++ systemUtilPackages ++ cliPackages;
+  environment.systemPackages = graphicalPackages ++ systemUtilPackages ++ cliPackages ++ manPackages;
 
   # Programs
   programs.firefox.enable = true;
@@ -61,5 +65,8 @@ in {
 
   # Required for nextcloud
   services.gnome.gnome-keyring.enable = true;
+
+  # Enable dev documentation for installed packages
+  documentation.dev.enable = true;
 }
 
