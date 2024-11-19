@@ -213,6 +213,20 @@
         ];
         extraSpecialArgs = { inherit nix-colors; inherit (inputs) nix-index-database;};
       });
+    homeConfigurations."jzbor@pinenote" = home-manager.lib.homeManagerConfiguration (
+      let
+        system = "aarch64-linux";
+        overlays = [
+          parcels.overlays.default
+          inputs.nix-index-database.overlays.nix-index
+        ];
+        pkgs = import nixpkgs { inherit system; inherit overlays; inherit inputs; };
+      in {
+        inherit pkgs;
+
+        modules = [ ./pinenote ];
+        extraSpecialArgs = { inherit nix-colors; inherit (inputs) nix-index-database;};
+      });
   } // (cf.mkLib nixpkgs).flakeForDefaultSystems (system:
   let
     pkgs = nixpkgs.legacyPackages."${system}";
