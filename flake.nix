@@ -91,6 +91,18 @@
       specialArgs = { inherit inputs; };
     };
 
+    # MRQ1-01 Bootstrapping
+    nixosConfigurations.mrq1-01 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+
+      modules = [
+        { networking.hostName = "mrq1-01"; }
+        ./nixos
+        ./nixos/hosts/mrq1-01
+      ];
+
+      specialArgs = { inherit inputs; };
+    };
 
     # E531 LAPTOP
     nixosConfigurations.e531 = nixpkgs.lib.nixosSystem {
