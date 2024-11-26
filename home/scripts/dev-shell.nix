@@ -7,7 +7,7 @@ let
     buildCommand = "${old.buildCommand}\n patchShebangs $out";
   });
   script-inputs = with pkgs; [
-    nix
+    lix
   ];
 in pkgs.symlinkJoin {
   name = script-name;
