@@ -22,7 +22,6 @@ let
   cliPackages = with pkgs; [
     curl
     fd
-    nix-index
     ripgrep
     tmux
     wget

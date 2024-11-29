@@ -3,6 +3,24 @@
 with lib;
 let
   cfg = config.programs.zsh;
+  command-not-found = ''
+    command_not_found_handler() {
+      package="$(
+        nix-locate -r "/bin/$1$" --minimal \
+          | sed 's/(\(.*\))/\1/;s/\(.*\)\.out$/\1/;s/\(.*\)\.bin$/\1/' \
+          | ${pkgs.fzf}/bin/fzf --border top --border-label " command not found: \"$1\" " --prompt 'nix shell nixpkgs#' --preview='nix eval --json nixpkgs#{}.meta | ${pkgs.jq}/bin/jq -C'
+        )"
+      if [ -n "$package" ]; then
+        echo
+        echo "=> Adding $package:$1 to the environment"
+        echo
+        nix shell "nixpkgs#$package" --command ${pkgs.zsh}/bin/zsh
+        return $?
+      else
+        return 127
+      fi
+    }
+  '';
 in mkIf cfg.enable {
   programs.zsh = {
     # Search, completion and suggestions
@@ -68,6 +86,7 @@ in mkIf cfg.enable {
     initExtra = builtins.concatStringsSep "\n" [
       (builtins.readFile ./config.zsh)
       (builtins.readFile ./prompt.zsh)
+      command-not-found
     ];
   };
 

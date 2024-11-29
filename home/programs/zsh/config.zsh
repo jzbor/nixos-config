@@ -1,6 +1,6 @@
 ## Options section
 setopt correct              # Auto correct mistakes
-unsetopt nomatch		    # Passes the command as is instead of reporting pattern matching failure see Chrysostomus/manjaro-zsh-config#14
+unsetopt nomatch	    # Passes the command as is instead of reporting pattern matching failure see Chrysostomus/manjaro-zsh-config#14
 setopt numericglobsort      # Sort filenames numerically when it makes sense
 setopt nobeep               # No beep
 setopt appendhistory        # Immediately append history instead of overwriting
@@ -56,8 +56,8 @@ precmd () {
 }
 
 # command-not-found implementation
-command_not_found_handler() {
-	if ! comma "$1"; then
-		return 127
-	fi
-}
+# command_not_found_handler() {
+# 	if ! comma "$1"; then
+# 		return 127
+# 	fi
+# }
