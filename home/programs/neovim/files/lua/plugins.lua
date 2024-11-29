@@ -49,7 +49,7 @@ local plugins = {
   'huyvohcmc/atlas.vim',
   'aditya-azad/candle-grey',
   'folke/zen-mode.nvim',
-  'folke/which-key.nvim',
+  -- 'folke/which-key.nvim',
   { 'mfussenegger/nvim-jdtls', ft = {'java'} },
 }
 
