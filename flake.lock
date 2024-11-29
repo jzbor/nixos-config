@@ -282,11 +282,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1728293157,
-        "narHash": "sha256-oLYz8UqbiXK7ImNdodCCpNKsxy5cl0iREjyKbR6YUgg=",
+        "lastModified": 1732913848,
+        "narHash": "sha256-XVO9re6dWDFHeKaFNN+aVomuDO5Pm4W0gcADAxAAh28=",
         "owner": "jzbor",
         "repo": "marswm",
-        "rev": "71ea86dac0f5a378b99942683d3202be166618d0",
+        "rev": "b5322300cb9d7901b2d7f2e620b9aab190e13794",
         "type": "github"
       },
       "original": {
