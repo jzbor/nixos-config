@@ -35,15 +35,11 @@ local path = os.getenv('PATH');
 for _, lsp in ipairs(servers) do
   if vim.fn.executable(lsp) == 1
   then
-    lsp = string.gsub(lsp, '-', '_')
-    if (lsp == 'rust-analyzer') -- workaround
-    then
-      lsp = 'rust_analyzer'
-    end
     if (lsp == 'nil') -- workaround
     then
       lsp = 'nil_ls'
     end
+    lsp = string.gsub(lsp, '-', '_') -- workaround
 
     -- print('Adding lsp ' .. lsp)
     nvim_lsp[lsp].setup {
