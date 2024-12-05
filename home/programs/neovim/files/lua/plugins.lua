@@ -51,6 +51,7 @@ local plugins = {
   'folke/zen-mode.nvim',
   -- 'folke/which-key.nvim',
   { 'mfussenegger/nvim-jdtls', ft = {'java'} },
+  { 'jez/vim-better-sml', ft = {'sml'} },
 }
 
 require("lazy").setup(plugins, {
