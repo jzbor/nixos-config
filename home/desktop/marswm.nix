@@ -11,7 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    jzbor-home.programs.kermit.enable = true;
+    jzbor-home.programs.ghostty.enable = true;
     jzbor-home.programs.marswm.enable = true;
     jzbor-home.programs.touchegg.enable = true;
     jzbor-home.programs.xmenu.enable = true;

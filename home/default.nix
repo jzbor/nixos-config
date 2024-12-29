@@ -21,7 +21,7 @@ with lib;
 
     home.sessionVariables = {
       EDITOR = "nvim";
-      TERMINAL = "${pkgs.kermit-terminal}/bin/kermit";
+      TERMINAL = "${pkgs.ghostty}/bin/ghostty";
     };
 
     home.file = {

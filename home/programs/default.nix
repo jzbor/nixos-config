@@ -6,6 +6,7 @@
     ./captive-browser
     ./firefox
     ./fontconfig
+    ./ghostty
     ./iamb
     ./kermit
     ./marswm

@@ -47,7 +47,7 @@ in {
     };
     jzbor-home.programs = {
       captive-browser.enable = true;
-      kermit.enable = true;
+      ghostty.enable = true;
       marswm.enable = true;
       skippy-xd.enable = true;
       touchegg.enable = true;
