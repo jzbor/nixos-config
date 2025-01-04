@@ -3,7 +3,7 @@
 {
   nix = {
     # Activate nix flakes system wide
-    package = pkgs.lix;
+    package = pkgs.nix;
     extraOptions = ''
       min-free = ${toString (16 * 1042 * 1024 * 1024)}
       max-free = ${toString (32 * 1042 * 1024 * 1024)}

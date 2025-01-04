@@ -50,7 +50,7 @@ with lib;
     ];
 
     # garbage collection
-    nix.package = pkgs.lix;
+    nix.package = pkgs.nix;
     nix.gc = {
       automatic = true;
       frequency = "weekly";
