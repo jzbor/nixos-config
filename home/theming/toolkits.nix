@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 let
-  cursorTheme = "Breeze_Snow";
-  cursorPackage = pkgs.libsForQt5.breeze-qt5;
+  cursorTheme = "capitaine-cursors-white";
+  cursorPackage = pkgs.capitaine-cursors;
   gtkTheme = "Orchis-Yellow-Dark-Compact";
   gtkPackage = pkgs.orchis-theme;
   iconTheme = "Numix-Circle";

@@ -22,11 +22,11 @@ in {
       theme = mkOption {
         type = str;
         description = "Cursor theme";
-        default = "Breeze_Snow";
+        default = "capitaine-cursors-white";
       };
       package = mkOption {
         description = "Cursor package";
-        default = pkgs.libsForQt5.breeze-qt5;
+        default = pkgs.capitaine-cursors;
       };
     };
 

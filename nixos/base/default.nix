@@ -51,4 +51,7 @@
   # Enable GUI
   jzbor-system.de.marswm.enable = true;
   jzbor-system.de.cinnamon.enable = false;
+
+  # Disable speechd (enabled by default on graphic systems)
+  services.speechd.enable = false;
 }
