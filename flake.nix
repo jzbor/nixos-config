@@ -230,7 +230,7 @@
       install = pkgs.callPackage ./scripts/install.nix { inherit inputs; };
       format = pkgs.callPackage ./scripts/format.nix { inherit inputs; };
 
-      proprietary-apps = pkgs.callPackage ./packages/proprietary-apps.nix {};
+      proprietary-apps = pkgs.callPackage ./packages/proprietary-apps.nix  {};
     } // (
       lib.concatMapAttrs (name: value: { "vm-${name}" = value.config.system.build.vm; }) self.nixosConfigurations
     );
