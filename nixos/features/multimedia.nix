@@ -22,9 +22,9 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       lollypop
-      vlc
       mpv
     ] ++ (if cfg.dvdSupport then [
+      vlc
       libdvdcss
       libdvdnav
       libdvdread

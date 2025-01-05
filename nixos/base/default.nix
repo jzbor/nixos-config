@@ -50,5 +50,5 @@
 
   # Enable GUI
   jzbor-system.de.marswm.enable = true;
-  jzbor-system.de.cinnamon.enable = true;
+  jzbor-system.de.cinnamon.enable = false;
 }

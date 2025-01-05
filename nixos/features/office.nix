@@ -12,6 +12,12 @@ in {
       default = config.jzbor-system.features.enableDesktopDefaults;
     };
 
+    libreoffice.enable = mkOption {
+      type = bool;
+      description = "Enable libreoffice support";
+      default = false;
+    };
+
     printing = {
       enable = mkOption {
         type = bool;
@@ -64,9 +70,8 @@ in {
 
   config = mkIf cfg.enable {
 
-    environment.systemPackages = with pkgs; [
-      libreoffice-fresh
-    ] ++ (if cfg.scanning.enable then [ pkgs.simple-scan ] else []);
+    environment.systemPackages = (if cfg.libreoffice.enable then [ pkgs.libreoffice-fresh] else [])
+      ++ (if cfg.scanning.enable then [ pkgs.simple-scan ] else []);
 
 
     # Printing and Scanning

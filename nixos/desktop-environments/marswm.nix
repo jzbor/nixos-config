@@ -21,7 +21,7 @@ in {
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
       arandr
-      kermit-terminal
+      ghostty
       dmenu
       lxappearance
       picom-next
