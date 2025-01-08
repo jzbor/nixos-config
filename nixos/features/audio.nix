@@ -23,6 +23,6 @@ in {
     };
     security.rtkit.enable = true;
 
-    hardware.pulseaudio.enable = mkForce false;
+    services.pulseaudio.enable = mkForce false;
   };
 }
