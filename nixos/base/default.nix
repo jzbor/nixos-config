@@ -54,4 +54,7 @@
 
   # Disable speechd (enabled by default on graphic systems)
   services.speechd.enable = false;
+
+  # Enable dconf for use in HomeManager/GTK
+  programs.dconf.enable = true;
 }
