@@ -22,7 +22,6 @@ in {
     home.packages = with pkgs; [
       foliot
       neovide
-      okular
       scrcpy
       typst
       yt-dlp

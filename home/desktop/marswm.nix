@@ -19,7 +19,8 @@ in {
     programs.rofi.enable = true;
 
     home.packages = with pkgs; [
-      file-roller
+      # file-roller
+      xarchiver
       gthumb
       pavucontrol
       pcmanfm

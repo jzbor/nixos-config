@@ -35,7 +35,6 @@ with lib;
       bat
       btop
       cliflux
-      comma-with-db
       gcc
       librespeed-cli
       nil
