@@ -342,7 +342,6 @@
         set -x
       fi
       $SUDO nix-collect-garbage -d --delete-older-than "${expireAfterDays}d"
-      nix store optimise
       '';
     };
 
