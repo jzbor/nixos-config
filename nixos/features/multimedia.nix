@@ -21,7 +21,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      lollypop
+      rhythmbox
       mpv
     ] ++ (if cfg.dvdSupport then [
       vlc

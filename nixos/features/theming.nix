@@ -78,10 +78,10 @@ in {
     services.xserver.displayManager.lightdm.background = pkgs.nixos-artwork.wallpapers.stripes-logo.gnomeFilePath;
 
     # Make qt5 styling match gtk theme
-    qt = {
-      enable = true;
-      platformTheme = "gtk2";
-      style = "gtk2";
-    };
+    #qt = {
+    #  enable = true;
+    #  platformTheme = "gtk2";
+    #  style = "gtk2";
+    #};
   };
 }

@@ -1,11 +1,16 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 with lib;
 {
   # Networking
   networking.useDHCP = lib.mkDefault true;
-  networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.macAddress = "stable";
+  networking.networkmanager = {
+    enable = true;
+    wifi.macAddress = "stable";
+    plugins = lib.mkForce (with pkgs; [
+      networkmanager-openvpn
+    ]);
+  };
 
   # DNS Settings
   networking.nameservers = [ "5.75.234.6#dns.jzbor.de" "9.9.9.9#dns.quad9.net" ];
