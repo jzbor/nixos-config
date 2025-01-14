@@ -7,4 +7,4 @@
 - modifiers: [Mod4, Shift]
   button: 1
   targets: [window, frame, root]
-  action: !execute xwinmosaic -P
+  action: !execute rofi -show window

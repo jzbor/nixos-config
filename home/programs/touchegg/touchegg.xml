@@ -26,7 +26,7 @@
 		<gesture type="SWIPE" fingers="3" direction="DOWN">
 			<action type="RUN_COMMAND">
 				<repeat>false</repeat>
-				<command>pkill -SIGINT rofi || pkill xwinmosaic ||  mars-relay menu &</command>
+				<command>pkill -SIGINT rofi ||  mars-relay menu &</command>
 				<on>begin</on>
 			</action>
 		</gesture>
@@ -34,7 +34,7 @@
 		<gesture type="SWIPE" fingers="3" direction="UP">
 			<action type="RUN_COMMAND">
 				<repeat>false</repeat>
-				<command>xwinmosaic -P &</command>
+				<command>rofi -show window &</command>
 				<on>begin</on>
 			</action>
 		</gesture>
