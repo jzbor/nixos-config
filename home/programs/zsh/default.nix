@@ -45,7 +45,7 @@ in mkIf cfg.enable {
     syntaxHighlighting.enable = true;
 
     # Aliases
-    shellAliases = with pkgs; {
+    shellAliases = {
       enter = "dev-shell -e";
       installed-nixos-packages = "nix path-info -shr /run/current-system | sort -hk2";
       installed-profile-packages = "nix path-info -shr \"$HOME/.nix-profile\" | sort -hk2";
@@ -55,10 +55,10 @@ in mkIf cfg.enable {
       sd = "cd $(switch-dir)";
       stored-nix-pkgs = "find /nix/store -maxdepth 1 | xargs du -sh | sort -h";
       valgrind = "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes";
-      cp = "${uutils-coreutils-noprefix}/bin/cp --progress";
-      mv = "${uutils-coreutils-noprefix}/bin/mv --progress";
+      cp = "cp --progress";
+      mv = "mv --progress";
       mkdir = "mkdir --verbose --parents";
-      ls = "${uutils-coreutils-noprefix}/bin/ls --color=auto --human-readable";
+      ls = "ls --color=auto --human-readable";
       lisho-edit = "ssh ln.jzbor.de -t nvim /var/lib/lisho/mappings";
       news = "cliflux";
       attic-size = "ssh root@fsn1-03.jzbor.de du -sh /var/lib/private/atticd/*";
