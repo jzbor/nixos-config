@@ -75,9 +75,15 @@ vim.o.termguicolors = true
 vim.g.onedark_terminal_italics = 2
 vim.o.background = 'dark'
 vim.g.zenbones_compat = 1
-vim.g.zenbones_compat = 1
 vim.cmd [[colorscheme seoulbones]]
 vim.cmd [[hi Normal guibg=#262626]]
+
+if vim.fn.hostname() == "pinenote" then
+	vim.o.background = 'light'
+	vim.cmd [[colorscheme zenwritten]]
+	vim.cmd [[hi Normal guibg=#ffffff]]
+end
+
 
 -- Set status bar settings
 require("yasl").setup({
