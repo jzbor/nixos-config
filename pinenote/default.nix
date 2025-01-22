@@ -12,6 +12,7 @@
 
     packages = with pkgs; [
       tealdeer
+      nix-tree
     ];
   };
 }
