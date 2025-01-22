@@ -341,7 +341,12 @@
       else
         set -x
       fi
-      $SUDO nix-collect-garbage -d --delete-older-than "${expireAfterDays}d"
+
+      if command -v nix-collect-garbage >/dev/null; then
+        $SUDO nix-collect-garbage -d --delete-older-than "${expireAfterDays}d"
+      else
+        nix store gc
+      fi
       '';
     };
 
