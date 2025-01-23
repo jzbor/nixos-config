@@ -76,6 +76,9 @@ Suspend $(confirmation_submenu 'systemctl suspend')
 Poweroff $(confirmation_submenu poweroff)
 Reboot $(confirmation_submenu reboot)
 
+Applications
+$(xdg-xmenu -m | sed 's/^/\t/')
+
 Keyboard Layout
 $(xkb-switch -l | sed 's/\(.*\)/\t\1\txkb-switch -s \1 \&\& notify-send \"Switched keyboard layout to \\\"\1\\\"\"/')
 Output Profile
