@@ -3,7 +3,7 @@
 
 let
   graphicalPackages = with pkgs; [
-    gparted
+    gnome-disk-utility
     mpv
     nextcloud-client
     pcmanfm
