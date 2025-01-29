@@ -48,9 +48,9 @@ only () {
 }
 
 select_layout () {
-	selection="$(ls -1 ~/.screenlayout | sed 's/\.sh$//' | xmenu)"
+	selection="$(find ~/.screenlayout -maxdepth 1 -type f -printf "%f\n" | sed 's/\.sh$//' | xmenu)"
 	if [ -n "$selection" ]; then
-		~/.screenlayout/$selection.sh
+		"$HOME/.screenlayout/$selection.sh"
 	fi
 }
 
@@ -73,6 +73,7 @@ message () {
 		msg="$displays"
 	fi
 
+        # shellcheck disable=SC2046
 	result="$(notify-send "Monitor Settings" "$msg" -A mirror=mirror -A extend=extend -A select=select $(only_options))"
 	case "$result" in
 		"") ;;
@@ -86,7 +87,7 @@ message () {
 
 listen () {
 	output=""
-	connected=""
+	connection=""
 	xev -root -event randr \
 		| grep --line-buffered 'output \|connection ' \
 		| while read -r line; do

@@ -34,7 +34,7 @@ in {
     text = builtins.readFile ./mars-status.sh;
   };
 
-  mars-maintenance = pkgs.writeShellApplication {
+  nix-maintenance = pkgs.writeShellApplication {
     name = "nix-maintenance";
     text = builtins.readFile ./nix-maintenance.sh;
   };
@@ -104,6 +104,12 @@ in {
   xdg-xmenu = mkPythonApplication ./xdg-xmenu.py {
     name = "xdg-xmenu";
     runtimeInputs = [ pkgs.imagemagick ];
+  };
+
+  xrandr-daemon = pkgs.writeShellApplication {
+    name = "xrandr-daemon";
+    runtimeInputs = with pkgs; [ xorg.xrandr xorg.xev libnotify ];
+    text = builtins.readFile ./xrandr-daemon.sh;
   };
 }
 

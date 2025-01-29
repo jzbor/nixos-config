@@ -6,7 +6,7 @@ else
 	query=""
 fi
 
-selection="$(nix search nixpkgs --json 2>/dev/null \
+selection="$(nix search nixpkgs ^ --json 2>/dev/null \
 	| jq "keys[]" \
 	| sed 's/"\(.*\)"/\1/g' \
 	| fzf --query "$query" --prompt "nixpkgs#" --preview='nix eval --json nixpkgs#{}.meta | jq -C' \
