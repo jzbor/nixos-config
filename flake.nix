@@ -321,7 +321,7 @@
     };
 
     apps.cleanup = let
-      expireAfterDays = "30";
+      expireAfterDays = "14";
     in
     libcf.createShellApp system {
       name = "cleanup";
