@@ -31,4 +31,11 @@
   ];
 
   networking.firewall.enable = lib.mkForce false;
+
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-rocm;
+    acceleration = "rocm";
+    rocmOverrideGfx = "10.3.1";
+  };
 }

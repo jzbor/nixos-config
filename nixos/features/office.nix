@@ -15,7 +15,7 @@ in {
     libreoffice.enable = mkOption {
       type = bool;
       description = "Enable libreoffice support";
-      default = false;
+      default = true;
     };
 
     printing = {
