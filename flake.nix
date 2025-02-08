@@ -286,7 +286,7 @@
           cd "$temp"
           ${pkgs.nixos-rebuild}/bin/nixos-rebuild build --flake "${self}" "$@"
           ${pkgs.attic-client}/bin/attic push ${cacheName} ./result || true
-          rm ./result
+          rm -f ./result
             cd - >/dev/null
           rmdir "$temp"
         fi
@@ -310,7 +310,7 @@
             cd "$temp"
             ${home-manager.packages.${system}.default}/bin/home-manager build --flake "${self}" "$@"
             ${pkgs.attic-client}/bin/attic push ${cacheName} ./result || true
-            rm ./result
+            rm -f ./result
             cd - >/dev/null
             rmdir "$temp"
           fi
