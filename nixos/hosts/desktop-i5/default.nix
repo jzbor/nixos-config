@@ -38,4 +38,6 @@
     acceleration = "rocm";
     rocmOverrideGfx = "10.3.1";
   };
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 }
