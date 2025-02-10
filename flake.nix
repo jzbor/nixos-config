@@ -3,6 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     cf = {
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:jzbor/cornflakes";
     };
 
@@ -216,7 +217,7 @@
   } // (cf.mkLib nixpkgs).flakeForDefaultSystems (system:
   let
     pkgs = nixpkgs.legacyPackages."${system}";
-    libcf = cf.mkLib nixpkgs;
+    libcf = cf.mkLib pkgs;
     cacheName = "jzbor-de:desktop";
     inherit (pkgs) lib;
   in {
@@ -254,7 +255,7 @@
     ### APPS ###
     apps.default = self.apps.${system}.rebuild;
 
-    apps.rebuild = libcf.createShellApp system {
+    apps.rebuild = libcf.createShellApp {
       name = "rebuild";
       text = ''
       nix run ${self}#rebuild-system
@@ -262,7 +263,7 @@
       '';
     };
 
-    apps.rebuild-system = libcf.createShellApp system {
+    apps.rebuild-system = libcf.createShellApp {
       name = "rebuild";
       text = ''
         printf "\n=> Rebuilding system\n"
@@ -293,7 +294,7 @@
       '';
     };
 
-    apps.rebuild-home = libcf.createShellApp system {
+    apps.rebuild-home = libcf.createShellApp {
       name = "rebuild-home";
       text = ''
         printf "\n=> Rebuilding home\n"
@@ -323,7 +324,7 @@
     apps.cleanup = let
       expireAfterDays = "14";
     in
-    libcf.createShellApp system {
+    libcf.createShellApp {
       name = "cleanup";
       text = ''
       if [ "$UID" = 0 ]; then
@@ -350,7 +351,7 @@
       '';
     };
 
-    apps.full-maintenance = libcf.createShellApp system {
+    apps.full-maintenance = libcf.createShellApp {
       name = "full-maintenance";
       text = ''
       printf "\n=> Updating system\n"
@@ -362,7 +363,7 @@
       '';
     };
 
-    apps.run-vm = libcf.createShellApp system {
+    apps.run-vm = libcf.createShellApp {
       name = "run-vm";
       text = ''
       path="$(nix build "${self}#nixosConfigurations.$1.config.system.build.vm" --no-link --print-out-paths)"
@@ -370,7 +371,7 @@
       '';
     };
 
-    apps.push-nvim = libcf.createShellApp system {
+    apps.push-nvim = libcf.createShellApp {
       name = "push-nvim";
       text = ''
         if [ "$#" != 1 ]; then
