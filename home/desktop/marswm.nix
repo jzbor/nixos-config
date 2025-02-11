@@ -4,6 +4,7 @@ with lib;
 let
   cfg = config.jzbor-home.desktop.marswm;
   lockScript = pkgs.writeScriptBin "lock-screen" "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 100 2";
+  mkScript = script: "${(import ../scripts/packages.nix { inherit pkgs inputs; }).${script}}";
   # lockScript = pkgs.writeScriptBin "lock-screen" "${pkgs.lightdm}/bin/dm-tool lock";
 in {
   options.jzbor-home.desktop.marswm = {
@@ -94,6 +95,42 @@ in {
       initExtra = ''
         command -v solaar > /dev/null && solaar -w hide &
       '';
+    };
+
+    systemd.user.services.wallpaper-daemon = {
+      Unit.Description = "Watch for configuration changes in the display";
+      Install.WantedBy = [ "xsession.target" ];
+      Service = {
+        ExecStart = "${mkScript "wallpaper-daemon"}/bin/wallpaper-daemon";
+      };
+    };
+
+    systemd.user.services.xrandr-daemon = {
+      Unit.Description = "Watch for configuration changes in the display configuration and show options for reconfiguration";
+      Install.WantedBy = [ "xsession.target" ];
+      Service = {
+        ExecStart = "${mkScript "xrandr-daemon"}/bin/xrandr-daemon";
+      };
+    };
+
+    systemd.user.services.marsbar = {
+      Unit.Description = "Bar for marswm desktop";
+      Install.WantedBy = [ "xsession.target" ];
+      Service = {
+        ExecStart = "${pkgs.marswm}/bin/marsbar";
+      };
+    };
+
+    systemd.user.services.touchegg = {
+      Unit.Description = "Touch gesture deamon";
+      Install.WantedBy = [ "xsession.target" ];
+      Service = {
+        ExecStart = "${pkgs.touchegg}/bin/touchegg";
+      };
+    };
+
+    systemd.user.targets.xsession = {
+      Unit.Description = "X11 server target";
     };
   };
 }

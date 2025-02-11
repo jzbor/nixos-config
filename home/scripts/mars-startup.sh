@@ -11,9 +11,10 @@ if [ -f ~/.screenlayout/default.sh ]; then
 	/bin/sh ~/.screenlayout/default.sh || true;
 fi
 
-# somehow pgrep does not recognize the full name cause it's too long
-is_running wallpaper-daem || wallpaper-daemon &
-is_running xrandr-daemon || xrandr-daemon &
-is_running marsbar || marsbar &
-is_running touchegg || touchegg &
-#is_running skippy-xd || skippy-xd --start-daemon > /dev/null 2>&1 &
+
+# import environment into user services and startup xsession.target
+systemctl --user import-environment DISPLAY XAUTHORITY
+if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+    dbus-update-activation-environment --systemd --all
+fi
+systemctl --user --no-block start xsession.target
