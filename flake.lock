@@ -596,11 +596,11 @@
         "typst-packages": "typst-packages"
       },
       "locked": {
-        "lastModified": 1739272670,
-        "narHash": "sha256-j8wnWK8qLAo/Uewy8khsT16fZ3m013PQtbCL67ge6SI=",
+        "lastModified": 1739307736,
+        "narHash": "sha256-y9TRo4NQSoC5dh3RjmjeiuGzj7m3b47fuZ2MmaDtQWU=",
         "owner": "jzbor",
         "repo": "nix-parcels",
-        "rev": "2e9a22c4f06ed3f2c6edf1d672f721b8982ee80f",
+        "rev": "fb2b121a8da145045e49bbefabda176d5c062201",
         "type": "github"
       },
       "original": {
