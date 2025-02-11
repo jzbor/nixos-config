@@ -15,6 +15,8 @@ in {
     secureBoot = true;
   };
 
+  boot.lanzaboote.pkiBundle = lib.mkForce "/var/lib/sbctl";
+
   # Enable cross building for aarch64
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
