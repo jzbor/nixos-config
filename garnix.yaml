@@ -1,0 +1,10 @@
+builds:
+  exclude:
+    - 'packages.*.proprietary-apps'
+    - 'checks.*.pkgs-proprietary-apps'
+  include:
+    - '*.x86_64-linux.*'
+    - '*.aarch64-linux.*'
+    - homeConfigurations.*
+    - darwinConfigurations.*
+    - nixosConfigurations.*
