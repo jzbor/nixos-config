@@ -3,8 +3,10 @@ builds:
     - 'packages.*.proprietary-apps'
     - 'checks.*.pkgs-proprietary-apps'
   include:
-    - '*.x86_64-linux.*'
-    - '*.aarch64-linux.*'
-    - homeConfigurations.*
-    - darwinConfigurations.*
-    - nixosConfigurations.*
+    - 'checks.x86_64-linux.*'
+    - 'checks.aarch64-linux.*'
+    # - '*.x86_64-linux.*'
+    # - '*.aarch64-linux.*'
+    # - homeConfigurations.*
+    # - darwinConfigurations.*
+    # - nixosConfigurations.*
