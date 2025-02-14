@@ -4,6 +4,7 @@ builds:
     - 'checks.*.pkgs-proprietary-apps'
     - 'packages.*.x86_64-iso'
     - 'checks.*.pkgs-x86_64-iso'
+    - 'checks.*.nixos-pinebook-pro'
   include:
     - 'checks.x86_64-linux.*'
     - 'checks.aarch64-linux.*'
