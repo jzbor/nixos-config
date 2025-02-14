@@ -23,7 +23,7 @@ jobs:
       disable-eval-checks: true
       build-args: '--print-build-logs'
       allow-impure: true
+      attic-endpoint: https://cache.jzbor.de
+      attic-cache: desktop
     secrets:
-      ATTIC_ENDPOINT: ${{ secrets.ATTIC_ENDPOINT }}
-      ATTIC_CACHE: ${{ secrets.ATTIC_CACHE }}
       ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
