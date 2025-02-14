@@ -10,7 +10,7 @@ jobs:
     with:
       binary-cache: true
       architectures: '[ "x86_64-linux", "aarch64-linux" ]'
-      # blocklist: '[ "x86_64-linux.proprietary-apps", "aarch64-linux.proprietary-apps", "aarch64-linux.live-x86_64-iso" ]'
+      blocklist: '[ "packages.x86_64-linux.proprietary-apps", "packages.aarch64-linux.proprietary-apps", "packages.aarch64-linux.live-x86_64-iso" ]'
       arm-runners: true
       disable-eval-checks: true
       build-args: '--print-build-logs'
