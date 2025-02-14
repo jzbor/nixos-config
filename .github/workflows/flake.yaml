@@ -12,12 +12,12 @@ jobs:
       architectures: '[ "x86_64-linux", "aarch64-linux" ]'
       blocklist: >
         [
-          "packages.x86_64-linux.proprietary-apps",
-          "packages.aarch64-linux.proprietary-apps",
-          "packages.aarch64-linux.live-x86_64-iso",
-          "checks.x86_64-linux.pkgs-proprietary-apps",
-          "checks.aarch64-linux.pkgs-proprietary-apps",
-          "checks.aarch64-linux.nixos-pinebook-pro"
+        "packages.x86_64-linux.proprietary-apps",
+        "packages.aarch64-linux.proprietary-apps",
+        "packages.aarch64-linux.live-x86_64-iso",
+        "checks.x86_64-linux.pkgs-proprietary-apps",
+        "checks.aarch64-linux.pkgs-proprietary-apps",
+        "checks.aarch64-linux.nixos-pinebook-pro"
         ]
       arm-runners: true
       disable-eval-checks: true
