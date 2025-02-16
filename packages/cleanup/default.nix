@@ -16,7 +16,7 @@ pkgs.writeShellApplication {
       SUDO="sudo"
     fi
 
-    ${perSystem.parcels.nix-sweep}/bin/nix-sweep ${action} --keep ${keep} --max ${max} --older ${older}
+    ${perSystem.parcels.nix-sweep}/bin/nix-sweep ${action} --home --user --keep ${keep} --max ${max} --older ${older}
     echo
     if [ "$UID" != 0 ]; then
       echo "Please authenticate to remove system generations:"
@@ -24,6 +24,9 @@ pkgs.writeShellApplication {
     else
       ${perSystem.parcels.nix-sweep}/bin/nix-sweep ${action} --keep ${keep} --max ${max} --older ${older} --system
     fi
-    ${perSystem.parcels.nix-sweep}/bin/nix-sweep --gc
+
+    if [ "$#" = 1 ] && [ "$1" = "--gc" ]; then
+      ${perSystem.parcels.nix-sweep}/bin/nix-sweep --gc
+    fi
   '';
 }
