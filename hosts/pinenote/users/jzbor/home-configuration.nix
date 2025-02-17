@@ -14,6 +14,7 @@
       tealdeer
       nix-tree
       perSystem.parcels.nix-sweep
+      librespeed-cli
     ];
   };
 }
