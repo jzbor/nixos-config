@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    blueprint.url = "github:numtide/blueprint";
+    blueprint.url = "github:clo4/blueprint/generic-users";
     blueprint.inputs.nixpkgs.follows = "nixpkgs";
 
     cf = {

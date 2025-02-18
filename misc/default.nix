@@ -9,6 +9,7 @@ inputs:
     modules = [ ./nix-on-droid ];
     extraSpecialArgs = { inherit inputs; };
   };
-} // (inputs.cf.lib.flakeForDefaultSystems (system: {
-  legacyPackages.homeConfigurations."jzbor" = inputs.self.legacyPackages.${system}.homeConfigurations."jzbor@any";
-}))
+}
+# } // (inputs.cf.lib.flakeForDefaultSystems (system: {
+#   legacyPackages.homeConfigurations."jzbor" = inputs.self.legacyPackages.${system}.homeConfigurations."jzbor@any";
+# }))

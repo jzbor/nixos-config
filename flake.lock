@@ -24,15 +24,16 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1739440905,
-        "narHash": "sha256-1FcALiisAuvy/cuDiz/AjlXhjjxUH/GamwGrzln/lj4=",
-        "owner": "numtide",
+        "lastModified": 1739830441,
+        "narHash": "sha256-4gPd5fCYWoBDfzdTv9h27nHxSo3OnZ6TRo71HmhSC+w=",
+        "owner": "clo4",
         "repo": "blueprint",
-        "rev": "3796f757f06826d1b3b157bc99f1d68b9e3a4258",
+        "rev": "25281821e9be741bf1ab0de98572171adddaee11",
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
+        "owner": "clo4",
+        "ref": "generic-users",
         "repo": "blueprint",
         "type": "github"
       }
