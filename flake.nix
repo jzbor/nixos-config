@@ -53,7 +53,10 @@
   };
 
   outputs = inputs: (inputs.nixpkgs.lib.attrsets.recursiveUpdate
-    (inputs.blueprint { inherit inputs; })
+    (inputs.blueprint {
+      inherit inputs;
+      systems = [ "aarch64-linux" "x86_64-linux" ];
+    })
     (import ./misc inputs)
   );
 }
