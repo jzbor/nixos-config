@@ -15,6 +15,8 @@
       nix-tree
       perSystem.parcels.nix-sweep
       librespeed-cli
+      fd
+      ripgrep
     ];
   };
 }
