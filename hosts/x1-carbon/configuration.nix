@@ -20,4 +20,6 @@
 
   # This is automatically enabled by nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen, but should not be needed
   services.throttled.enable = false;
+
+  services.xserver.wacom.enable = true;
 }
