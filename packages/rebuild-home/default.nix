@@ -1,5 +1,9 @@
-{ pkgs, perSystem, pname, flake }: pkgs.writeShellApplication {
+{ pkgs, pname, flake }: pkgs.writeShellApplication {
   name = pname;
+  runtimeInputs = with pkgs; [
+    attic-client
+    home-manager
+  ];
   text = let
     cacheName = "desktop";
   in ''
@@ -7,19 +11,24 @@
 
     if [ "$UID" != 0 ]; then
       set -x
-      ${perSystem.home-manager.default}/bin/home-manager switch --flake "${flake}" "$@"
+      home-manager switch --flake "${flake}" "$@"
       set +x
 
-      if ${pkgs.attic-client}/bin/attic cache info ${cacheName} 2>/dev/null; then
+      if attic cache info ${cacheName} 2>/dev/null; then
         printf "\n=> Pushing home closure to binary cache (${cacheName})\n"
-        temp="$(mktemp -d)"
+
+        homepath=""
+        if [ -d "/nix/var/nix/profiles/per-user/$USER/home-manager" ]; then
+          homepath="/nix/var/nix/profiles/per-user/$USER/home-manager"
+        elif [ -d "$HOME/.local/state/nix/profiles/home-manager" ]; then
+          homepath="$HOME/.local/state/nix/profiles/home-manager"
+        else
+          echo "Unable to find home-manager profile path" >/dev/stderr
+          exit 1
+        fi
+
         set -x
-        cd "$temp"
-        ${perSystem.home-manager.default}/bin/home-manager build --flake "${flake}" "$@"
-        ${pkgs.attic-client}/bin/attic push ${cacheName} ./result || true
-        rm -f ./result
-        cd - >/dev/null
-        rmdir "$temp"
+        attic push ${cacheName} "$homepath" || true
       fi
     else
       echo "Nothing to be done for user '$USER'"

@@ -1,5 +1,9 @@
 { flake, pkgs, pname }: pkgs.writeShellApplication {
   name = pname;
+  runtimeInputs = with pkgs; [
+    attic-client
+    nixos-rebuild
+  ];
   text = let
     cacheName = "desktop";
   in ''
@@ -14,19 +18,13 @@
         fi
 
         set -x
-        $SUDO ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch --flake "${flake}" "$@"
+        $SUDO nixos-rebuild switch --flake "${flake}" "$@"
         set +x
 
-        if ${pkgs.attic-client}/bin/attic cache info ${cacheName} 2>/dev/null; then
+        if attic cache info ${cacheName} 2>/dev/null; then
           printf "\n=> Pushing system closure to binary cache (${cacheName})\n"
-          temp="$(mktemp -d)"
           set -x
-          cd "$temp"
-          ${pkgs.nixos-rebuild}/bin/nixos-rebuild build --flake "${flake}" "$@"
-          ${pkgs.attic-client}/bin/attic push ${cacheName} ./result || true
-          rm -f ./result
-            cd - >/dev/null
-          rmdir "$temp"
+          attic push ${cacheName} /run/current-system || true
         fi
   '';
 }
