@@ -34,9 +34,6 @@
     source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
   '';
 
-  # Generate man-page caches at build time
-  documentation.man.generateCaches = true;
-
   # Logitech input devices
   hardware.logitech.wireless.enable = true;
 
