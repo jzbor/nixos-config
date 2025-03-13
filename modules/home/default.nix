@@ -47,6 +47,7 @@ with lib;
       zip
       perSystem.parcels.nix-sweep
       nix-tree
+      xournalpp
     ];
 
     # garbage collection
