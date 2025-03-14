@@ -39,4 +39,8 @@ in {
     ];
   };
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "i965"; }; # Force intel-media-driver
+
+
+  # Enable Cinnamon desktop env
+  jzbor-system.de.cinnamon.enable = true;
 }

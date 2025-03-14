@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 
 {
   imports = [
@@ -47,10 +47,10 @@
 
   # Enable GUI
   jzbor-system.de.marswm.enable = true;
-  jzbor-system.de.cinnamon.enable = false;
+  #jzbor-system.de.cinnamon.enable = true;
 
   # Disable speechd (enabled by default on graphic systems)
-  services.speechd.enable = false;
+  services.speechd.enable = lib.mkDefault false;
 
   # Enable dconf for use in HomeManager/GTK
   programs.dconf.enable = true;
