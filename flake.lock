@@ -24,11 +24,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1742115571,
-        "narHash": "sha256-NVPM3j8VUWRUynuvjyIyc5G3vUHwKm+miwUkV2Z8E6s=",
+        "lastModified": 1742457865,
+        "narHash": "sha256-pSs0DuhXhXgjpIj+R+KitAcFYbHTiHmMqdYYhVPI4+Q=",
         "owner": "numtide",
         "repo": "blueprint",
-        "rev": "a18c84c0f727485887fa8082a8c2b06767cc53ae",
+        "rev": "7ae8756a68c662d551e354beb537f365b80e5108",
         "type": "github"
       },
       "original": {
