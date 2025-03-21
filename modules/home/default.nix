@@ -3,7 +3,6 @@
 with lib;
 {
   imports = [
-    inputs.nix-colors.homeManagerModule
     inputs.nix-index-database.hmModules.nix-index
     ./desktop
     ./features

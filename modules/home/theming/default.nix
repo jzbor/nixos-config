@@ -2,6 +2,8 @@
 
 {
   imports = [
+    inputs.nix-colors.homeManagerModule
+
     ./toolkits.nix
     ./xresources.nix
   ];
