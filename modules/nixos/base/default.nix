@@ -50,7 +50,7 @@
   #jzbor-system.de.cinnamon.enable = true;
 
   # Disable speechd (enabled by default on graphic systems)
-  services.speechd.enable = lib.mkDefault false;
+  services.speechd.enable = lib.mkForce false;
 
   # Enable dconf for use in HomeManager/GTK
   programs.dconf.enable = true;
