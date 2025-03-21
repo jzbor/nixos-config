@@ -25,12 +25,19 @@ let
     ];
   };
   fakeHomeFiles = fakeHome.config.home-files;
+  homePackages = pkgs.symlinkJoin {
+    name = "home-packages";
+    paths = [ (builtins.attrValues (import ./packages.nix { inherit pkgs perSystem; }))  ];
+  };
 in pkgs.stdenvNoCC.mkDerivation {
   name = pname;
   dontUnpack = true;
   dontInstall = true;
   buildPhase = ''
     mkdir -pv $out
+
+    mkdir -pv $out/.local/bin
+    cp -rvL ${homePackages}/bin/* $out/.local/bin/
 
     mkdir -pv $out/.config
     cp -rvL ${fakeHomeFiles}/.config/marswm $out/.config/marswm
