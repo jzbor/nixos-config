@@ -11,11 +11,13 @@
       xorg.libXrandr
     ];
 
-    nativeBuildInputs = with pkgs; [
+    nativeBuildInputs = with pkgs.pkgsStatic; [
       clang
       pkg-config
     ];
 
     cargoLock.lockFile = src + /Cargo.lock;
   };
+
+  inherit (pkgs.pkgsStatic) tealdeer fd;
 }

@@ -36,20 +36,25 @@ in pkgs.stdenvNoCC.mkDerivation {
   buildPhase = ''
     mkdir -pv $out
 
-    mkdir -pv $out/.local/bin
-    cp -rvL ${homePackages}/bin/* $out/.local/bin/
-
     mkdir -pv $out/.config
     cp -rvL ${fakeHomeFiles}/.config/marswm $out/.config/marswm
     cp -rvL ${fakeHomeFiles}/.config/nvim $out/.config/nvim
+
+    mkdir -pv $out/.local/bin $out/.local/share
+    cp -rvL ${homePackages}/bin/* $out/.local/bin/
+    cp -rvL ${homePackages}/share/* $out/.local/share/
 
     mkdir -pv $out/.local/bin
     for script in $(find ${inputs.self}/modules/home/scripts -name '*.sh' -printf "%f\n" | sed 's/\.sh$//'); do
       cp -rvL ${inputs.self}/modules/home/scripts/$script.sh $out/.local/bin/$script
       chmod -v +x "$out/.local/bin/$script"
     done
+
+    cp -rvL ${./reinstall-programs.sh} $out/.local/bin/reinstall-programs
+    chmod -v +x $out/.local/bin/reinstall-programs
   '';
   doCheck = true;
+  dontPatchShebangs = true;
   checkPhase = ''
     echo
     echo "Checking for /nix/store paths..."
