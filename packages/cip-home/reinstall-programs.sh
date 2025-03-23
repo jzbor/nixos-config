@@ -2,24 +2,24 @@
 
 echo
 echo "=> Installing marswm"
-cargo install marswm --root ~/.local/
+cargo install marswm --force --root ~/.local/
 
 echo
 echo "=> Installing marsbar"
-cargo install marsbar --root ~/.local/
+cargo install marsbar --force --root ~/.local/
 
 echo
 echo "=> Installing mars-relay"
-cargo install mars-relay --root ~/.local/
+cargo install mars-relay --force --root ~/.local/
 
 echo
 echo "=> Installing lash"
-cargo install lash --root ~/.local/
+cargo install lash --force --root ~/.local/
 
 echo
 echo "=> Installing fd-find"
-cargo install fd-find --root ~/.local/
+cargo install fd-find --force --root ~/.local/
 
 echo
 echo "=> Installing tealdeer"
-cargo install tealdeer --root ~/.local/
+cargo install tealdeer --force --root ~/.local/

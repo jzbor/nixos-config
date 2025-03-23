@@ -1,8 +1,0 @@
-[Install]
-WantedBy=xsession.target
-
-[Service]
-ExecStart=wallpaper-daemon
-
-[Unit]
-Description=Watch for configuration changes in the display

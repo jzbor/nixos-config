@@ -1,0 +1,13 @@
+#!/bin/sh
+. $HOME/.profile
+
+
+{
+        sleep 2
+        xfce4-terminal &
+        $HOME/Programming/Rust/marswm/target/debug/marsbar &
+        xsetroot -solid "#333333"
+	setxkbmap -layout "us,de" -option "caps:escape_shifted_capslock" -option "altwin:swap_alt_win" -option "grp:lwin_switch"
+}&
+
+exec dbus-launch --exit-with-session $HOME/Programming/Rust/marswm/target/debug/marswm

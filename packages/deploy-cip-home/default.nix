@@ -8,6 +8,6 @@ pkgs.writeShellApplication {
       exit 1
     fi
 
-    ${pkgs.rsync}/bin/rsync -rzPL --chmod 700 ${perSystem.self.cip-home}/ "$1:~"
+    ${pkgs.rsync}/bin/rsync -rzL --chmod 700 ${perSystem.self.cip-home}/ "$1:~"
   '';
 }

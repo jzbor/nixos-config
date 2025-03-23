@@ -13,7 +13,7 @@ fi
 
 
 # import environment into user services and startup xsession.target
-systemctl --user import-environment DISPLAY XAUTHORITY
+systemctl --user import-environment DISPLAY XAUTHORITY PATH
 if command -v dbus-update-activation-environment >/dev/null 2>&1; then
     dbus-update-activation-environment --systemd --all
 fi

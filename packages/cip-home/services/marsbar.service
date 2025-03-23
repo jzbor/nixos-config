@@ -1,8 +1,0 @@
-[Install]
-WantedBy=xsession.target
-
-[Service]
-ExecStart=marsbar
-
-[Unit]
-Description=Bar for marswm desktop
