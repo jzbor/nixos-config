@@ -120,6 +120,11 @@ fi
 
 set -o vi
 
+
+module load neovim
+module load rust
+
+
 mkdir -p /tmp/$USER/nix-portable
 alias fakenix="/proj/ciptmp/$USER/nix-portable nix"
 alias fakenix-local="NP_LOCATION=/tmp/$USER/nix-portable/ /proj/ciptmp/$USER/nix-portable nix"

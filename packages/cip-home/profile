@@ -32,6 +32,3 @@ if [ "$TERM" = "xterm-ghostty" ]; then
 fi
 
 export TERMINAL="xfce4-terminal"
-
-module load neovim
-module load rust

@@ -55,6 +55,10 @@ in pkgs.stdenvNoCC.mkDerivation {
       cp -rvL ${inputs.self}/modules/home/scripts/$script.sh $out/.local/bin/$script
       chmod -v +x "$out/.local/bin/$script"
     done
+    for script in $(find ${inputs.self}/modules/home/scripts -name '*.py' -printf "%f\n" | sed 's/\.py$//'); do
+      cp -rvL ${inputs.self}/modules/home/scripts/$script.py $out/.local/bin/$script
+      chmod -v +x "$out/.local/bin/$script"
+    done
 
     cp -rvL ${./reinstall-programs.sh} $out/.local/bin/reinstall-programs
     chmod -v +x $out/.local/bin/reinstall-programs

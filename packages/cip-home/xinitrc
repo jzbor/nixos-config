@@ -6,7 +6,8 @@
         sleep 2
         xfce4-terminal &
         $HOME/Programming/Rust/marswm/target/debug/marsbar &
-        xsetroot -solid "#333333"
+	/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd &
+        xsetroot -solid "#262626"
 	setxkbmap -layout "us,de" -option "caps:escape_shifted_capslock" -option "altwin:swap_alt_win" -option "grp:lwin_switch"
 }&
 
