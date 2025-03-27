@@ -23,3 +23,7 @@ cargo install fd-find --force --root ~/.local/
 echo
 echo "=> Installing tealdeer"
 cargo install tealdeer --force --root ~/.local/
+
+echo
+echo "=> Installing hyperfine"
+cargo install hyperfine --force --root ~/.local/
