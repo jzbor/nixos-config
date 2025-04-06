@@ -57,6 +57,7 @@ in {
       nerd-fonts.comic-shanns-mono
       nix-tree
       perSystem.parcels.peanutbutter
+      perSystem.parcels.pinenotectl
       perSystem.parcels.nix-sweep
       ripgrep
       scripts.xdg-xmenu
@@ -68,7 +69,11 @@ in {
     ];
 
     file = {
-      "nixpkgs".source = inputs.nixpkgs;
+      ".nixpkgs".source = inputs.nixpkgs;
+      ".config/sway".source = ./files/sway;
+      ".config/waybar".source = ./files/waybar;
+      ".config/eink_menu".source = ./files/eink_menu;
+      ".config/window_menu".source = ./files/window_menu;
     };
   };
 }

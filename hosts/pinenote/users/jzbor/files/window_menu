@@ -1,0 +1,29 @@
+portrait mode	swaymsg output DPI-1 transform 270 && swaymsg output DPI-1 scale 2; swaymsg input '*' map_to_output DPI-1
+landscape mode	swaymsg output DPI-1 transform 0; swaymsg input '*' map_to_output DPI-1
+
+switch ws
+	workspace 1	swaymsg workspace 1
+	workspace 2	swaymsg workspace 2
+	workspace 3	swaymsg workspace 3
+	workspace 4	swaymsg workspace 4
+	workspace 5	swaymsg workspace 5
+	workspace 6	swaymsg workspace 6
+	workspace 7	swaymsg workspace 7
+	workspace 8	swaymsg workspace 8
+move to ws
+	workspace 1	swaymsg move workspace 1
+	workspace 2	swaymsg move workspace 2
+	workspace 3	swaymsg move workspace 3
+	workspace 4	swaymsg move workspace 4
+	workspace 5	swaymsg move workspace 5
+	workspace 6	swaymsg move workspace 6
+	workspace 7	swaymsg move workspace 7
+	workspace 8	swaymsg move workspace 8
+close window	swaymsg kill
+
+system
+	suspend	pn-lock-suspend
+	poweroff	systemctl poweroff
+	reload wm	swaymsg reload
+
+abort	true

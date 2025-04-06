@@ -1,0 +1,33 @@
+performance mode	pinenotectl performance-mode on
+quality mode	pinenotectl performance-mode off
+
+warm backlight
+	off	brightnessctl -d 'backlight_warm' set 0
+	dim	brightnessctl -d 'backlight_warm' set 10%
+	quarter	brightnessctl -d 'backlight_warm' set 25%
+	half	brightnessctl -d 'backlight_warm' set 50%
+	full	brightnessctl -d 'backlight_warm' set 100%
+cool backlight
+	off	brightnessctl -d 'backlight_cool' set 0
+	slightly	brightnessctl -d 'backlight_cool' set 10%
+	quarter	brightnessctl -d 'backlight_cool' set 25%
+	half	brightnessctl -d 'backlight_cool' set 50%
+	full	brightnessctl -d 'backlight_cool' set 100%
+backlight (both)
+	off	brightnessctl -d 'backlight_warm' set 0 && brightnessctl -d 'backlight_cool' set 0
+	dim	brightnessctl -d 'backlight_warm' set 10% && brightnessctl -d 'backlight_cool' set 10%
+	quarter	brightnessctl -d 'backlight_warm' set 25% && brightnessctl -d 'backlight_cool' set 25%
+	half	brightnessctl -d 'backlight_warm' set 50% && brightnessctl -d 'backlight_cool' set 50%
+	full	brightnessctl -d 'backlight_warm' set 100% && brightnessctl -d 'backlight_cool' set 100%
+
+waveform
+	A2 (boot default)	pinenotectl waveform a2
+	DU	pinenotectl waveform du
+	DU4	pinenotectl waveform du4
+	GC16	pinenotectl waveform gc16
+	GCC16	pinenotectl waveform gcc16
+	GL16	pinenotectl waveform gl16
+	GLR16	pinenotectl waveform glr16
+	GLD16	pinenotectl waveform gld16
+
+abort	true

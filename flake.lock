@@ -450,6 +450,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-chordpro": {
+      "locked": {
+        "lastModified": 1726583932,
+        "narHash": "sha256-zACxiQx8knB3F8+Ze+1BpiYrI+CbhxyWpcSID9kVhkQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "658e7223191d2598641d50ee4e898126768fe847",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "658e7223191d2598641d50ee4e898126768fe847",
+        "type": "github"
+      }
+    },
     "nixpkgs-docs": {
       "locked": {
         "lastModified": 1705957679,
@@ -592,15 +608,16 @@
         "nixpkgs": [
           "nixpkgs"
         ],
+        "nixpkgs-chordpro": "nixpkgs-chordpro",
         "rust-overlay": "rust-overlay_2",
         "typst-packages": "typst-packages"
       },
       "locked": {
-        "lastModified": 1743599533,
-        "narHash": "sha256-QoRwOmWCDBKimNSAI9ciqbzJ/YsRTGcJQPoDIpnt/SM=",
+        "lastModified": 1743959436,
+        "narHash": "sha256-7xzRVs+MPk0nLdl6D4o9Wr524KTu6d2s/YdkjysPAIU=",
         "owner": "jzbor",
         "repo": "nix-parcels",
-        "rev": "c515eec8947d0b31d5bc147a87808879d8cffcc7",
+        "rev": "3cd822acdcca093a6dc139365c88e60e5c5bbcfa",
         "type": "github"
       },
       "original": {
