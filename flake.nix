@@ -50,6 +50,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.cf.follows = "cf";
     };
+
+    nix-sweep = {
+      url = "github:jzbor/nix-sweep";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.cf.follows = "cf";
+    };
   };
 
   outputs = inputs: (inputs.nixpkgs.lib.attrsets.recursiveUpdate

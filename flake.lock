@@ -107,6 +107,21 @@
     },
     "crane_3": {
       "locked": {
+        "lastModified": 1739053031,
+        "narHash": "sha256-LrMDRuwAlRFD2T4MgBSRd1s2VtOE+Vl1oMCNu3RpPE0=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "112e6591b2d6313b1bd05a80a754a8ee42432a7e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_4": {
+      "locked": {
         "lastModified": 1737689766,
         "narHash": "sha256-ivVXYaYlShxYoKfSo5+y5930qMKKJ8CLcAoIBPQfJ6s=",
         "owner": "ipetkov",
@@ -418,6 +433,30 @@
         "type": "github"
       }
     },
+    "nix-sweep": {
+      "inputs": {
+        "cf": [
+          "cf"
+        ],
+        "crane": "crane_3",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744113758,
+        "narHash": "sha256-km9Ppggwf5Xo9SWjWDwECpOflwKV1dbQchyGjtOx+Yk=",
+        "owner": "jzbor",
+        "repo": "nix-sweep",
+        "rev": "3b6cf024710e7aa74e9f6a967619bb344e0c7162",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jzbor",
+        "repo": "nix-sweep",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1743420942,
@@ -602,7 +641,7 @@
     "parcels": {
       "inputs": {
         "cf": "cf_2",
-        "crane": "crane_3",
+        "crane": "crane_4",
         "lash": "lash",
         "marswm": "marswm_2",
         "nixpkgs": [
@@ -664,6 +703,7 @@
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",
         "nix-on-droid": "nix-on-droid",
+        "nix-sweep": "nix-sweep",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "parcels": "parcels"

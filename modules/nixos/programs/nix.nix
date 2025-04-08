@@ -1,6 +1,7 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, config, inputs, perSystem, ... }:
 
 {
+  imports = [ inputs.nix-sweep.nixosModules.default ];
   nix = {
     # Activate nix flakes system wide
     package = pkgs.nix;
@@ -12,11 +13,6 @@
       netrc-file = /etc/nix/netrc
     '';
 
-    # Automatically run garbage collection for nix store
-    gc.automatic = true;
-    gc.dates = "weekly";
-    gc.randomizedDelaySec = "3h";
-    gc.options = "--delete-older-than 30d";
     # Keep generated outputs on garbage collection
     settings.keep-outputs = true;
     settings.keep-derivations = true;
@@ -49,6 +45,17 @@
 
     # Disable online registry
     settings.flake-registry = "";
+  };
+
+  # Garbage collection
+  services.nix-sweep = {
+    enable = true;
+    # package = perSystem.parcels.nix-sweep;
+    interval = "daily";
+    older = 30;
+    max = 30;
+    gc = true;
+    gcInterval = "weekly";
   };
 
   # Make nixpkgs available to local nix commands like `nix shell` or `nix-shell`
