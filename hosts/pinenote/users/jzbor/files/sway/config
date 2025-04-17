@@ -169,7 +169,7 @@ exec wvkbd-mobintl -L 200 --bg 000000 --fg ffffff --text 000000 --fg-sp ffffff -
 exec xrdb ~/.Xresources
 exec nm-applet
 exec pinenotectl travel-mode on
-exec pinenotectl performance-mode on
+exec sleep 3; pinenotectl performance-mode on
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {

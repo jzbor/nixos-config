@@ -1,11 +1,15 @@
 { inputs, flake, pkgs, perSystem, ... }:
 
+# May require installing nixGL (impure)
+
 let
   scripts = import ../../../../modules/home/scripts/packages.nix { inherit inputs pkgs perSystem; };
   waybar-wrapper = pkgs.writeShellApplication {
     name = "waybar-wrapper";
     text = ''
-      PATH=$HOME/.nix-profile/bin:$PATH ${pkgs.waybar}/bin/waybar >"$HOME/waybar_log" 2>&1
+      export PATH="$HOME/.nix-profile/bin:$PATH"
+      export XDG_DATA_DIRS="/usr/local/share:/usr/share:/home/jzbor/.nix-profile/share:/nix/var/nix/profiles/default/share"
+      ${pkgs.waybar}/bin/waybar >"$HOME/waybar_log" 2>&1
     '';
   };
   nix-path-wrapper = pkgs.writeShellApplication {
@@ -64,6 +68,7 @@ in {
       tealdeer
       waybar
       waybar-wrapper
+      wl-clipboard
       nix-path-wrapper
       xmenu
     ];

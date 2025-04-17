@@ -1,5 +1,8 @@
-portrait mode	swaymsg output DPI-1 transform 270 && swaymsg output DPI-1 scale 2; swaymsg input '*' map_to_output DPI-1
-landscape mode	swaymsg output DPI-1 transform 0; swaymsg input '*' map_to_output DPI-1
+rotate
+	portrait mode	swaymsg output DPI-1 transform 270 && swaymsg output DPI-1 scale 2; swaymsg input '*' map_to_output DPI-1
+	landscape mode	swaymsg output DPI-1 transform 0; swaymsg input '*' map_to_output DPI-1
+	other portrait mode	swaymsg output DPI-1 transform 90 && swaymsg output DPI-1 scale 2; swaymsg input '*' map_to_output DPI-1
+	other landscape mode	swaymsg output DPI-1 transform 180; swaymsg input '*' map_to_output DPI-1
 
 switch ws
 	workspace 1	swaymsg workspace 1
