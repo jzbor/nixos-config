@@ -27,6 +27,10 @@ let
         text = pkgs.lib.readFile ./pn-eink-status.sh;
       })
       (pkgs.writeShellApplication {
+        name = "pn-lock";
+        text = pkgs.lib.readFile ./pn-lock.sh;
+      })
+      (pkgs.writeShellApplication {
         name = "pn-lock-suspend";
         text = pkgs.lib.readFile ./pn-lock-suspend.sh;
       })
