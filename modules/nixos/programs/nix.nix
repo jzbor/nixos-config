@@ -1,10 +1,10 @@
-{ pkgs, config, inputs, perSystem, ... }:
+{ config, inputs, perSystem, ... }:
 
 {
   imports = [ inputs.nix-sweep.nixosModules.default ];
   nix = {
     # Activate nix flakes system wide
-    package = pkgs.nix;
+    package = perSystem.self.nix;
     extraOptions = ''
       min-free = ${toString (16 * 1042 * 1024 * 1024)}
       max-free = ${toString (32 * 1042 * 1024 * 1024)}

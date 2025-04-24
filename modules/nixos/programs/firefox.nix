@@ -13,7 +13,7 @@ _:
         RejectTracker = true;
       };
       SearchEngines = {
-        Default = "DuckDuckGo";  # does not seem to be working
+        Default = "ddg";
       };
       ExtensionSettings = {
         "uBlock0@raymondhill.net" = {

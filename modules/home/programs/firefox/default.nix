@@ -9,7 +9,7 @@ in mkIf cfg.enable {
 
     # Default search engine
     search.force = true;
-    search.default = "DuckDuckGo";
+    search.default = "ddg";
 
     settings = {
       # Attempt to mitigate fingerprinting

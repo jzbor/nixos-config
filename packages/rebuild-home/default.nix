@@ -1,8 +1,9 @@
-{ pkgs, pname, flake }: pkgs.writeShellApplication {
+{ pkgs, pname, flake, perSystem }: pkgs.writeShellApplication {
   name = pname;
   runtimeInputs = with pkgs; [
     attic-client
     home-manager
+    perSystem.self.nix
   ];
   text = let
     cacheName = "desktop";

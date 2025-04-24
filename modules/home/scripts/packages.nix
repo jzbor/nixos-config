@@ -7,7 +7,7 @@ let
 in {
   dev-shell = mkPythonApplication ./dev-shell.py {
     name = "dev-shell";
-    runtimeInputs = [ pkgs.nix ];
+    runtimeInputs = [ perSystem.self.nix ];
   };
 
   fman = pkgs.writeShellApplication {

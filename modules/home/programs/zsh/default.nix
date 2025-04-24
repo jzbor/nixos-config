@@ -83,7 +83,7 @@ in mkIf cfg.enable {
     };
 
     # Additional configuration
-    initExtra = builtins.concatStringsSep "\n" [
+    initContent = builtins.concatStringsSep "\n" [
       (builtins.readFile ./config.zsh)
       (builtins.readFile ./prompt.zsh)
       command-not-found

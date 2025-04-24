@@ -23,6 +23,8 @@
   };
 
   nix = {
+    package = inputs.self.${pkgs.system}.nix;
+
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
