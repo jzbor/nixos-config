@@ -33,7 +33,6 @@ with lib;
       attic-client
       bat
       btop
-      perSystem.parcels.cliflux
       gcc
       librespeed-cli
       nil

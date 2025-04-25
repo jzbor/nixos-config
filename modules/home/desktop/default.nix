@@ -21,7 +21,6 @@ in {
 
     home.packages = with pkgs; [
       perSystem.parcels.foliot
-      neovide
       scrcpy
       typst
       yt-dlp
@@ -48,7 +47,6 @@ in {
       captive-browser.enable = true;
       ghostty.enable = true;
       marswm.enable = true;
-      skippy-xd.enable = true;
       touchegg.enable = true;
       xmenu.enable = true;
     };
