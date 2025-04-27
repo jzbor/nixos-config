@@ -52,8 +52,8 @@
     enable = true;
     package = perSystem.parcels.nix-sweep;
     interval = "daily";
-    older = 30;
-    max = 30;
+    removeOlder = 30;
+    keepMax = 30;
     gc = true;
     gcInterval = "weekly";
   };
