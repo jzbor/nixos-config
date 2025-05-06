@@ -39,6 +39,7 @@ with lib;
       powertop
       rustup
       tealdeer
+      tinymist
       tree
       unzip
       uutils-coreutils-noprefix
