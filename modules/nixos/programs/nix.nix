@@ -68,8 +68,8 @@
     templates.to = config.nix.registry.cornflakes.to;
     homepage.to = { url = "ssh://git@github.com/jzbor/jzbor.github.io"; submodules = true; type = "git"; };
     cloud.to = { url = "ssh://git@github.com/jzbor/nixos-cloud"; type = "git"; };
-    sp.to = { url = "ssh://git@gitlab.cs.fau.de/i4/sp/uebung"; type = "git"; };
-    sp-jzbor.to = { url = "ssh://git@gitlab.cs.fau.de/i4/sp/uebung"; ref = "jzbor-nix"; type = "git"; };
+    sp.to = { url = "ssh://git@gitlab.cs.fau.de/i4/sp/uebung"; type = "git"; submodules =true; };
+    sp-jzbor.to = { url = "ssh://git@gitlab.cs.fau.de/i4/sp/uebung"; ref = "jzbor-nix"; type = "git"; submodules = true; };
     nixos-config.to = { owner = "jzbor"; repo = "nixos-config"; type = "github"; };
     zinn.to = { owner = "jzbor"; repo = "zinn"; type = "github"; };
   };
