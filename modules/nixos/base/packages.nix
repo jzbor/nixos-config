@@ -11,13 +11,14 @@ let
   ];
   systemUtilPackages = with pkgs; [
     cryptsetup
+    dysk
     glances
+    glxinfo
+    libva-utils
     lm_sensors
     ncdu
     neofetch
     smartmontools
-    glxinfo
-    libva-utils
   ];
   cliPackages = with pkgs; [
     curl
