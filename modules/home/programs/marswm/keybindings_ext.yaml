@@ -66,15 +66,12 @@
 - modifiers: [ Mod4 ]
   key: e
   action: !execute rofi -show window
+- modifiers: [ Mod4 ]
+  key: r
+  action: !execute launch-nixpkgs
 - modifiers: [ Mod4, Shift ]
   key: r
-  action: !execute rofi -run
-- modifiers: [ Mod4, Shift ]
-  key: r
-  action: !execute rofi -dmenu -p "nix run" | xargs -I "{}" nix run "nixpkgs#{}"
-- modifiers: [ Mod4, Control ]
-  key: r
-  action: !execute rofi -dmenu -p "nix run" | xargs -I "{}" nix run --offline "nixpkgs#{}"
+  action: !execute launch-nixpkgs --offline
 - modifiers: [ Mod4, Shift ]
   key: s
   action: !execute find ~/.screenlayout -type f | rofi -dmenu | sh

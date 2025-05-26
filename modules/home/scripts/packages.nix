@@ -16,6 +16,12 @@ in {
     text = builtins.readFile ./fman.sh;
   };
 
+  launch-nixpkgs = pkgs.writeShellApplication {
+    name = "launch-nixpkgs";
+    runtimeInputs = with pkgs; [ jq rofi ];
+    text = builtins.readFile ./launch-nixpkgs.sh;
+  };
+
   mars-help = pkgs.writeShellApplication {
     name = "mars-help";
     runtimeInputs = [ perSystem.parcels.marswm ];
