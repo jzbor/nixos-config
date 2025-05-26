@@ -44,6 +44,9 @@ in mkIf cfg.enable {
 
       # Enable tab unloading on low memory
       browser.tabs.unloadOnLowMemory = true;
+
+      # Set printer default format to A4
+      print.print_paper_name = "iso_a4";
     };
   };
 }
