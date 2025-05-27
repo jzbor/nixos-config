@@ -68,5 +68,15 @@ with lib;
     jzbor-home.programs.iamb.enable = true;
 
     services.udiskie.enable = true;
+
+    # Add desktop entry for signal
+    xdg.desktopEntries.signal-desktop = {
+      name = "Signal Desktop";
+      genericName = "Messenger";
+      exec = "signal-desktop";
+      icon = "signal-desktop";
+      terminal = false;
+      categories = [ "Application" "Network" ];
+    };
   };
 }
