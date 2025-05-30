@@ -1,7 +1,6 @@
 { config, inputs, perSystem, ... }:
 
 {
-  imports = [ inputs.nix-sweep.nixosModules.default ];
   nix = {
     # Activate nix flakes system wide
     package = perSystem.self.nix;
@@ -45,18 +44,6 @@
 
     # Disable online registry
     settings.flake-registry = "";
-  };
-
-  # Garbage collection
-  services.nix-sweep = {
-    enable = true;
-    package = perSystem.parcels.nix-sweep;
-    interval = "daily";
-    removeOlder = "30d";
-    keepMax = 30;
-    keepMin = 5;
-    gc = true;
-    gcInterval = "weekly";
   };
 
   # Make nixpkgs available to local nix commands like `nix shell` or `nix-shell`
