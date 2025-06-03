@@ -10,6 +10,20 @@ in mkIf cfg.enable {
     ] ++ [
       (pkgs.callPackage ./scripts/reload.nix {})
     ];
+
+    # TODO: Remove as soon as fix is merged upstream: https://nixpkgs-tracker.jzbor.de/?pr=412889
+    mpv = pkgs.mpv-unwrapped.override {
+      libplacebo = pkgs.libplacebo.overrideAttrs {
+        patches = [
+          (pkgs.fetchpatch {
+            name = "fix-shaders.patch";
+            url = "https://github.com/haasn/libplacebo/commit/4c6d99edee23284f93b07f0f045cd660327465eb.patch";
+            revert = true;
+            hash = "sha256-zoCgd9POlhFTEOzQmSHFZmJXgO8Zg/f9LtSTSQq5nUA=";
+          })
+        ];
+      };
+    };
   };
   programs.mpv.config = {
     hwdec = "auto-safe";
