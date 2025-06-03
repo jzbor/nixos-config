@@ -6,7 +6,7 @@
   # Garbage collection
   services.nix-sweep = {
     enable = true;
-    package = perSystem.parcels.nix-sweep;
+    # package = perSystem.parcels.nix-sweep;
     interval = "daily";
     removeOlder = "30d";
     keepMax = 30;

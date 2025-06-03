@@ -444,11 +444,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748895484,
-        "narHash": "sha256-VegYUsrbxClVjQciM1TAMEROqUllCIvIN8Lo+m0zZM0=",
+        "lastModified": 1748902706,
+        "narHash": "sha256-6ZAt9N5Idnory7VKjqrmAYQHQvdPfs5AdvNEsOX+ULs=",
         "owner": "jzbor",
         "repo": "nix-sweep",
-        "rev": "e4b1b910c8609de87a6dfc84a60abc03c6b4428e",
+        "rev": "34bd5a92f1a8b9c4a0b3c8625d13dc6fd7ab4aa9",
         "type": "github"
       },
       "original": {
