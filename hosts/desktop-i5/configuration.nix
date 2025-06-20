@@ -61,4 +61,13 @@ in {
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
+
+  # # NAT for containers
+  # networking.nat = {
+  #   enable = true;
+  #   internalInterfaces = [ "ve-+" ];
+  #   externalInterface = "enp0s31f6";
+  #   enableIPv6 = true;
+  # };
+  # networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
 }
