@@ -21,7 +21,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      # rhythmbox  # TODO: read once https://nixpkgs-tracker.jzbor.de/?pr=418561 is in nixos-unstable
+      rhythmbox
       mpv
     ] ++ (if cfg.dvdSupport then [
       vlc
