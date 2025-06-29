@@ -43,4 +43,9 @@ in {
 
   # Enable Cinnamon desktop env
   jzbor-system.de.cinnamon.enable = true;
+
+  jzbor-system.features.office.printing.vendors.hp = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "hplip"
+  ];
 }
