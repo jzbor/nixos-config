@@ -70,4 +70,10 @@ in {
   #   enableIPv6 = true;
   # };
   # networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
 }
