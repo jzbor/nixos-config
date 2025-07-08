@@ -20,7 +20,7 @@ with lib;
 
     home.sessionVariables = {
       EDITOR = "nvim";
-      TERMINAL = "${pkgs.ghostty}/bin/ghostty";
+      TERMINAL = "ghostty";
     };
 
     home.file = {

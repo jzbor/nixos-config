@@ -10,7 +10,17 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      ghostty
+      # ghostty
+      # TODO: Change back once https://nixpkgs-tracker.jzbor.de/?pr=422922 is merged
+      (
+        ghostty.overrideAttrs (_: {
+          preBuild = ''
+            shopt -s globstar
+            sed -i 's/^const xev = @import("xev");$/const xev = @import("xev").Epoll;/' **/*.zig
+            shopt -u globstar
+          '';
+        })
+      )
     ];
 
     xdg.configFile."ghostty/config".text = builtins.concatStringsSep "\n" [
