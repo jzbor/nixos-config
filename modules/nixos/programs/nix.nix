@@ -61,4 +61,6 @@
     nixos-config.to = { owner = "jzbor"; repo = "nixos-config"; type = "github"; };
     zinn.to = { owner = "jzbor"; repo = "zinn"; type = "github"; };
   };
+
+  environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
 }
