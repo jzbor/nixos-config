@@ -92,5 +92,8 @@ in mkIf cfg.enable {
     ];
   };
 
+  programs.zoxide.enable = true;
+  programs.zoxide.enableZshIntegration = true;
+
   programs.nix-index.enable = false;
 }
