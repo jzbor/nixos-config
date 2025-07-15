@@ -39,7 +39,7 @@ local plugins = {
   'LnL7/vim-nix',
   -- { 'kaarmu/typst.vim', ft = {'typ'} } -- currently broken
   { 'kaarmu/typst.vim' },
-  -- { 'whonore/Coqtail' },
+  { 'whonore/Coqtail' },
 
   -- Colorschemes
   -- 'bluz71/vim-moonfly-colors', -- A theme I particularly like.
