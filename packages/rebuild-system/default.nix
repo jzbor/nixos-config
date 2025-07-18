@@ -18,7 +18,9 @@
         fi
 
         set -x
-        $SUDO nixos-rebuild switch --flake "${flake}" "$@"
+        path="$(nix build --no-link --print-out-paths ".#nixosConfigurations.$(< /etc/hostname).config.system.build.toplevel")"
+        $SUDO nix-env --profile /nix/var/nix/profiles/system --set "$path"
+        $SUDO "$path/bin/switch-to-configuration" switch
         set +x
 
         if attic cache info ${cacheName} 2>/dev/null; then
