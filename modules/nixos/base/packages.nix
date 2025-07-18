@@ -12,7 +12,6 @@ let
   systemUtilPackages = with pkgs; [
     cryptsetup
     dysk
-    glances
     glxinfo
     libva-utils
     lm_sensors
