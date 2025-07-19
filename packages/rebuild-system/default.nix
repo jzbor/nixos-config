@@ -1,8 +1,8 @@
-{ flake, pkgs, pname }: pkgs.writeShellApplication {
+{ flake, pkgs, pname, perSystem }: pkgs.writeShellApplication {
   name = pname;
   runtimeInputs = with pkgs; [
     attic-client
-    nixos-rebuild
+    perSystem.self.nix
   ];
   text = let
     cacheName = "desktop";
