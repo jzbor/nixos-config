@@ -9,6 +9,11 @@
     activator = pkgs.writeShellScriptBin "nixos-activator" ''
       set -x
       path="$(nix build --no-link --print-out-paths "${flake}#nixosConfigurations.$(< /etc/hostname).config.system.build.toplevel")"
+      if test -z "$path"; then
+        echo "Unable to build system path" >> /dev/stderr
+        exit 1
+      fi
+
       nix-env --profile /nix/var/nix/profiles/system --set "$path"
       "$path/bin/switch-to-configuration" switch
       set +x
@@ -18,11 +23,11 @@
     printf "\n=> Rebuilding system\n"
 
     if [ "$UID" = 0 ]; then
-    SUDO=""
+      SUDO=""
     elif command -v doas >/dev/null; then
-    SUDO="doas"
+      SUDO="doas"
     elif command -v sudo >/dev/null; then
-    SUDO="sudo"
+      SUDO="sudo"
     fi
 
     path="$($SUDO ${activator}/bin/nixos-activator | tail -n1)"

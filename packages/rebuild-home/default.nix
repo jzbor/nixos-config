@@ -22,6 +22,11 @@
 
       set -x
       path="$(nix build --no-link --print-out-paths "${flake}#homeConfigurations.$USER.activationPackage")"
+      if test -z "$path"; then
+        echo "Unable to build system path" >> /dev/stderr
+        exit 1
+      fi
+
       nix-env --profile "$home_profile" --set "$path"
       "$path/activate"
       set +x
