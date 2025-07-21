@@ -12,6 +12,7 @@
     ./marswm
     ./mpv
     ./neovim
+    ./nix-sweep
     ./picom
     ./rofi
     ./skippy-xd
