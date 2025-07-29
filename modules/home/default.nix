@@ -44,7 +44,7 @@ with lib;
       unzip
       uutils-coreutils-noprefix
       zip
-      perSystem.parcels.nix-sweep
+      perSystem.nix-sweep.default
       nix-tree
       xournalpp
     ];
