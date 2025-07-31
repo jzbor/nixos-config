@@ -66,6 +66,7 @@ in mkIf cfg.enable {
       typst-to-text = "sh -c 'typst compile -f pdf $0 /dev/stdout | nix shell nixpkgs#poppler_utils -c pdftotext - -'";
       nix-tree-all = "nix-tree $(find /nix/var/nix/gcroots -type l -readable | xargs readlink -f | sort -u)";
       nix-list-gc-roots = "find /nix/var/nix/gcroots -type l -readable | xargs readlink";
+      lg = "lazygit";
 
       build = "nix build";
       run = "nix run";

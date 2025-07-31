@@ -34,8 +34,11 @@ with lib;
       bat
       btop
       gcc
+      lazygit
       librespeed-cli
       nil
+      nix-tree
+      perSystem.nix-sweep.default
       powertop
       rustup
       tealdeer
@@ -43,10 +46,8 @@ with lib;
       tree
       unzip
       uutils-coreutils-noprefix
-      zip
-      perSystem.nix-sweep.default
-      nix-tree
       xournalpp
+      zip
     ];
 
     # garbage collection
