@@ -21,11 +21,11 @@ local plugins = {
   { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } }, -- UI to select things (files, search results, open buffers...)
   { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } },
   -- { 'romgrk/barbar.nvim', dependencies = {'kyazdani42/nvim-web-devicons'} }, -- A bar that will show at the top of you nvim containing your open buffers. Similarly to how other editors show tabs with open files.
-  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
   -- 'itchyny/lightline.vim', -- Fancier status line with some information that will be displayed at the bottom.
   -- 'nvim-lualine/lualine.nvim',
   { "brianaung/yasl.nvim", opts = {} },
-  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } }, -- Adds git related info in the signs columns (near the line numbers) and popups.
+  -- { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } }, -- Adds git related info in the signs columns (near the line numbers) and popups.
+  { 'airblade/vim-gitgutter' }, -- Adds git related info in the signs columns (near the line numbers) and popups.
   'nvim-treesitter/nvim-treesitter', -- Highlight, edit, and navigate code using a fast incremental parsing library. Treesitter is used by nvim for various things, but among others, for syntax coloring. Make sure that any themes you install support treesitter!
   'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter.
   'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client.

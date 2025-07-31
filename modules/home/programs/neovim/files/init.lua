@@ -11,7 +11,8 @@ require("neovide")
 
 -- Plugin specific configs
 require("plugs.cmp")
-require("plugs.gitsigns")
+--require("plugs.gitsigns")
+require("plugs.gitgutter")
 require("plugs.telescope")
 require("plugs.treesitter")
 require("plugs.vimwiki")
