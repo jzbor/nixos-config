@@ -10,6 +10,10 @@
     removeOlder = "30d";
     keepMax = 30;
     keepMin = 5;
+    gc = true;
+    gcInterval = "weekly";
+    gcQuota = 50;
+    gcModest = true;
   };
 
   environment.etc."nix-sweep/presets.toml".source = pkgs.writers.writeTOML "presets.toml" {
