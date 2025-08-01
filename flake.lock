@@ -447,11 +447,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753803427,
-        "narHash": "sha256-CBuumOh0SW8MHW1O6wq5MSHrY88nQhCHMEa69nAy/yY=",
+        "lastModified": 1754045860,
+        "narHash": "sha256-wzKxRogMEVjKYinqXjBxt0wN9/rA79kpZMoaY0oQNX4=",
         "owner": "jzbor",
         "repo": "nix-sweep",
-        "rev": "34e91ba601361e085d511429bd4438e7588bf9df",
+        "rev": "341dd47880cd7618e2b9608d5b31f3d5a0d56300",
         "type": "github"
       },
       "original": {
