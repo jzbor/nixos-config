@@ -1,11 +1,6 @@
 -- KEYBINDINGS
 -- Plugin specific keybindings are in the plugin's config files.
 
--- Remap space as leader key. Leader key is a special key that will allow us to make some additional keybindings. I'm using a spacebar, but you can use whatever you'd wish. We'll use it (for example) for searching and changing files (by pressing spacebar, then `s` and then `f`).
-vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- Function keys
 vim.api.nvim_set_keymap('n', '<F1>', ':set number!<CR>', {})
 vim.api.nvim_set_keymap('n', '<F2>', ':set relativenumber!<CR>', {})

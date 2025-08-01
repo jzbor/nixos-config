@@ -34,7 +34,7 @@ local plugins = {
   'hrsh7th/cmp-nvim-lsp',
   'saadparwaiz1/cmp_luasnip',
   'L3MON4D3/LuaSnip', -- Snippets plugin.
-  'vimwiki/vimwiki',
+  { 'vimwiki/vimwiki', ft = {'markdown'} },
   'editorconfig/editorconfig-vim',
   'LnL7/vim-nix',
   -- { 'kaarmu/typst.vim', ft = {'typ'} } -- currently broken
@@ -52,6 +52,7 @@ local plugins = {
   -- 'folke/which-key.nvim',
   { 'mfussenegger/nvim-jdtls', ft = {'java'} },
   { 'jez/vim-better-sml', ft = {'sml'} },
+  { 'kdheepak/lazygit.nvim', lazy = true, dependencies = { "nvim-lua/plenary.nvim", }, cmd = { "LazyGit" }, keys = { { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" } } },
 }
 
 require("lazy").setup(plugins, {

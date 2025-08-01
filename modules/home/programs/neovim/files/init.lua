@@ -1,6 +1,12 @@
 -- This config is based on the following article:
 --      https://tkg.codes/guide-to-modern-neovim-setup-2021/
 
+-- Set leader key first, so it can be used elsewhere
+-- Remap space as leader key. Leader key is a special key that will allow us to make some additional keybindings. I'm using a spacebar, but you can use whatever you'd wish. We'll use it (for example) for searching and changing files (by pressing spacebar, then `s` and then `f`).
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- Dependencies
 require("plugins")
 require("autocmd")
