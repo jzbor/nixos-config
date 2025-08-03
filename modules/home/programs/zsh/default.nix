@@ -39,7 +39,7 @@ in mkIf cfg.enable {
       size = 10000;  # number of lines to keep
     };
 
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
 
     # Highlighting
     syntaxHighlighting.enable = true;
