@@ -31,11 +31,11 @@
       # Binary caches
       netrc-file = "/etc/nix/netrc";
       substituters = [
-        "https://nix-community.cachix.org"
-        "https://cache.nixos.org/"
-        "https://cache.jzbor.de/desktop"
-        "https://cache.jzbor.de/sp"
-        "https://cache.jzbor.de/public"
+        "https://cache.nixos.org?priority=1"
+        "https://cache.jzbor.de/desktop?priority=2"
+        "https://cache.jzbor.de/public?priority=3"
+        "https://nix-community.cachix.org?priority=4"
+        "https://cache.jzbor.de/sp?priority=5"
       ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
