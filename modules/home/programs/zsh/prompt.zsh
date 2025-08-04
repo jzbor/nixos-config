@@ -56,10 +56,14 @@ git_prompt_string() {
 	local git_where="$(parse_git_branch)"
 
 	# If inside a Git repository, print its branch and state
-	[ -n "$git_where" ] && echo "%{$fg[red]%} %(?..✗) $GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
+	[ -n "$git_where" ] && echo "%{$fg[red]%}%(?.. ✗) $GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
 
 	# If not inside the Git repo, print exit codes of last command (only if it failed)
-	[ ! -n "$git_where" ] && echo "%{$fg[red]%} %(?..✗)"
+	[ ! -n "$git_where" ] && echo "%{$fg[red]%}%(?.. ✗)"
+}
+
+background_jobs() {
+	echo "%1(j.(%j).)"
 }
 
 # Prompt
@@ -70,5 +74,5 @@ if [ -n "$ENV_NAME" ]; then
 	ENV_SUFFIX=":$ENV_NAME"
 fi
 
-RPROMPT='$(git_prompt_string)%{$reset_color%}'
+RPROMPT='$(background_jobs)$(git_prompt_string)%{$reset_color%}'
 PROMPT="%F{magenta}[%f%n%F{magenta}@%M$ENV_SUFFIX]%f %F{blue}%~ %f";
