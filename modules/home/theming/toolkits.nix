@@ -7,6 +7,15 @@ let
   gtkPackage = pkgs.orchis-theme;
   iconTheme = "Numix-Circle";
   iconPackage = pkgs.numix-icon-theme-circle;
+  gtkExtraCss = ''
+    window, .titlebar, headerbar, decoration {
+      border-radius: 0;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+    }
+  '';
 in {
   # Application Theming
   gtk = {
@@ -23,7 +32,11 @@ in {
       name = cursorTheme;
       package = cursorPackage;
     };
+
+    gtk3.extraCss = gtkExtraCss;
+    gtk4.extraCss = gtkExtraCss;
   };
+
 
   home.pointerCursor = {
     name = cursorTheme;
