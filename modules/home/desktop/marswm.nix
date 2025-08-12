@@ -26,7 +26,7 @@ in {
       # file-roller
       xarchiver
       gthumb
-      pavucontrol
+      pwvucontrol
       pcmanfm
       xclip
       xorg.xev
