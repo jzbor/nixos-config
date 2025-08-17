@@ -47,4 +47,11 @@
     squeekboard
     tealdeer
   ];
+
+  services.openssh.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+  services.blueman.enable = true;
 }
