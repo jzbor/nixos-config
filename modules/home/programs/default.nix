@@ -18,6 +18,7 @@
     ./skippy-xd
     ./thunderbird
     ./touchegg
+    ./vis
     ./xmenu
     ./xwinmosaic
     ./zsh

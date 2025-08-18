@@ -62,6 +62,7 @@ with lib;
 
     programs.neovim.enable = true;
     programs.neovim.extraPackages = with pkgs; [ gcc ];
+    jzbor-home.programs.vis.enable = true;
 
     # Management of XDG base directories
     xdg.enable = true;
