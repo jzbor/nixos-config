@@ -32,6 +32,10 @@ _:
           installation_mode = "force_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/auto-tab-discard/latest.xpi";
         };
+        "{7a7b1d36-d7a4-481b-92c6-9f5427cb9eb1}" = {
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4253375/wallabagger-latest.xpi";
+        };
         "{f18f0257-10ad-4ff7-b51e-6895edeccfc8}" = {
           installation_mode = "force_installed";
           install_url = "https://files.jzbor.de/blobs/netflix-1080p.xpi";
