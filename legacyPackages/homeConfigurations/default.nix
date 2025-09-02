@@ -1,0 +1,13 @@
+{ inputs, pkgs, ... }@args:
+
+
+let
+  mkHome = cfg: inputs.home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+    modules = [ cfg ];
+    extraSpecialArgs = args;
+  };
+in {
+  jzbor = mkHome ../../homeConfigurations/jzbor/home-configuration.nix;
+  "jzbor@pinebook-pro" = mkHome ../../homeConfigurations/jzbor/home-configuration.nix;
+}

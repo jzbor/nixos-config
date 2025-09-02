@@ -5,10 +5,7 @@
     blueprint.url = "github:numtide/blueprint";
     blueprint.inputs.nixpkgs.follows = "nixpkgs";
 
-    cf = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:jzbor/cornflakes";
-    };
+    cf.url = "github:jzbor/cornflakes";
 
     parcels = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,12 +57,29 @@
     };
   };
 
-  outputs = inputs: (inputs.nixpkgs.lib.attrsets.recursiveUpdate
-    (inputs.blueprint {
-      inherit inputs;
-      systems = [ "aarch64-linux" "x86_64-linux" ];
-    })
-    (import ./misc inputs)
-  );
+  outputs = inputs: inputs.cf.lib.mkFlake {
+    inherit inputs;
+
+    perSystem = args: inputs.cf.lib.dirsToAttrsFn [
+      ./packages
+      ./legacyPackages
+    ] args;
+
+    outputs = { cfLib, inputs, ...}@args: {
+      nixosConfigurations = cfLib.nixosFromDirs ./nixosConfigurations args;
+
+      nixosModules = cfLib.dirToAttrs ./nixosModules;
+      homeModules = cfLib.dirToAttrs ./homeModules;
+
+      nixOnDroidConfigurations.default = {
+        pkgs = import inputs.nixpkgs {
+          overlays = [ inputs.parcels.overlays.default ];
+          system = "aarch64-linux";
+        };
+        modules = [ ./nix-on-droid ];
+        extraSpecialArgs = { inherit inputs; };
+      };
+    };
+  };
 }
 

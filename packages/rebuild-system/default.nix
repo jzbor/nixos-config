@@ -1,14 +1,14 @@
-{ flake, pkgs, pname, perSystem }: pkgs.writeShellApplication {
-  name = pname;
+{ self, pkgs, systemPackages, ... }: pkgs.writeShellApplication {
+  name = "rebuild-system";
   runtimeInputs = with pkgs; [
     attic-client
-    perSystem.self.nix
+    systemPackages.self.nix
   ];
   text = let
     cacheName = "desktop";
     activator = pkgs.writeShellScriptBin "nixos-activator" ''
       set -x
-      path="$(nix build --no-link --print-out-paths "${flake}#nixosConfigurations.$(< /etc/hostname).config.system.build.toplevel")"
+      path="$(nix build --no-link --print-out-paths "${self}#nixosConfigurations.$(< /etc/hostname).config.system.build.toplevel")"
       if test -z "$path"; then
         echo "Unable to build system path" >> /dev/stderr
         exit 1

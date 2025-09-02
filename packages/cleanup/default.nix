@@ -1,7 +1,7 @@
-{ pkgs, perSystem, pname }:
+{ pkgs, systemPackages, system, ... }:
 
 pkgs.writeShellApplication {
-  name = pname;
+  name = "cleanup";
   text = let
     keep = toString 8;
     max = toString 32;
@@ -15,17 +15,17 @@ pkgs.writeShellApplication {
       SUDO="sudo"
     fi
 
-    ${perSystem.parcels.nix-sweep}/bin/nix-sweep cleanout --interactive --keep-min ${keep} --keep-max ${max} --remove-older ${older} home user
+    ${systemPackages.parcels.nix-sweep}/bin/nix-sweep cleanout --interactive --keep-min ${keep} --keep-max ${max} --remove-older ${older} home user
     echo
     if [ "$UID" != 0 ]; then
       echo "Please authenticate to remove system generations:"
-      $SUDO ${perSystem.parcels.nix-sweep}/bin/nix-sweep cleanout --interactive --keep-min ${keep} --keep-max ${max} --remove-older ${older} system
+      $SUDO ${systemPackages.parcels.nix-sweep}.nix-sweep}/bin/nix-sweep cleanout --interactive --keep-min ${keep} --keep-max ${max} --remove-older ${older} system
     else
-      ${perSystem.parcels.nix-sweep}/bin/nix-sweep cleanout --interactive --keep-min ${keep} --keep-max ${max} --remove-older ${older} system
+      ${systemPackages.parcels.nix-sweep}.nix-sweep}/bin/nix-sweep cleanout --interactive --keep-min ${keep} --keep-max ${max} --remove-older ${older} system
     fi
 
     if [ "$#" = 1 ] && [ "$1" = "--gc" ]; then
-      ${perSystem.parcels.nix-sweep}/bin/nix-sweep gc
+      ${systemPackages.parcels.nix-sweep}.nix-sweep}/bin/nix-sweep gc
     fi
   '';
 }

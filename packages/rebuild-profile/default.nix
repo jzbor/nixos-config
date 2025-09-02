@@ -1,5 +1,5 @@
-{ pkgs, pname }: pkgs.writeShellApplication {
-  name = pname;
+{ pkgs, ... }: pkgs.writeShellApplication {
+  name = "rebuild-profile";
   text = ''
     printf "\n=> Rebuilding profile apps\n"
 

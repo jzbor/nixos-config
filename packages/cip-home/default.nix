@@ -1,15 +1,15 @@
-{ flake, inputs, pkgs, pname, perSystem, ... }:
+{ self, inputs, pkgs, ... }:
 
 let
   fakeHome = inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
 
-    extraSpecialArgs = { inherit perSystem inputs; };
+    extraSpecialArgs = { inherit inputs; };
 
     modules = [
 
-      flake.homeModules.programs
-      flake.homeModules.theming
+      self.homeModules.programs
+      self.homeModules.theming
 
       {
         config = {
@@ -29,10 +29,10 @@ let
   fakeHomeFiles = fakeHome.config.home-files;
   homePackages = pkgs.symlinkJoin {
     name = "home-packages";
-    paths = [ (builtins.attrValues (import ./packages.nix { inherit pkgs perSystem; }))  ];
+    paths = [ (builtins.attrValues (import ./packages.nix { inherit pkgs; }))  ];
   };
 in pkgs.stdenvNoCC.mkDerivation {
-  name = pname;
+  name = "cip-home";
   dontUnpack = true;
   dontInstall = true;
   buildPhase = ''
@@ -51,12 +51,12 @@ in pkgs.stdenvNoCC.mkDerivation {
     fi
 
     mkdir -pv $out/.local/bin
-    for script in $(find ${inputs.self}/modules/home/scripts -name '*.sh' -printf "%f\n" | sed 's/\.sh$//'); do
-      cp -rvL ${inputs.self}/modules/home/scripts/$script.sh $out/.local/bin/$script
+    for script in $(find ${inputs.self}/homeModules/scripts -name '*.sh' -printf "%f\n" | sed 's/\.sh$//'); do
+      cp -rvL ${inputs.self}/homeModules/scripts/$script.sh $out/.local/bin/$script
       chmod -v +x "$out/.local/bin/$script"
     done
-    for script in $(find ${inputs.self}/modules/home/scripts -name '*.py' -printf "%f\n" | sed 's/\.py$//'); do
-      cp -rvL ${inputs.self}/modules/home/scripts/$script.py $out/.local/bin/$script
+    for script in $(find ${inputs.self}/homeModules/scripts -name '*.py' -printf "%f\n" | sed 's/\.py$//'); do
+      cp -rvL ${inputs.self}/homeModules/scripts/$script.py $out/.local/bin/$script
       chmod -v +x "$out/.local/bin/$script"
     done
 

@@ -1,5 +1,5 @@
-{ pkgs, pname }: pkgs.symlinkJoin {
-  name = pname;
+{ pkgs, ... }: pkgs.symlinkJoin {
+  name = "proprietary-apps";
   paths = with pkgs; [
     discord
     spotify

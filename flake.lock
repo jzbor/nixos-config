@@ -61,11 +61,11 @@
     },
     "cf": {
       "locked": {
-        "lastModified": 1756828537,
-        "narHash": "sha256-ymQItCBW6cdYGO+T0FpKoduED7OopvpibQNWXaC1R4s=",
+        "lastModified": 1756846973,
+        "narHash": "sha256-RAm2DuypjkFXxofyl7jJXYtgW8IxoFkPXpMMqUbHq38=",
         "owner": "jzbor",
         "repo": "cornflakes",
-        "rev": "0919cf2951e941feb7ecb4c8b5e9c38402f68a10",
+        "rev": "018d356d07985c5f39857987e07aa9e81240720b",
         "type": "github"
       },
       "original": {

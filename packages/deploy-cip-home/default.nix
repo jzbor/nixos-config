@@ -1,13 +1,13 @@
-{ pkgs, pname, perSystem, ... }:
+{ pkgs, systemPackages, ... }:
 
 pkgs.writeShellApplication {
-  name = pname;
+  name = "deploy-cip-home";
   text = ''
     if [ "$#" != 1 ]; then
       echo "Usage: $0 <ssh-dest>" > /dev/stderr
       exit 1
     fi
 
-    ${pkgs.rsync}/bin/rsync -rzL --chmod 700 ${perSystem.self.cip-home}/ "$1:~"
+    ${pkgs.rsync}/bin/rsync -rzL --chmod 700 ${systemPackages.self.cip-home}/ "$1:~"
   '';
 }

@@ -1,8 +1,8 @@
-{ pkgs, pname, flake, perSystem }: pkgs.writeShellApplication {
-  name = pname;
+{ pkgs, self, systemPackages, ... }: pkgs.writeShellApplication {
+  name = "rebuild-home";
   runtimeInputs = with pkgs; [
     attic-client
-    perSystem.self.nix
+    systemPackages.self.nix
   ];
   text = let
     cacheName = "desktop";
@@ -21,7 +21,7 @@
       fi
 
       set -x
-      path="$(nix build --no-link --print-out-paths "${flake}#homeConfigurations.$USER.activationPackage")"
+      path="$(nix build --no-link --print-out-paths "${self}#homeConfigurations.$USER.activationPackage")"
       if test -z "$path"; then
         echo "Unable to build system path" >> /dev/stderr
         exit 1
