@@ -60,10 +60,10 @@
   outputs = inputs: inputs.cf.lib.mkFlake {
     inherit inputs;
 
-    perSystem = args: inputs.cf.lib.dirsToAttrsFn [
+    perSystem = inputs.cf.lib.dirsToAttrsFn [
       ./packages
       ./legacyPackages
-    ] args;
+    ];
 
     outputs = { cfLib, inputs, ...}@args: {
       nixosConfigurations = cfLib.nixosFromDirs ./nixosConfigurations args;
