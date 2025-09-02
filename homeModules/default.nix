@@ -50,14 +50,6 @@ with lib;
       zip
     ];
 
-    # garbage collection
-    nix.package = inputs.self.packages.${system}.nix;
-    nix.gc = {
-      automatic = true;
-      frequency = "weekly";
-      options = "--delete-older-than 30d";
-    };
-
     programs.zsh.enable = true;
 
     programs.neovim.enable = true;
