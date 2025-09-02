@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, system, ... }:
 
 with lib;
 let
@@ -11,7 +11,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       fzf
-      vis
+      inputs.parcels.packages.${system}.vis-unstable
     ];
 
     xdg.configFile."vis/visrc.lua".source = ./files/visrc.lua;

@@ -13,7 +13,7 @@ vis.events.subscribe(vis.events.INIT, function()
 	local plugins = {
 		{ 'https://git.sr.ht/~mcepl/vis-fzf-open/', alias = 'fzf_open' },
 		{ 'https://gitlab.com/muhq/vis-lspc', alias = 'lspc' },
-		{ 'https://repo.or.cz/vis-goto-file.git' },
+		-- { 'https://repo.or.cz/vis-goto-file.git' },
 
 		{ 'Nomarian/vis-tab-autoconf' },
 		{ 'erf/vis-cursors', alias = 'cursors' },
