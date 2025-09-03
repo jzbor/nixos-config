@@ -19,6 +19,7 @@ let
 
           home.sessionVariables.TERMINAL = "xfce4-terminal";
           jzbor-home.programs.marswm.enable = true;
+          jzbor-home.programs.vis.enable = true;
           programs.neovim.enable = true;
           programs.rofi.enable = true;
         };
@@ -41,6 +42,7 @@ in pkgs.stdenvNoCC.mkDerivation {
     mkdir -pv $out/.config
     cp -rvL ${fakeHomeFiles}/.config/marswm $out/.config/marswm
     cp -rvL ${fakeHomeFiles}/.config/nvim $out/.config/nvim
+    cp -rvL ${fakeHomeFiles}/.config/vis $out/.config/vis
 
     mkdir -pv $out/.local/bin $out/.local/share
     if [ -d "${homePackages}/bin" ]; then
