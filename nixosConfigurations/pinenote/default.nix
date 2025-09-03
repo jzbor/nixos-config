@@ -14,18 +14,6 @@
     ../../nixosModules/programs/firefox.nix
   ];
 
-  # TODO: remove
-  users.users.pinenote = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
-    initialPassword = "pinenote";
-  };
-  security.sudo = {
-    enable = pkgs.lib.mkForce true;
-    execWheelOnly = true;
-  };
-
-
   nixpkgs.hostPlatform = "aarch64-linux";
   system.stateVersion = "25.05";
   networking.hostName = "pinenote";
@@ -53,4 +41,6 @@
     powerOnBoot = true;
   };
   services.blueman.enable = true;
+
+  jzbor-pinenote.graphical.autologinUser = "jzbor";
 }

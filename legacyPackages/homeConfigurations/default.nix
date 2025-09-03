@@ -9,5 +9,6 @@ let
   };
 in {
   jzbor = mkHome ../../homeConfigurations/jzbor/home-configuration.nix;
-  "jzbor@pinebook-pro" = mkHome ../../homeConfigurations/jzbor/home-configuration.nix;
+  "jzbor@pinebook-pro" = mkHome (../../homeConfigurations + "/jzbor@pinebook-pro/home-configuration.nix");
+  "jzbor@pinenote" = mkHome (../../homeConfigurations + "/jzbor@pinenote/home-configuration.nix");
 }

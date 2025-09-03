@@ -42,10 +42,10 @@ vis.events.subscribe(vis.events.INIT, function()
 
 	plug.plugins.fzf_mru.fzfmru_args = plug.plugins.fzf_open.fzf_args
 	plug.plugins.fzf_mru.fzfmru_path = 'grep "^'..os.getenv('PWD')..'" | fzf'
-	plug.plugins.fzf_mru.fzfmru_filepath = os.getenv('XDG_CONFIG_HOME')..'/vis/mru'
+	plug.plugins.fzf_mru.fzfmru_filepath = (os.getenv('XDG_CONFIG_HOME') or '~/.config')..'/vis/mru'
 	plug.plugins.fzf_mru.fzfmru_history = 100
 
-	plug.plugins.cursors.path = os.getenv('XDG_CONFIG_HOME')..'/vis/vis-cursors.csv'
+	plug.plugins.cursors.path = (os.getenv('XDG_CONFIG_HOME') or '~/.config')..'/vis/vis-cursors.csv'
 	plug.plugins.cursors.maxsize = 1000
 end)
 

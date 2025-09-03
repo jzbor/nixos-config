@@ -21,7 +21,13 @@
       fi
 
       set -x
-      path="$(nix build --no-link --print-out-paths "${self}#homeConfigurations.$USER.activationPackage")"
+      path=""
+      if nix eval "${self}#homeConfigurations.$USER@$(< /etc/hostname)" --apply "x: true" >/dev/null 2>&1; then
+        path="$(nix build --no-link --print-out-paths "${self}#homeConfigurations.$USER@$(< /etc/hostname).activationPackage")"
+      else
+        path="$(nix build --no-link --print-out-paths "${self}#homeConfigurations.$USER.activationPackage")"
+      fi
+
       if test -z "$path"; then
         echo "Unable to build system path" >> /dev/stderr
         exit 1

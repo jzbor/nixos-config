@@ -5,7 +5,7 @@ let
   cfg = config.jzbor-home.programs.vis;
 in {
   options.jzbor-home.programs.vis = {
-    enable = mkEnableOption "Install xwinmosaic window viewer";
+    enable = mkEnableOption "Install and setup vis editor";
   };
 
   config = mkIf cfg.enable {

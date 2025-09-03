@@ -62,6 +62,7 @@ with lib;
     jzbor-home.programs.iamb.enable = true;
 
     services.udiskie.enable = true;
+    jzbor-home.programs.nix-sweep.enable = true;
 
     # Add desktop entry for signal
     xdg.desktopEntries.signal-desktop = {
