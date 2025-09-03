@@ -11,7 +11,8 @@ vis.events.subscribe(vis.events.INIT, function()
 	end return require('plugins/vis-plug') end)()
 
 	local plugins = {
-		{ 'https://git.sr.ht/~mcepl/vis-fzf-open/', alias = 'fzf_open' },
+		{ 'https://git.sr.ht/~mcepl/vis-fzf-open', alias = 'fzf_open' },
+		-- { 'https://git.sr.ht/~adigitoleo/vis-mellow', theme = true },
 		{ 'https://gitlab.com/muhq/vis-lspc', alias = 'lspc' },
 		-- { 'https://repo.or.cz/vis-goto-file.git' },
 
@@ -55,7 +56,8 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win) -- luacheck: no unused a
 	vis:command('set ignorecase')
 	vis:command('set autoindent')
 	vis:command('set tabwidth 4')
-	vis:command('set theme vis-minimal-theme/minimal-dark-clear')
+	vis:command('set theme seoulbones')--
+	-- vis:command('set theme vis-minimal-theme/minimal-dark-clear')--
 
 	vis:map(vis.modes.NORMAL, " sf", function () vis:command('fzf') end)
 	vis:map(vis.modes.NORMAL, " sg", function () vis:command('fzf-rg') end)

@@ -15,5 +15,6 @@ in {
     ];
 
     xdg.configFile."vis/visrc.lua".source = ./files/visrc.lua;
+    xdg.configFile."vis/themes/seoulbones.lua".source = ./files/seoulbones.lua;
   };
 }

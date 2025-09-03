@@ -53,6 +53,7 @@ local plugins = {
   { 'mfussenegger/nvim-jdtls', ft = {'java'} },
   { 'jez/vim-better-sml', ft = {'sml'} },
   { 'kdheepak/lazygit.nvim', lazy = true, dependencies = { "nvim-lua/plenary.nvim", }, cmd = { "LazyGit" }, keys = { { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" } } },
+  'jpe90/export-colorscheme.nvim',
 }
 
 require("lazy").setup(plugins, {
