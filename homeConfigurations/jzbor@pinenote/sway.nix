@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, inputs, ... }:
 
-{
+
+let
+in {
   wayland.windowManager.sway = {
     enable = true;
 
@@ -72,7 +74,35 @@
         { command = "exec ${pkgs.wvkbd}/bin/wvkbd-mobintl -L 200 --bg 000000 --fg ffffff --text 000000 --fg-sp ffffff --text-sp 000000 --hidden"; }
         { command = "${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'HighContrast'"; }
         { command = "${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface icon-theme 'HighContrast'"; }
+        { command = "waybar"; }
+        { command = "sleep 10 && update-lock-screen"; }
       ];
+
+      colors = {
+        focused = rec {
+          border = "#000000";
+          background = "#000000";
+          text = "#ffffff";
+          indicator = border;
+          childBorder = border;
+        };
+        focusedInactive = rec {
+          border = "#ffffff";
+          background = "#ffffff";
+          text = "#000000";
+          indicator = border;
+          childBorder = border;
+        };
+        unfocused = rec {
+          border = "#000000";
+          background = "#ffffff";
+          text = "#000000";
+          indicator = border;
+          childBorder = border;
+        };
+      };
+
+      bars = [];
     };
 
     extraConfig = ''
