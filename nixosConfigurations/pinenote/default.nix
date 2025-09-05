@@ -43,4 +43,10 @@
   services.blueman.enable = true;
 
   jzbor-pinenote.graphical.autologinUser = "jzbor";
+
+  services.logind.settings.Login = {
+    HandlePowerKey = "suspend";
+    HandlePowerKeyLongPress = "poweroff";
+    LidSwitch = "ignore";
+  };
 }

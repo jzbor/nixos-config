@@ -1,13 +1,17 @@
-{ self, pkgs, system, inputs, ... }:
+{ pkgs, ... }:
 
 with pkgs.lib;
 {
   imports = [
     ../../homeModules/programs
+
+    ./sway.nix
+    ./waybar.nix
   ];
 
   home.packages = with pkgs; [
     nix-tree
+    xmenu
   ];
 
   home.stateVersion = "25.11";
@@ -19,4 +23,5 @@ with pkgs.lib;
   programs.firefox.enable = true;
   programs.neovim.enable = true;
   programs.zsh.enable = true;
+  services.network-manager-applet.enable = true;
 }

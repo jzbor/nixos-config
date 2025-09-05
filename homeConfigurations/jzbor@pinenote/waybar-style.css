@@ -1,0 +1,26 @@
+* {
+	font-family: Comic Mono;
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+button {
+	color: black;
+	background: white;
+	padding: 2px;
+	/* padding-top: 6px; */
+	padding-left: 8px;
+	padding-right: 8px;
+	border-radius: 0;
+	border: 0;
+}
+
+button.focused {
+	color: white;
+	background: black;
+}
+
+.modules-right {
+	margin-right: 10px;
+}
+
