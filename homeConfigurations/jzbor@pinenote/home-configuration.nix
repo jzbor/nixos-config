@@ -24,6 +24,15 @@ let
     runtimeInputs = with pkgs; [ parted ];
     text = readFile ./scripts/switch-boot-partition.sh;
   };
+
+  pn-wmenu = pkgs.writeShellApplication {
+    name = "pn-wmenu";
+    text = ''
+          pkill -SIGUSR2 wvkbd-mobintl
+          wmenu-run -N ffffff -n 000000 -M 000000 -m ffffff -S 000000 -s ffffff -f 'mono 12' -p run -l 10
+          pkill -SIGUSR1 wvkbd-mobintl
+    '';
+  };
 in {
   imports = [
     ../../homeModules/programs
@@ -34,6 +43,7 @@ in {
 
   home.packages = with pkgs; [
     nix-tree
+    pn-wmenu
     switch-boot-partition
     update-lock-screen
     xmenu
