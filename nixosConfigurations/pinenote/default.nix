@@ -12,11 +12,15 @@
     ../../nixosModules/programs/nix.nix
     ../../nixosModules/programs/ssh.nix
     ../../nixosModules/programs/firefox.nix
+
+    ./plymouth.nix
   ];
 
   nixpkgs.hostPlatform = "aarch64-linux";
   system.stateVersion = "25.05";
   networking.hostName = "pinenote";
+
+  boot.initrd.systemd.enable = true;
 
   users.users.jzbor = {
     isNormalUser = true;
