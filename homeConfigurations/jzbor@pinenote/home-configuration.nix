@@ -30,6 +30,12 @@ in {
     xmenu
     zoxide
     update-lock-screen
+
+    (pkgs.writeShellApplication {
+      name = "switch-boot-partition";
+      runtimeInputs = with pkgs; [ parted ];
+      text = readFile ./scripts/switch-boot-partition.sh;
+    })
   ];
 
   home.stateVersion = "25.11";
