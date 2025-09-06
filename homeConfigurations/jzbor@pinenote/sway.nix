@@ -1,8 +1,10 @@
 { pkgs, lib, inputs, ... }:
 
+{
+  home.packages = with pkgs; [
+    swaybg
+  ];
 
-let
-in {
   wayland.windowManager.sway = {
     enable = true;
 
@@ -70,12 +72,12 @@ in {
       };
 
       startup = [
-        { command = "swaybg -c ffffff"; }
         { command = "exec ${pkgs.wvkbd}/bin/wvkbd-mobintl -L 200 --bg 000000 --fg ffffff --text 000000 --fg-sp ffffff --text-sp 000000 --hidden"; }
         { command = "${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface gtk-theme 'HighContrast'"; }
         { command = "${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface icon-theme 'HighContrast'"; }
         { command = "waybar"; }
-        { command = "sleep 10 && update-lock-screen"; }
+        { command = "sleep 10 && update-lock-screen"; always = true;}
+        { command = "swaybg -m center -i ${inputs.nixos-pinenote.packages.aarch64-linux.wallpaper}/share/wallpapers/nixos-wallpaper.png"; always = true; }
       ];
 
       colors = {
