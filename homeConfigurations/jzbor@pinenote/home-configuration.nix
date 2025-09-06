@@ -45,4 +45,16 @@ in {
   services.blueman-applet.enable = true;
 
   programs.zoxide.enableBashIntegration = true;
+
+  services.mako = {
+    enable = true;
+    settings = {
+      background-color = "#FFFFFF";
+      text-color = "#000000";
+      border-color = "#000000";
+      on-touch = "invoke-default-action";
+      font = "Comic Mono 12";
+      default-timeout = 5000;
+    };
+  };
 }

@@ -13,6 +13,15 @@
         "sway/window" = {
           "max-length" = 50;
         };
+        "sway/workspaces" = {
+          "persistent-workspaces" = {
+            "1" = [];
+            "2" = [];
+            "3" = [];
+            "4" = [];
+            "5" = [];
+          };
+        };
         "battery" = {
           "format" = "{capacity}%";
           "format-charging" = "{capacity}% charging";
