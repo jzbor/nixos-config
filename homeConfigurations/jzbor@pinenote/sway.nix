@@ -78,6 +78,7 @@
         { command = "waybar"; }
         { command = "sleep 10 && update-lock-screen"; always = true;}
         { command = "swaybg -m center -i ${inputs.nixos-pinenote.packages.aarch64-linux.wallpaper}/share/wallpapers/nixos-wallpaper.png"; always = true; }
+        { command = "sleep 1 && busctl --user call org.pinenote.PineNoteCtl /org/pinenote/PineNoteCtl org.pinenote.Ebc1 GlobalRefresh"; always = true; }
       ];
 
       colors = {
