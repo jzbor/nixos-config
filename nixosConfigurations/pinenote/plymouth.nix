@@ -2,18 +2,18 @@
   boot = {
     plymouth = {
       enable = true;
-      extraConfig = ''
-        ShowDelay=0
-        DeviceScale=2
-      '';
-      theme = "nix-eink";
-      themePackages = [
-        inputs.nixos-pinenote.packages.aarch64-linux.plymouth-nix-eink
-      ];
+      # extraConfig = ''
+      #   ShowDelay=0
+      #   DeviceScale=2
+      # '';
+      # theme = "nix-eink";
+      # themePackages = [
+      #   inputs.nixos-pinenote.packages.aarch64-linux.plymouth-nix-eink
+      # ];
     };
 
     # Enable "Silent boot"
-    consoleLogLevel = 3;
+    consoleLogLevel = 1;
     initrd.verbose = false;
     kernelParams = [
       "quiet"
@@ -24,6 +24,7 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "plymouth.debug"
+      "fbcon=rotate:3"
     ];
   };
 }
