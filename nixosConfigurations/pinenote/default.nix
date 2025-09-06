@@ -23,12 +23,10 @@
   boot.initrd.systemd.enable = true;
 
   users.users.jzbor = {
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
   };
-
-  programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
     btop
@@ -38,7 +36,6 @@
     neofetch
     neovim
     ripgrep
-    squeekboard
     tealdeer
   ];
 

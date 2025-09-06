@@ -63,6 +63,7 @@ in {
   services.network-manager-applet.enable = true;
   services.blueman-applet.enable = true;
 
+  programs.bash.enable = true;
   programs.zoxide.enableBashIntegration = true;
 
   services.mako = {
