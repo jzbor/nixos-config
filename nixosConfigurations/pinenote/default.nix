@@ -23,6 +23,7 @@
   boot.initrd.systemd.enable = true;
 
   users.users.jzbor = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
   };
