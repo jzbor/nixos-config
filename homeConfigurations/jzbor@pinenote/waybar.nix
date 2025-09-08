@@ -8,8 +8,8 @@
       mainBar = {
         "layer" = "top";
         "modules-left" = [ "sway/workspaces" ];
-        "modules-center" = [ "custom/keyboard" "custom/applications" "custom/refresh" "custom/window" ];
-        "modules-right" = [ "custom/travel-mode" "custom/eink-display" "battery" "clock" "tray" ];
+        "modules-center" = [ "custom/keyboard" "custom/window" "custom/applications" "custom/display" "custom/refresh" ];
+        "modules-right" = [ "battery" "clock" "tray" ];
         "sway/window" = {
           "max-length" = 50;
         };
@@ -33,9 +33,10 @@
         "custom/applications" = {
           "format" = "run";
           # "on-click" = "(PATH=$HOME/.nix-profile/bin $HOME/.nix-profile/bin/xdg-xmenu; printf 'abort\ttrue\n') | xmenu -p 0x0 | sh";
-          "on-click" = "pkill -SIGUSR2 wvkbd-mobintl && sway exec wmenu-run -N ffffff -n 000000 -M 000000 -m ffffff -S 000000 -s ffffff -f 'mono 12' -p run -l 10; pkill -SIGUSR1 wvkbd-mobintl";
+          # "on-click" = "pkill -SIGUSR2 wvkbd-mobintl && sway exec wmenu-run -N ffffff -n 000000 -M 000000 -m ffffff -S 000000 -s ffffff -f 'mono 12' -p run -l 10; pkill -SIGUSR1 wvkbd-mobintl";
           # "on-click" = "cat ~/.config/app_menu | xmenu -p 0x0 | sh";
-          # "on-click" = "swaymsg exec ~/.nix-profile/bin/pn-wmenu";
+          # "on-click" = "pn-wmenu";
+          "on-click" = "cat ~/.config/menu/applications | xmenu -p 0x0 | sh";
         };
         "custom/refresh" = {
           "format" = "ref";
@@ -49,9 +50,13 @@
           "exec" = "pn-eink-status";
           "on-click" = "cat ~/.config/eink_menu | xmenu -p 0x0 | sh";
         };
+        "custom/display" = {
+          "format" = "edp";
+          "on-click" = "cat ~/.config/menu/display | xmenu -p 0x0 | sh";
+        };
         "custom/window" = {
           "format" = "win";
-          "on-click" = "cat ~/.config/window_menu | xmenu -p 0x0 | sh";
+          "on-click" = "cat ~/.config/menu/window | xmenu -p 0x0 | sh";
         };
         "custom/travel-mode" = {
           "hide-empty-text" = true;

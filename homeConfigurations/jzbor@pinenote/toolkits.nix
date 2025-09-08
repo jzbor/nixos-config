@@ -1,0 +1,57 @@
+{ pkgs, ... }:
+
+let
+  cursorTheme = "HighContrast";
+  gtkTheme = "HighContrast";
+  iconTheme = "HighContrast";
+  # cursorTheme = "capitaine-cursors-white";
+  # cursorPackage = pkgs.capitaine-cursors;
+  # gtkTheme = "Orchis-Yellow-Dark-Compact";
+  # gtkPackage = pkgs.orchis-theme;
+  # iconTheme = "Numix-Circle";
+  # iconPackage = pkgs.numix-icon-theme-circle;
+  gtkExtraCss = ''
+    window, .titlebar, headerbar, decoration {
+      border-radius: 0;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+    }
+  '';
+in {
+  # Application Theming
+  gtk = {
+    enable = true;
+    theme = {
+      name = gtkTheme;
+      # package = gtkPackage;
+    };
+    iconTheme = {
+      name = iconTheme;
+      # package = iconPackage;
+    };
+    cursorTheme = {
+      name = cursorTheme;
+      # package = cursorPackage;
+    };
+
+    gtk3.extraCss = gtkExtraCss;
+    gtk4.extraCss = gtkExtraCss;
+  };
+
+
+  # home.pointerCursor = {
+  #   name = cursorTheme;
+  #   # package = cursorPackage;
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  #   size = 16;
+  # };
+
+  #home.file.".icons/default/cursors" = {
+  #  recursive = true;
+  #  source = "${cursorPackage}/share/icons/${cursorTheme}/cursors";
+  #};
+}
+

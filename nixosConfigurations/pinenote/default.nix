@@ -48,6 +48,9 @@
 
   jzbor-pinenote.graphical.autologinUser = "jzbor";
 
+  # Disable speechd (enabled by default on graphic systems)
+  services.speechd.enable = pkgs.lib.mkForce false;
+
   services.logind.settings.Login = {
     HandlePowerKey = "suspend";
     HandlePowerKeyLongPress = "poweroff";

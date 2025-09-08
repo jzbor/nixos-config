@@ -11,7 +11,7 @@
     config = rec {
       modifier = "Mod4";
       terminal = "foot";
-      menu = "menu-run -N ffffff -n 000000 -M 000000 -m ffffff -S 000000 -s ffffff -f \"mono 12\" -p run -l 10";
+      menu = "pn-wmenu";
       left = "h";
       down = "j";
       up = "k";
@@ -65,6 +65,7 @@
         "${modifier}+s" = "stacking";
         "${modifier}+c" = "tabbed";
         "${modifier}+t" = "split";
+        "${modifier}+f" = "fullscreen";
 
         "${modifier}+period" = "workspace next";
         "${modifier}+comma" = "workspace prev";
@@ -78,28 +79,31 @@
         { command = "waybar"; }
         { command = "sleep 10 && update-lock-screen"; always = true;}
         { command = "swaybg -m center -i ${inputs.nixos-pinenote.packages.aarch64-linux.wallpaper}/share/wallpapers/nixos-wallpaper.png"; always = true; }
-        { command = "sleep 1 && busctl --user call org.pinenote.PineNoteCtl /org/pinenote/PineNoteCtl org.pinenote.Ebc1 GlobalRefresh"; always = true; }
+        { command = "sleep 1 && pnctl call GlobalRefresh"; always = true; }
+        { command = "pnctl set-property DriverMode y 0"; always = true; }
+        { command = "pnctl set-property \"Y2|T|R\""; always = true; }
+        { command = "brightnessctl -d 'backlight_warm' set 0 && brightnessctl -d 'backlight_cool' set 0"; }
       ];
 
       colors = {
         focused = rec {
           border = "#000000";
           background = "#000000";
-          text = "#ffffff";
+          text = "#000000";
           indicator = border;
           childBorder = border;
         };
         focusedInactive = rec {
-          border = "#ffffff";
+          border = "#000000";
           background = "#ffffff";
-          text = "#000000";
+          text = "#ffffff";
           indicator = border;
           childBorder = border;
         };
         unfocused = rec {
           border = "#000000";
           background = "#ffffff";
-          text = "#000000";
+          text = "#ffffff";
           indicator = border;
           childBorder = border;
         };
