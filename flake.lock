@@ -585,11 +585,11 @@
         "nixpkgs-kernel": "nixpkgs-kernel"
       },
       "locked": {
-        "lastModified": 1757505421,
-        "narHash": "sha256-QuavSG4cXqlW1RQxcmmcEjrv7FiDLmrJe43NhIsK1ps=",
+        "lastModified": 1757522393,
+        "narHash": "sha256-xPQJuTqGNIkYaV5flxJZe2JnkHn88rlBPd/wZmtSX+A=",
         "owner": "jzbor",
         "repo": "nixos-pinenote",
-        "rev": "f76f2b86c5df1e05cb75abc235a9558dada784a4",
+        "rev": "febc2276ef70b76ce55f9da82e099a485fb52e7a",
         "type": "github"
       },
       "original": {

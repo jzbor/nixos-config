@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, system, ... }:
 
 {
   home.packages = with pkgs; [
@@ -110,6 +110,27 @@
       };
 
       bars = [];
+
+      window.commands = let
+        ebcmark = "${inputs.nixos-pinenote.packages.${system}.pinenote-service}/bin/ebcmark-sway";
+      in [
+        {
+          criteria.app_id = "mpv";
+          command = "exec ${ebcmark} set \"Y1|D\" silent";
+        }
+        {
+          criteria.app_id = "firefox";
+          command = "exec ${ebcmark} set \"Y1|D\" silent";
+        }
+        {
+          criteria.app_id = "foot";
+          command = "exec ${ebcmark} set \"Y2|R\" silent";
+        }
+        {
+          criteria.app_id = "com.github.xournalpp.xournalpp";
+          command = "exec ${ebcmark} set \"Y4|R\" silent";
+        }
+      ];
     };
 
     extraConfig = ''
