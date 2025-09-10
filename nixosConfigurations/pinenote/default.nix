@@ -37,6 +37,7 @@
     neovim
     ripgrep
     tealdeer
+    tmux
   ];
 
   services.openssh.enable = true;
@@ -50,6 +51,8 @@
 
   # Disable speechd (enabled by default on graphic systems)
   services.speechd.enable = pkgs.lib.mkForce false;
+
+  security.pam.services.login.enableGnomeKeyring = true;
 
   services.logind.settings.Login = {
     HandlePowerKey = "suspend";

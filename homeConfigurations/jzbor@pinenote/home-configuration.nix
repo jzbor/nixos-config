@@ -73,22 +73,23 @@ in {
   ];
 
   home.packages = with pkgs; [
+    attic-client
+    brightnessctl
+    evince
+    inputs.parcels.packages.${system}.peanutbutter
+    nautilus
     nix-tree
+    pn-lock
+    pn-lock-suspend
     pn-wmenu
+    pnctl
     switch-boot-partition
+    tree
     update-lock-screen
     xmenu
     xournalpp
-    zoxide
-    pnctl
-    inputs.parcels.packages.${system}.peanutbutter
-    pn-lock
-    pn-lock-suspend
-    brightnessctl
-    tree
     zathura
-    evince
-    nautilus
+    zoxide
   ];
 
   home.stateVersion = "25.11";

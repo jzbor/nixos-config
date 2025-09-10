@@ -21,6 +21,7 @@ close window	swaymsg kill
 system
 	suspend	pn-lock-suspend
 	poweroff	systemctl poweroff
+	reboot	systemctl reboot
 	reload wm	swaymsg reload
 
 abort	true
