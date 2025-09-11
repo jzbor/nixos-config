@@ -77,6 +77,7 @@ in {
     brightnessctl
     evince
     inputs.parcels.packages.${system}.peanutbutter
+    koreader
     nautilus
     nix-tree
     pn-lock

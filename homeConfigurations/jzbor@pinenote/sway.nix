@@ -131,6 +131,10 @@
           criteria.app_id = "com.github.xournalpp.xournalpp";
           command = "exec ${ebcmark} set \"Y4|R\" silent";
         }
+        {
+          criteria.class = "KOReader";
+          command = "exec ${ebcmark} set \"Y1\" silent";
+        }
       ];
     };
 
