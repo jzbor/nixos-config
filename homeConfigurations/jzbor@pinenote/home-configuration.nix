@@ -126,4 +126,16 @@ in {
       default-timeout = 5000;
     };
   };
+
+  xresources.properties = {
+    "xmenu.foreground" = "#000000";
+    "xmenu.background" = "#ffffff";
+    "xmenu.selforeground" = "#ffffff";
+    "xmenu.selbackground" = "#000000";
+
+    "xmenu.border" = "#000000";
+    "xmenu.separator" = "#000000";
+    "xmenu.borderWidth" = 3;
+    "xmenu.separatorWidth" = 3;
+  }
 }

@@ -1,6 +1,10 @@
 terminal	foot
 files	nautilus
+journal	xournalpp
+ebook reader	evince
 web browser	firefox
 pdf viewer	evince
 
 other	pn-wmenu
+
+abort	true

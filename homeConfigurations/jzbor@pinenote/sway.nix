@@ -79,10 +79,11 @@
         { command = "waybar"; }
         { command = "sleep 10 && update-lock-screen"; always = true;}
         { command = "swaybg -m center -i ${inputs.nixos-pinenote.packages.aarch64-linux.wallpaper}/share/wallpapers/nixos-wallpaper.png"; always = true; }
-        { command = "sleep 1 && pnctl call GlobalRefresh"; always = true; }
         { command = "pnctl set-property DriverMode y 0"; always = true; }
         { command = "pnctl set-property \"Y2|T|R\""; always = true; }
         { command = "brightnessctl -d 'backlight_warm' set 0 && brightnessctl -d 'backlight_cool' set 0"; }
+        { command = "xrdb -merge ~/.Xresources"; always = true; }
+        { command = "sleep 3 && pnctl call GlobalRefresh"; always = true; }
       ];
 
       colors = {

@@ -36,7 +36,8 @@
           # "on-click" = "pkill -SIGUSR2 wvkbd-mobintl && sway exec wmenu-run -N ffffff -n 000000 -M 000000 -m ffffff -S 000000 -s ffffff -f 'mono 12' -p run -l 10; pkill -SIGUSR1 wvkbd-mobintl";
           # "on-click" = "cat ~/.config/app_menu | xmenu -p 0x0 | sh";
           # "on-click" = "pn-wmenu";
-          "on-click" = "cat ~/.config/menu/applications | xmenu -p 0x0 | sh";
+          # "on-click" = "cat ~/.config/menu/applications | xmenu -p 0x0 | sh";
+          "on-click" = "(xdg-xmenu | printf '\nabort\ttrue\n') | xmenu -p 0x0 | sh";
         };
         "custom/refresh" = {
           "format" = "ref";
