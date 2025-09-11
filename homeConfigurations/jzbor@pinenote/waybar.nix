@@ -37,7 +37,7 @@
           # "on-click" = "cat ~/.config/app_menu | xmenu -p 0x0 | sh";
           # "on-click" = "pn-wmenu";
           # "on-click" = "cat ~/.config/menu/applications | xmenu -p 0x0 | sh";
-          "on-click" = "(xdg-xmenu | printf '\nabort\ttrue\n') | xmenu -p 0x0 | sh";
+          "on-click" = "(xdg-xmenu; printf '\nabort\ttrue\n') | xmenu -p 0x0 | sh";
         };
         "custom/refresh" = {
           "format" = "ref";
