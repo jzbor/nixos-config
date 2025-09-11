@@ -125,7 +125,7 @@
         }
         {
           criteria.app_id = "foot";
-          command = "exec ${ebcmark} set \"Y2|R\" silent";
+          command = "exec ${ebcmark} set \"Y2|r\" silent";
         }
         {
           criteria.app_id = "com.github.xournalpp.xournalpp";
@@ -140,6 +140,9 @@
 
     extraConfig = ''
       default_orientation vertical
+      bindgesture swipe:right workspace prev
+      bindgesture swipe:left workspace next
+      bindgesture swipe:up exec pkill -SIGRTMIN wvkbd-mobintl
     '';
   };
 }
