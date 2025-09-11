@@ -73,5 +73,15 @@ with lib;
       terminal = false;
       categories = [ "Application" "Network" ];
     };
+
+    # Add desktop entry for set-wallpaper
+    xdg.desktopEntries.set-wallpaper = {
+      name = "Set Wallpaper";
+      exec = "set-wallpaper %f";
+      icon = "wallpaper";
+      terminal = false;
+      categories = [ "Utility" ];
+      mimeType = [ "image/bmp" "image/jpeg" "image/gif" "image/png" "image/tiff" "image/x-bmp" "image/x-ico" "image/x-png" "image/webp" ];
+    };
   };
 }
