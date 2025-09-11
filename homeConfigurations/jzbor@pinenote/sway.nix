@@ -113,7 +113,7 @@
       bars = [];
 
       window.commands = let
-        ebcmark = "${inputs.nixos-pinenote.packages.${system}.pinenote-service}/bin/ebcmark-sway";
+        ebcmark = "${inputs.nixos-pinenote.packages.aarch64-linux.pinenote-service}/bin/ebcmark-sway";
       in [
         {
           criteria.app_id = "mpv";

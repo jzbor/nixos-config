@@ -63,6 +63,14 @@ let
       busctl "$action" --user org.pinenote.PineNoteCtl /org/pinenote/PineNoteCtl org.pinenote.Ebc1 "$@"
     '';
   };
+  xmenu-themed = pkgs.xmenu.overrideAttrs (final: prev: {
+    patchPhase = ''
+      sed -i "s/\(DEF_COLOR_BG\s*\)COLOR.*/\1COLOR(0xFFFF, 0xFFFF, 0xFFFF)/" xmenu.c
+      sed -i "s/\(DEF_COLOR_FG\s*\)COLOR.*/\1COLOR(0x0000, 0x0000, 0x0000)/" xmenu.c
+      sed -i "s/\(DEF_COLOR_SELBG\s*\)COLOR.*/\1COLOR(0x0000, 0x0000, 0x0000)/" xmenu.c
+      sed -i "s/\(DEF_COLOR_SELFG\s*\)COLOR.*/\1COLOR(0xFFFF, 0xFFFF, 0xFFFF)/" xmenu.c
+    '';
+  });
 in {
   imports = [
     ../../homeModules/programs
@@ -87,7 +95,7 @@ in {
     switch-boot-partition
     tree
     update-lock-screen
-    xmenu
+    xmenu-themed
     xournalpp
     zathura
     zoxide
