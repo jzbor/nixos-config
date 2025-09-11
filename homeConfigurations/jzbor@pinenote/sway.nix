@@ -82,7 +82,7 @@
         { command = "pnctl set-property DriverMode y 0"; always = true; }
         { command = "pnctl set-property \"Y2|T|R\""; always = true; }
         { command = "brightnessctl -d 'backlight_warm' set 0 && brightnessctl -d 'backlight_cool' set 0"; }
-        { command = "xrdb -merge ~/.Xresources"; always = true; }
+        { command = "${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources"; always = true; }
         { command = "sleep 3 && pnctl call GlobalRefresh"; always = true; }
       ];
 
