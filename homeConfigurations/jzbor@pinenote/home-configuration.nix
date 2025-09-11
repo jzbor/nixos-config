@@ -2,7 +2,7 @@
 
 with pkgs.lib;
 let
-  wallpaper = "${inputs.nixos-pinenote.packages.aarch64-linux.escher-wallpapers}/waterfall.png";
+  wallpaper = "${inputs.nixos-pinenote.packages.aarch64-linux.escher-wallpapers}/sky-and-water-2.png";
   update-lock-screen = let
     rotate = name: orig: pkgs.stdenv.mkDerivation {
       inherit name;
