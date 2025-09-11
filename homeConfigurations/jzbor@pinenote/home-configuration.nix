@@ -138,5 +138,5 @@ in {
     "xmenu.separator" = "#000000";
     "xmenu.borderWidth" = 3;
     "xmenu.separatorWidth" = 3;
-  }
+  };
 }
