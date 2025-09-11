@@ -140,9 +140,6 @@
 
     extraConfig = ''
       default_orientation vertical
-      bindgesture swipe:right workspace prev
-      bindgesture swipe:left workspace next
-      bindgesture swipe:up exec pkill -SIGRTMIN wvkbd-mobintl
     '';
   };
 }

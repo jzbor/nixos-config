@@ -25,7 +25,7 @@
   users.users.jzbor = {
     shell = pkgs.bash;
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "input" ];
   };
 
   environment.systemPackages = with pkgs; [
