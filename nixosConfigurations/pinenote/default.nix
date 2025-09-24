@@ -39,6 +39,7 @@
     tealdeer
     tmux
   ];
+  programs.firefox.enable = true;
 
   services.openssh.enable = true;
   hardware.bluetooth = {
@@ -59,4 +60,6 @@
     HandlePowerKeyLongPress = "poweroff";
     LidSwitch = "ignore";
   };
+
+  systemd.user.services.pinenote-service-sway.serviceConfig.ExecStartPre = "env";
 }

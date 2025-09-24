@@ -83,6 +83,7 @@
         { command = "pnctl set-property \"Y2|T|R\""; always = true; }
         { command = "brightnessctl -d 'backlight_warm' set 0 && brightnessctl -d 'backlight_cool' set 0"; }
         { command = "${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources"; always = true; }
+        { command = "lisgd-configured"; }
         { command = "sleep 3 && pnctl call GlobalRefresh"; always = true; }
       ];
 
@@ -121,11 +122,11 @@
         }
         {
           criteria.app_id = "firefox";
-          command = "exec ${ebcmark} set \"Y1|D\" silent";
+          command = "exec ${ebcmark} set \"Y4\" silent";
         }
         {
           criteria.app_id = "foot";
-          command = "exec ${ebcmark} set \"Y2|r\" silent";
+          command = "exec ${ebcmark} set \"Y2\" silent";
         }
         {
           criteria.app_id = "com.github.xournalpp.xournalpp";

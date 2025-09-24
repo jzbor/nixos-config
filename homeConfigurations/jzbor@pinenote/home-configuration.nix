@@ -63,6 +63,7 @@ let
       busctl "$action" --user org.pinenote.PineNoteCtl /org/pinenote/PineNoteCtl org.pinenote.Ebc1 "$@"
     '';
   };
+
   xmenu-themed = pkgs.xmenu.overrideAttrs (final: prev: {
     patchPhase = ''
       sed -i "s/\(DEF_COLOR_BG\s*\)COLOR.*/\1COLOR(0xFFFF, 0xFFFF, 0xFFFF)/" xmenu.c
@@ -71,6 +72,18 @@ let
       sed -i "s/\(DEF_COLOR_SELFG\s*\)COLOR.*/\1COLOR(0xFFFF, 0xFFFF, 0xFFFF)/" xmenu.c
     '';
   });
+
+  lisgd-configured = pkgs.writeShellApplication {
+    name = "lisgd-configured";
+    text = ''
+      ${pkgs.lisgd}/bin/lisgd -d /dev/input/by-path/platform-fe5e0000.i2c-event \
+        -g "3,DU,*,*,R,pkill -SIGRTMIN wvkbd-mobintl" \
+        -g "1,DU,B,*,R,pkill -SIGUSR2 wvkbd-mobintl" \
+        -g "1,UD,B,*,R,pkill -SIGUSR1 wvkbd-mobintl" \
+        -g "1,UD,T,*,R,pnctl call GlobalRefresh" \
+        "$@"
+    '';
+  };
 in {
   imports = [
     ../../homeModules/programs
@@ -86,12 +99,16 @@ in {
     evince
     inputs.parcels.packages.${system}.peanutbutter
     koreader
+    libinput
+    lisgd
+    lisgd-configured
     nautilus
     nix-tree
     pn-lock
     pn-lock-suspend
     pn-wmenu
     pnctl
+    pwvucontrol
     switch-boot-partition
     tree
     update-lock-screen
