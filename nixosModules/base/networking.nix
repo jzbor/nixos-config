@@ -39,24 +39,4 @@ with lib;
     };
     startAt = "*:0/30";
   };
-
-  # systemd.timers."hotfix-resolved" = {
-  #   wantedBy = [ "timers.target" ];
-  #   timerConfig = {
-  #     OnBootSec = "5m";
-  #     OnUnitActiveSec = "5m";
-  #     Unit = "hotfix-resolved.service";
-  #   };
-  # };
-
-  # systemd.services."hotfix-resolved" = {
-  #   script = ''
-  #     set -eu
-  #     ${pkgs.systemd}/bin/systemctl restart systemd-resolved
-  #   '';
-  #   serviceConfig = {
-  #     Type = "oneshot";
-  #     User = "root";
-  #   };
-  # };
 }
