@@ -55,6 +55,8 @@ in mkIf cfg.enable {
       sd = "cd $(switch-dir)";
       stored-nix-pkgs = "find /nix/store -maxdepth 1 | xargs du -sh | sort -h";
       valgrind = "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes";
+      objdump = "objdump --disassembler-color=on -M intel --visualize-jumps=color -D";
+      less = "less -R";
       cp = "cp --progress";
       mv = "mv --progress";
       mkdir = "mkdir --verbose --parents";
