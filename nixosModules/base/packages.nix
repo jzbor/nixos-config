@@ -6,7 +6,6 @@ let
     gnome-disk-utility
     mpv
     nextcloud-client
-    pcmanfm
     zathura
   ];
   systemUtilPackages = with pkgs; [
@@ -68,5 +67,6 @@ in {
 
   # Enable dev documentation for installed packages
   documentation.dev.enable = true;
+
 }
 

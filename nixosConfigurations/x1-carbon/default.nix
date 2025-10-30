@@ -1,4 +1,4 @@
-{ self, inputs, ... }:
+{ self, inputs, lib, ... }:
 
 {
   imports = [
@@ -22,4 +22,9 @@
   services.throttled.enable = false;
 
   services.xserver.wacom.enable = true;
+
+  jzbor-system.features.office.printing.vendors.hp = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "hplip"
+  ];
 }

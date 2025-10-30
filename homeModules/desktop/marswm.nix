@@ -27,7 +27,7 @@ in {
       xarchiver
       gthumb
       pwvucontrol
-      pcmanfm
+      xfce.thunar
       xclip
       xorg.xev
       xorg.xkill
@@ -54,7 +54,6 @@ in {
 
         "application/pdf" = pdfReaders;
     };
-
 
     services.gnome-keyring.enable = true;
     services.gpg-agent.enable = true;

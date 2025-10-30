@@ -5,6 +5,9 @@
 - identifiers:
     title: 'Screen Layout Editor'
   floating: true
+- identifiers:
+    application: 'spic-vm'
+  floating: true
 
 
 ### INITIAL PLACEMENT
