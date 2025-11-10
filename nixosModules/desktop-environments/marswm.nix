@@ -24,7 +24,7 @@ in {
       ghostty
       dmenu
       lxappearance
-      picom-next
+      picom
       rofi
       xfce.xfce4-notifyd
       xmenu
