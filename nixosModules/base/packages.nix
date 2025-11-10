@@ -11,9 +11,9 @@ let
   systemUtilPackages = with pkgs; [
     cryptsetup
     dysk
-    glxinfo
     libva-utils
     lm_sensors
+    mesa-demos
     ncdu
     neofetch
     smartmontools
