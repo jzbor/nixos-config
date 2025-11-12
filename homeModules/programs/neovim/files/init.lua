@@ -14,6 +14,7 @@ require("commands")
 require("keybindings")
 require("lsp")
 require("neovide")
+require("debugging")
 
 -- Plugin specific configs
 require("plugs.cmp")

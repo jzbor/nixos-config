@@ -30,3 +30,18 @@ vim.api.nvim_set_keymap('n', '<C-Enter>', ':!$TERMINAL & sleep 0.2<CR><CR>', {})
 
 -- Open highlighted file
 vim.api.nvim_set_keymap('v', '<leader>o', 'y:!xdg-open "<C-r>0"<CR><CR>', {})
+
+-- Debugging
+vim.keymap.set('n', '<leader>dd', ":RunDebuggerWithArgs ")
+vim.keymap.set('n', '<leader>dw', ":DapViewShow watches<CR>")
+vim.keymap.set('n', '<leader>ds', ":DapViewShow scopes<CR>")
+vim.keymap.set('n', '<leader>de', ":DapViewShow exceptions<CR>")
+vim.keymap.set('n', '<leader>db', ":DapViewShow breakpoints<CR>")
+vim.keymap.set('n', '<leader>dt', ":DapViewShow threads<CR>")
+vim.keymap.set('n', '<leader>dr', ":DapViewShow repl<CR>")
+vim.keymap.set('n', '<leader>dc', ":DapContinue<CR>")
+vim.keymap.set('n', '<leader>b', ":DapToggleBreakpoint<CR>")
+vim.keymap.set('n', '<leader>,', ":DapStepOver<CR>")
+vim.keymap.set('n', '<leader>i', ":DapStepInto<CR>")
+vim.keymap.set('n', '<leader>o', ":DapStepOut<CR>")
+vim.keymap.set('n', '<leader>v', ":DapViewToggle<CR>")

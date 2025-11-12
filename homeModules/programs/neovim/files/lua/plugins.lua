@@ -54,6 +54,10 @@ local plugins = {
   { 'jez/vim-better-sml', ft = {'sml'} },
   { 'kdheepak/lazygit.nvim', lazy = true, dependencies = { "nvim-lua/plenary.nvim", }, cmd = { "LazyGit" }, keys = { { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" } } },
   'jpe90/export-colorscheme.nvim',
+
+  'mfussenegger/nvim-dap',
+  'igorlfs/nvim-dap-view',
+  'theHamsta/nvim-dap-virtual-text',
 }
 
 require("lazy").setup(plugins, {
