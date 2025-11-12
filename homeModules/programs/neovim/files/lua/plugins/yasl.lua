@@ -1,0 +1,3 @@
+return {
+	'brianaung/yasl.nvim'
+}

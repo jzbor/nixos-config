@@ -8,21 +8,13 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Dependencies
-require("plugins")
+require("plugs")
 require("autocmd")
 require("commands")
 require("keybindings")
 require("lsp")
 require("neovide")
 require("debugging")
-
--- Plugin specific configs
-require("plugs.cmp")
---require("plugs.gitsigns")
-require("plugs.gitgutter")
-require("plugs.telescope")
-require("plugs.treesitter")
-require("plugs.vimwiki")
 
 -- GENERAL SETTINGS
 
@@ -124,4 +116,3 @@ vim.cmd.source("~/.config/nvim/sp-comments.vim")
 
 -- Typst plugin
 vim.g.typst_auto_open_quickfix = 'en,de'
-

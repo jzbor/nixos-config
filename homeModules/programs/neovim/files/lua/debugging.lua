@@ -1,4 +1,5 @@
 local dap = require('dap')
+local dap_view = require('dap')
 local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local conf = require("telescope.config").values
@@ -101,5 +102,7 @@ end, {
   complete = 'file',
   nargs = '*'
 })
+
+dap_view.follow_tab = true;
 
 require("nvim-dap-virtual-text").setup()
