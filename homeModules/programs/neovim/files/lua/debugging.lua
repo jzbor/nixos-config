@@ -1,5 +1,4 @@
 local dap = require('dap')
-local dap_view = require('dap')
 local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local conf = require("telescope.config").values
@@ -62,6 +61,8 @@ dap.configurations.cpp = {
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
+
+-- Run debugger with args
 vim.api.nvim_create_user_command("RunDebuggerWithArgs", function(t)
   -- :help nvim_create_user_command
   args = vim.split(vim.fn.expand(t.args), ' ')
@@ -102,7 +103,5 @@ end, {
   complete = 'file',
   nargs = '*'
 })
-
-dap_view.follow_tab = true;
 
 require("nvim-dap-virtual-text").setup()
