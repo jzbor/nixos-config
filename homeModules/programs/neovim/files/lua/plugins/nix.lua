@@ -1,3 +1,3 @@
 return {
-	'LnLy/vim-nix',
+	'LnL7/vim-nix',
 }
