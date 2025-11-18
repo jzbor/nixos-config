@@ -1,0 +1,3 @@
+return {
+	'LnLy/vim-nix',
+}
