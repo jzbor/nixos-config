@@ -74,6 +74,7 @@ in mkIf cfg.enable {
       run = "nix run";
       shell = "nix shell";
       develop = "nix develop";
+      check = "nix flake check .?submodules=1";
 
       gcc-sp = "gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700";
       sp-happy = "nix run sp#happy --";
