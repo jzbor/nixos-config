@@ -8,7 +8,7 @@ jobs:
   nix-flake-workflow:
     uses: jzbor/nix-flake-workflow/.github/workflows/reusable-flake-workflow.yml@main
     with:
-      binary-cache: true
+      binary-cache: false
       architectures: '[ "x86_64-linux", "aarch64-linux" ]'
       blocklist: >
         [
@@ -25,5 +25,6 @@ jobs:
       allow-impure: true
       attic-endpoint: https://cache.jzbor.de
       attic-cache: desktop
+      upload-artifacts: true
     secrets:
       ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
