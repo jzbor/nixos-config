@@ -64,7 +64,7 @@ let
     '';
   };
 
-  xmenu-themed = pkgs.xmenu.overrideAttrs (final: prev: {
+  xmenu-themed = pkgs.xmenu.overrideAttrs (_: _: {
     patchPhase = ''
       sed -i "s/\(DEF_COLOR_BG\s*\)COLOR.*/\1COLOR(0xFFFF, 0xFFFF, 0xFFFF)/" xmenu.c
       sed -i "s/\(DEF_COLOR_FG\s*\)COLOR.*/\1COLOR(0x0000, 0x0000, 0x0000)/" xmenu.c
