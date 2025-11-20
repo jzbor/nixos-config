@@ -47,4 +47,6 @@ in {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "hplip"
   ];
+
+  services.logrotate.checkConfig = false;
 }
