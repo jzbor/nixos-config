@@ -32,10 +32,15 @@ vis.events.subscribe(vis.events.INIT, function()
 
 	plug.init(plugins, true)
 
-	plug.plugins.lspc.ls_map.nix = {
-		name = 'nil';
-		cmd = 'nil';
-	}
+	plug.plugins.lspc = {
+		highlight_diagnostics = 'line',
+		ls_map = {
+			nix = {
+				name = 'nil',
+				cmd = 'nil',
+			},
+		},
+	};
 
 	-- plug.plugins.fzf_open.fzf_args = '--preview "bat --color always --decorations never --theme gruvbox-dark {}" --prompt ".../$(basename "$PWD"): "'--
 	plug.plugins.fzf_open.fzf_args = '--preview "cat {}" --prompt ".../$(basename "$PWD"): "'
