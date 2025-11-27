@@ -30,10 +30,11 @@ in {
       fira-code
       fira-code-symbols
       liberation_ttf
+      libertine
+      manrope
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
-      libertine
     ];
 
     # Programs

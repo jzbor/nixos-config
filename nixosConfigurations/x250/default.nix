@@ -15,7 +15,22 @@ in {
   };
   boot.lanzaboote.pkiBundle = lib.mkForce "/var/lib/sbctl";
 
+  # Limit charging to 80%
   boot.initrd.availableKernelModules = [ "thinkpad_acpi" ];
+  systemd.services."set-charging-limits" = {
+    wantedBy = [ "multi-user.target" ];
+    description = "Set charging limits";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.writeShellApplication {
+      	name = "set-charging-limits";
+	text = ''
+	  echo 80 | ${pkgs.coreutils}/bin/tee /sys/class/power_supply/BAT?/charge_control_end_threshold
+	  echo 60 | ${pkgs.coreutils}/bin/tee /sys/class/power_supply/BAT?/charge_control_start_threshold
+	'';
+      }}/bin/set-charging-limits";
+    };
+  };
 
   # Enable cross building for aarch64
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
