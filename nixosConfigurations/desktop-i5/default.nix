@@ -17,6 +17,7 @@ in {
     scheme = "traditional";
     secureBoot = true;
   };
+  boot.lanzaboote.pkiBundle = lib.mkForce "/var/lib/sbctl";
 
   jzbor-system.features.gaming.enable = true;
   programs.adb.enable = true;
