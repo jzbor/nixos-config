@@ -26,9 +26,11 @@ in {
       yt-dlp
 
       # fonts
+      annotation-mono
       cascadia-code
       fira-code
       fira-code-symbols
+      hermit
       liberation_ttf
       libertine
       manrope
