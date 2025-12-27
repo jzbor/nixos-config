@@ -5,6 +5,11 @@ let
   cfg = config.programs.zsh;
   command-not-found = ''
     command_not_found_handler() {
+      if [ "$1" = "nix-locate" ]; then
+        echo "Missing nix-locate" > /dev/stderr
+        return 1
+      fi
+
       package="$(
         nix-locate -r "/bin/$1$" --minimal \
           | sed 's/(\(.*\))/\1/;s/\(.*\)\.out$/\1/;s/\(.*\)\.bin$/\1/' \
