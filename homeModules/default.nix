@@ -34,11 +34,14 @@ with lib;
       bat
       btop
       gcc
+      inputs.nie.packages.${system}.default
+      inputs.nix-sweep.packages.${system}.default
+      inputs.toro.packages.${system}.default
       lazygit
       librespeed-cli
+      lucky-commit
       nil
       nix-tree
-      inputs.nix-sweep.packages.${system}.default
       powertop
       rustup
       tealdeer

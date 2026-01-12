@@ -47,6 +47,16 @@
       inputs.cf.follows = "cf";
     };
 
+    toro = {
+      url = "git+ssh://git@github.com/jzbor/toro";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.cf.follows = "cf";
+    };
+
+    nie = {
+      url = "git+ssh://git@codeberg.org/jzbor/nie";
+    };
+
     nix-sweep = {
       url = "github:jzbor/nix-sweep";
       inputs.nixpkgs.follows = "nixpkgs";
