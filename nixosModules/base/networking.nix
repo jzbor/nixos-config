@@ -31,7 +31,7 @@ with lib;
   systemd.services."hotfix-resolved" = {
     script = ''
       set -eu
-      ${pkgs.systemd}/bin/systemctl restart systemd-resolved
+      ${pkgs.stdenv.hostPlatform.system}/bin/systemctl restart systemd-resolved
     '';
     serviceConfig = {
       Type = "oneshot";

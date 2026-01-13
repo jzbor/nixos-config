@@ -20,7 +20,7 @@ in {
     jzbor-home.desktop.marswm.enable = true;
 
     home.packages = with pkgs; [
-      inputs.parcels.packages.${system}.foliot
+      inputs.parcels.packages.${pkgs.stdenv.hostPlatform.system}.foliot
       scrcpy
       typst
       yt-dlp

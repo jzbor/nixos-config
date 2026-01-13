@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, stdenv, ... }:
 
 {
   environment.packages = with pkgs; [
@@ -23,7 +23,7 @@
   };
 
   nix = {
-    package = inputs.self.${pkgs.system}.nix;
+    package = inputs.self.${stdenv.hostPlatform.system}.nix;
 
     extraOptions = ''
       experimental-features = nix-command flakes

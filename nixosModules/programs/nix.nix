@@ -2,7 +2,7 @@
 
 {
   nix = {
-    package = inputs.self.packages.${pkgs.system}.nix;
+    package = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nix;
 
     # Automatically run optimiser for nix store
     optimise.automatic = true;

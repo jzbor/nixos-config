@@ -27,7 +27,7 @@ in {
       xarchiver
       gthumb
       pwvucontrol
-      xfce.thunar
+      thunar
       xclip
       xorg.xev
       xorg.xkill

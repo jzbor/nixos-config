@@ -26,7 +26,7 @@ in {
       lxappearance
       picom
       rofi
-      xfce.xfce4-notifyd
+      xfce4-notifyd
       xmenu
     ];
 

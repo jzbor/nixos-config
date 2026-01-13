@@ -4,7 +4,7 @@ let
   mkPythonApplication = file: args: pkgs.writeShellApplication ({
     text = "${pkgs.python3}/bin/python3 ${file} \"$@\"";
   } // args);
-  systemPackage = flake: package: inputs.${flake}.packages.${pkgs.system}.${package};
+  systemPackage = flake: package: inputs.${flake}.packages.${pkgs.stdenv.hostPlatform.system}.${package};
 in {
   dev-shell = mkPythonApplication ./dev-shell.py {
     name = "dev-shell";

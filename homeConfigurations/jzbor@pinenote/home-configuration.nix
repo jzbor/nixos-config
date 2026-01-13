@@ -97,7 +97,7 @@ in {
     attic-client
     brightnessctl
     evince
-    inputs.parcels.packages.${system}.peanutbutter
+    inputs.parcels.packages.${pkgs.stdenv.hostPlatform.system}.peanutbutter
     koreader
     libinput
     lisgd
