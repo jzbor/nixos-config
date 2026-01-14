@@ -24,7 +24,6 @@ with pkgs.lib;
     nix-tree
   ];
 
-  networking.wireless.enable = false;  # wpa_supplicant conflicts with NetworkManager
   networking.networkmanager.plugins = mkForce [];
 
   # Enable zram swap
