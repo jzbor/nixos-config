@@ -9,10 +9,16 @@ _:
   };
 
   # Enable userspace OOM
-  systemd.oomd = {
+  #systemd.oomd = {
+  #  enable = true;
+  #  enableRootSlice = true;
+  #  enableSystemSlice = true;
+  #  enableUserSlices = true;
+  #};
+  systemd.oomd.enable = false;
+  services.earlyoom = {
     enable = true;
-    enableRootSlice = true;
-    enableSystemSlice = true;
-    enableUserSlices = true;
+    freeMemThreshold = 10;
+    freeSwapThreshold = 10;
   };
 }
