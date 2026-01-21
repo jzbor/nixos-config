@@ -17,6 +17,7 @@ with pkgs.lib;
   networking.hostName = "nixos-live";
   environment.systemPackages = with pkgs; [
     btop
+    disko
     htop
     hwloc
     lm_sensors

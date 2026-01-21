@@ -24,7 +24,7 @@
               };
             };
             root = {
-              size = "128G";
+              size = "256G";
               content = {
                 type = "luks";
                 name = "crypt0";
