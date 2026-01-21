@@ -410,17 +410,17 @@
     },
     "nie": {
       "locked": {
-        "lastModified": 1768769123,
-        "narHash": "sha256-uTD6wyZW3OMWtTGOayqaXmxpoDcpvwlu0OnI3GTbgNs=",
+        "lastModified": 1768769938,
+        "narHash": "sha256-5gEIv3QT5yVgMSUULtn06HlbtWYEikNgJcKXmrs88u0=",
         "ref": "refs/heads/main",
-        "rev": "b192d124ba697da94898144220cba2b368f05636",
-        "revCount": 33,
+        "rev": "a509e75155fa0a8e81c718f6dd6edcb587623648",
+        "revCount": 34,
         "type": "git",
-        "url": "ssh://git@codeberg.org/jzbor/nie"
+        "url": "https://codeberg.org/jzbor/nie"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@codeberg.org/jzbor/nie"
+        "url": "https://codeberg.org/jzbor/nie"
       }
     },
     "nix-colors": {
@@ -946,15 +946,15 @@
       "locked": {
         "lastModified": 1763844611,
         "narHash": "sha256-YXB+FhQrVABFVyCImEEkC1PPfhlgCULyYS7jkLIDIbA=",
-        "ref": "refs/heads/main",
+        "owner": "jzbor",
+        "repo": "toro",
         "rev": "6e84a0f9659a452902b04e31f530257317fced70",
-        "revCount": 32,
-        "type": "git",
-        "url": "ssh://git@github.com/jzbor/toro"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/jzbor/toro"
+        "owner": "jzbor",
+        "repo": "toro",
+        "type": "github"
       }
     },
     "typst-packages": {
