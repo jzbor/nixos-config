@@ -21,7 +21,7 @@
 
     lanzaboote = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/lanzaboote/v0.4.3";
+      url = "github:nix-community/lanzaboote/v1.0.0";
     };
 
     nix-colors.url = "github:misterio77/nix-colors";

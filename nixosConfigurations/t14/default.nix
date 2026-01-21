@@ -14,7 +14,7 @@ in {
 
   jzbor-system.boot = {
     scheme = "traditional";
-    secureBoot = false;
+    secureBoot = true;
   };
 
   # Enable cross building for aarch64
