@@ -18,10 +18,12 @@ with pkgs.lib;
   environment.systemPackages = with pkgs; [
     btop
     htop
+    hwloc
     lm_sensors
+    nix-tree
+    powertop
     stress
     tmux
-    nix-tree
   ];
 
   networking.networkmanager.plugins = mkForce [];
@@ -36,5 +38,5 @@ with pkgs.lib;
   isoImage.squashfsCompression = "gzip -Xcompression-level 9";
 
   # Disable global registry for offline support
-    nix.settings.flake-registry = "";
+  nix.settings.flake-registry = "";
 }
