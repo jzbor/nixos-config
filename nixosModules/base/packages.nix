@@ -63,6 +63,7 @@ in {
 
   # Required for nextcloud
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
   services.gnome.gcr-ssh-agent.enable = false;
 
   # Enable dev documentation for installed packages
