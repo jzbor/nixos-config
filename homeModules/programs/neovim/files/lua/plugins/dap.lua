@@ -7,7 +7,8 @@ return {
 				default_section = "threads",
 			},
 			windows = {
-				height = 0.33,
+				size = 0.33,
+				position = "below",
 			},
 			auto_toggle = true,
 			follow_tab = true,
