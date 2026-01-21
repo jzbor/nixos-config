@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, self, ... }:
 
 with pkgs.lib;
 {
@@ -40,4 +40,7 @@ with pkgs.lib;
 
   # Disable global registry for offline support
   nix.settings.flake-registry = "";
+
+  # Add flake to image
+  environment.etc.nixos-config.source = self;
 }
