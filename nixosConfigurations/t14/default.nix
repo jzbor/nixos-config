@@ -43,4 +43,15 @@ in {
       }}/bin/set-charging-limits";
     };
   };
+
+  # Use password login for all but i3lock
+  security.pam.services = {
+    doas.fprintAuth = false;
+    lightdm-greeter.fprintAuth = false;
+    lightdm.fprintAuth = false;
+    login.fprintAuth = false;
+    polkit.fprintAuth = false;
+    sudo.fprintAuth = false;
+    systemd-run0.fprintAuth = false;
+  };
 }
