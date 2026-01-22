@@ -2,6 +2,17 @@
 
 let
   inherit (pkgs) lib;
+  report-battery = pkgs.stdenv.mkDerivation {
+    name = "report-battery";
+    src = ./.;
+    buildPhase = ''
+      ${pkgs.rustc}/bin/rustc -C opt-level=s report-battery.rs
+    '';
+    installPhase = ''
+      mkdir -pv $out/bin
+      mv report-battery $out/bin/
+    '';
+  };
 in {
   imports = [
     self.nixosModules.default
@@ -53,5 +64,25 @@ in {
     polkit.fprintAuth = false;
     sudo.fprintAuth = false;
     systemd-run0.fprintAuth = false;
+  };
+
+  # Report battery usage to log
+  systemd.services.report-battery-pre = {
+    wantedBy = [ "sleep.target" ];
+    before = [ "sleep.target" ];
+    description = "Record battery usage during suspend";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${report-battery}/bin/report-battery pre";
+    };
+  };
+  systemd.services.report-battery-post = {
+    wantedBy = [ "post-resume.target" ];
+    after = [ "post-resume.target" ];
+    description = "Record battery usage during suspend";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${report-battery}/bin/report-battery post";
+    };
   };
 }
