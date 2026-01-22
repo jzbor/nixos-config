@@ -76,6 +76,26 @@ fn report_current_source(power_supplies: &[PowerSupply]) {
     }
 }
 
+fn total_energy_now(power_supplies: &[PowerSupply]) -> Result<u64, String> {
+    let sum = power_supplies.iter()
+        .filter(|s| s.is_battery())
+        .map(|b| b.energy_now())
+        .collect::<Result<Vec<_>, String>>()?
+        .into_iter()
+        .sum();
+    Ok(sum)
+}
+
+fn total_energy_full(power_supplies: &[PowerSupply]) -> Result<u64, String> {
+    let sum = power_supplies.iter()
+        .filter(|s| s.is_battery())
+        .map(|b| b.energy_full())
+        .collect::<Result<Vec<_>, String>>()?
+        .into_iter()
+        .sum();
+    Ok(sum)
+}
+
 fn store(seconds: u64, energy: u64) -> Result<(), String> {
     let data = format!("{}\n{}\n", seconds, energy);
     fs::write(TMPFILE, data.bytes().collect::<Vec<_>>())
@@ -101,19 +121,16 @@ fn load() -> Result<(u64, u64), String> {
 
 fn run_pre() -> Result<(), String> {
     let power_supplies = PowerSupply::all()?;
-    let battery = power_supplies.iter()
+    power_supplies.iter()
         .find(|b| b.is_battery())
         .ok_or(String::from("No battery found"))?;
-    if power_supplies.iter().filter(|s| s.is_battery()).count() > 1 {
-        eprintln!("Warning: Multiple batteries are not supported, considering only {}", battery.name());
-    }
     report_current_source(&power_supplies);
 
     let time = SystemTime::now();
     let epoch_seconds = time.duration_since(UNIX_EPOCH)
         .map_err(|e| e.to_string())?
         .as_secs();
-    let energy_now = battery.energy_now()?;
+    let energy_now = total_energy_now(&power_supplies)?;
 
     println!("Saving time and battery energy to {} before sleeping.", TMPFILE);
     store(epoch_seconds, energy_now)
@@ -121,12 +138,9 @@ fn run_pre() -> Result<(), String> {
 
 fn run_post() -> Result<(), String> {
     let power_supplies = PowerSupply::all()?;
-    let battery = power_supplies.iter()
+    power_supplies.iter()
         .find(|b| b.is_battery())
         .ok_or(String::from("No battery found"))?;
-    if power_supplies.iter().filter(|s| s.is_battery()).count() > 1 {
-        eprintln!("Warning: Multiple batteries are not supported, considering only {}", battery.name());
-    }
 
     let (time_prev, energy_prev) = load()?;
     let time_prev = UNIX_EPOCH + Duration::from_secs(time_prev);
@@ -138,8 +152,8 @@ fn run_post() -> Result<(), String> {
     let days = time_diff.as_secs() / (24 * 3600);
     println!("Slept for {} days, {} hours, {} minutes, {} seconds", days, hours, minutes, seconds);
 
-    let energy_full = battery.energy_full()? as f64;
-    let energy_diff = energy_prev - battery.energy_now()?;
+    let energy_full = total_energy_full(&power_supplies)? as f64;
+    let energy_diff = energy_prev - total_energy_now(&power_supplies)?;
     let avg_rate = energy_diff * 3600 / time_diff.as_secs();
     let energy_diff_pct = energy_diff as f64 * 100.0 / energy_full;
     let avg_rate_pct = avg_rate as f64 * 100.0 / energy_full;
