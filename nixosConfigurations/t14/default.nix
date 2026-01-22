@@ -5,7 +5,8 @@ let
 in {
   imports = [
     self.nixosModules.default
-    # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-6th-gen
+    # ./intel-lpmd.nix
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14-intel-gen6
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
