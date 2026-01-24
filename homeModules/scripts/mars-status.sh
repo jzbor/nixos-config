@@ -90,13 +90,21 @@ $(find ~/.screenlayout -type f | sed 's/^\(.*\)\/\(.*\)\(\.sh\)/\t\2\tsh \1\/\2\
 ### BUTTON HANDLERS
 
 battery_button () {
-	profile="$(powerprofilesctl list | sed '/^   /d;/^$/d;s/\(.*\):/\1/' | xmenu | sed 's/.* //')"
-	if [ -n "$profile" ]; then
-		powerprofilesctl set "$profile"
-	fi
-	# case "$BUTTON" in
-	# 	1) pademelon-widgets ppd-dialog ;;
-	# esac
+	case "$BUTTON" in
+		1)	if [ "$(< /sys/class/power_supply/BAT0/power_now)" = "0" ]; then
+				notify-send "Plugged in ($(< /sys/class/power_supply/BAT0/status))"
+			else
+			 	time="$(($(< /sys/class/power_supply/BAT0/energy_now) / $(< /sys/class/power_supply/BAT0/power_now))):$(($(< /sys/class/power_supply/BAT0/energy_now) * 60 / $(< /sys/class/power_supply/BAT0/power_now) % 60))"
+				discharge="$(($(< /sys/class/power_supply/BAT0/power_now) / 1000))"
+				notify-send "Time remaining: $time ($discharge mW/h)"
+			fi
+			;;
+		*) 	profile="$(powerprofilesctl list | sed '/^   /d;/^$/d;s/\(.*\):/\1/' | xmenu | sed 's/.* //')"
+			if [ -n "$profile" ]; then
+				powerprofilesctl set "$profile"
+			fi
+			;;
+	esac
 }
 
 volume_button () {

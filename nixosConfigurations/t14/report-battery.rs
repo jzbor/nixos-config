@@ -44,28 +44,46 @@ impl PowerSupply {
         let file = self.path().join("online");
         let s = fs::read_to_string(&file)
             .map_err(|e| e.to_string())?;
-        let u: u64 = s.trim().parse()
+        let u: i64 = s.trim().parse()
             .map_err(|_| format!("Unable to parse contents of {}", file.to_string_lossy()))?;
         Ok(u == 1)
     }
 
-    fn energy_now(&self) -> Result<u64, String> {
+    fn energy_now(&self) -> Result<i64, String> {
         let file = self.path().join("energy_now");
         let s = fs::read_to_string(&file)
             .map_err(|e| e.to_string())?;
-        let u: u64 = s.trim().parse()
+        let u: i64 = s.trim().parse()
             .map_err(|_| format!("Unable to parse contents of {}", file.to_string_lossy()))?;
         Ok(u / 1000)
     }
 
-    fn energy_full(&self) -> Result<u64, String> {
+    fn energy_full(&self) -> Result<i64, String> {
         let file = self.path().join("energy_full");
         let s = fs::read_to_string(&file)
             .map_err(|e| e.to_string())?;
-        let u: u64 = s.trim().parse()
+        let u: i64 = s.trim().parse()
             .map_err(|_| format!("Unable to parse contents of {}", file.to_string_lossy()))?;
         Ok(u / 1000)  // mWh
     }
+}
+
+fn pc10_residency() -> Result<i64, String> {
+    let file = PathBuf::from("/sys/devices/system/cpu/cpuidle/low_power_idle_cpu_residency_us");
+    let s = fs::read_to_string(&file)
+        .map_err(|e| e.to_string())?;
+    let u: i64 = s.trim().parse()
+        .map_err(|_| format!("Unable to parse contents of {}", file.to_string_lossy()))?;
+    Ok(u / 1_000_000)  // sec
+}
+
+fn slp_s0_residency() -> Result<i64, String> {
+    let file = PathBuf::from("/sys/devices/system/cpu/cpuidle/low_power_idle_system_residency_us");
+    let s = fs::read_to_string(&file)
+        .map_err(|e| e.to_string())?;
+    let u: i64 = s.trim().parse()
+        .map_err(|_| format!("Unable to parse contents of {}", file.to_string_lossy()))?;
+    Ok(u / 1_000_000)  // sec
 }
 
 fn report_current_source(power_supplies: &[PowerSupply]) {
@@ -76,6 +94,7 @@ fn report_current_source(power_supplies: &[PowerSupply]) {
     }
 }
 
+<<<<<<< HEAD
 fn total_energy_now(power_supplies: &[PowerSupply]) -> Result<u64, String> {
     let sum = power_supplies.iter()
         .filter(|s| s.is_battery())
@@ -98,11 +117,15 @@ fn total_energy_full(power_supplies: &[PowerSupply]) -> Result<u64, String> {
 
 fn store(seconds: u64, energy: u64) -> Result<(), String> {
     let data = format!("{}\n{}\n", seconds, energy);
+=======
+fn store(seconds: i64, energy: i64, pc10: i64, slp_s0: i64) -> Result<(), String> {
+    let data = format!("{}\n{}\n{}\n{}\n", seconds, energy, pc10, slp_s0);
+>>>>>>> 31ef6dd (Updating scripts)
     fs::write(TMPFILE, data.bytes().collect::<Vec<_>>())
         .map_err(|e| e.to_string())
 }
 
-fn load() -> Result<(u64, u64), String> {
+fn load() -> Result<(i64, i64, i64, i64), String> {
     let data = fs::read_to_string(TMPFILE)
         .map_err(|e| e.to_string())?;
     let mut lines = data.lines();
@@ -110,13 +133,29 @@ fn load() -> Result<(u64, u64), String> {
         .ok_or(String::from("Invalid save format"))?;
     let energy_str = lines.next()
         .ok_or(String::from("Invalid save format"))?;
-    let time: u64 = time_str.parse()
+    let pc10_str = lines.next()
+        .ok_or(String::from("Invalid save format"))?;
+    let slp_s0_str = lines.next()
+        .ok_or(String::from("Invalid save format"))?;
+    let time: i64 = time_str.parse()
         .map_err(|_| String::from("Invalid save format"))?;
-    let energy: u64 = energy_str.parse()
+    let energy: i64 = energy_str.parse()
+        .map_err(|_| String::from("Invalid save format"))?;
+    let pc10: i64 = pc10_str.parse()
+        .map_err(|_| String::from("Invalid save format"))?;
+    let slp_s0: i64 = slp_s0_str.parse()
         .map_err(|_| String::from("Invalid save format"))?;
     fs::remove_file(TMPFILE)
         .map_err(|_| String::from("Unable to delete temp file"))?;
-    Ok((time, energy))
+    Ok((time, energy, pc10, slp_s0))
+}
+
+fn format_duration(d: Duration) -> String {
+    let seconds = d.as_secs() % 60;
+    let minutes = d.as_secs() / 60 % 60;
+    let hours = d.as_secs() / 3600 % 24;
+    let days = d.as_secs() / (24 * 3600);
+    format!("{} days, {} hours, {} minutes, {} seconds", days, hours, minutes, seconds)
 }
 
 fn run_pre() -> Result<(), String> {
@@ -129,11 +168,19 @@ fn run_pre() -> Result<(), String> {
     let time = SystemTime::now();
     let epoch_seconds = time.duration_since(UNIX_EPOCH)
         .map_err(|e| e.to_string())?
+<<<<<<< HEAD
         .as_secs();
     let energy_now = total_energy_now(&power_supplies)?;
+=======
+        .as_secs() as i64;
+    let energy_now = battery.energy_now()?;
+>>>>>>> 31ef6dd (Updating scripts)
+
+    let pc10 = pc10_residency()?;
+    let slp_s0 = slp_s0_residency()?;
 
     println!("Saving time and battery energy to {} before sleeping.", TMPFILE);
-    store(epoch_seconds, energy_now)
+    store(epoch_seconds, energy_now, pc10, slp_s0)
 }
 
 fn run_post() -> Result<(), String> {
@@ -142,25 +189,40 @@ fn run_post() -> Result<(), String> {
         .find(|b| b.is_battery())
         .ok_or(String::from("No battery found"))?;
 
-    let (time_prev, energy_prev) = load()?;
-    let time_prev = UNIX_EPOCH + Duration::from_secs(time_prev);
+    let (time_prev, energy_prev, pc10_prev, slp_s0_prev) = load()?;
+    let time_prev = UNIX_EPOCH + Duration::from_secs(time_prev as u64);
     let time_diff = time_prev.elapsed()
         .map_err(|e| e.to_string())?;
-    let seconds = time_diff.as_secs() % 60;
-    let minutes = time_diff.as_secs() / 60 % 60;
-    let hours = time_diff.as_secs() / 3600 % 24;
-    let days = time_diff.as_secs() / (24 * 3600);
-    println!("Slept for {} days, {} hours, {} minutes, {} seconds", days, hours, minutes, seconds);
+    if time_diff.as_secs() == 0 {
+        return Err(String::from("Slept to short to make a report."));
+    }
+    println!("Slept for {}", format_duration(time_diff));
 
-    let energy_full = total_energy_full(&power_supplies)? as f64;
-    let energy_diff = energy_prev - total_energy_now(&power_supplies)?;
-    let avg_rate = energy_diff * 3600 / time_diff.as_secs();
+    let energy_full = battery.energy_full()? as f64;
+    let energy_now = battery.energy_now()?;
+    let energy_diff = energy_prev - energy_now;
+    let avg_rate = energy_diff * 3600 / time_diff.as_secs() as i64;
     let energy_diff_pct = energy_diff as f64 * 100.0 / energy_full;
     let avg_rate_pct = avg_rate as f64 * 100.0 / energy_full;
 
-    println!("Battery energy change of {:.2}% ({} mWh) at an average rate of {:.2}%/h ({} mW).",
-        energy_diff_pct, energy_diff,
-        avg_rate_pct, avg_rate);
+    let pc10_now = pc10_residency()?;
+    let slp_s0_now = slp_s0_residency()?;
+    let pc10_time = Duration::from_secs((pc10_now - pc10_prev) as u64);
+    let slp_s0_time = Duration::from_secs((slp_s0_now - slp_s0_prev) as u64);
+
+    if energy_now > energy_prev {
+        println!("Battery charged by {:.2}% ({} mWh) during sleep.",
+            -energy_diff_pct, -energy_diff)
+    } else {
+        println!("Battery energy change of {:.2}% ({} mWh) at an average rate of {:.2}%/h ({} mW).",
+            energy_diff_pct, energy_diff,
+            avg_rate_pct, avg_rate);
+    }
+
+    let pc10_pct = pc10_time.as_secs() as f64 * 100.0 / time_diff.as_secs() as f64;
+    let slp_s0_pct = slp_s0_time.as_secs() as f64 * 100.0 / time_diff.as_secs() as f64;
+    println!("CPU spent {} ({:.2}%) in PC10", format_duration(pc10_time), pc10_pct);
+    println!("System spent {} ({:.2}%) in SLP_S0", format_duration(slp_s0_time), slp_s0_pct);
 
     Ok(())
 }

@@ -13,6 +13,15 @@ let
       mv report-battery $out/bin/
     '';
   };
+  t14-fix-frequencies = pkgs.writeShellApplication {
+    name = "t14-fix-frequencies";
+    text = ''
+      cd /sys/devices/system/cpu
+      for cpu in cpu?; do
+        cat "$cpu/cpufreq/cpuinfo_max_freq" | tee "$cpu/cpufreq/scaling_max_freq"
+      done
+    '';
+  };
 in {
   imports = [
     self.nixosModules.default
@@ -28,6 +37,12 @@ in {
     scheme = "traditional";
     secureBoot = true;
   };
+
+  hardware.cpu.intel.updateMicrocode = true;
+
+  environment.systemPackages = [
+    t14-fix-frequencies
+  ];
 
   # Enable cross building for aarch64
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
@@ -83,6 +98,17 @@ in {
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${report-battery}/bin/report-battery post";
+    };
+  };
+
+  # Fix scaling frequencies after suspend
+  systemd.services.fix-frequencies = {
+    wantedBy = [ "post-resume.target" ];
+    after = [ "post-resume.target" ];
+    description = "Fix cpu scaling frequencies after suspend";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${t14-fix-frequencies}/bin/t14-fix-frequencies";
     };
   };
 }
