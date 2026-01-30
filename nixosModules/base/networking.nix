@@ -16,11 +16,11 @@ with lib;
   networking.nameservers = [ "5.75.234.6#dns.jzbor.de" "9.9.9.9#dns.quad9.net" ];
   services.resolved = {
     enable = true;
-    dnssec = "false";
-    domains = [ "~." ];
-    extraConfig = ''
-      DNSOverTLS=yes
-    '';
+    settings.Resolve = {
+      DNSSEC = "false";
+      Domains = [ "~." ];
+      DNSOverTLS = true;
+    };
   };
 
   # Faster boot by avoiding to wait for network

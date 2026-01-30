@@ -40,11 +40,11 @@
     },
     "cf": {
       "locked": {
-        "lastModified": 1756852014,
-        "narHash": "sha256-OrfTRBwerFrlK1fbWhu1eW40XUrOdE/Rq7IyxthEpcA=",
+        "lastModified": 1768426784,
+        "narHash": "sha256-QyKDZp8DP+r8rHv4Q5NCnTWFoQWq+9mvDamjo1fWkV0=",
         "owner": "jzbor",
         "repo": "cornflakes",
-        "rev": "7ef6d8be9b66f46cee3af1d5797e01f301b93149",
+        "rev": "abd111bf73cb8ca134d6f8d3cd1751c5fb463579",
         "type": "github"
       },
       "original": {
@@ -266,11 +266,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768248913,
-        "narHash": "sha256-Kr45H5StnR9hgEhpKD8/BDZLvEpLVJb51lvIDQ9EC7U=",
+        "lastModified": 1769776025,
+        "narHash": "sha256-70a1kVC08AMTvPc7iqQsJbbD4Y1fukakMVudz4oY9SM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "360620ec9d5ffc186b5b1fca4c5f5b2e1634a5cf",
+        "rev": "0fba737f8d5571d41467f3d99a878e11b8c0f0f0",
         "type": "github"
       },
       "original": {
@@ -542,11 +542,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1767185284,
-        "narHash": "sha256-ljDBUDpD1Cg5n3mJI81Hz5qeZAwCGxon4kQW3Ho3+6Q=",
+        "lastModified": 1769302137,
+        "narHash": "sha256-QEDtctEkOsbx8nlFh4yqPEOtr4tif6KTqWwJ37IM2ds=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "40b1a28dce561bea34858287fbb23052c3ee63fe",
+        "rev": "a351494b0e35fd7c0b7a1aae82f0afddf4907aa8",
         "type": "github"
       },
       "original": {
@@ -659,11 +659,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1768127708,
-        "narHash": "sha256-1Sm77VfZh3mU0F5OqKABNLWxOuDeHIlcFjsXeeiPazs=",
+        "lastModified": 1769461804,
+        "narHash": "sha256-msG8SU5WsBUfVVa/9RPLaymvi5bI8edTavbIq3vRlhI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ffbc9f8cbaacfb331b6017d5a5abb21a492c9a38",
+        "rev": "bfc1b8a4574108ceef22f02bafcf6611380c100d",
         "type": "github"
       },
       "original": {
@@ -918,11 +918,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763844611,
-        "narHash": "sha256-YXB+FhQrVABFVyCImEEkC1PPfhlgCULyYS7jkLIDIbA=",
+        "lastModified": 1769196126,
+        "narHash": "sha256-x3AIPlBi+TFzOvaA+BLbv9G10SWuyHJn8dF58oWXyt8=",
         "owner": "jzbor",
         "repo": "toro",
-        "rev": "6e84a0f9659a452902b04e31f530257317fced70",
+        "rev": "06a3e418d96749495e098fdbb46006c91fb32b73",
         "type": "github"
       },
       "original": {
