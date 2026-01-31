@@ -17,6 +17,7 @@
     ./rofi
     ./skippy-xd
     ./thunderbird
+    ./toro
     ./touchegg
     ./vis
     ./xmenu

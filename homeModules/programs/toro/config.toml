@@ -1,0 +1,13 @@
+[columns]
+completed = false
+creation-date = false
+completion-date = false
+
+[git]
+auto-commit = true
+auto-sync = false
+
+[view]
+sort = ["created", "priority", "due", "scheduled" ]
+cal-command = "echo; cal -3 --color=always | sed 's/^/  /'"
+auto-select = true

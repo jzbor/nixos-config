@@ -918,11 +918,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769196126,
-        "narHash": "sha256-x3AIPlBi+TFzOvaA+BLbv9G10SWuyHJn8dF58oWXyt8=",
+        "lastModified": 1769867559,
+        "narHash": "sha256-ExV3LUhnnbtmX4GLO2n+nACSDrdDvBrbjp7utuVGqNI=",
         "owner": "jzbor",
         "repo": "toro",
-        "rev": "06a3e418d96749495e098fdbb46006c91fb32b73",
+        "rev": "be25fcd96aa4ef203f0a65b6d8b5b90eb820e3de",
         "type": "github"
       },
       "original": {

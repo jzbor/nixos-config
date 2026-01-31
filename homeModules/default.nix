@@ -36,7 +36,6 @@ with lib;
       gcc
       inputs.nie.packages.${system}.default
       inputs.nix-sweep.packages.${system}.default
-      inputs.toro.packages.${system}.default
       lazygit
       librespeed-cli
       lucky-commit
@@ -63,6 +62,7 @@ with lib;
     xdg.enable = true;
 
     jzbor-home.programs.iamb.enable = true;
+    jzbor-home.programs.toro.enable = true;
 
     services.udiskie.enable = true;
     jzbor-home.programs.nix-sweep.enable = true;

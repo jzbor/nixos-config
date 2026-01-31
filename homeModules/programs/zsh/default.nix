@@ -75,10 +75,10 @@ in mkIf cfg.enable {
       nix-list-gc-roots = "find /nix/var/nix/gcroots -type l -readable | xargs readlink";
       lg = "lazygit";
 
-      build = "nix build";
-      run = "nix run";
-      shell = "nix shell";
-      develop = "nix develop";
+      build = "nie build";
+      run = "nie run";
+      shell = "nie shell";
+      dev= "nie dev";
       check = "nix flake check .?submodules=1";
 
       gcc-sp = "gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700";
