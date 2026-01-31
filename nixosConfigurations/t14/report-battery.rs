@@ -94,8 +94,7 @@ fn report_current_source(power_supplies: &[PowerSupply]) {
     }
 }
 
-<<<<<<< HEAD
-fn total_energy_now(power_supplies: &[PowerSupply]) -> Result<u64, String> {
+fn total_energy_now(power_supplies: &[PowerSupply]) -> Result<i64, String> {
     let sum = power_supplies.iter()
         .filter(|s| s.is_battery())
         .map(|b| b.energy_now())
@@ -105,7 +104,7 @@ fn total_energy_now(power_supplies: &[PowerSupply]) -> Result<u64, String> {
     Ok(sum)
 }
 
-fn total_energy_full(power_supplies: &[PowerSupply]) -> Result<u64, String> {
+fn total_energy_full(power_supplies: &[PowerSupply]) -> Result<i64, String> {
     let sum = power_supplies.iter()
         .filter(|s| s.is_battery())
         .map(|b| b.energy_full())
@@ -115,12 +114,8 @@ fn total_energy_full(power_supplies: &[PowerSupply]) -> Result<u64, String> {
     Ok(sum)
 }
 
-fn store(seconds: u64, energy: u64) -> Result<(), String> {
-    let data = format!("{}\n{}\n", seconds, energy);
-=======
 fn store(seconds: i64, energy: i64, pc10: i64, slp_s0: i64) -> Result<(), String> {
     let data = format!("{}\n{}\n{}\n{}\n", seconds, energy, pc10, slp_s0);
->>>>>>> 31ef6dd (Updating scripts)
     fs::write(TMPFILE, data.bytes().collect::<Vec<_>>())
         .map_err(|e| e.to_string())
 }
@@ -168,13 +163,8 @@ fn run_pre() -> Result<(), String> {
     let time = SystemTime::now();
     let epoch_seconds = time.duration_since(UNIX_EPOCH)
         .map_err(|e| e.to_string())?
-<<<<<<< HEAD
-        .as_secs();
-    let energy_now = total_energy_now(&power_supplies)?;
-=======
         .as_secs() as i64;
-    let energy_now = battery.energy_now()?;
->>>>>>> 31ef6dd (Updating scripts)
+    let energy_now = total_energy_now(&power_supplies)? as i64;
 
     let pc10 = pc10_residency()?;
     let slp_s0 = slp_s0_residency()?;
@@ -198,8 +188,8 @@ fn run_post() -> Result<(), String> {
     }
     println!("Slept for {}", format_duration(time_diff));
 
-    let energy_full = battery.energy_full()? as f64;
-    let energy_now = battery.energy_now()?;
+    let energy_full = total_energy_full(&power_supplies)? as f64;
+    let energy_now = total_energy_now(&power_supplies)? as i64;
     let energy_diff = energy_prev - energy_now;
     let avg_rate = energy_diff * 3600 / time_diff.as_secs() as i64;
     let energy_diff_pct = energy_diff as f64 * 100.0 / energy_full;
