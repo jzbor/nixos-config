@@ -32,6 +32,9 @@ in mkIf cfg.enable {
     historySubstringSearch.enable = true;
     #enableAutosuggestions = true;
 
+    # vte integration for buttermilk & Co
+    enableVteIntegration = true;
+
     # History
     history = {
       expireDuplicatesFirst = true;
@@ -79,7 +82,7 @@ in mkIf cfg.enable {
       run = "nie run";
       shell = "nie shell";
       dev= "nie dev";
-      check = "nix flake check .?submodules=1";
+      check = "nie check";
 
       gcc-sp = "gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700";
       sp-happy = "nix run sp#happy --";
