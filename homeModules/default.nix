@@ -20,7 +20,7 @@ with lib;
 
     home.sessionVariables = {
       EDITOR = "nvim";
-      TERMINAL = "ghostty";
+      TERMINAL = "buttermilk";
     };
 
     home.file = {

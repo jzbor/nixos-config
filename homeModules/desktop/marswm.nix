@@ -16,7 +16,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    jzbor-home.programs.ghostty.enable = true;
+    jzbor-home.programs.buttermilk.enable = true;
     jzbor-home.programs.marswm.enable = true;
     jzbor-home.programs.touchegg.enable = true;
     jzbor-home.programs.xmenu.enable = true;

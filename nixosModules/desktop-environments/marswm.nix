@@ -21,7 +21,7 @@ in {
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
       arandr
-      ghostty
+      inputs.parcels.packages.${pkgs.stdenv.hostPlatform.system}.buttermilk
       dmenu
       lxappearance
       picom

@@ -47,7 +47,7 @@ in {
     };
     jzbor-home.programs = {
       captive-browser.enable = true;
-      ghostty.enable = true;
+      buttermilk.enable = true;
       marswm.enable = true;
       touchegg.enable = true;
       xmenu.enable = true;

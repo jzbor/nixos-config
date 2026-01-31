@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 with lib;
 let
@@ -9,8 +9,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      buttermilk
+    home.packages = [
+      inputs.parcels.packages.${pkgs.stdenv.hostPlatform.system}.buttermilk
     ];
 
     xdg.configFile."buttermilk/buttermilk.conf".source = ./buttermilk.conf;
