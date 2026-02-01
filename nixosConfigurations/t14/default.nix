@@ -111,4 +111,23 @@ in {
       ExecStart = "${t14-fix-frequencies}/bin/t14-fix-frequencies";
     };
   };
+
+  # Set up additional swap and hibernation
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 32 * 1024;
+      priority = 2;
+    }
+  ];
+  boot = {
+    kernelParams = [ "resume_offset=56678400" ];
+    resumeDevice = "/dev/mapper/crypt0-root";
+  };
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=12h
+    HybernateOnACPower=yes
+  '';
+  services.logind.settings.Login.LidSwitch = "suspend-then-hibernate";
+  services.logind.settings.Login.PowerKey = "suspend-then-hibernate";
 }
