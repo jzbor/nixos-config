@@ -68,4 +68,5 @@
   };
 
   environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
+  environment.etc.nixpkgs.source = "${inputs.nixpkgs}";
 }
