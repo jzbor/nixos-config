@@ -387,11 +387,11 @@
     },
     "nie": {
       "locked": {
-        "lastModified": 1770048641,
-        "narHash": "sha256-0DsD/waHmyFnoKfW8cquERp/Y8nLLM2c46/fPU6bSZk=",
+        "lastModified": 1771031690,
+        "narHash": "sha256-eSC8DIkD3xzmXpl3iJvhE+Lub1yO14Jp28QfvVvHezs=",
         "ref": "refs/heads/main",
-        "rev": "0835817e43ff25ea42ec047f11e4bd55e6dc75ca",
-        "revCount": 39,
+        "rev": "502fab33ff15a5db7426be85a30fb51354ffbdf9",
+        "revCount": 43,
         "type": "git",
         "url": "https://codeberg.org/jzbor/nie"
       },
