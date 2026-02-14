@@ -52,8 +52,10 @@
   };
 
   # Make nixpkgs available to local nix commands like `nix shell` or `nix-shell`
-  nix.nixPath = [ "nixpkgs=/etc/channels/nixpkgs" "nixos-config=/etc/nixos/configuration.nix" "/nix/var/nix/profiles/per-user/root/channels" ];
-  environment.etc."channels/nixpkgs".source = inputs.nixpkgs.outPath;
+  nix.nixPath = [ "nixpkgs=/etc/nixpkgs" ];
+  environment.etc.nixpkgs.source = "${inputs.nixpkgs}";
+  environment.etc.nixos-config.source = "${inputs.self}";
+
   nix.registry = {
     nixpkgs.flake = inputs.nixpkgs;
     parcels.to = { owner = "jzbor"; repo = "nix-parcels"; type = "github"; };
@@ -68,5 +70,4 @@
   };
 
   environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
-  environment.etc.nixpkgs.source = "${inputs.nixpkgs}";
 }
