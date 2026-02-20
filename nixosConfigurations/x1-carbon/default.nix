@@ -59,4 +59,7 @@ in {
       ExecStart = "${report-battery}/bin/report-battery post";
     };
   };
+
+  services.xserver.desktopManager.cinnamon.enable = true;
+
 }
