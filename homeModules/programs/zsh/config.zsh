@@ -53,4 +53,7 @@ preexec () {
 
 precmd () {
 	echo -ne "\033]0;$(basename "$SHELL") - $PWD\007"
+	if command -v nie >/dev/null; then
+		nie develop --auto
+	fi
 }
