@@ -31,7 +31,7 @@ in {
 
   mars-startup = pkgs.writeShellApplication {
     name = "mars-startup";
-    runtimeInputs = with pkgs; [ (systemPackage "parcels" "marswm") touchegg xorg.xmodmap ];
+    runtimeInputs = with pkgs; [ (systemPackage "parcels" "marswm") touchegg xmodmap ];
     text = builtins.readFile ./mars-startup.sh;
   };
 
@@ -60,7 +60,7 @@ in {
 
   riot = pkgs.writeShellApplication {
     name = "riot";
-    runtimeInputs = with pkgs; [ bc (systemPackage "parcels" "marswm") slop xdo xmenu xorg.xwininfo ];
+    runtimeInputs = with pkgs; [ bc (systemPackage "parcels" "marswm") slop xdo xmenu xwininfo ];
     text = builtins.readFile ./riot.sh;
   };
 
@@ -68,7 +68,7 @@ in {
 
   screencast = pkgs.writeShellApplication {
     name = "screencast";
-    runtimeInputs = with pkgs; [ ffmpeg-full slop xorg.xrandr ];
+    runtimeInputs = with pkgs; [ ffmpeg-full slop xrandr ];
     text = builtins.readFile ./screencast.sh;
   };
 
@@ -104,7 +104,7 @@ in {
 
   wallpaper-daemon = pkgs.writeShellApplication {
     name = "wallpaper-daemon";
-    runtimeInputs = with pkgs; [ gnugrep xorg.xev xwallpaper ];
+    runtimeInputs = with pkgs; [ gnugrep xev xwallpaper ];
     text = builtins.readFile ./wallpaper-daemon.sh;
   };
 
@@ -115,7 +115,7 @@ in {
 
   xrandr-daemon = pkgs.writeShellApplication {
     name = "xrandr-daemon";
-    runtimeInputs = with pkgs; [ xorg.xrandr xorg.xev libnotify ];
+    runtimeInputs = with pkgs; [ xrandr xev libnotify ];
     text = builtins.readFile ./xrandr-daemon.sh;
   };
 }

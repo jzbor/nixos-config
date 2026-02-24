@@ -29,9 +29,9 @@ in {
       pwvucontrol
       thunar
       xclip
-      xorg.xev
-      xorg.xkill
-      xorg.xprop
+      xev
+      xkill
+      xprop
 
       lockScript
     ];

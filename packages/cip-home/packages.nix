@@ -5,10 +5,10 @@
   #   inherit (perSystem.parcels.marswm) pname version src;
 
   #   buildInputs = with pkgs.pkgsStatic; [
-  #     xorg.libX11
-  #     xorg.libXft
-  #     xorg.libXinerama
-  #     xorg.libXrandr
+  #     libx11
+  #     libxft
+  #     libxinerama
+  #     libxrandr
   #   ];
 
   #   nativeBuildInputs = with pkgs.pkgsStatic; [
