@@ -11,7 +11,7 @@ let
   };
   defaultPackages = {
     superTuxKart = with pkgs; [
-      superTuxKart
+      supertuxkart
     ];
   };
 in {
