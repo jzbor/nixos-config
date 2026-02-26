@@ -266,11 +266,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771851181,
-        "narHash": "sha256-gFgE6mGUftwseV3DUENMb0k0EiHd739lZexPo5O/sdQ=",
+        "lastModified": 1772060133,
+        "narHash": "sha256-VuyRptb8v1lVGMlLp4/1vRX3Efwec0CN0S6mKmDPzLg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9a4b494b1aa1b93d8edf167f46dc8e0c0011280c",
+        "rev": "ce9b6e52500a0ea0ec48f0bbf6d7a3e431d9dfa4",
         "type": "github"
       },
       "original": {
@@ -387,11 +387,11 @@
     },
     "nie": {
       "locked": {
-        "lastModified": 1771947801,
-        "narHash": "sha256-fMfBC7ZJUbeK54aDSMdpYu2mVhHRFgL80jOuFkNru74=",
+        "lastModified": 1771974350,
+        "narHash": "sha256-VQCu0yEanyz28axLoyfWPPbeBDEkUZwwwjbV52rTlyw=",
         "ref": "refs/heads/main",
-        "rev": "f6d140c3fe85b05183d7edc39540bb117e56a0b8",
-        "revCount": 52,
+        "rev": "0bdfcb0a02d36ab7a112ab69ff2d7bb80dea7674",
+        "revCount": 54,
         "type": "git",
         "url": "https://codeberg.org/jzbor/nie"
       },
@@ -542,11 +542,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1771423359,
-        "narHash": "sha256-yRKJ7gpVmXbX2ZcA8nFi6CMPkJXZGjie2unsiMzj3Ig=",
+        "lastModified": 1771969195,
+        "narHash": "sha256-qwcDBtrRvJbrrnv1lf/pREQi8t2hWZxVAyeMo7/E9sw=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "740a22363033e9f1bb6270fbfb5a9574067af15b",
+        "rev": "41c6b421bdc301b2624486e11905c9af7b8ec68e",
         "type": "github"
       },
       "original": {
