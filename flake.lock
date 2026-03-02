@@ -501,11 +501,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771512220,
-        "narHash": "sha256-GjDuRnSMMZMuu3hsmX5Sz58QXVIgXaxJ3GhaPP8iFPk=",
+        "lastModified": 1772493505,
+        "narHash": "sha256-4EWS5n9wWSNEUuqj8Nh3sPCjjRSOEh4bUd7j+wqDpSA=",
         "owner": "jzbor",
         "repo": "nix-sweep",
-        "rev": "33ffa87b9e0572a6370e8c4ca26223cef189d1d1",
+        "rev": "6fed48ccc7afdca7f8ea1b20260bcf736aad9ee2",
         "type": "github"
       },
       "original": {

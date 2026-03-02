@@ -30,7 +30,13 @@
       SUDO="sudo"
     fi
 
+    prev_path="$(readlink -f /run/current-system)"
     path="$($SUDO ${activator}/bin/nixos-activator | tail -n1)"
+
+    if command -v nix-sweep >/dev/null; then
+      nix-sweep compare --concise --no-changed "$prev_path" "$path"
+      echo
+    fi
 
     if attic cache info ${cacheName} 2>/dev/null; then
       printf "\n=> Pushing system closure to binary cache (${cacheName})\n"

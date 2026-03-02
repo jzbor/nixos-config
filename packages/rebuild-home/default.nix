@@ -20,6 +20,8 @@
         exit 1
       fi
 
+      prev_path="$(readlink -f "$home_profile")"
+
       set -x
       path=""
       if nix eval "${self}#homeConfigurations.$USER@$(< /etc/hostname)" --apply "x: true" >/dev/null 2>&1; then
@@ -29,8 +31,13 @@
       fi
 
       if test -z "$path"; then
-        echo "Unable to build system path" >> /dev/stderr
+        echo "Unable to build home path" >> /dev/stderr
         exit 1
+      fi
+
+      if command -v nix-sweep >/dev/null; then
+        nix-sweep compare --concise --no-changed "$prev_path" "$path"
+        echo
       fi
 
       nix-env --profile "$home_profile" --set "$path"

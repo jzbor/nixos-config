@@ -9,5 +9,5 @@ auto-sync = false
 
 [view]
 sort = ["created", "priority", "due", "scheduled" ]
-cal-command = "echo; cal -3 --color=always | sed 's/^/  /'"
+cal-command = "echo; cal -3 --color=always | sed 's/^/  /'; echo"
 auto-select = true
