@@ -26,17 +26,4 @@ with lib;
   # Faster boot by avoiding to wait for network
   systemd.targets.network-online.wantedBy = mkForce []; # Normally ["multi-user.target"]
   systemd.targets.network.wantedBy = mkForce ["multi-user.target"];
-
-  # TODO: Remove once https://nixpkgs-tracker.jzbor.de/?pr=440130 is fixed
-  systemd.services."hotfix-resolved" = {
-    script = ''
-      set -eu
-      ${pkgs.stdenv.hostPlatform.system}/bin/systemctl restart systemd-resolved
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-      User = "root";
-    };
-    startAt = "*:0/30";
-  };
 }

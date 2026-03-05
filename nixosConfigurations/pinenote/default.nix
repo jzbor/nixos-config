@@ -33,7 +33,7 @@
     fd
     git
     htop
-    neofetch
+    fastfetch
     neovim
     ripgrep
     tealdeer

@@ -11,11 +11,11 @@ let
   systemUtilPackages = with pkgs; [
     cryptsetup
     dysk
+    fastfetch
     libva-utils
     lm_sensors
     mesa-demos
     ncdu
-    neofetch
     smartmontools
   ];
   cliPackages = with pkgs; [
@@ -24,7 +24,6 @@ let
     ripgrep
     tmux
     wget
-    neofetch
   ];
   manPackages = with pkgs; [
     man-pages
@@ -68,6 +67,10 @@ in {
 
   # Enable dev documentation for installed packages
   documentation.dev.enable = true;
-
+  documentation.man.enable = true;
+  documentation.man.cache = {
+    enable = true;
+    generateAtRuntime = true;
+  };
 }
 

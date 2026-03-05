@@ -21,6 +21,7 @@ with lib;
     home.sessionVariables = {
       EDITOR = "nvim";
       TERMINAL = "buttermilk";
+      MANPAGER = "nvim -M +Man\!";
     };
 
     home.file = {

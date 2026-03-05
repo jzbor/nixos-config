@@ -53,9 +53,9 @@
 
 # Brightness Control
 - key: XF86MonBrightnessUp
-  action: !execute light -A 10
+  action: !execute xbacklight -inc 10
 - key: XF86MonBrightnessDown
-  action: !execute light -U 10
+  action: !execute xbacklight -dec 10
 
 # Screenshots
 - modifiers: [ Mod4 ]

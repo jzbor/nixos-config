@@ -17,12 +17,12 @@ in {
     services.xserver.enable = true;
 
     # Installed programs for marswm environment
-    programs.light.enable = true;
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
+      acpilight
       arandr
-      inputs.parcels.packages.${pkgs.stdenv.hostPlatform.system}.buttermilk
       dmenu
+      inputs.parcels.packages.${pkgs.stdenv.hostPlatform.system}.buttermilk
       lxappearance
       picom
       rofi

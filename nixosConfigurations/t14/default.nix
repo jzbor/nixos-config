@@ -124,10 +124,10 @@ in {
     kernelParams = [ "resume_offset=56678400" ];
     resumeDevice = "/dev/mapper/crypt0-root";
   };
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=12h
-    HybernateOnACPower=yes
-  '';
+  systemd.sleep.settings.Sleep = {
+    HibernateDelaySec = "12h";
+    HybernateOnACPower = "yes";
+  };
   services.logind.settings.Login.LidSwitch = "suspend-then-hibernate";
   services.logind.settings.Login.PowerKey = "suspend-then-hibernate";
 }
