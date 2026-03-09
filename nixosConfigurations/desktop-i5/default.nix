@@ -39,11 +39,11 @@ in {
 
   networking.firewall.enable = lib.mkForce false;
 
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-rocm;
-    rocmOverrideGfx = "10.3.1";
-  };
+  # services.ollama = {
+  #   enable = true;
+  #   package = pkgs.ollama-rocm;
+  #   rocmOverrideGfx = "10.3.1";
+  # };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
