@@ -75,6 +75,8 @@
 - modifiers: [ Mod4, Shift ]
   key: s
   action: !execute find ~/.screenlayout -type f | rofi -dmenu | sh
+- key: Menu
+  action: !execute mars-relay menu
 
 # Programs
 - modifiers: [ Mod4 ]

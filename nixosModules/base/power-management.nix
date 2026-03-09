@@ -8,5 +8,10 @@ _:
     powertop.enable = true;
     cpuFreqGovernor = "ondemand";
   };
+
+  # Allow updating the backlight
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", GROUP="video", MODE="0664"
+  '';
 }
 
