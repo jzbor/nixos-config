@@ -53,9 +53,9 @@
 
 # Brightness Control
 - key: XF86MonBrightnessUp
-  action: !execute xbacklight -inc 10
+  action: !execute laptopctl backlight --inc-smooth 10
 - key: XF86MonBrightnessDown
-  action: !execute xbacklight -dec 10
+  action: !execute laptopctl backlight --dec-smooth 10
 
 # Screenshots
 - modifiers: [ Mod4 ]

@@ -19,9 +19,9 @@ in {
     # Installed programs for marswm environment
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
-      acpilight
       arandr
       dmenu
+      inputs.laptopctl.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.parcels.packages.${pkgs.stdenv.hostPlatform.system}.buttermilk
       lxappearance
       picom

@@ -57,6 +57,11 @@
       url = "git+https://codeberg.org/jzbor/nie";
     };
 
+    laptopctl = {
+      url = "git+https://codeberg.org/jzbor/laptopctl";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-sweep = {
       url = "github:jzbor/nix-sweep";
       inputs.nixpkgs.follows = "nixpkgs";
