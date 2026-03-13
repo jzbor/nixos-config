@@ -59,29 +59,5 @@ in {
   config = mkIf cfg.enable {
     # Fonts
     fonts.enableDefaultPackages = cfg.installDefaultFonts;
-
-    # LightDM GTK greeter
-    services.xserver.displayManager.lightdm.greeters.gtk = {
-      theme = {
-        name = cfg.gtk.theme;
-        inherit (cfg.gtk) package;
-      };
-      iconTheme = {
-        name = cfg.icons.theme;
-        inherit (cfg.icons) package;
-      };
-      cursorTheme = {
-        name = cfg.cursor.theme;
-        inherit (cfg.cursor) package;
-      };
-    };
-    services.xserver.displayManager.lightdm.background = pkgs.nixos-artwork.wallpapers.stripes-logo.gnomeFilePath;
-
-    # Make qt5 styling match gtk theme
-    #qt = {
-    #  enable = true;
-    #  platformTheme = "gtk2";
-    #  style = "gtk2";
-    #};
   };
 }

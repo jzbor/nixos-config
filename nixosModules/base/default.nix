@@ -37,13 +37,10 @@
   # Logitech input devices
   hardware.logitech.wireless.enable = true;
 
-  # Enable X Server and LightDM
+  # Enable X Server and display manager
   services.xserver.enable = true;
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    greeters.gtk.enable = true;
-    greeters.slick.enable = false;
-  };
+  services.xserver.displayManager.gdm.enable = true;
+  # services.displayManager.lemurs.enable = true;
 
   # Enable GUI
   jzbor-system.de.marswm.enable = true;

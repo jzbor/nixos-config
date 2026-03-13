@@ -73,6 +73,9 @@ in {
   # Use password login for all but i3lock
   security.pam.services = {
     doas.fprintAuth = false;
+    gdm.fprintAuth = false;
+    gdm-fingerprint.enable = false;
+    lemurs.fprintAuth = false;
     lightdm-greeter.fprintAuth = false;
     lightdm.fprintAuth = false;
     login.fprintAuth = false;
