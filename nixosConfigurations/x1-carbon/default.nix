@@ -60,6 +60,18 @@ in {
     };
   };
 
-  services.xserver.desktopManager.cinnamon.enable = true;
 
+  # Enable Gnome and Cosmic
+  # services.desktopManager.gnome.enable = true;
+  # services.gnome.core-apps.enable = false;
+  # services.gnome.core-developer-tools.enable = false;
+  # services.gnome.games.enable = false;
+  # environment.systemPackages = with pkgs; [
+  #   gnome-tweaks
+  #   gnomeExtensions.appindicator
+  #   gnomeExtensions.blur-my-shell
+  #   gnomeExtensions.tiling-shell
+  #   refine
+  # ];
+  # services.desktopManager.cosmic.enable = true;
 }
