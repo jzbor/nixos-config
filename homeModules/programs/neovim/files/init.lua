@@ -78,7 +78,7 @@ vim.g.zenbones_compat = 1
 vim.cmd [[colorscheme seoulbones]]
 vim.cmd [[hi Normal guibg=#262626]]
 
-if vim.fn.hostname() == "pinenote" then
+if vim.fn.hostname() == "pinenote" and os.getenv('SSH_CLIENT') == nil then
 	vim.o.background = 'light'
 	vim.cmd [[colorscheme zenwritten]]
 	vim.cmd [[hi Normal guibg=#ffffff]]

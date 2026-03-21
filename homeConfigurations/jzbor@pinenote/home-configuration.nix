@@ -94,6 +94,7 @@ in {
   ];
 
   home.packages = with pkgs; [
+    anki
     attic-client
     brightnessctl
     evince

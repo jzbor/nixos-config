@@ -141,6 +141,8 @@
 
     extraConfig = ''
       default_orientation vertical
+      floating_maximum_size 400 x 400
+      for_window [floating] move position center
     '';
   };
 }
