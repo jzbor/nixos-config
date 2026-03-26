@@ -34,6 +34,7 @@ with lib;
       attic-client
       bat
       btop
+      cliamp
       gcc
       inputs.nie.packages.${system}.default
       inputs.nix-sweep.packages.${system}.default
@@ -62,7 +63,7 @@ with lib;
     # Management of XDG base directories
     xdg.enable = true;
 
-    jzbor-home.programs.iamb.enable = true;
+    # jzbor-home.programs.iamb.enable = true;  # reenable once https://nixpkgs-tracker.jzbor.de/?pr=501997 is merged
     jzbor-home.programs.toro.enable = true;
 
     services.udiskie.enable = true;
