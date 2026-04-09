@@ -37,7 +37,9 @@ in {
 
   mars-status = pkgs.writeShellApplication {
     name = "mars-status";
-    runtimeInputs = with pkgs; [ gnugrep libcanberra-gtk3 libnotify power-profiles-daemon pulseaudio xkb-switch xmenu tinyxxd ];
+    runtimeInputs = with pkgs; let
+      laptopctl = inputs.laptopctl.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    in [ gnugrep libcanberra-gtk3 libnotify power-profiles-daemon pulseaudio xkb-switch xmenu tinyxxd laptopctl ];
     text = builtins.readFile ./mars-status.sh;
   };
 

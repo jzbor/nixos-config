@@ -4,8 +4,6 @@ set +o errexit
 set +o nounset
 
 SEPARATOR="$(echo -n 1f | xxd -r -p)"
-BATTERY_PATH="$(find /sys/class/power_supply -maxdepth 1 -mindepth 1 | { grep -i bat || true; } \
-	| { grep -vi hid || true; })"
 
 
 ### HELPERS
@@ -71,7 +69,7 @@ media_menu () {
 }
 
 system_menu () {
-SYSTEM_MENU="Logout $(confirmation_submenu 'pkill marswm')
+SYSTEM_MENU="Logout $(confirmation_submenu 'pkill -2 marswm')
 Suspend $(confirmation_submenu 'systemctl suspend')
 Poweroff $(confirmation_submenu poweroff)
 Reboot $(confirmation_submenu reboot)
@@ -89,15 +87,9 @@ $(find ~/.screenlayout -type f | sed 's/^\(.*\)\/\(.*\)\(\.sh\)/\t\2\tsh \1\/\2\
 
 ### BUTTON HANDLERS
 
-battery_button () {
+battery_button () {  # TODO
 	case "$BUTTON" in
-		1)	if [ "$(< /sys/class/power_supply/BAT0/power_now)" = "0" ]; then
-				notify-send "Plugged in ($(< /sys/class/power_supply/BAT0/status))"
-			else
-			 	time="$(($(< /sys/class/power_supply/BAT0/energy_now) / $(< /sys/class/power_supply/BAT0/power_now))):$(($(< /sys/class/power_supply/BAT0/energy_now) * 60 / $(< /sys/class/power_supply/BAT0/power_now) % 60))"
-				discharge="$(($(< /sys/class/power_supply/BAT0/power_now) / 1000))"
-				notify-send "Time remaining: $time ($discharge mW/h)"
-			fi
+		1)	notify-send "$(laptopctl battery -S --status)"  "$(laptopctl battery)"
 			;;
 		*) 	profile="$(powerprofilesctl list | sed '/^   /d;/^$/d;s/\(.*\):/\1/' | xmenu | sed 's/.* //')"
 			if [ -n "$profile" ]; then
@@ -138,29 +130,12 @@ volume_block () {
 }
 
 battery_block () {
-	if [ -n "$BATTERY_PATH" ]; then
-		# "charging" if any battery is charging
-		status_str="battery"
-		for path in $BATTERY_PATH; do
-			status="$(cat "$path/status")"
-			if [ "$status" = 'Charging' ]; then
-				status_str='charging'
-			fi
-		done
-		printf '%s: ' "$status_str"
-
-		# status of all batteries
-		first=""
-		for path in $BATTERY_PATH; do
-			if [ -z "$first" ]; then
-				printf '%s' "$(cat "$path/capacity")%"
-				first="true"
-			else
-				printf ' %s' "$(cat "$path/capacity")%"
-			fi
-		done
+	if ! laptopctl battery --has-battery; then
+		printf 'plugged in'
+	elif laptopctl battery --is-discharging; then
+		printf 'battery: %s' "$(laptopctl battery -SU --percentage)"
 	else
-		echo "plugged in"
+		printf '%s: %s' "$(laptopctl battery -s | tr '[:upper:]' '[:lower:]')" "$(laptopctl battery -SU --percentage)"
 	fi
 }
 
