@@ -47,6 +47,11 @@
       inputs.cf.follows = "cf";
     };
 
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     toro = {
       url = "github:jzbor/toro";
       inputs.nixpkgs.follows = "nixpkgs";

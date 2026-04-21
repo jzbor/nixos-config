@@ -45,12 +45,15 @@ with lib;
       nix-tree
       powertop
       rustup
+      scrcpy
       tealdeer
       tinymist
       tree
+      typst
       unzip
       uutils-coreutils-noprefix
       xournalpp
+      yt-dlp
       zip
     ];
 

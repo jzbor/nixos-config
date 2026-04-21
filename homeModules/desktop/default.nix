@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, system, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 with lib;
 let
@@ -6,6 +6,7 @@ let
 in {
   imports = [
     ./marswm.nix
+    ./mangowm.nix
   ];
 
   options.jzbor-home.desktop = {
@@ -18,12 +19,14 @@ in {
 
   config = mkIf cfg.enable {
     jzbor-home.desktop.marswm.enable = true;
+    jzbor-home.desktop.mangowm.enable = true;
 
     home.packages = with pkgs; [
+      gthumb
       inputs.parcels.packages.${pkgs.stdenv.hostPlatform.system}.foliot
-      scrcpy
-      typst
-      yt-dlp
+      pwvucontrol
+      thunar
+      xarchiver
 
       # fonts
       annotation-mono
@@ -54,6 +57,10 @@ in {
     };
 
     # Services
+    services.gnome-keyring.enable = true;
+    services.gpg-agent.enable = true;
+    services.network-manager-applet.enable = true;
+    services.blueman-applet.enable = true;
     services.nextcloud-client = {
       enable = true;
       startInBackground = true;
@@ -61,6 +68,25 @@ in {
     services.kdeconnect = {
       enable = true;
       indicator = true;
+    };
+
+    # Set default applications
+    xdg.mimeApps.enable = true;
+    xdg.mimeApps.defaultApplications =
+      let
+        imageViewers = [ "org.gnome.gThumb.desktop" ];
+        fileBrowsers = [ "thunar.desktop" "pcmanfm.desktop" ];
+        pdfReaders = [ "org.pwmt.zathura.desktop" "org.gnome.Evince.desktop" ];
+      in {
+        "inode/directory" = fileBrowsers;
+
+        "image/gif" = imageViewers;
+        "image/jpeg" = imageViewers;
+        "image/png "= imageViewers;
+        "image/svg" = imageViewers;
+        "image/webp" = imageViewers;
+
+        "application/pdf" = pdfReaders;
     };
 
     # enable fontconfig and make fonts discoverable

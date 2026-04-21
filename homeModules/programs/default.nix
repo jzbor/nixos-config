@@ -9,6 +9,7 @@
     ./ghostty
     ./iamb
     ./kermit
+    ./mangowm
     ./marswm
     ./mpv
     ./neovim
@@ -20,6 +21,7 @@
     ./toro
     ./touchegg
     ./vis
+    ./waybar
     ./xmenu
     ./xwinmosaic
     ./zsh

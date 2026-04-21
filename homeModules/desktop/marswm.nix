@@ -3,12 +3,12 @@
 with lib;
 let
   cfg = config.jzbor-home.desktop.marswm;
-  lockScript = pkgs.writeScriptBin "lock-screen" ''
+  lockScript = pkgs.writeScriptBin "lock-screen-x11" ''
     ${pkgs.playerctl}/bin/playerctl pause -a
     ${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 100 2
   '';
-  # lockScript = pkgs.writeScriptBin "lock-screen" "${pkgs.lightdm}/bin/dm-tool lock";
-  # lockScript = pkgs.writeScriptBin "lock-screen" "${pkgs.i3lock}/bin/i3lock";
+  # lockScript = pkgs.writeScriptBin "lock-screen-x11" "${pkgs.lightdm}/bin/dm-tool lock";
+  # lockScript = pkgs.writeScriptBin "lock-screen-x11" "${pkgs.i3lock}/bin/i3lock";
   mkScript = script: "${(import ../scripts/packages.nix attrs).${script}}";
 in {
   options.jzbor-home.desktop.marswm = {
@@ -24,10 +24,6 @@ in {
 
     home.packages = with pkgs; [
       # file-roller
-      xarchiver
-      gthumb
-      pwvucontrol
-      thunar
       xclip
       xev
       xkill
@@ -36,36 +32,12 @@ in {
       lockScript
     ];
 
-    # Set default applications
-    xdg.mimeApps.enable = true;
-    xdg.mimeApps.defaultApplications =
-      let
-        imageViewers = [ "org.gnome.gThumb.desktop" ];
-        fileBrowsers = [ "thunar.desktop" "pcmanfm.desktop" ];
-        pdfReaders = [ "org.pwmt.zathura.desktop" "org.gnome.Evince.desktop" ];
-      in {
-        "inode/directory" = fileBrowsers;
-
-        "image/gif" = imageViewers;
-        "image/jpeg" = imageViewers;
-        "image/png "= imageViewers;
-        "image/svg" = imageViewers;
-        "image/webp" = imageViewers;
-
-        "application/pdf" = pdfReaders;
-    };
-
-    services.gnome-keyring.enable = true;
-    services.gpg-agent.enable = true;
-    services.network-manager-applet.enable = true;
-    services.blueman-applet.enable = true;
-
     services.picom.enable = true;
 
     services.screen-locker = {
       enable = true;
       xautolock.enable = false;  # time based locking
-      lockCmd = "${lockScript}/bin/lock-screen";
+      lockCmd = "${lockScript}/bin/lock-screen-x11";
 
       # disable automatic screen locking
       inactiveInterval = 10000;
@@ -73,9 +45,9 @@ in {
     };
 
     xdg.desktopEntries = {
-      lock-screen = {
-        name = "Lock Screen";
-        exec = "lock-screen";
+      lock-screen-x11 = {
+        name = "Lock Screen (X11)";
+        exec = "lock-screen-x11";
         categories = [ "System" "Utility" ];
         icon = "system-lock-screen";
       };

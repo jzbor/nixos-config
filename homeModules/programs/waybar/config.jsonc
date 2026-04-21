@@ -1,0 +1,36 @@
+{
+	"layer": "top",
+	"spacing": 4,
+	"height": 32,
+	"modules-left": ["ext/workspaces"],
+	"modules-center": ["dwl/window"],
+	"modules-right": ["pulseaudio", "custom/battery", "clock", "tray"],
+	"ext/workspaces": {
+		"format": "{icon}",
+		"ignore-hidden": false,
+		"on-click": "activate",
+		"on-click-right": "deactivate",
+		"sort-by-id": true
+	},
+	"dwl/window": {
+		"format": "[{layout}] {title}"
+	},
+	"pulseaudio": {
+		"format": "volume: {volume}%",
+		"format-muted": "volume: muted",
+		"on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5% && canberra-gtk-play -i audio-volume-change",
+		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5% && canberra-gtk-play -i audio-volume-change",
+	},
+	"custom/battery": {
+		"exec": "laptopctl battery --status-line",
+		"interval": 10,
+		"on-click": "notify-send \"$(laptopctl battery -S --status)\" \"$(laptopctl battery)\""
+	},
+	"clock": {
+		"format": "date: {:%H:%M}"
+	},
+	"tray": {
+		"spacing": 4
+	}
+}
