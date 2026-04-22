@@ -4,11 +4,12 @@ config:
 
   # Gaps & Borders
   smartgaps=1
-  borderpx=5
-  gappih=0
-  gappiv=0
-  gappoh=0
-  gappov=0
+  gappih=3
+  gappiv=3
+  gappoh=3
+  gappov=3
+  borderpx=3
+  border_radius=3
 
   # Colors
   rootcolor=0x${config.colorScheme.palette.base08}ff

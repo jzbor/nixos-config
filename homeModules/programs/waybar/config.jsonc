@@ -1,7 +1,8 @@
 {
 	"layer": "top",
 	"spacing": 4,
-	// "height": 32,
+	// "margin": 4,
+	"height": 32,
 	"modules-left": ["ext/workspaces"],
 	"modules-center": ["dwl/window"],
 	"modules-right": ["pulseaudio", "custom/battery", "clock", "tray"],
