@@ -3,8 +3,9 @@ config:
 ''
   * {
     font-family: Noto Sans;
-    font-size: 13pt;
+    font-size: 12pt;
     min-height: 0;
+    padding: 0;
     border-radius: 0px;
   }
 

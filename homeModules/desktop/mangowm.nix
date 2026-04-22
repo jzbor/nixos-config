@@ -23,6 +23,8 @@ in {
       swaybg
       swaylock
       wev
+      slurp
+      grim
 
       lockScript
     ];

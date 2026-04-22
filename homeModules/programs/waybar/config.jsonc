@@ -1,16 +1,18 @@
 {
 	"layer": "top",
 	"spacing": 4,
-	"height": 32,
+	// "height": 32,
 	"modules-left": ["ext/workspaces"],
 	"modules-center": ["dwl/window"],
 	"modules-right": ["pulseaudio", "custom/battery", "clock", "tray"],
 	"ext/workspaces": {
 		"format": "{icon}",
 		"ignore-hidden": false,
+		"sort-by-id": true,
 		"on-click": "activate",
 		"on-click-right": "deactivate",
-		"sort-by-id": true
+		"on-scroll-up": "mmsg -d viewtoleft",
+		"on-scroll-down": "mmsg -d viewtoright"
 	},
 	"dwl/window": {
 		"format": "[{layout}] {title}"
