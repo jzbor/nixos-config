@@ -87,6 +87,8 @@ in mkIf cfg.enable {
       gcc-sp = "gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700";
       sp-happy = "nix run sp#happy --";
       sp-fetch = "nix run sp#fetch --";
+
+      perfekter-code = "sl -a -d -F -l -w -22 | lolcat";
     };
 
     sessionVariables = {
