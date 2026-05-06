@@ -43,6 +43,7 @@ with lib;
       lucky-commit
       nil
       nix-tree
+      pdfpc
       powertop
       rustup
       scrcpy

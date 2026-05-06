@@ -360,11 +360,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776815449,
-        "narHash": "sha256-txc8hhcKy2gFDpb6EfGuidvvbfKDHsX8rhyw6f1ooxY=",
+        "lastModified": 1777851740,
+        "narHash": "sha256-0V37D8F1wZVmW7KL47SFemxpYup7Xr7wlGsAzrpCZ2Y=",
         "ref": "refs/heads/main",
-        "rev": "f353bf7f0a9f5f11ec2c6a56ee804030ce6cbe2c",
-        "revCount": 13,
+        "rev": "880d7c6317eb9062639ba474bc2b84efefc93f6c",
+        "revCount": 15,
         "type": "git",
         "url": "https://codeberg.org/jzbor/laptopctl"
       },
