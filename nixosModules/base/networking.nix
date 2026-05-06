@@ -9,6 +9,7 @@ with lib;
     wifi.macAddress = "stable";
     plugins = lib.mkForce (with pkgs; [
       networkmanager-openvpn
+      networkmanager-wireguard
     ]);
   };
 
