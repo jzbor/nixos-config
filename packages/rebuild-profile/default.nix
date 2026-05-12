@@ -5,7 +5,7 @@
 
     if [ "$UID" != 0 ]; then
       set -x
-      NIXPKGS_ALLOW_UNFREE=1 nix profile upgrade --all --impure
+      NIXPKGS_ALLOW_UNFREE=1 nix profile upgrade ".*" --impure
       set +x
     else
       echo "Nothing to be done for user '$USER'"
