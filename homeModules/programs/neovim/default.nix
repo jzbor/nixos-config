@@ -9,6 +9,7 @@ in mkIf cfg.enable {
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    withRuby = false;
   };
 
   # Enable Python 3 provider

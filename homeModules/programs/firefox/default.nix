@@ -4,6 +4,7 @@ with lib;
 let
   cfg = config.programs.firefox;
 in mkIf cfg.enable {
+  programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
   programs.firefox.profiles.default = {
     isDefault = true;
 

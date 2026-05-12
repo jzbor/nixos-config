@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, ... }:
 
 let
   cursorTheme = "HighContrast";
@@ -38,6 +38,7 @@ in {
 
     gtk3.extraCss = gtkExtraCss;
     gtk4.extraCss = gtkExtraCss;
+    gtk4.theme = config.gtk.theme;
   };
 
 
