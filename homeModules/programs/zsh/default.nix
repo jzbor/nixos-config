@@ -79,10 +79,11 @@ in mkIf cfg.enable {
       lg = "lazygit";
 
       build = "nie build";
+      check = "nie check";
+      dev= "nie dev";
       run = "nie run";
       shell = "nie shell";
-      dev= "nie dev";
-      check = "nie check";
+      show = "nie show";
 
       gcc-sp = "gcc -std=c11 -pedantic -Wall -Werror -D_XOPEN_SOURCE=700";
       sp-happy = "nix run sp#happy --";
