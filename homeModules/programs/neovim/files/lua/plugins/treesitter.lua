@@ -1,7 +1,7 @@
 return {
 	{
 		'nvim-treesitter/nvim-treesitter',
-		branch = 'master',
+		branch = 'main',
 		opts = {
 			-- Add languages to be installed here that you want installed for treesitter
 			ensure_installed = { 'c', 'cpp', 'lua', 'python', 'rust', 'make', 'java', 'nix', 'typst' },
