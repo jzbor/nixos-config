@@ -314,11 +314,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779103424,
-        "narHash": "sha256-hBYJz5jnRDjACPrwdD064zwMW+s5bdNlG/lNQipLhgM=",
+        "lastModified": 1779213149,
+        "narHash": "sha256-Cf+p/T4Z3n9Sw0TiR3kQaIwQI+/hfvLJcoTzeq6yS3E=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "dd71501fb7005264feb4de78444a2e1518cd4f66",
+        "rev": "bd868f769a69d3b6091a1da68a75cb83a181033c",
         "type": "github"
       },
       "original": {
@@ -411,11 +411,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1779075869,
-        "narHash": "sha256-HohogY2Ec/JyACrQzGtG2GL7D4K5b0Mg5gBBlJXW/2s=",
+        "lastModified": 1779333894,
+        "narHash": "sha256-xseA15xNKciIXq47JLqsJRf0zbU4+MRGM49rKdEJYJA=",
         "owner": "mangowm",
         "repo": "mango",
-        "rev": "50e1b652b273cbf7f5bf334e9969e22daada4c7a",
+        "rev": "dc3e6d7395afe6f06be82d0aa9283fb25548945a",
         "type": "github"
       },
       "original": {
@@ -634,11 +634,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1779099457,
-        "narHash": "sha256-u73aVD/lUmmT3JV+kPDztl7zPwQKd0eobD1AbJltaGs=",
+        "lastModified": 1779258371,
+        "narHash": "sha256-j1iZsLy6oFApqR1oiDmHhvkwxXqcNi0aoSJj643LuwU=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "8792fab9d4a6454a9201675f01326f827ce35ead",
+        "rev": "c97bc4d15bd3473dd095e8e8ba57330ab1943a77",
         "type": "github"
       },
       "original": {
@@ -770,7 +770,7 @@
         "narHash": "sha256-VdRy3A14M5vIE882DJcaaR+5wrss9Qsg4YNVbr7uj3k=",
         "rev": "d233902339c02a9c334e7e593de68855ad26c4cb",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre998534.d233902339c0/nixexprs.tar.xz?lastModified=1778869304&rev=d233902339c02a9c334e7e593de68855ad26c4cb"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre998534.d233902339c0/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -844,11 +844,11 @@
         "typst-packages": "typst-packages"
       },
       "locked": {
-        "lastModified": 1772476626,
-        "narHash": "sha256-aQmJAdZgXaBWVOZH+z7p6BPydAOaJCBoewzJilGqdJ4=",
+        "lastModified": 1779293005,
+        "narHash": "sha256-P83tjBnsnxL0ccyKBq9ci2ir/o/hzNqGkj8klBrpZCw=",
         "owner": "jzbor",
         "repo": "nix-parcels",
-        "rev": "d259c3ffd6ad8e6533e275d3c91714bbf090a1e3",
+        "rev": "e4628daaf2a6b39f101aadaa3368963abb5bfca5",
         "type": "github"
       },
       "original": {
