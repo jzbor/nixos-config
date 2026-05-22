@@ -61,5 +61,20 @@
     LidSwitch = "ignore";
   };
 
+  # Disable wake on lid switch
+  systemd.services."disable-wake-on-lid-switch" = {
+    wantedBy = [ "multi-user.target" ];
+    description = "Disable wake on lid switch";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.writeShellApplication {
+      	name = "disable-wake-on-lid-switch";
+	text = ''
+	  echo disabled | ${pkgs.coreutils}/bin/tee /sys/devices/platform/gpio-keys/power/wakeup
+	'';
+      }}/bin/disable-wake-on-lid-switch";
+    };
+  };
+
   systemd.user.services.pinenote-service-sway.serviceConfig.ExecStartPre = "env";
 }
