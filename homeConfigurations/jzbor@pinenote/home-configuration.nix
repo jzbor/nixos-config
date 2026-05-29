@@ -94,10 +94,10 @@ in {
   ];
 
   home.packages = with pkgs; [
-    anki
     attic-client
     brightnessctl
     evince
+    inputs.nie.packages.${system}.default
     inputs.parcels.packages.${pkgs.stdenv.hostPlatform.system}.peanutbutter
     koreader
     libinput
@@ -112,6 +112,7 @@ in {
     pwvucontrol
     switch-boot-partition
     tree
+    typst
     update-lock-screen
     xmenu-themed
     xournalpp
