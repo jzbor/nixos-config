@@ -33,7 +33,7 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    nixos-pinenote.url = "github:jzbor/nixos-pinenote";
+    nixos-pinenote.url = "github:jzbor/nixos-pinenote/suspend-kernel";
 
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
