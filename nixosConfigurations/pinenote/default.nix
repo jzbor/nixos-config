@@ -56,7 +56,7 @@
   security.pam.services.login.enableGnomeKeyring = true;
 
   services.logind.settings.Login = {
-    HandlePowerKey = "suspend";
+    HandlePowerKey = "ignore";
     HandlePowerKeyLongPress = "poweroff";
     LidSwitch = "ignore";
   };

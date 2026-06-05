@@ -33,6 +33,7 @@
         "${modifier}+Delete" = "kill";
         "${modifier}+d" = "exec ${menu}";
         "${modifier}+Control+BackSpace" = "reload";
+        "XF86PowerOff" = "exec pn-lock-suspend";
 
         "${modifier}+${left}" = "focus left";
         "${modifier}+${down}" = "focus down";
