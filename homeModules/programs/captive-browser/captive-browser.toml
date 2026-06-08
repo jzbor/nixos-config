@@ -5,7 +5,7 @@
 # it can run (and be waited for) alongside the default one, and that
 # it maintains no state across runs. To configure this browser open a
 # normal window in it, settings will be preserved.
-browser = """firefox --profile ~/.mozilla/firefox/captive-browser --no-remote --private-window http://nevertls.com"""
+browser = """firefox --profile ~/.config/mozilla/firefox/captive-browser --no-remote --private-window http://nevertls.com"""
 
 # dhcp-dns is the shell (/bin/sh) command executed to obtain the DHCP
 # DNS server address. The first match of an IPv4 regex is used.
