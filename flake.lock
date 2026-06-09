@@ -1046,11 +1046,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776771112,
-        "narHash": "sha256-6OyIHSiyqia7U0vOxeshqOBKSJyvAsHdW2uqFsgfGTQ=",
+        "lastModified": 1780999225,
+        "narHash": "sha256-73r8lBht8yA48+rNBxvFobBxuz6Ny+sw5Bg/eIyzGi8=",
         "owner": "jzbor",
         "repo": "toro",
-        "rev": "0cd9daf9586992f184ef341ae5ad370d44af7bf5",
+        "rev": "473d82642a973eec12b5b841a61d0ddd2d00442a",
         "type": "github"
       },
       "original": {
