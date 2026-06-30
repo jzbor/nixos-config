@@ -39,5 +39,7 @@ in {
         start = "mv -f ~/.marswm.log ~/.marswm.log.old; RUST_BACKTRACE=1 ~/Programming/Rust/marswm/target/debug/marswm > ~/.marswm.log 2>&1";
       }
     ];
+
+    services.gvfs.enable = true;
   };
 }

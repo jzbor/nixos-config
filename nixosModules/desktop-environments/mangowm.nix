@@ -49,5 +49,7 @@ in {
     services = {
       displayManager.sessionPackages = [ mangowm ];
     };
+
+    services.gvfs.enable = true;
   };
 }
