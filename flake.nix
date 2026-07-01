@@ -20,8 +20,8 @@
     };
 
     lanzaboote = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/lanzaboote/v1.0.0";
+      # inputs.nixpkgs.follows = "nixpkgs";  # TODO update when fixed
+      url = "github:nix-community/lanzaboote/v1.1.0";
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
@@ -31,7 +31,10 @@
       url = "github:Mic92/nix-index-database";
     };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:NixOS/nixos-hardware/master";
+    };
 
     nixos-pinenote.url = "github:jzbor/nixos-pinenote/suspend-kernel";
 
