@@ -3,7 +3,10 @@
 let
   inherit (pkgs) lib;
 in {
-  imports = [ self.nixosModules.default ];
+  imports = [
+    self.nixosModules.default
+    ./shelly.nix
+  ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "24.05";
@@ -61,4 +64,12 @@ in {
     "hplip"
   ];
 
+
+  environment.systemPackages = with pkgs; [
+    nmap
+    dnsmasq
+    caddy
+  ];
+  # DHCP ports for hotspot
+  networking.firewall.allowedUDPPorts = [ 67 68 ];
 }
