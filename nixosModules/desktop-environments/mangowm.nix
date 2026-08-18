@@ -50,6 +50,8 @@ in {
       displayManager.sessionPackages = [ mangowm ];
     };
 
+    # For Thunar file browser
     services.gvfs.enable = true;
+    programs.xfconf.enable = true;
   };
 }
