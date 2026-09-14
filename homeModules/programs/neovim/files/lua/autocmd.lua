@@ -19,3 +19,10 @@ vim.api.nvim_create_autocmd(
   {'BufWritePost'},
   { pattern = {'config.xres'}, command = '!moonctl xrdb' }
 )
+
+
+-- Lisp indentation
+vim.api.nvim_create_autocmd(
+  {'Filetype'},
+  { pattern = {'lisp'}, command = 'setlocal shiftwidth=2 smarttab expandtab' }
+)
