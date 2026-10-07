@@ -38,6 +38,8 @@ with lib;
       gcc
       inputs.nie.packages.${system}.default
       inputs.nix-sweep.packages.${system}.default
+      janet
+      jpm
       lazygit
       librespeed-cli
       lucky-commit
@@ -52,7 +54,7 @@ with lib;
       tree
       typst
       unzip
-      uutils-coreutils-noprefix
+      inputs.parcels.packages.${system}.chimerautils
       xournalpp
       yt-dlp
       zip
@@ -62,7 +64,7 @@ with lib;
 
     programs.neovim.enable = true;
     programs.neovim.extraPackages = with pkgs; [ gcc ];
-    jzbor-home.programs.vis.enable = true;
+    jzbor-home.programs.vis.enable = false;
 
     # Management of XDG base directories
     xdg.enable = true;

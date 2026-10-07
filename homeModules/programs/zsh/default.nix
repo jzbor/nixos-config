@@ -65,10 +65,8 @@ in mkIf cfg.enable {
       valgrind = "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes";
       objdump = "objdump --disassembler-color=on -M intel --visualize-jumps=color -D";
       less = "less -R";
-      cp = "cp --progress";
-      mv = "mv --progress";
-      mkdir = "mkdir --verbose --parents";
-      ls = "ls --color=auto --human-readable";
+      mkdir = "mkdir -pv";
+      ls = "ls --color=auto";
       lisho-edit = "ssh ln.jzbor.de -t nvim /var/lib/lisho/mappings";
       news = "cliflux";
       attic-size = "ssh root@fsn1-03.jzbor.de du -sh /var/lib/private/atticd/*";
