@@ -36,8 +36,10 @@ with lib;
       btop
       cliamp
       gcc
+      graphviz
       inputs.nie.packages.${system}.default
       inputs.nix-sweep.packages.${system}.default
+      inputs.parcels.packages.${system}.chimerautils
       janet
       jpm
       lazygit
@@ -45,6 +47,7 @@ with lib;
       lucky-commit
       nil
       nix-tree
+      npins
       pdfpc
       powertop
       rustup
@@ -54,7 +57,6 @@ with lib;
       tree
       typst
       unzip
-      inputs.parcels.packages.${system}.chimerautils
       xournalpp
       yt-dlp
       zip

@@ -4,7 +4,7 @@ return {
 		branch = 'main',
 		opts = {
 			-- Add languages to be installed here that you want installed for treesitter
-			ensure_installed = { 'c', 'cpp', 'lua', 'python', 'rust', 'make', 'java', 'nix', 'typst' },
+			ensure_installed = { 'c', 'cpp', 'lua', 'python', 'rust', 'make', 'java', 'nix', 'typst', 'janet_simple' },
 			highlight = {
 				enable = true, -- false will disable the whole extension.
 			},
