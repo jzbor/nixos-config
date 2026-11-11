@@ -15,7 +15,7 @@ in {
     kbdLayout = mkOption {
       type = str;
       description = "Keyboard layout";
-      default = "us,se";
+      default = "us,de";
     };
 
     swapAltWin = mkOption {

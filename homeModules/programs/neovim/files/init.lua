@@ -122,3 +122,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'janet' },
   callback = function() vim.treesitter.start() end,
 })
+
+-- disable vimwiki table mode
+vim.g.vimwiki_table_auto_fmt = 0

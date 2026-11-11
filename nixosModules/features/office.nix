@@ -70,7 +70,7 @@ in {
 
   config = mkIf cfg.enable {
 
-    environment.systemPackages = (if cfg.libreoffice.enable then [ pkgs.libreoffice-fresh] else [])
+    environment.systemPackages = (if cfg.libreoffice.enable then [ pkgs.libreoffice ] else [])
       ++ (if cfg.scanning.enable then [ pkgs.simple-scan ] else []);
 
 

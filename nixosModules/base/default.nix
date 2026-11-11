@@ -39,7 +39,7 @@
 
   # Enable X Server and display manager
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
 
   # Enable GUI
   jzbor-system.de.marswm.enable = true;

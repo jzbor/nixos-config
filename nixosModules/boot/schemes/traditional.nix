@@ -22,7 +22,6 @@ in {
 
       # Add adequate kernel modules
       initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
-      initrd.systemd.enable = true;
     };
 
     # Enable Firmware

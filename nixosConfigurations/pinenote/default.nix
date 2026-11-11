@@ -20,8 +20,6 @@
   system.stateVersion = "25.05";
   networking.hostName = "pinenote";
 
-  boot.initrd.systemd.enable = true;
-
   users.users.jzbor = {
     shell = pkgs.bash;
     isNormalUser = true;
