@@ -118,10 +118,10 @@ vim.cmd.source("~/.config/nvim/sp-comments.vim")
 vim.g.typst_auto_open_quickfix = 'en,de'
 
 -- Janet Treesitter
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'janet' },
-  callback = function() vim.treesitter.start() end,
-})
+--vim.api.nvim_create_autocmd('FileType', {
+--  pattern = { 'janet' },
+--  callback = function() vim.treesitter.start() end,
+--})
 
 -- disable vimwiki table mode
 vim.g.vimwiki_table_auto_fmt = 0
