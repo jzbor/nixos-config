@@ -332,11 +332,11 @@
     "heretic-lisp": {
       "flake": false,
       "locked": {
-        "lastModified": 1794171538,
-        "narHash": "sha256-xuOZmp+qQ3Ohi3JQm1wvCqq3fAlMJOWIW64WExAH448=",
+        "lastModified": 1794842423,
+        "narHash": "sha256-KBB1dFRdAy8M80ukTs5S2IKTr8W5W4EiLmlAIjMtusM=",
         "ref": "refs/heads/main",
-        "rev": "1c6594617056133618144f3ceaa3e6d0950f11d6",
-        "revCount": 132,
+        "rev": "ae86609dd2a8dad3a69ae765e26cadc17a83a319",
+        "revCount": 142,
         "type": "git",
         "url": "https://codeberg.org/jzbor/heretic-lisp"
       },
@@ -352,11 +352,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794715309,
-        "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
+        "lastModified": 1794963576,
+        "narHash": "sha256-+CPrP74GDJ63f7bgEFC9Av4hbxc7K9WUNv1ZVRifRe8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
+        "rev": "2b13c9cb3aa20653e6f8ee0b7f8331a53ea9b0a9",
         "type": "github"
       },
       "original": {
@@ -447,11 +447,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1794836071,
-        "narHash": "sha256-njvfXSWsHmGR7bdciYexC5d8lyOUbPhPEb2O5unZVOc=",
+        "lastModified": 1795055211,
+        "narHash": "sha256-vVhd3uddNvOpBQ9xozgTAtzGNxy6Lt6RCqozfTIgq80=",
         "owner": "mangowm",
         "repo": "mango",
-        "rev": "12154b84d1a038bef9483009eb797a58bc1c2761",
+        "rev": "bf9b88a8ce98179658430c90ff27aff1f98b1138",
         "type": "github"
       },
       "original": {
@@ -515,11 +515,11 @@
     },
     "nie": {
       "locked": {
-        "lastModified": 1792702573,
-        "narHash": "sha256-pc33boFexDIr5xzQ9uZPJzTNsjGLFQ7BQ+9IyRhRkZw=",
+        "lastModified": 1795004263,
+        "narHash": "sha256-DIfO4SDcs2diFKyBtIZs3ZUpmy96y9vHagEIxhqcGb0=",
         "ref": "refs/heads/main",
-        "rev": "380c60a20aa0dad1741b6c9367642a6da51b725e",
-        "revCount": 101,
+        "rev": "14b315c21aa3bf840e36f71045776f75f2e49730",
+        "revCount": 102,
         "type": "git",
         "url": "https://codeberg.org/jzbor/nie"
       },
@@ -675,11 +675,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794597451,
-        "narHash": "sha256-bUkc9dMpCFiJuuf5Efr7pnCDs5q18aA8zJah+MYZl9w=",
+        "lastModified": 1795018746,
+        "narHash": "sha256-glQAHvZGgBVjzGIWgIZYSf3X10gvtO2LPR4rtyP/Soc=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "eb3c90bd715f7a9a28719bb014f53d309ccb2fc8",
+        "rev": "33475966110df258f52d05ec4d4cd6394637cbb9",
         "type": "github"
       },
       "original": {
@@ -824,11 +824,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1794537146,
-        "narHash": "sha256-bTKSclXJAmo9qdxPedTBHUGr8awPr4BrbOoOutJsYIc=",
-        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
+        "lastModified": 1794890597,
+        "narHash": "sha256-vJoAj1xon3Mhfc8FZ5uBrPyZee9Eqa05gG/taXv6iZ8=",
+        "rev": "04906337b6d53e8bb0eaf0470ae9f070a4d4eb55",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1119549.d5cc68339997/nixexprs.tar.xz?lastModified=1794537146&rev=d5cc6833999746cffdfe0598f7bc801a57b887a9"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1122823.04906337b6d5/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -903,11 +903,11 @@
         "typst-packages": "typst-packages"
       },
       "locked": {
-        "lastModified": 1794171695,
-        "narHash": "sha256-XY40IubSW6ARvXNuDRAXKjRkZHinzY3ZvjMk3PUjoV4=",
+        "lastModified": 1794842480,
+        "narHash": "sha256-eFVBbDEj42cOc+sbcylev2WLp3bjlafi/gs9MXQwdew=",
         "owner": "jzbor",
         "repo": "nix-parcels",
-        "rev": "89b6265a44b329e65ac7b29618ce9ada317f0e2d",
+        "rev": "b457cf08ec73fbafd24e47e950f1410e4fda109d",
         "type": "github"
       },
       "original": {
